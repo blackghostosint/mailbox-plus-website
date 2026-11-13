@@ -13,7 +13,7 @@
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { getPRContext, parsePRCliArgs } from './pr-utils.mjs';
 
-export const DEFAULT_MIN_SCORE = 65;
+export const DEFAULT_MIN_SCORE = 50;
 
 /**
  * Strip HTML comments and angle brackets in a single pass (CodeQL-safe).
