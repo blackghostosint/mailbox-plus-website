@@ -76,6 +76,36 @@ export function detectLocalChangedFiles(root = process.cwd()) {
  * @param {object} [env=process.env]
  * @returns {string|null}
  */
+export function detectLocalFileStatuses(root = process.cwd()) {
+  const statuses = {};
+  const mapCode = (code) => {
+    if (code.startsWith('D')) return 'removed';
+    if (code.startsWith('A')) return 'added';
+    if (code.startsWith('R')) return 'renamed';
+    return 'modified';
+  };
+  for (const ref of ['origin/main...HEAD', 'main...HEAD', 'HEAD~1']) {
+    try {
+      const stdout = execFileSync('git', ['diff', '--name-status', ref], {
+        cwd: root,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'ignore'],
+      });
+      const lines = stdout.split(/\r?\n/).filter(Boolean);
+      for (const line of lines) {
+        const parts = line.split(/\t+/);
+        const code = (parts[0] || '').trim();
+        const file = (parts[parts.length - 1] || '').trim();
+        if (code && file) statuses[file] = mapCode(code);
+      }
+      if (lines.length > 0) break;
+    } catch {
+      // ignore
+    }
+  }
+  return Object.keys(statuses).length > 0 ? statuses : null;
+}
+
 export function detectLocalBodyFile(root = process.cwd(), env = process.env) {
   const candidates = [
     env.PR_BODY_FILE,
@@ -314,9 +344,13 @@ export function getPRContext(options = {}) {
     }
   }
 
+  const fileStatuses =
+    options.fileStatuses ?? (!rawFilesSource ? detectLocalFileStatuses(root) : null);
+
   return {
     body,
     changedFiles,
+    fileStatuses,
     author,
     isLocal,
     isCi,

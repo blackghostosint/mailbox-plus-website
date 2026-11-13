@@ -45,6 +45,7 @@ export { detectLocalChangedFiles, detectLocalBodyFile };
 export function validatePRBody({
   body = '',
   changedFiles = /** @type {string[]} */ ([]),
+  fileStatuses = null,
   author = '',
   isLocal = true,
 } = {}) {
@@ -70,6 +71,7 @@ export function validatePRBody({
   const ownerRes = checkArticleOwnership({
     body,
     changedFiles,
+    fileStatuses,
     author: author || 'blackghostosint',
     isLocal,
   });
@@ -83,6 +85,7 @@ export function validatePRBody({
   const rule6Res = checkArticlePaperwork({
     body,
     changedFiles,
+    fileStatuses,
   });
   results.push({
     gate: 'check-article-paperwork',

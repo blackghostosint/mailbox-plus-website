@@ -20,6 +20,13 @@ describe('check-article-paperwork (Rule 6)', () => {
     });
     expect(res.success).toBe(true);
     expect(res.reason).toBe('deletions_only');
+
+    const full = validatePRBody({
+      body: '## Summary\nPrune dead article.',
+      changedFiles: ['content/articles/pack-ship/old.md'],
+      fileStatuses: { 'content/articles/pack-ship/old.md': 'removed' },
+    });
+    expect(full.success).toBe(true);
   });
 
   it('rejects PR #993 regression: 48/48 check count without a copy review score', () => {
