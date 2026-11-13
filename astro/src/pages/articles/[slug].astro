@@ -87,6 +87,7 @@ const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(siteConfig, faqs) : und
   canonical={`/articles/${slug}`}
   ogImage={ogImage}
   schema={[articleSchema, webPageSchema, ...(faqSchema ? [faqSchema] : [])]}
+  motion="calm"
 >
   <Fragment slot="head">
     <meta property="og:type" content="article" />

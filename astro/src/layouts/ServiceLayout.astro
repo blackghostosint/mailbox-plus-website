@@ -139,10 +139,10 @@ const carriers = [
                 {service.featuresSubtitle || 'Clear benefits, protections, and options designed for your peace of mind and convenience.'}
               </p>
             </div>
-            <div class="grid gap-6 md:grid-cols-3">
+            <div class="grid gap-6 md:grid-cols-3" data-reveal-stagger>
               {service.features.map((feature) => (
-                <div class="group relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-primary)] shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200">
-                  <div class="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div class="motion-lift group rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-primary)] shadow-sm">
+                  <div class="absolute inset-0 rounded-[inherit] bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-[var(--duration-base)] ease-[var(--ease-out-quart)]" />
                   <div class="relative p-6 flex flex-col gap-3">
                     <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{feature.title}</h3>
                     <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">{feature.description}</p>
@@ -156,7 +156,7 @@ const carriers = [
 
       <!-- Content Sections -->
       {service.content && service.content.map((block, idx) => (
-        <section class="max-w-5xl mx-auto">
+        <section class="max-w-5xl mx-auto" data-reveal>
           <div class={`relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]${idx % 2 === 1 ? ' before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-[var(--color-bg-primary)]/80 before:via-[var(--color-bg-warm-tint)]/50 before:to-[var(--color-border)]/60 before:-z-10' : ''}`}>
             <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">{block.heading}</h2>
             <div class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed" set:html={normalizeContentMedia(normalizeContentTables(normalizeContentHeadings(normalizeContentHrefs(block.body))))} />
@@ -166,7 +166,7 @@ const carriers = [
 
       <!-- Disclaimer & Reference Link for regulated pages -->
       {service.disclaimer && (
-        <section class="max-w-3xl mx-auto px-4">
+        <section class="max-w-3xl mx-auto px-4" data-reveal>
           <div class="border-l-4 border-[var(--color-accent-warm)] pl-4 py-3 my-6 bg-[var(--color-bg-secondary)]/60 rounded-r-lg">
             <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{service.disclaimer}</p>
             {service.refLink && (
@@ -180,7 +180,7 @@ const carriers = [
 
       <!-- FAQ — native <details>/<summary> for zero JS -->
       {service.faqs && service.faqs.length > 0 && (
-        <section class="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80">
+        <section data-reveal class="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80">
           <div class="max-w-4xl mx-auto">
             <div class="relative rounded-xl bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md px-4 md:px-8 py-8 md:py-10">
               <div class="text-center mb-6 md:mb-8">
@@ -202,11 +202,11 @@ const carriers = [
         <section class="max-w-5xl mx-auto">
           <div class="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]">
             <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6">Related Services You Might Need</h2>
-            <div class="grid md:grid-cols-3 gap-4">
+            <div class="grid md:grid-cols-3 gap-4" data-reveal-stagger>
               {relatedServices.map((rel) => (
                 <a
                   href={rel.url}
-                  class="block p-4 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/10 transition-all text-[var(--color-text-primary)] font-semibold text-sm"
+                  class="motion-lift block p-4 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/10 text-[var(--color-text-primary)] font-semibold text-sm"
                 >
                   {rel.title} →
                 </a>
@@ -218,7 +218,7 @@ const carriers = [
 
       <!-- CTA -->
       {service.cta && (
-        <section class="max-w-4xl mx-auto">
+        <section class="max-w-4xl mx-auto" data-reveal>
           <div class="relative rounded-xl overflow-hidden shadow-xl">
             <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
             <div class="absolute inset-[1px] rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/40" />
@@ -227,21 +227,21 @@ const carriers = [
               {service.cta.subtitle && <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto mb-6">{service.cta.subtitle}</p>}
               <div class="flex flex-wrap justify-center gap-3">
                 {service.cta.buttonLink.startsWith('http') ? (
-                  <OutboundLink href={service.cta.buttonLink} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                  <OutboundLink href={service.cta.buttonLink} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 motion-press">
                     {service.cta.buttonText} →
                   </OutboundLink>
                 ) : (
-                  <a href={normalizePathname(service.cta.buttonLink)} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                  <a href={normalizePathname(service.cta.buttonLink)} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 motion-press">
                     {service.cta.buttonText} →
                   </a>
                 )}
                 {service.cta.extraButtons?.map((btn) =>
                   btn.external || btn.link.startsWith('http') ? (
-                    <OutboundLink href={btn.link} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
+                    <OutboundLink href={btn.link} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 motion-press">
                       {btn.text} →
                     </OutboundLink>
                   ) : (
-                    <a href={normalizePathname(btn.link)} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
+                    <a href={normalizePathname(btn.link)} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 motion-press">
                       {btn.text} →
                     </a>
                   )
@@ -283,9 +283,9 @@ const carriers = [
 
   <!-- Carrier Logos -->
   {!service.hideCarrierLogos && (
-    <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-10 mb-8 px-4">
+    <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-10 mb-8 px-4" data-reveal-stagger>
       {carriers.map((carrier) => (
-        <OutboundLink href={carrier.url} class="transition-transform duration-200 hover:scale-105">
+        <OutboundLink href={carrier.url} class="motion-press inline-block">
           <img src={carrier.src} alt={carrier.name} class="h-12 sm:h-16 w-auto object-contain drop-shadow-md" width="200" height="64" loading="lazy" />
         </OutboundLink>
       ))}

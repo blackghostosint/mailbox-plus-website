@@ -1,7 +1,7 @@
 ---
 // Header.astro — utility bar + main header (DESIGN_PHASE1_SPEC §4 Task 2).
 // Nav regroup: Track Your Package → header quick action; Pickup Hours → utility bar;
-// Amazon Returns → pill badge. Every item still appears in the mobile drawer.
+// Nav items; every item still appears in the mobile drawer.
 import { siteConfig } from '../config/siteConfig';
 import OutboundLink from './ui/OutboundLink.astro';
 import HeaderNav, { type NavItem } from './HeaderNav';
@@ -15,15 +15,14 @@ const navigation: NavItem[] = [
   { name: 'Pickup Hours', href: '/pickup-hours/', placement: 'utility' },
   { name: 'Contact', href: '/contact-us/' },
   { name: 'Mailbox Rental', href: '/private-mailbox-rental/' },
-  { name: 'Amazon Returns', href: '/amazon-counter/', badge: true },
 ];
 const utilityItems = navigation.filter((item) => item.placement === 'utility');
 // Gold only on hover/focus (spec §3.4).
 const utilityLinkClass =
-  'rounded-sm hover:text-[var(--color-accent-gold-light)] transition-colors focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]';
+  'motion-underline rounded-sm hover:text-[var(--color-accent-gold-light)] transition-colors focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]';
 ---
 
-<header class="sticky top-0 z-50 bg-[var(--color-primary)] shadow-md">
+<header class="sticky top-0 z-50 bg-[var(--color-primary)] shadow-md" transition:persist>
   <!-- Utility Bar -->
   <div class="border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

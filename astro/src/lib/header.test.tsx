@@ -12,7 +12,6 @@ const sampleNavigation = [
   { name: 'Pickup Hours', href: '/pickup-hours/', placement: 'utility' as const },
   { name: 'Contact', href: '/contact-us/' },
   { name: 'Mailbox Rental', href: '/private-mailbox-rental/' },
-  { name: 'Amazon Returns', href: '/amazon-counter/', badge: true },
 ];
 const directionsHref = 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164';
 
@@ -21,13 +20,7 @@ describe('HeaderNav nav regroup (DESIGN_PHASE1_SPEC Task 2)', () => {
     render(<HeaderNav navigation={sampleNavigation} directionsHref={directionsHref} />);
     const mainNav = screen.getByRole('navigation', { name: 'Main Navigation' });
     const hrefs = Array.from(mainNav.querySelectorAll('a')).map((a) => a.getAttribute('href'));
-    expect(hrefs).toEqual([
-      '/',
-      '/services/',
-      '/contact-us/',
-      '/private-mailbox-rental/',
-      '/amazon-counter/',
-    ]);
+    expect(hrefs).toEqual(['/', '/services/', '/contact-us/', '/private-mailbox-rental/']);
   });
 
   it('renders Track Your Package as a header quick action with an accessible name', () => {
@@ -50,17 +43,6 @@ describe('HeaderNav nav regroup (DESIGN_PHASE1_SPEC Task 2)', () => {
   it('omits Get Directions when no directionsHref is provided', () => {
     render(<HeaderNav navigation={sampleNavigation} />);
     expect(document.querySelector('[data-header-action="directions"]')).toBeNull();
-  });
-
-  it('gives Amazon Returns a pill badge instead of a resting gold text colour', () => {
-    render(<HeaderNav navigation={sampleNavigation} />);
-    const badges = Array.from(document.querySelectorAll('[data-nav-badge="true"]'));
-    expect(badges.length).toBe(2); // desktop + mobile drawer
-    for (const badge of badges) {
-      expect(badge.getAttribute('href')).toBe('/amazon-counter/');
-      expect(badge.className).toContain('rounded-full');
-      expect(badge.className).not.toMatch(/(^|\s)text-\[var\(--color-accent-gold\)\]/);
-    }
   });
 
   it('uses gold only on hover/focus states and the single primary button', () => {

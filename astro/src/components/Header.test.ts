@@ -67,7 +67,8 @@ describe('Header.astro container rendering', () => {
     expect(result).toContain('Pickup Hours');
     expect(result).toContain('Contact');
     expect(result).toContain('Mailbox Rental');
-    expect(result).toContain('Amazon Returns');
+    // Amazon Returns intentionally unlinked from header nav (2026-11-12); /amazon-counter/ page retained.
+    expect(result).not.toContain('Amazon Returns');
   });
 
   it('places Pickup Hours in the utility bar and adds the Get Directions button', async () => {

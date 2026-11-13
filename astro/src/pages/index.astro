@@ -1,104 +1,418 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import OutboundLink from '../components/ui/OutboundLink.astro'
-import { siteConfig } from '../config/siteConfig'
-const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '')
-const localAreas = ['Concord Township','Mentor','Painesville','Eastlake','Willoughby','Wickliffe','Madison','Perry','Kirtland','Chardon','Fairport Harbor','Geneva']
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import LocationScene from '../components/LocationScene.astro';
+import OutboundLink from '../components/ui/OutboundLink.astro';
+import { siteConfig } from '../config/siteConfig';
+
+const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
+const localAreas = [
+  'Concord Township',
+  'Mentor',
+  'Painesville',
+  'Eastlake',
+  'Willoughby',
+  'Wickliffe',
+  'Madison',
+  'Perry',
+  'Kirtland',
+  'Chardon',
+  'Fairport Harbor',
+  'Geneva',
+];
 ---
+
 <BaseLayout>
-  <!-- HERO -->
-  <section class="relative bg-center py-20 md:py-32 lg:py-48 overflow-hidden min-h-[70vh] md:min-h-[80vh]">
-    <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15] mb-6">Mailbox Plus: Shipping, Returns, and Private Mailboxes</h1>
-      <p class="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-accent-warm)] leading-relaxed mb-6">Four carriers, one counter, no runaround.</p>
-      <p class="text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto mb-6">Shipping shouldn't cost you an hour. Stop running around Lake County for returns or carrier drop-offs.</p>
-      <div class="mb-5">
-        <a href="/pack-ship/" class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-bold text-base sm:text-lg px-8 py-4 rounded-md hover:brightness-110 transition-all shadow-lg">
-          Get Started Shipping <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"></div>
-  </section>
+  <link
+    slot="head"
+    rel="preload"
+    href="/fonts/familjen-grotesk-variable.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
 
-  <!-- SERVICE CARDS -->
-  <section class="py-16 md:py-24 bg-[var(--color-bg-primary)]">
+  <!-- HERO (Task 5) -->
+  <HomeHero />
+
+  <!-- NARRATIVE BEAT 1: CORE SERVICES -->
+  <section
+    id="home-services"
+    aria-labelledby="home-services-heading"
+    class="scroll-mt-28 relative py-16 md:py-24 bg-[var(--color-bg-primary)]"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="sr-only">Our Core Services</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <h2 id="home-services-heading" class="sr-only">Our Core Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7" data-reveal-stagger>
         <!-- Ship a Package -->
-        <div class="bg-[var(--color-bg-secondary)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-250 group flex flex-col">
-          <div class="w-12 h-12 rounded-xl bg-[var(--color-accent-warm)]/10 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
-            <svg aria-hidden="true" focusable="false" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+        <div class="motion-lift bg-[var(--color-bg-secondary)] rounded-lg p-6 sm:p-7 shadow-sm border border-[var(--color-border-strong)] group flex flex-col">
+          <div
+            aria-hidden="true"
+            class="home-card-accent h-1 w-full rounded-full bg-[var(--color-accent-warm)] mb-5"
+          ></div>
+          <div class="w-12 h-12 rounded-sm bg-[var(--color-accent-warm)]/10 border border-[var(--color-accent-warm)]/20 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+              />
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">Ship a Package</h3>
-          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-3 flex-1">UPS, FedEx, USPS, DHL — we compare rates and get it out same day.</p>
-          <a href="/pack-ship/" class="mt-auto inline-flex items-center text-sm font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] transition-colors">Get Started <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          <h3 class="font-display text-[length:var(--text-step-1)] leading-snug font-bold text-[var(--color-text-primary)] mb-2.5">
+            Ship a Package
+          </h3>
+          <p class="text-[length:var(--text-step-0)] text-[var(--color-text-secondary)] leading-relaxed mb-5 flex-1">
+            UPS, FedEx, USPS, DHL — we compare rates and get it out same day.
+          </p>
+          <a
+            href="/pack-ship/"
+            class="motion-underline mt-auto inline-flex items-center w-fit gap-1.5 min-h-11 py-1.5 text-base sm:text-lg font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-dark)] transition-colors rounded-sm focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-warm)]"
+          >
+            Get Started{' '}
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-4 h-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
+
         <!-- Return an Order -->
-        <div class="bg-[var(--color-bg-secondary)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-250 group flex flex-col">
-          <div class="w-12 h-12 rounded-xl bg-[var(--color-accent-warm)]/10 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
-            <svg aria-hidden="true" focusable="false" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        <div class="motion-lift bg-[var(--color-bg-secondary)] rounded-lg p-6 sm:p-7 shadow-sm border border-[var(--color-border-strong)] group flex flex-col">
+          <div
+            aria-hidden="true"
+            class="home-card-accent h-1 w-full rounded-full bg-[var(--color-accent-warm)] mb-5"
+          ></div>
+          <div class="w-12 h-12 rounded-sm bg-[var(--color-accent-warm)]/10 border border-[var(--color-accent-warm)]/20 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+              />
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">Return an Order</h3>
-          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-3 flex-1">FedEx, UPS, USPS, Amazon — doesn't matter who the label's from, we scan it and it's gone.</p>
-          <a href="/pack-ship/package-receiving/" class="mt-auto inline-flex items-center text-sm font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] transition-colors">Drop Off a Return <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          <h3 class="font-display text-[length:var(--text-step-1)] leading-snug font-bold text-[var(--color-text-primary)] mb-2.5">
+            Return an Order
+          </h3>
+          <p class="text-[length:var(--text-step-0)] text-[var(--color-text-secondary)] leading-relaxed mb-5 flex-1">
+            FedEx, UPS, USPS — doesn't matter who the label's from, we scan it and it's gone.
+          </p>
+          <a
+            href="/pack-ship/package-receiving/"
+            class="motion-underline mt-auto inline-flex items-center w-fit gap-1.5 min-h-11 py-1.5 text-base sm:text-lg font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-dark)] transition-colors rounded-sm focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-warm)]"
+          >
+            Drop Off a Return{' '}
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-4 h-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
+
         <!-- Private Mailbox -->
-        <div class="bg-[var(--color-bg-secondary)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-250 group flex flex-col">
-          <div class="w-12 h-12 rounded-xl bg-[var(--color-accent-warm)]/10 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
-            <svg aria-hidden="true" focusable="false" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <div class="motion-lift bg-[var(--color-bg-secondary)] rounded-lg p-6 sm:p-7 shadow-sm border border-[var(--color-border-strong)] group flex flex-col">
+          <div
+            aria-hidden="true"
+            class="home-card-accent h-1 w-full rounded-full bg-[var(--color-accent-warm)] mb-5"
+          ></div>
+          <div class="w-12 h-12 rounded-sm bg-[var(--color-accent-warm)]/10 border border-[var(--color-accent-warm)]/20 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">Private Mailbox</h3>
-          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-3 flex-1">A real street address for your business or privacy. All-carrier package acceptance, no porch theft.</p>
-          <a href="/home-business/mailbox-rental/" class="mt-auto inline-flex items-center text-sm font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] transition-colors">See Options <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          <h3 class="font-display text-[length:var(--text-step-1)] leading-snug font-bold text-[var(--color-text-primary)] mb-2.5">
+            Private Mailbox
+          </h3>
+          <p class="text-[length:var(--text-step-0)] text-[var(--color-text-secondary)] leading-relaxed mb-5 flex-1">
+            A real street address for your business or privacy. All-carrier package acceptance, no porch theft.
+          </p>
+          <a
+            href="/home-business/mailbox-rental/"
+            class="motion-underline mt-auto inline-flex items-center w-fit gap-1.5 min-h-11 py-1.5 text-base sm:text-lg font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-dark)] transition-colors rounded-sm focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-warm)]"
+          >
+            See Options{' '}
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-4 h-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
+
         <!-- Notary & More -->
-        <div class="bg-[var(--color-bg-secondary)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-250 group flex flex-col">
-          <div class="w-12 h-12 rounded-xl bg-[var(--color-accent-warm)]/10 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
-            <svg aria-hidden="true" focusable="false" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <div class="motion-lift bg-[var(--color-bg-secondary)] rounded-lg p-6 sm:p-7 shadow-sm border border-[var(--color-border-strong)] group flex flex-col">
+          <div
+            aria-hidden="true"
+            class="home-card-accent h-1 w-full rounded-full bg-[var(--color-accent-warm)] mb-5"
+          ></div>
+          <div class="w-12 h-12 rounded-sm bg-[var(--color-accent-warm)]/10 border border-[var(--color-accent-warm)]/20 flex items-center justify-center text-[var(--color-accent-warm)] mb-4 group-hover:bg-[var(--color-accent-warm)]/15 transition-colors">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">Notary & More</h3>
-          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-3 flex-1">Notary, shredding, fingerprinting — everything else your errand list needs, one counter.</p>
-          <a href="/home-business/notary-services/" class="mt-auto inline-flex items-center text-sm font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] transition-colors">Learn More <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          <h3 class="font-display text-[length:var(--text-step-1)] leading-snug font-bold text-[var(--color-text-primary)] mb-2.5">
+            Notary &amp; More
+          </h3>
+          <p class="text-[length:var(--text-step-0)] text-[var(--color-text-secondary)] leading-relaxed mb-5 flex-1">
+            Notary, shredding, fingerprinting — everything else your errand list needs, one counter.
+          </p>
+          <a
+            href="/home-business/notary-services/"
+            class="motion-underline mt-auto inline-flex items-center w-fit gap-1.5 min-h-11 py-1.5 text-base sm:text-lg font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-dark)] transition-colors rounded-sm focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-warm)]"
+          >
+            Learn More{' '}
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-4 h-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VISIT US -->
-  <section id="visit-us" class="py-24 md:py-32 lg:py-36 bg-[var(--color-bg-primary)]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-2xl md:text-4xl font-bold text-[var(--color-text-secondary)] mb-4 max-w-3xl mx-auto">Next to Pub Frato in Gristmill Village — serving all of Lake County</p>
-      <p class="text-lg text-[var(--color-text-muted)] mb-12 max-w-2xl mx-auto">Stop by Mailbox Plus for all your shipping, printing, and business service needs. We are ready to help you.</p>
+  <!-- NARRATIVE BEAT 2: VISIT US — THE ONE PINNED SECTION (spec §3.2, §4 Task 6) -->
+  <section
+    id="visit-us"
+    data-home-pinned
+    aria-label="Visit Mailbox Plus in Concord Township"
+    class="scroll-mt-28 py-10 sm:py-16 lg:py-20 bg-[var(--color-bg-primary)]"
+  >
+    <div class="home-pin-track max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-home-pin-track>
+      <div class="home-pin-stage relative overflow-hidden rounded-xl bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] border border-[var(--color-primary-light)]/35 shadow-xl px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <!-- Left Column: Location Narrative + Dual CTAs -->
+          <div class="lg:col-span-7 text-center lg:text-left" data-reveal>
+            <div
+              aria-hidden="true"
+              class="h-1 w-32 rounded-full bg-white/15 overflow-hidden mb-6 mx-auto lg:mx-0"
+            >
+              <div
+                data-pin-progress
+                class="home-pin-progress h-full w-full rounded-full bg-[var(--color-accent-gold)]"
+              ></div>
+            </div>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-        <OutboundLink href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all">
-          <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          Get Directions
-        </OutboundLink>
-        <a href={`tel:${phoneDigits}`} class="inline-flex items-center gap-2 text-[var(--color-accent-warm)] font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-accent-warm)]/10 transition-all border-2 border-transparent">
-          <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          Call {siteConfig.contact.phone}
-        </a>
+            <p class="font-display text-[length:var(--text-step-3)] font-bold text-white tracking-tight leading-[1.12] mb-4 max-w-2xl mx-auto lg:mx-0">
+              Next to Pub Frato in Gristmill Village — serving all of Lake County
+            </p>
+            <p class="text-[length:var(--text-step-0)] text-white/90 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+              Stop by Mailbox Plus for all your shipping, printing, and business service needs. We are ready to help you.
+            </p>
+
+            <div class="flex flex-col sm:flex-row flex-wrap gap-3.5 sm:gap-4 justify-center lg:justify-start">
+              <OutboundLink
+                href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164"
+                class="motion-press inline-flex items-center justify-center gap-2.5 min-h-12 bg-[var(--color-accent-gold)] text-[var(--color-primary-deep)] font-bold text-base sm:text-lg px-6 py-3.5 rounded-md shadow-lg hover:bg-[var(--color-accent-gold-light)] focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold-light)]"
+              >
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="w-5 h-5 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                Get Directions
+              </OutboundLink>
+
+              <a
+                href={`tel:${phoneDigits}`}
+                class="motion-press inline-flex items-center justify-center gap-2.5 min-h-12 border border-white/55 bg-white/10 text-white font-semibold text-base sm:text-lg px-6 py-3.5 rounded-md hover:bg-white/15 hover:border-[var(--color-accent-gold-light)] hover:text-[var(--color-accent-gold-light)] focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]"
+              >
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="w-5 h-5 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                  />
+                </svg>
+                Call {siteConfig.contact.phone}
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Scroll-Choreographed Lake County Hub Scene -->
+          <div class="lg:col-span-5 w-full max-w-lg mx-auto lg:max-w-none" data-reveal aria-hidden="true">
+            <LocationScene />
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
 
-  <!-- SERVICE AREAS -->
-  <section class="py-16 bg-[var(--color-bg-primary)]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-10">Service Areas</h2>
-      <div class="flex flex-wrap gap-4 justify-center">
+  <!-- NARRATIVE BEAT 3: LAKE COUNTY SERVICE AREAS (followed by Beat 4: ReviewSection trust band) -->
+  <section
+    id="home-service-areas"
+    data-home-parallax
+    aria-labelledby="home-service-areas-heading"
+    class="scroll-mt-28 relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-[var(--color-bg-warm-tint)]/55 border-t border-[var(--color-border)]"
+  >
+    <!-- Decorative parallax-lite radial compass rings (transform only, zero text) -->
+    <svg
+      data-parallax-layer
+      aria-hidden="true"
+      focusable="false"
+      viewBox="0 0 800 400"
+      fill="none"
+      class="pointer-events-none absolute inset-x-0 -top-12 mx-auto w-full max-w-5xl h-auto opacity-50"
+    >
+      <circle cx="400" cy="200" r="168" stroke="var(--color-border-strong)" stroke-width="1.2" stroke-dasharray="6 6" />
+      <circle cx="400" cy="200" r="248" stroke="var(--color-border-strong)" stroke-opacity="0.7" stroke-width="1" />
+      <circle cx="400" cy="200" r="328" stroke="var(--color-border)" stroke-width="1" />
+    </svg>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2
+        id="home-service-areas-heading"
+        data-reveal
+        class="font-display text-[length:var(--text-step-3)] font-bold text-[var(--color-text-primary)] tracking-tight leading-tight mb-8 sm:mb-10"
+      >
+        Service Areas
+      </h2>
+      <div class="flex flex-wrap gap-3 sm:gap-3.5 justify-center" data-reveal-stagger>
         {localAreas.map((area) => {
           const slug = area.toLowerCase().replace(/\s+/g, '-');
           return (
-            <a href={`/service-area/${slug}/`} class="inline-flex items-center px-5 py-2.5 rounded-full border-2 border-[var(--color-primary)] bg-white text-[var(--color-primary)] font-semibold text-sm hover:bg-[var(--color-accent-warm)]/10 hover:border-[var(--color-accent-warm)] transition-all">{area}</a>
+            <a
+              href={`/service-area/${slug}/`}
+              class="motion-press inline-flex items-center gap-2 min-h-11 px-5 py-2.5 rounded-full border border-[var(--color-border-strong)] bg-white text-[var(--color-text-primary)] font-semibold text-base sm:text-lg shadow-sm hover:border-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm)] transition-colors focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-warm)]"
+            >
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                class="w-4 h-4 text-[var(--color-accent-warm)] shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <circle cx="12" cy="11" r="2.5" stroke-width="2" />
+              </svg>
+              {area}
+            </a>
           );
         })}
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import { loadMotion } from '../scripts/motion-loader';
+  import { initHomeScroll, type HomeScrollCleanup } from '../scripts/home-scroll';
+
+  let cleanup: HomeScrollCleanup = () => {};
+  let initialPageLoad = true;
+
+  const mount = () => {
+    cleanup();
+    if (document.getElementById('home-hero')) {
+      // BaseLayout already runs loadMotion() on hard load; re-invoke only on SPA navigations back to /.
+      if (initialPageLoad) {
+        initialPageLoad = false;
+      } else {
+        loadMotion(document);
+      }
+      cleanup = initHomeScroll(document);
+    } else {
+      initialPageLoad = false;
+    }
+  };
+
+  document.addEventListener('astro:page-load', mount);
+  document.addEventListener('astro:before-swap', () => {
+    cleanup();
+    cleanup = () => {};
+  });
+</script>

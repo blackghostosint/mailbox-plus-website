@@ -73,6 +73,15 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 > Each task = one branch + one PR + one review. PSI/Playwright/Vitest gates run in CI before merge.
 
+### Worker runtime discipline (added after the Task 3 timeout postmortem)
+
+These rules exist to keep worker sessions short and cheap. They apply to every task:
+
+1. **Do not poll CI.** Push the branch, run local gates, request review, and end the session. The orchestrator monitors CI between runs and comments findings on the card. Waiting on CI inside a worker session burns model spend at full rate for wall-clock waiting.
+2. **CI failure triage — read logs, don't guess:** if CI fails, fetch the failed job log once (`gh run view --log-failed`). Classify: (a) infra flake (DNS resolution, apt fetch, runner OOM, no test output) → do NOT change code; note it on the card and end the session; the orchestrator re-runs. (b) real test failure (✘ markers with assertions) → fix code and push. One log-fetch per failure, no iterative log-spelunking.
+3. **Session budget assumption: 2h hard cap.** Structure work so the PR is pushable before the cap: local gates first, CI-dependent steps last. If the cap hits mid-task, the next run re-derives context at full cost — treat the cap as a wall, not a target.
+4. **Merge authorization:** workers never merge. Branch protection on `main` requires 1 approving review. When all gates are green, request review and end.
+
 ### Task 0 — Remove superseded design docs ✅ **COMPLETED 2026-11-11 (PR #975, squash-merged at `adc05beb`)**
 
 - Deleted: docs/DESIGN_VISION.md, docs/DESIGN_SYSTEM.md, docs/sales-page-sb7-rewrite.md, research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md. Kept: decisions/ legacy-migration learnings doc.
@@ -405,7 +414,7 @@ Familjen Grotesk gets the same treatment, metric-matched against Arial / Liberat
 
 ## Motion Tokens (Phase 1 Task 1)
 
-Per §3.2. Animate only `transform`/`opacity`; every consumer must sit behind the existing `prefers-reduced-motion: reduce` kill switch in `astro/src/styles/global.css`. Defined only — no animation uses them yet.
+Per §3.2. Animate only `transform`/`opacity`; every consumer must sit behind the existing `prefers-reduced-motion: reduce` kill switch in `astro/src/styles/global.css`. First consumers (Task 3): the shared motion layer at the end of `astro/src/styles/global.css` (`.motion-press` button press/expand, `.motion-lift` card lift, `.motion-underline` link sweep, `[data-reveal]` / `[data-reveal-stagger]` scroll reveals) and `astro/src/scripts/motion.ts` (IntersectionObserver, once, lazy chunk loaded by `astro/src/scripts/motion-loader.ts` only when a page has reveal targets; article pages opt out via `BaseLayout motion="calm"`).
 
 | Token                      | Value                            | Usage                                               |
 | -------------------------- | -------------------------------- | --------------------------------------------------- |

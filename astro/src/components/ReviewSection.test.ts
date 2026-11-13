@@ -49,4 +49,17 @@ describe('ReviewSection.astro container rendering', () => {
     // Yellow star class fill-yellow-400 text-yellow-400
     expect(result).toContain('fill-yellow-400');
   });
+
+  it('renders compact hero badge variant from the same reviews.json source', async () => {
+    const result = await container.renderToString(ReviewSection, {
+      props: { variant: 'badge' },
+    });
+
+    expect(result).toContain(`id="hero-reviews-rating">${reviewsData.rating}</span>`);
+    expect(result).toContain(`id="hero-reviews-count">${reviewsData.userRatingCount}</span>`);
+    expect(result).toContain(`${reviewsData.rating} out of 5 stars`);
+    expect(result).toContain('verified Google reviews');
+    expect(result).toContain('ChIJdYHlz2-jMYgRjI1Rfhq1Pc8');
+    expect(result).not.toContain('id="reviews-section"');
+  });
 });
