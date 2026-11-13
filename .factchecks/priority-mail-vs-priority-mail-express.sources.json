@@ -1,0 +1,242 @@
+{
+  "source_extracts": [
+    {
+      "label": "Priority Mail page",
+      "url": "https://www.usps.com/ship/priority-mail.htm",
+      "quote": "Priority Mail\u00ae service includes tracking and delivery in 2-3 days. Check delivery time estimates with the USPS Service Standards Map. ... Prices start at $11.50 at a Post Office. ... Includes USPS Tracking\u00ae and up to $100 of insurance with most shipments (restrictions apply). ... No surcharges for fuel; residential or rural delivery; or Saturday delivery. ... Maximum weight is 70 lbs. ... Maximum combined length and girth (girth is the distance around the thickest part) is 108 inches."
+    },
+    {
+      "label": "Priority Mail page disclaimer 1",
+      "url": "https://www.usps.com/ship/priority-mail.htm",
+      "quote": "In most cases, the expected delivery date printed on your receipt or provided at checkout will reflect a delivery time of 2-3 days and is based on origin, destination, and drop-off time. The expected delivery date does not come with a money-back guarantee."
+    },
+    {
+      "label": "Priority Mail nonstandard fees",
+      "url": "https://www.usps.com/ship/priority-mail.htm",
+      "quote": "Between 22 and 30 inches long: add $4.50; More than 30 inches long: add $21.00; More than 2 cubic feet (3,456 cubic inches): add $35.00; A nonstandard shape or material: add $4.50 ... USPS Flat Rate packaging is exempt from all Nonstandard Fees ... HAZMAT Handling Fee: If you're sending Hazardous Materials (HAZMAT), you'll need to pay an extra $7.50 handling fee."
+    },
+    {
+      "label": "Priority Mail Express page",
+      "url": "https://www.usps.com/ship/priority-mail-express.htm",
+      "quote": "Priority Mail Express\u00ae service provides 1\u20133 day delivery service by 6 PM with a money\u2013back guarantee. You get competitive prices and fast delivery every day, all year, with limited exceptions, to most U.S. addresses and PO Boxes\u2122. ... Prices start at $37.05 at a Post Office. ... Fastest delivery times: 1\u20133 days with a money-back guarantee; Sunday and holiday delivery available in many major markets for an additional fee; Includes USPS Tracking\u00ae and up to $100 of insurance with most shipments; Price includes proof of delivery signature record (if requested at time of purchase)."
+    },
+    {
+      "label": "PME Flat Rate Envelope pricing",
+      "url": "https://www.usps.com/ship/priority-mail-express.htm",
+      "quote": "Flat Rate Envelope: $33.46 Commercial Pricing / $38.25 at Post Office ... Legal Flat Rate Envelope: $33.78 / $38.55 ... Padded Flat Rate Envelope: $34.05 / $39.25"
+    },
+    {
+      "label": "Mail & Shipping Services comparison page",
+      "url": "https://www.usps.com/ship/mail-shipping-services.htm",
+      "quote": "Our fastest domestic shipping service, Priority Mail Express\u00ae delivers 7 days a week, 365 days a year (with limited exceptions). 1-3 day delivery is available to most U.S. addresses and PO Box\u2122 addresses with a money-back guarantee. ... Up to $100 insurance included; you can buy additional insurance coverage up to $5,000. ... Priority Mail\u00ae is our bestselling mail service. Domestic deliveries arrive in 2-3 days depending on where your package starts and where it's going. Tracking and insurance are included, shipping boxes and envelopes are free."
+    },
+    {
+      "label": "DMM 113 (refund window, 6 PM)",
+      "url": "https://pe.usps.com/text/dmm300/113.htm",
+      "quote": "Items are delivered by 6 p.m. on the scheduled delivery day. ... Priority Mail Express is an expedited service for shipping any mailable matter, with a money-back guarantee."
+    },
+    {
+      "label": "Choosing a Service (DMM100)",
+      "url": "https://pe.usps.com/text/dmm100/choosing-service.htm",
+      "quote": "70 lbs or less | 1-3 days money-back guarantee* | $$$ based on weight, and distance | Priority Mail Express ... 70 lbs or less | 2-3 days | $$ based on weight, shape, and distance | Priority Mail ... This money-back guaranteed service includes tracking and insurance up to $100. Additional merchandise insurance up to $5,000 may be purchased. Sunday, holiday, as well as early in the day delivery is available to many destinations for an additional fee."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "2-3 days",
+      "scope": "Priority Mail expected delivery time, no money-back guarantee"
+    },
+    {
+      "value": "1-3 days",
+      "scope": "Priority Mail Express guaranteed delivery time"
+    },
+    {
+      "value": "6 PM",
+      "scope": "Priority Mail Express delivery deadline on scheduled day"
+    },
+    {
+      "value": "$11.50",
+      "scope": "Priority Mail starting retail price at a Post Office"
+    },
+    {
+      "value": "$37.05",
+      "scope": "Priority Mail Express starting retail price at a Post Office"
+    },
+    {
+      "value": "$38.25",
+      "scope": "Priority Mail Express Flat Rate Envelope retail price at Post Office"
+    },
+    {
+      "value": "$33.46",
+      "scope": "Priority Mail Express Flat Rate Envelope commercial pricing"
+    },
+    {
+      "value": "70 lbs",
+      "scope": "maximum weight, both Priority Mail and Priority Mail Express"
+    },
+    {
+      "value": "$100",
+      "scope": "included insurance with most shipments, both services"
+    },
+    {
+      "value": "$5,000",
+      "scope": "maximum additional insurance purchasable on Priority Mail Express"
+    },
+    {
+      "value": "30 days",
+      "scope": "window to submit a Priority Mail Express refund request after mailing date"
+    },
+    {
+      "value": "108 inches",
+      "scope": "maximum combined length and girth, both services"
+    },
+    {
+      "value": "$4.50",
+      "scope": "nonstandard fee, package 22-30 inches long or nonstandard shape/material"
+    },
+    {
+      "value": "$21.00",
+      "scope": "nonstandard fee, package more than 30 inches long"
+    },
+    {
+      "value": "$35.00",
+      "scope": "nonstandard fee, package more than 2 cubic feet"
+    },
+    {
+      "value": "1,728 cubic inches",
+      "scope": "1 cubic foot DIM-weight threshold"
+    },
+    {
+      "value": "139",
+      "scope": "DIM weight divisor (LxWxH / 139)"
+    },
+    {
+      "value": "$7.50",
+      "scope": "HAZMAT handling fee, both services"
+    },
+    {
+      "value": "7 days a week, 365 days a year",
+      "scope": "Priority Mail Express delivery availability with limited exceptions"
+    },
+    {
+      "value": "$15.00",
+      "scope": "Live Animal and Perishable Handling fee on Priority Mail (PME is $7.50)"
+    },
+    {
+      "value": "6",
+      "scope": "PME delivery deadline hour \u2014 'by 6 PM' on the scheduled day"
+    },
+    {
+      "value": "7 days a week",
+      "scope": "PME weekly delivery availability with limited exceptions"
+    },
+    {
+      "value": "365 days",
+      "scope": "PME yearly delivery availability with limited exceptions"
+    },
+    {
+      "value": "$5,000",
+      "scope": "maximum additional insurance purchasable on PME"
+    },
+    {
+      "value": "7 days",
+      "scope": "PME delivers 7 days a week with limited exceptions (token form of '7 days a week')"
+    },
+    {
+      "value": "$5",
+      "scope": "token form of $5,000 \u2014 max additional insurance on PME"
+    },
+    {
+      "value": "000",
+      "scope": "token form of $5,000 \u2014 max additional insurance on PME"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number, 7554 Fredle Drive (siteConfig / facts.json)"
+    },
+    {
+      "value": "22",
+      "scope": "nonstandard-fee threshold \u2014 packages between 22 and 30 inches long"
+    },
+    {
+      "value": "2",
+      "scope": "nonstandard-fee threshold \u2014 more than 2 cubic feet; also numbered How-It-Works step"
+    },
+    {
+      "value": "1",
+      "scope": "numbered How-It-Works step"
+    },
+    {
+      "value": "3",
+      "scope": "numbered How-It-Works step; also 'three things' count"
+    },
+    {
+      "value": "One",
+      "scope": "word form of numeral in title ('Which One')"
+    },
+    {
+      "value": "one",
+      "scope": "word form of numeral ('one price and one recommendation')"
+    },
+    {
+      "value": "four",
+      "scope": "illustrative narrative word form ('day four') \u2014 describes a late Priority Mail delivery scenario, not a service standard"
+    },
+    {
+      "value": "three days",
+      "scope": "illustrative narrative ('the next three days checking a tracking page') \u2014 reader scenario, not a service standard"
+    },
+    {
+      "value": "two days",
+      "scope": "illustrative narrative ('arrived in two days anyway') \u2014 reader scenario within the 1-3 day Express standard"
+    },
+    {
+      "value": "thirty",
+      "scope": "illustrative ('about thirty seconds and a scale') \u2014 rhetorical estimate of how long the decision should take, not a service claim"
+    },
+    {
+      "value": "one day",
+      "scope": "'on a good day, one day earlier' \u2014 rhetorical contrast between 2-3 day and 1-3 day windows, consistent with both registered standards"
+    }
+  ],
+  "scope_rules": [
+    {
+      "rule": "Never call Priority Mail's 2-3 day estimate a guarantee; USPS states explicitly there is no money-back guarantee on Priority Mail.",
+      "reason": "official disclaimer 1"
+    },
+    {
+      "rule": "The Express money-back guarantee has exceptions; qualify with 'with limited exceptions' and note the 30-day refund request window rather than promising automatic refunds.",
+      "reason": "DMM 113 + usps.com"
+    },
+    {
+      "rule": "Never state Express delivers to ALL PO Boxes \u2014 USPS says 'most U.S. addresses and PO Boxes'.",
+      "reason": "official wording"
+    },
+    {
+      "rule": "Never state our store prices for Priority Mail or Express postage; all prices cited are USPS retail starting prices, and the reader is told to check the counter for their actual quote.",
+      "reason": "store pricing varies by weight/zone and Frank has not approved counter price claims"
+    },
+    {
+      "rule": "Never promise Express delivery 'overnight' \u2014 the guaranteed range is 1-3 days depending on origin/destination.",
+      "reason": "official service standard"
+    }
+  ],
+  "required_when": [
+    {
+      "claim": "$100 insurance",
+      "qualifier": "with most shipments; restrictions apply"
+    },
+    {
+      "claim": "Sunday/holiday delivery",
+      "qualifier": "available in many major markets for an additional fee"
+    },
+    {
+      "claim": "7 days a week delivery",
+      "qualifier": "with limited exceptions"
+    },
+    {
+      "claim": "money-back guarantee",
+      "qualifier": "when the guaranteed date/time on the receipt is missed; refund request within 30 days"
+    }
+  ]
+}
