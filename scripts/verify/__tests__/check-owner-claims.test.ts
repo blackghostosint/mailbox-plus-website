@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { checkOwnerClaims } from '../check-owner-claims.mjs';
+import { checkOwnerClaims, loadApprovedStoreClaims } from '../check-owner-claims.mjs';
 
 // Injectable article reader: tests never touch the real content/articles tree,
 // so they cannot drift with published copy.
@@ -196,5 +196,29 @@ New article.
     });
     expect(r.success).toBe(false);
     expect(r.reason).toBe('missing_section');
+  });
+
+  it('loads canonical approved-store-claims.json contract with required capability lists', () => {
+    const manifest = loadApprovedStoreClaims();
+    expect(manifest.version).toBeTruthy();
+    expect(Array.isArray(manifest.approved_capabilities)).toBe(true);
+    expect(manifest.approved_capabilities.length).toBeGreaterThanOrEqual(5);
+    expect(Array.isArray(manifest.forbidden_without_signoff)).toBe(true);
+    expect(manifest.forbidden_without_signoff.length).toBeGreaterThanOrEqual(4);
+  });
+
+  it('detects unapproved turnaround/wait-time SLA promises as turnaround-promise claims', () => {
+    const files = {
+      'content/articles/pack-ship/timing.md': `${FM}Walk out in under 3 minutes with your receipt. We offer a two-minute fix for return labels.`,
+    };
+    const r = checkOwnerClaims({
+      body: '## Summary\nNo claims ledger.',
+      changedFiles: ['content/articles/pack-ship/timing.md'],
+      readFile: mkReader(files),
+    });
+    expect(r.success).toBe(false);
+    expect(r.reason).toBe('missing_section');
+    const cats = new Set(r.detected!.map((d) => d.category));
+    expect(cats.has('turnaround-promise')).toBe(true);
   });
 });

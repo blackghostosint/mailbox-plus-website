@@ -1322,13 +1322,27 @@ function cmdArticle(arg, isStrict = false) {
           check(r.name, r.pass, r.detail, r.fix);
         }
       } catch (e) {
-        const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-        check(
-          'claims:verify',
-          false,
-          `gate error: ${stderr}`,
-          'inspect scripts/verify/claims-gate.js'
-        );
+        let unwrapped = false;
+        if (e.stdout) {
+          try {
+            const parsedErr = JSON.parse(String(e.stdout).trim());
+            if (Array.isArray(parsedErr)) {
+              for (const r of parsedErr) check(r.name, r.pass, r.detail, r.fix);
+              unwrapped = true;
+            }
+          } catch {
+            // fall through to gate error
+          }
+        }
+        if (!unwrapped) {
+          const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
+          check(
+            'claims:verify',
+            false,
+            `gate error: ${stderr}`,
+            'inspect scripts/verify/claims-gate.js'
+          );
+        }
       }
     }
 
@@ -1344,7 +1358,19 @@ function cmdArticle(arg, isStrict = false) {
         const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
         const out2 = execFileSync(
           nodeCmd,
-          [sourceGate, '--slug', slug, '--article', abs, '--root', ROOT, '--drafts', DRAFTS_DIR],
+          [
+            '--import',
+            'tsx',
+            sourceGate,
+            '--slug',
+            slug,
+            '--article',
+            abs,
+            '--root',
+            ROOT,
+            '--drafts',
+            DRAFTS_DIR,
+          ],
           {
             cwd: ROOT,
             encoding: 'utf8',
@@ -1355,13 +1381,27 @@ function cmdArticle(arg, isStrict = false) {
           check(r.name, r.pass, r.detail, r.fix);
         }
       } catch (e) {
-        const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-        check(
-          'source:constraints',
-          false,
-          `gate error: ${stderr}`,
-          'inspect scripts/verify/source-constraint-gate.mjs'
-        );
+        let unwrapped = false;
+        if (e.stdout) {
+          try {
+            const parsedErr = JSON.parse(String(e.stdout).trim());
+            if (Array.isArray(parsedErr)) {
+              for (const r of parsedErr) check(r.name, r.pass, r.detail, r.fix);
+              unwrapped = true;
+            }
+          } catch {
+            // fall through to gate error
+          }
+        }
+        if (!unwrapped) {
+          const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
+          check(
+            'source:constraints',
+            false,
+            `gate error: ${stderr}`,
+            'inspect scripts/verify/source-constraint-gate.mjs'
+          );
+        }
       }
     }
 
@@ -1571,14 +1611,11 @@ function cmdReview(targetPath, rest = [], asJson = false) {
   console.log(
     `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`
   );
-  // Gate model: DeepSeek V4.1 Flash (switched 2026-09-24 after xAI doubled
-  // Grok pricing; 5-6x faster, ~1/15 the cost). Calibrated against the same
-  // 8 published anchors — DS scores run ~10-12 pts above Grok's scale, so the
-  // pass bar is 90: the best published anchors score 90-93, deliberately
-  // degraded drafts fall to 85 (light fluff) and 69 (heavy fluff), so 90 sits
-  // exactly at "match the best published" and rejects the fluff-tolerant zone.
-  // Borderline rule: scores 85-95 get ONE automatic Kimi K2.6 rescore inside
-  // review-article-copy.ts (final word) — see that script, added 2026-10-27.
+  // Gate model: DeepSeek V4.1 Flash (3-run median; hard floor 70 per owner
+  // ruling 2026-11-02: >=82 clean pass, 78-81 pre-review APPROVE, 70-77 hold).
+  // Scale-separated borderline rule: scores in [78, 84] get ONE advisory Kimi
+  // K2.6 rescore inside review-article-copy.ts (qualitative critiques + <60
+  // hard-floor veto; flash median remains the gate score).
   // API calls occasionally return empty, so
   // retry API-style failures up to 3 attempts, then FAIL CLOSED (no fallback
   // pass on reviewer outage). Genuine score failures are not retried.

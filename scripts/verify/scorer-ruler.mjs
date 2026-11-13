@@ -25,13 +25,19 @@ const MEAN_DEV_LIMIT = 4;
 
 async function main() {
   const args = process.argv.slice(2);
-  const runs = Math.max(1, parseInt(args[args.indexOf('--runs') + 1] || '3', 10) || 3);
+  const runsIdx = args.indexOf('--runs');
+  const runs = Math.max(1, parseInt(runsIdx !== -1 ? args[runsIdx + 1] : '3', 10) || 3);
+  const modelIdx = args.indexOf('--model');
   const asJson = args.includes('--json');
   if (!fs.existsSync(CONFIG)) {
     console.error(`scorer-ruler: missing config ${CONFIG}`);
     process.exit(2);
   }
   const cfg = JSON.parse(fs.readFileSync(CONFIG, 'utf8'));
+  const targetModel =
+    modelIdx !== -1 && args[modelIdx + 1]
+      ? args[modelIdx + 1]
+      : cfg.default_model || 'deepseek/deepseek-v4.1-flash';
   const anchors = Array.isArray(cfg.anchors) ? cfg.anchors : [];
   if (anchors.length < 3) {
     console.error('scorer-ruler: need >= 3 anchor articles to measure drift');
@@ -53,7 +59,8 @@ async function main() {
     for (let i = 0; i < runs; i++) {
       try {
         const r = await evaluateArticle(fs.readFileSync(abs, 'utf8'), {
-          model: 'deepseek/deepseek-v4.1-flash',
+          model: targetModel,
+          provider: 'nous',
         });
         scores.push(r.total_score || 0);
       } catch {

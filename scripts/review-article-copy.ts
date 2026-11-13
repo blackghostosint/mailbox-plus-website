@@ -287,15 +287,78 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
   return JSON.parse(cleaned);
 }
 
-function printReport(filePath: string, result: any, minScore = 82) {
-  const score = result.total_score || 0;
-  const verdict = score >= minScore ? 'PASS' : 'FAIL';
+export const ESCALATE_LO = 78;
+export const ESCALATE_HI = 84;
+export const K26_VETO_FLOOR = 60;
+
+export function shouldEscalateBorderline(model: string, score: number): boolean {
+  return !model.includes('kimi') && score >= ESCALATE_LO && score <= ESCALATE_HI;
+}
+
+export function resolveReviewVerdict(
+  baseResult: any,
+  rescoreResult: any | null,
+  baseModel: string,
+  escalateModel: string,
+  minScore: number
+): { result: any; failed: boolean } {
+  const flashScore = baseResult.total_score || 0;
+  let merged: any = { ...baseResult, total_score: flashScore, gate_score: flashScore };
+  let failed = false;
+
+  if (rescoreResult) {
+    const k26Score = rescoreResult.total_score ?? 0;
+    const escalation = {
+      base_model: baseModel,
+      base_score: flashScore,
+      rescore_model: escalateModel,
+      rescore_score: k26Score,
+    };
+    // Keep flashScore as total_score (the ruler-calibrated gate score) while
+    // surfacing K2.6's qualitative critiques so printReport and CSV telemetry
+    // never misreport K2.6's ~15-20-pt harsher scale as a gate failure.
+    merged = {
+      ...baseResult,
+      dimensions: rescoreResult.dimensions || baseResult.dimensions,
+      executive_summary: rescoreResult.executive_summary || baseResult.executive_summary,
+      flagged_passages: rescoreResult.flagged_passages || baseResult.flagged_passages,
+      total_score: flashScore,
+      gate_score: flashScore,
+      escalation,
+    };
+    if (k26Score < K26_VETO_FLOOR) {
+      merged.total_score = Math.min(flashScore, k26Score + 20);
+      merged.verdict_note =
+        'K2.6 hard-floor veto: rescore below 60 on the harsher K2.6 scale — treated as FAIL.';
+      failed = true;
+    } else if (flashScore < minScore) {
+      failed = true;
+    }
+  } else if (flashScore < minScore) {
+    failed = true;
+  }
+
+  return { result: merged, failed };
+}
+
+export function printReport(filePath: string, result: any, minScore = 70) {
+  const score = result.gate_score ?? result.total_score ?? 0;
+  const k26Vetoed = Boolean(result.verdict_note);
+  const verdict = !k26Vetoed && score >= minScore ? 'PASS' : 'FAIL';
   const symbol = verdict === 'PASS' ? '✅' : '❌';
 
   console.log('\n' + '='.repeat(80));
   console.log(
-    `${symbol} EVALUATION: ${path.basename(filePath)} — Score: ${score}/100 (${verdict})`
+    `${symbol} EVALUATION: ${path.basename(filePath)} — Score: ${score}/100 (${verdict}, floor ${minScore})`
   );
+  if (result.escalation) {
+    console.log(
+      `   ℹ️  Advisory rescore (${result.escalation.rescore_model}): ${result.escalation.rescore_score}/100 (harsher scale — hard-veto floor ${K26_VETO_FLOOR}; gate uses flash ${result.escalation.base_score}/100)`
+    );
+  }
+  if (result.verdict_note) {
+    console.log(`   🚨 ${result.verdict_note}`);
+  }
   console.log('='.repeat(80));
 
   const dims = result.dimensions || {};
@@ -330,7 +393,7 @@ async function main() {
       provider: { type: 'string' },
       'base-url': { type: 'string' },
       'api-key': { type: 'string' },
-      'min-score': { type: 'string', default: '82' },
+      'min-score': { type: 'string', default: '70' },
       runs: { type: 'string', default: '3' },
       json: { type: 'boolean', default: false },
     },
@@ -342,7 +405,7 @@ async function main() {
   const provider = values.provider as ReviewOptions['provider'];
   const baseUrl = values['base-url'] as string | undefined;
   const apiKey = values['api-key'] as string | undefined;
-  const minScore = parseInt(values['min-score'] as string, 10) || 82;
+  const minScore = parseInt(values['min-score'] as string, 10) || 70;
   const asJson = Boolean(values.json);
 
   if (!target) {
@@ -403,70 +466,54 @@ async function main() {
         result.file_path = filePath;
       }
 
-      // Borderline escalation: flash-tier judges are score-inflating in the
-      // 85-95 band (DeepSeek runs 10-12 pts above Grok's scale). One Kimi
-      // K2.6 rescore is the final word — no loops, bounded cost (~$0.005).
-      const ESCALATE_LO = 85;
-      const ESCALATE_HI = 95;
+      // Borderline escalation (scale-separated, updated 2026-11-12): only run
+      // the Kimi K2.6 advisory rescore when the flash median sits in the
+      // borderline [78, 84] band around 82 (clean >=85 passes skip the ~$0.027
+      // reasoning call). Flash median stays the gate score; K2.6 provides
+      // qualitative critiques + a <60 hard-floor veto on its harsher scale.
       const ESCALATE_MODEL = 'moonshotai/kimi-k2.6';
       const baseModel = model;
-      if (
-        !model.includes('kimi') &&
-        (result.total_score || 0) >= ESCALATE_LO &&
-        (result.total_score || 0) <= ESCALATE_HI
-      ) {
+      let rescoreResult: any | null = null;
+      if (shouldEscalateBorderline(model, result.total_score || 0)) {
         console.log(
-          `⚠️  Borderline score ${result.total_score || 0}/100 in [${ESCALATE_LO}-${ESCALATE_HI}] — escalating one rescore to ${ESCALATE_MODEL} (final word)...`
+          `⚠️  Borderline score ${result.total_score || 0}/100 in [${ESCALATE_LO}-${ESCALATE_HI}] — running one advisory rescore on ${ESCALATE_MODEL}...`
         );
         try {
-          const rescore = await evaluateArticle(content, {
+          rescoreResult = await evaluateArticle(content, {
             model: ESCALATE_MODEL,
             provider: 'nous',
             apiKey,
             timeoutMs: 300000, // K2.6 is a reasoning model; 60s default times out
           });
-          result.escalation = {
-            base_model: baseModel,
-            base_score: result.total_score,
-            rescore_model: ESCALATE_MODEL,
-            rescore_score: rescore.total_score,
-          };
-          result = { ...rescore, file_path: filePath, escalation: result.escalation };
           console.log(
-            `   Rescore: ${rescore.total_score}/100 (K2.6 scale — advisory critiques; verdict rule below).`
+            `   Rescore: ${rescoreResult.total_score}/100 (K2.6 harsher scale — advisory critiques + <${K26_VETO_FLOOR} hard-veto floor; gate score remains flash ${result.total_score}/100).`
           );
         } catch (e: any) {
           console.error(`   ⚠️ Rescore failed (${e.message}); keeping base score.`);
         }
       }
 
-      // Verdict rule (2026-10-29, ruler-calibrated): the flash median is the
-      // gate score — fresh runs are stable to ±2 pts. The K2.6 rescore runs a
-      // ~15-20-pt-harsher scale and must NOT be compared to the flash threshold
-      // (that mismatch failed good articles at "66" all day on 10/29). K2.6's
-      // role: qualitative critiques + a hard-floor veto — a K2.6 score below
-      // 60 on ITS scale indicates a defect class flash inflates past 85.
-      const flashScore = result.escalation
-        ? (result.escalation.base_score ?? result.total_score)
-        : result.total_score || 0;
-      const k26Score = result.escalation ? result.escalation.rescore_score : null;
-      if (result.escalation && k26Score !== null && k26Score < 60) {
-        result.total_score = Math.min(flashScore, k26Score + 20); // scale-adjusted
-        result.verdict_note =
-          'K2.6 hard-floor veto: rescore below 60 on the harsher K2.6 scale — treated as FAIL.';
+      const resolved = resolveReviewVerdict(
+        result,
+        rescoreResult,
+        baseModel,
+        ESCALATE_MODEL,
+        minScore
+      );
+      result = { ...resolved.result, file_path: filePath };
+      if (resolved.failed) {
         overallFailed = true;
-        console.log(
-          `   🚨 K2.6 hard-floor veto (${k26Score}/100 on K2.6 scale) — FAIL despite flash ${flashScore}.`
-        );
-      } else if (flashScore < minScore) {
-        overallFailed = true;
+        if (result.verdict_note && result.escalation) {
+          console.log(
+            `   🚨 K2.6 hard-floor veto (${result.escalation.rescore_score}/100 on K2.6 scale) — FAIL despite flash ${result.escalation.base_score}.`
+          );
+        }
       }
-      if (result.escalation) result.gate_score = flashScore;
 
       // Review-score telemetry (2026-10-28): every evaluation appends one CSV
-      // row so raw→final drift per slug is measurable. Location: the article
-      // pipeline repo (versioned there), env-overridable for tests. Fail-open:
-      // telemetry must never break the review gate.
+      // row so raw→final drift per slug is measurable. Logs the gate score
+      // (flash median, or veto-adjusted score on <60 veto) and baseModel, with
+      // any K2.6 advisory rescore preserved in the escalation column.
       try {
         const logPath =
           process.env.REVIEW_SCORE_LOG || '/home/blackghost/work/batch_articles/review_scores.csv';
@@ -479,7 +526,7 @@ async function main() {
           new Date().toISOString(),
           slug,
           result.total_score || 0,
-          result.escalation ? result.escalation.rescore_model : model,
+          baseModel,
           words,
           esc,
           filePath,
