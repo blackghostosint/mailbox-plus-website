@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCta from '../../components/ArticleCta.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
 import { articleLoader } from '../../utils/articleLoader';
+import { selectRelatedArticles } from '../../utils/internal-links';
 import { marked } from 'marked';
 import { getArticleSchema, getWebPageSchema, getFAQSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
@@ -14,15 +16,26 @@ export { normalizeArticleHtmlLinks };
 
 export async function getStaticPaths() {
   const allArticles = await articleLoader.getAllArticles();
-  return allArticles
-    .filter((a) => a.frontmatter.status !== 'draft')
-    .map((article) => ({
-      params: { slug: article.frontmatter.slug },
-      props: { article },
-    }));
+  const published = allArticles.filter((a) => a.frontmatter.status !== 'draft');
+  const corpusInputs = published.map((a) => ({
+    slug: a.frontmatter.slug,
+    title: a.frontmatter.title,
+    description: a.frontmatter.description,
+    category: a.frontmatter.category,
+    keywords: a.frontmatter.keywords,
+    location: a.frontmatter.location,
+    status: a.frontmatter.status,
+  }));
+  return published.map((article, idx) => ({
+    params: { slug: article.frontmatter.slug },
+    props: {
+      article,
+      relatedArticles: selectRelatedArticles(corpusInputs[idx], corpusInputs, 3),
+    },
+  }));
 }
 
-const { article } = Astro.props;
+const { article, relatedArticles = [] } = Astro.props;
 const { frontmatter, content } = article;
 const { title, description, pubDate, author, category, image, imageAlt, relatedServices, lastModified, keywords, slug } = frontmatter;
 
@@ -212,6 +225,9 @@ const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(siteConfig, faqs) : und
           </div>
         </div>
       )}
+
+      {/* Related Guides — Deterministic Build-Time Cross-Linking */}
+      <RelatedArticles articles={relatedArticles} />
 
       {/* Bottom CTA - Dynamic Category-Aware Component */}
       <ArticleCta category={category} slug={slug} />

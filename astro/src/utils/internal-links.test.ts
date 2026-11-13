@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getInternalLink, getAnchorText } from './internal-links';
+import { getInternalLink, getAnchorText, selectRelatedArticles } from './internal-links';
 
 describe('internal-links', () => {
   describe('getInternalLink', () => {
@@ -108,6 +108,68 @@ describe('internal-links', () => {
         expect(titleFallback1).toBe(link.title);
         expect(titleFallback2).toBe(titleFallback1);
       }
+    });
+  });
+
+  describe('selectRelatedArticles', () => {
+    const sampleCorpus = [
+      {
+        slug: 'current-pmb-guide',
+        title: 'Private Mailbox vs PO Box Guide',
+        description: 'Compare PMB and PO Box options.',
+        category: 'mailbox-rentals',
+        keywords: ['private mailbox', 'po box', 'street address'],
+        status: 'published',
+      },
+      {
+        slug: 'ups-store-mailbox-cost-comparison',
+        title: 'UPS Store Mailbox Cost Comparison',
+        description: 'Real private mailbox prices compared.',
+        category: 'mailbox-rentals',
+        keywords: ['private mailbox', 'mailbox cost'],
+        status: 'published',
+      },
+      {
+        slug: 'pmb-address-car-registration-ohio',
+        title: 'Using a PMB Address for Car Registration',
+        description: 'Ohio BMV rules for street addresses.',
+        category: 'mailbox-rentals',
+        keywords: ['street address', 'pmb'],
+        status: 'published',
+      },
+      {
+        slug: 'chardon-notary',
+        title: 'Walk-In Notary near Chardon',
+        description: 'Ohio notary services.',
+        category: 'notary',
+        keywords: ['notary', 'chardon'],
+        status: 'published',
+      },
+      {
+        slug: 'hidden-draft',
+        title: 'Private Mailbox Secret Draft',
+        description: 'Unpublished draft.',
+        category: 'mailbox-rentals',
+        keywords: ['private mailbox', 'po box', 'street address'],
+        status: 'draft',
+      },
+    ];
+
+    it('excludes self and drafts, prioritizes category + keyword overlap, and emits trailing-slash hrefs', () => {
+      const picks = selectRelatedArticles(sampleCorpus[0], sampleCorpus, 3);
+      expect(picks.map((p) => p.slug)).not.toContain('current-pmb-guide');
+      expect(picks.map((p) => p.slug)).not.toContain('hidden-draft');
+      expect(picks[0].category).toBe('mailbox-rentals');
+      expect(picks[1].category).toBe('mailbox-rentals');
+      for (const p of picks) {
+        expect(p.href).toMatch(/^\/articles\/[a-z0-9-]+\/$/);
+      }
+    });
+
+    it('produces deterministic ordering across repeated builds', () => {
+      const first = selectRelatedArticles(sampleCorpus[0], sampleCorpus, 3);
+      const second = selectRelatedArticles(sampleCorpus[0], sampleCorpus, 3);
+      expect(first).toEqual(second);
     });
   });
 });
