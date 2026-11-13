@@ -1,0 +1,200 @@
+{
+  "source_extracts": [
+    {
+      "label": "USPS FAQ \u2014 private carriers cannot deliver to PO Box",
+      "url": "https://faq.usps.com/s/article/PO-Box-The-Basics",
+      "quote": "UPS, FedEx, Amazon and other private carriers cannot deliver to a PO Box"
+    },
+    {
+      "label": "Amazon Seller Forums \u2014 Buy Shipping excludes USPS for PO Box orders",
+      "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/927b588c-1cbb-4cce-85bf-3fdc80eea639",
+      "quote": "For MF orders that ship to a PO Box, using the standard \"PO Box ####\" format for an address, Amazon won't allow a USPS solution for a label because \"USPS does not validate a PO Box so Buy Shipping labels are not available\"."
+    },
+    {
+      "label": "Amazon staff reply \u2014 USPS delivers to PO Boxes",
+      "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/927b588c-1cbb-4cce-85bf-3fdc80eea639",
+      "quote": "USPS delivers to PO Boxes located in USPS post offices."
+    },
+    {
+      "label": "Amazon Seller Forums \u2014 workaround via street address + box as unit",
+      "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/7d3fd44b-89d9-4586-9c2d-56b89aa11800",
+      "quote": "Another option is to buy shipping off Amazon and use the street address of the post office and the PO Box number as the unit number."
+    },
+    {
+      "label": "Supply Chain Dive \u2014 USPS/Amazon same-day pilot",
+      "url": "https://www.supplychaindive.com/news/usps-amazon-partner-on-same-day-delivery-pilot/831647/",
+      "quote": "USPS and Amazon launched a same-day delivery pilot (confirmed by Amazon spokesperson, published Sept 30 2026)"
+    },
+    {
+      "label": "Mailbox Plus pricing",
+      "url": "https://mailboxplusohio.com/private-mailbox-rental/",
+      "quote": "$25 plan includes 10 packages a month with carrier delivery and signing"
+    },
+    {
+      "label": "USPS Notice 123 \u2014 PO Box retail fees",
+      "url": "https://pe.usps.com/text/dmm300/Notice123.htm",
+      "quote": "Smallest PO Box at local post offices runs about $21 for three months"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$25/mo",
+      "scope": "Mailbox Plus 'Small \u00b7 +10 Packages' private mailbox tier; includes carrier package delivery and signing for 10 packages/month. Mail-only tier is $15 and does NOT include sign-for service."
+    },
+    {
+      "value": "10 packages/month",
+      "scope": "Package allowance included in the $25/mo Mailbox Plus Small tier with carrier delivery and signing."
+    },
+    {
+      "value": "$21 per three months",
+      "scope": "Approximate retail fee for the smallest USPS PO Box at local post offices per USPS Notice 123 (3-month term)."
+    },
+    {
+      "value": "$7\u2013$90+/month",
+      "scope": "Approximate range of USPS PO Box fees by box size and fee group per USPS Notice 123; use 'roughly' framing only."
+    },
+    {
+      "value": "$5",
+      "scope": "Ohio statutory fee cap per notarization for walk-in notary service at Mailbox Plus."
+    },
+    {
+      "value": "2900 / 720 / 720 searches per month",
+      "scope": "US monthly search volumes from Carrier Keyword Gap 2026-11-12: 'does amazon deliver to po box' (2900), 'can amazon ship to po box' (720), 'will amazon ship to a po box' (720); keyword family ~4k/mo. Internal data \u2014 never display on-page."
+    },
+    {
+      "value": "42 adjusted impressions per 90 days",
+      "scope": "GSC seed metric for 'amazon po box delivery' as of 2026-11-12. Internal only."
+    },
+    {
+      "value": "2-3 days",
+      "scope": "USPS Priority Mail domestic delivery window per usps.com."
+    },
+    {
+      "value": "30",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "2026",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "1583",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "$25",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "10",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "2",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "3",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "$21",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "123",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "$7",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "$90",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "1",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "7554",
+      "scope": "Mailbox Plus street address (7554 Fredle Dr)"
+    },
+    {
+      "value": "44077",
+      "scope": "Concord Township OH ZIP code"
+    },
+    {
+      "value": "306",
+      "scope": "Ohio State Route 306 near Fredle Drive"
+    },
+    {
+      "value": "44",
+      "scope": "Ohio State Route 44"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90"
+    },
+    {
+      "value": "440",
+      "scope": "Store area code (440-709-1946)"
+    },
+    {
+      "value": "709",
+      "scope": "Store phone prefix"
+    },
+    {
+      "value": "1946",
+      "scope": "Store phone line"
+    },
+    {
+      "value": "4",
+      "scope": "Four major carriers at counter (USPS, UPS, FedEx, DHL)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\bsuite\\s+#?\\d+\\b",
+      "reason": "DMM 508.1.8.3 requires PMB or # designator, never Suite"
+    },
+    {
+      "forbid": "\\btwo\\s+photo\\s+ids?\\b",
+      "reason": "USPS Form 1583 requires one photo ID and one proof of address, never two photo IDs"
+    },
+    {
+      "forbid": "\\bworks\\s+on\\s+(?:every|any)\\s+form\\b",
+      "reason": "Third-party form acceptance is never categorical"
+    },
+    {
+      "forbid": "\\b(?:in\\s+)?under\\s+(?:3|three|2|two|5|five)\\s+minutes\\b",
+      "reason": "Unapproved quantitative turnaround/SLA promise (Rule 3)"
+    },
+    {
+      "forbid": "any claim that Amazon itself delivers parcels to PO Boxes",
+      "reason": "USPS FAQ confirms private carriers including Amazon cannot deliver to PO Boxes; forum consensus confirms USPS handles last-mile to PO Boxes."
+    },
+    {
+      "forbid": "stating Amazon 'will not' or 'never' offers USPS labels for PO Boxes on Buy Shipping as universal policy",
+      "reason": "Seller reports show it is intermittent/validation-driven; some sellers report USPS Buy Shipping to PO Boxes works. Soften to 'often'/'in many cases', attributed to documented seller reports."
+    },
+    {
+      "forbid": "regex: (always|never|guaranteed|under \\d+ minutes|in \\d+ minutes|cheapest|best|#1|lowest price|thousands of|decades)",
+      "reason": "Forbidden superlatives, unverified turnaround promises, and unverified volume/experience counts per approved_store_claims."
+    },
+    {
+      "forbid": "any numeric claim not present in numeric_claims above",
+      "reason": "Precision mandate: only ledger/source-backed numbers may be registered."
+    },
+    {
+      "forbid": "regex: (every|all) (mailbox|tier).*(24/7|package)",
+      "reason": "Forbidden categorical claim that every tier includes package receiving or 24/7 access; only the $25 tier's 10-package allowance is verified."
+    },
+    {
+      "forbid": "displaying internal GSC/keyword volumes on-page",
+      "reason": "Search-volume figures are internal gate data, not customer-facing facts."
+    }
+  ],
+  "required_when": []
+}
