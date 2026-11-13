@@ -1,0 +1,226 @@
+{
+  "source_extracts": [
+    {
+      "label": "Ohio BMV \u2014 How to Title (used vehicle, paper title)",
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "The seller must complete the \u201cassignment of ownership\u201d portion on the back of the title and have their signature(s) notarized. Then present it to the buyer to finalize the transfer."
+    },
+    {
+      "label": "Ohio BMV \u2014 How to Title (30-day rule)",
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "Title transfers must take place within 30 days of the date of sale, otherwise a late fee will be assessed."
+    },
+    {
+      "label": "Ohio BMV \u2014 How to Title (electronic title, BMV 3770)",
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "Seller \u2013 Completes page 1 of the BMV 3770 in its entirety and has their signature(s) notarized. All owners must complete the assignment."
+    },
+    {
+      "label": "Ohio BMV \u2014 How to Title (what to bring to title office)",
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "Original title assigned to the buyer; Acceptable identification; For out-of-state titles only, an out-of-state vehicle identification number (VIN) inspection; Sales tax on the purchase price; Payment for title fees, including a lien holder notation (if applicable)"
+    },
+    {
+      "label": "Ohio BMV \u2014 Title Fees",
+      "url": "https://www.bmv.ohio.gov/doc-fees.aspx",
+      "quote": "The $18 title fee applies statewide. In some counties, the fee may be $23 if local officials approve an additional charge."
+    },
+    {
+      "label": "Ohio BMV \u2014 Out-of-State Vehicle Inspection fee",
+      "url": "https://www.bmv.ohio.gov/doc-fees.aspx",
+      "quote": "Out-of-State Vehicle Inspection | $8.00"
+    },
+    {
+      "label": "Ohio BMV \u2014 Other Fees, Notary Public Fee",
+      "url": "https://www.bmv.ohio.gov/doc-fees.aspx",
+      "quote": "Notary Public Fee | Up to $5.00"
+    },
+    {
+      "label": "Ohio Revised Code 147.08 \u2014 notary fee cap",
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-147.08",
+      "quote": "(1) Up to five dollars for any notarial act that is not an online notarization;"
+    },
+    {
+      "label": "ORC 4505.063 \u2014 dealer exception (HB 567, eff. April 6, 2023)",
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-4505.063",
+      "quote": "when a motor vehicle dealer licensed under Chapter 4517. of the Revised Code is a party to the transfer of a motor vehicle, no notarization is required on a motor vehicle certificate of title, an application for a motor vehicle certificate of title, assignment of ownership to the motor vehicle"
+    },
+    {
+      "label": "Ohio Secretary of State \u2014 Notary FAQ (ID validity)",
+      "url": "https://www.ohiosos.gov/notary/become-a-notary-in-ohio/resources-and-frequently-asked-questions",
+      "quote": "Inspect an acceptable government-issued ID (passport, driver license, or government-issued ID with a photo or signature). ID must be current or not expired for more than 3 years."
+    },
+    {
+      "label": "Ohio BMV \u2014 How to Title (titles issued by clerks, not BMV)",
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "Ohio titles are issued by Clerk of Courts title offices, the BMV does not issue titles."
+    },
+    {
+      "label": "Mailbox Plus notary service page (store's own fee, from siteConfig)",
+      "url": "https://mailboxplusohio.com/home-business/notary-services/",
+      "quote": "$5 per signature, as set by Ohio state law. No membership required. ... certified notary is on staff during all business hours. Walk in with your unsigned document and a valid ID."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$5",
+      "scope": "notary fee per notarial act / per signature \u2014 ORC 147.08 cap; store charges $5 per signature"
+    },
+    {
+      "value": "5",
+      "scope": "dollar figure in '$5 per signature'"
+    },
+    {
+      "value": "five dollars",
+      "scope": "word form of $5 notary fee"
+    },
+    {
+      "value": "$18",
+      "scope": "Ohio title fee statewide"
+    },
+    {
+      "value": "18",
+      "scope": "dollar figure in $18 title fee"
+    },
+    {
+      "value": "$23",
+      "scope": "title fee in counties approving a local additional charge"
+    },
+    {
+      "value": "23",
+      "scope": "dollar figure in $23 title fee"
+    },
+    {
+      "value": "$8",
+      "scope": "out-of-state vehicle VIN inspection fee"
+    },
+    {
+      "value": "8",
+      "scope": "dollar figure in $8 VIN inspection"
+    },
+    {
+      "value": "30",
+      "scope": "days after date of sale to complete title transfer before late fee"
+    },
+    {
+      "value": "thirty days",
+      "scope": "word form of the 30-day transfer window"
+    },
+    {
+      "value": "3 years",
+      "scope": "notary ID validity \u2014 current or expired no more than 3 years (SOS FAQ)"
+    },
+    {
+      "value": "3",
+      "scope": "digit in '3 years' ID validity and '3370' form number"
+    },
+    {
+      "value": "3770",
+      "scope": "BMV 3770 Ownership Assignment and Title Application for Casual Sale (electronic-title path)"
+    },
+    {
+      "value": "3774",
+      "scope": "BMV 3774 Application for Certificate of Title (referenced only if used)"
+    },
+    {
+      "value": "3771",
+      "scope": "BMV 3771 Power of Attorney for Certificate of Title (referenced only if used)"
+    },
+    {
+      "value": "4505.063",
+      "scope": "ORC section for the dealer notarization exception"
+    },
+    {
+      "value": "147.08",
+      "scope": "ORC section for notary fees"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number, 7554 Fredle Drive, Concord Township (approved facts.json)"
+    },
+    {
+      "value": "306",
+      "scope": "Route 306 (approved location phrasing)"
+    },
+    {
+      "value": "2",
+      "scope": "step number in the 3-step process / 'both pages' wording"
+    },
+    {
+      "value": "1",
+      "scope": "step number / 'page 1' of BMV 3770"
+    },
+    {
+      "value": "three",
+      "scope": "word form: 'three phone calls' scene texture"
+    },
+    {
+      "value": "four",
+      "scope": "word form: 'mess this up four ways' \u2014 count of listed near-misses, not a policy figure"
+    },
+    {
+      "value": "$8.00",
+      "scope": "out-of-state vehicle VIN inspection fee (BMV fee table)"
+    },
+    {
+      "value": "9:00",
+      "scope": "store opening hour 9:00 AM, siteConfig"
+    },
+    {
+      "value": "6:00",
+      "scope": "weekday closing hour 6:00 PM, siteConfig"
+    },
+    {
+      "value": "2:00",
+      "scope": "Saturday closing hour 2:00 PM, siteConfig"
+    },
+    {
+      "value": "00",
+      "scope": "minute component of listed store hours (9:00/6:00/2:00), siteConfig"
+    },
+    {
+      "value": "9",
+      "scope": "hour digit in 9:00 AM store opening (siteConfig)"
+    },
+    {
+      "value": "6",
+      "scope": "hour digit in 6:00 PM weekday closing (siteConfig)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "claiming the buyer's signature must be notarized on a paper-title assignment",
+      "reason": "BMV page requires the SELLER's signature(s) notarized on the assignment of ownership; buyer then finalizes the transfer at the title office"
+    },
+    {
+      "forbidden": "claiming notarization is no longer required in Ohio (blanket)",
+      "reason": "ORC 4505.063 waives notarization ONLY when a licensed dealer is a party to the transfer; private casual sales still require the seller's notarized assignment"
+    },
+    {
+      "forbidden": "stating the exact late-fee dollar amount",
+      "reason": "BMV page says 'a late fee will be assessed' without an amount on the fetched page; do not invent a figure"
+    },
+    {
+      "forbidden": "listing a specific county title-office address or hours",
+      "reason": "titles are issued by county Clerk of Courts offices; address not verified in this run \u2014 point readers to the BMV county office search"
+    },
+    {
+      "forbidden": "'works on every form' or categorical acceptance claims",
+      "reason": "standing Rule 3 constraint"
+    },
+    {
+      "forbidden": "per-signature pricing arithmetic implying multi-signer totals beyond the $5 cap",
+      "reason": "ORC 147.08(C): fees shall not be calculated on a per-signature basis by the notary; the store's published price is $5 per signature \u2014 do not construct scenarios beyond it"
+    }
+  ],
+  "required_when": [
+    {
+      "claim": "the seller's signature must be notarized",
+      "qualifier": "on a paper title assignment of ownership for a private (non-dealer) sale"
+    },
+    {
+      "claim": "buyer does not have to be present at the notarization",
+      "qualifier": "only the seller signs before the notary on the assignment; the buyer completes the transfer at the Clerk of Courts title office \u2014 frame as what the BMV instructions require, not a legal guarantee for every edge case"
+    }
+  ]
+}
