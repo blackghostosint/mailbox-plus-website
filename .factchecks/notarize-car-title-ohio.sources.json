@@ -185,6 +185,14 @@
     {
       "value": "6",
       "scope": "hour digit in 6:00 PM weekday closing (siteConfig)"
+    },
+    {
+      "value": "2023",
+      "scope": "year of the dealer-exception change (ORC 4505.063, HB 567 effective April 6, 2023 \u2014 codes.ohio.gov)"
+    },
+    {
+      "value": "440-709-1946",
+      "scope": "store phone number (siteConfig contact block / facts.json)"
     }
   ],
   "scope_rules": [
