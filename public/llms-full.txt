@@ -11007,16 +11007,16 @@ Because we are independent, we are not steering you toward one carrier's premium
 
 Here is the honest comparison, straight from USPS's own published service pages. Express is not a better Priority Mail — it is a different contract.
 
-| | **Priority Mail** | **Priority Mail Express** |
-|---|---|---|
-| Delivery time | 2-3 days, expected | 1-3 days, guaranteed by 6 PM |
-| Money-back guarantee | None | Yes, with limited exceptions |
-| Retail starting price | From $11.50 at a Post Office | From $37.05 at a Post Office |
-| Days delivered | Business days | 7 days a week, 365 days a year, with limited exceptions |
-| Sunday/holiday delivery | No | Yes, in many major markets, for an added fee |
-| Weight limit | 70 lbs | 70 lbs |
-| Included insurance | Up to $100 with most shipments | Up to $100 with most shipments; more available up to $5,000 |
-| Delivery to PO Boxes | Yes | Yes, most addresses and PO Boxes |
+|                         | **Priority Mail**              | **Priority Mail Express**                                   |
+| ----------------------- | ------------------------------ | ----------------------------------------------------------- |
+| Delivery time           | 2-3 days, expected             | 1-3 days, guaranteed by 6 PM                                |
+| Money-back guarantee    | None                           | Yes, with limited exceptions                                |
+| Retail starting price   | From $11.50 at a Post Office   | From $37.05 at a Post Office                                |
+| Days delivered          | Business days                  | 7 days a week, 365 days a year, with limited exceptions     |
+| Sunday/holiday delivery | No                             | Yes, in many major markets, for an added fee                |
+| Weight limit            | 70 lbs                         | 70 lbs                                                      |
+| Included insurance      | Up to $100 with most shipments | Up to $100 with most shipments; more available up to $5,000 |
+| Delivery to PO Boxes    | Yes                            | Yes, most addresses and PO Boxes                            |
 
 Three things that table doesn't show, and they matter:
 
