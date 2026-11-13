@@ -1,0 +1,53 @@
+---
+import type { RelatedArticleLink } from '../utils/internal-links';
+
+interface Props {
+  articles: RelatedArticleLink[];
+}
+
+const { articles } = Astro.props;
+---
+
+{articles && articles.length > 0 && (
+  <section aria-labelledby="related-guides-heading" class="mt-16 pt-10 border-t border-[var(--color-border)]">
+    <h2 id="related-guides-heading" class="text-2xl font-bold mb-6 text-[var(--color-text-primary)]">
+      Related Guides
+    </h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      {articles.map((item) => (
+        <a
+          href={item.href}
+          class="group flex flex-col justify-between p-5 rounded-xl transition-all duration-300 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)]"
+        >
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary-dark)] mb-2">
+              {item.category.replace(/-/g, ' ')}
+            </p>
+            <h3 class="text-base font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] mb-2 leading-snug">
+              {item.title}
+            </h3>
+            {item.description && (
+              <p class="text-sm text-[var(--color-text-secondary)] line-clamp-3 leading-relaxed">
+                {item.description}
+              </p>
+            )}
+          </div>
+          <div class="mt-4 flex items-center gap-1 text-sm font-semibold text-[var(--color-primary-dark)]">
+            <span>Read guide</span>
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="w-4 h-4 transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

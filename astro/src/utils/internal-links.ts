@@ -67,3 +67,90 @@ export const getRelatedServices = (serviceId: ServiceId) => {
 export const getParentPillar = (serviceId: ServiceId) => {
   return getParentPillarByServiceId(serviceId) || null;
 };
+
+export interface RelatedArticleInput {
+  slug: string;
+  title: string;
+  description?: string;
+  category: string;
+  keywords?: string[];
+  location?: string;
+  status?: string;
+}
+
+export interface RelatedArticleLink {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  href: string;
+}
+
+const STOP_WORDS = new Set([
+  'the',
+  'and',
+  'for',
+  'with',
+  'from',
+  'how',
+  'what',
+  'when',
+  'where',
+  'why',
+  'your',
+  'near',
+  'ohio',
+]);
+
+function extractTopicTokens(item: RelatedArticleInput): Set<string> {
+  const raw = [item.title || '', ...(item.keywords || [])].join(' ').toLowerCase();
+  const matches = raw.match(/[a-z0-9]{3,}/g) || [];
+  return new Set(matches.filter((w) => !STOP_WORDS.has(w)));
+}
+
+export function selectRelatedArticles(
+  current: RelatedArticleInput,
+  corpus: RelatedArticleInput[],
+  limit = 3
+): RelatedArticleLink[] {
+  const currentTokens = extractTopicTokens(current);
+  const scored: { score: number; tie: number; item: RelatedArticleInput }[] = [];
+
+  for (const cand of corpus) {
+    if (!cand?.slug || cand.slug === current.slug) continue;
+    const st = (cand.status || 'published').toLowerCase();
+    if (st === 'draft' || st === 'draft-noindex') continue;
+
+    let score = 0;
+    if (cand.category === current.category) score += 10;
+
+    const candTokens = extractTopicTokens(cand);
+    for (const tok of currentTokens) {
+      if (candTokens.has(tok)) score += 3;
+    }
+
+    if (
+      current.location &&
+      cand.location &&
+      current.location !== 'concord-township' &&
+      cand.location === current.location
+    ) {
+      score += 2;
+    }
+
+    const tie = Math.abs(hashString(`${current.slug}:${cand.slug}`));
+    scored.push({ score, tie, item: cand });
+  }
+
+  scored.sort(
+    (a, b) => b.score - a.score || a.tie - b.tie || a.item.slug.localeCompare(b.item.slug)
+  );
+
+  return scored.slice(0, limit).map(({ item }) => ({
+    slug: item.slug,
+    title: item.title,
+    description: item.description || '',
+    category: item.category,
+    href: normalizeHref(`/articles/${item.slug}`),
+  }));
+}

@@ -1322,13 +1322,27 @@ function cmdArticle(arg, isStrict = false) {
           check(r.name, r.pass, r.detail, r.fix);
         }
       } catch (e) {
-        const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-        check(
-          'claims:verify',
-          false,
-          `gate error: ${stderr}`,
-          'inspect scripts/verify/claims-gate.js'
-        );
+        let unwrapped = false;
+        if (e.stdout) {
+          try {
+            const parsedErr = JSON.parse(String(e.stdout).trim());
+            if (Array.isArray(parsedErr)) {
+              for (const r of parsedErr) check(r.name, r.pass, r.detail, r.fix);
+              unwrapped = true;
+            }
+          } catch {
+            // fall through to gate error
+          }
+        }
+        if (!unwrapped) {
+          const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
+          check(
+            'claims:verify',
+            false,
+            `gate error: ${stderr}`,
+            'inspect scripts/verify/claims-gate.js'
+          );
+        }
       }
     }
 
@@ -1344,7 +1358,19 @@ function cmdArticle(arg, isStrict = false) {
         const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
         const out2 = execFileSync(
           nodeCmd,
-          [sourceGate, '--slug', slug, '--article', abs, '--root', ROOT, '--drafts', DRAFTS_DIR],
+          [
+            '--import',
+            'tsx',
+            sourceGate,
+            '--slug',
+            slug,
+            '--article',
+            abs,
+            '--root',
+            ROOT,
+            '--drafts',
+            DRAFTS_DIR,
+          ],
           {
             cwd: ROOT,
             encoding: 'utf8',
@@ -1355,13 +1381,27 @@ function cmdArticle(arg, isStrict = false) {
           check(r.name, r.pass, r.detail, r.fix);
         }
       } catch (e) {
-        const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-        check(
-          'source:constraints',
-          false,
-          `gate error: ${stderr}`,
-          'inspect scripts/verify/source-constraint-gate.mjs'
-        );
+        let unwrapped = false;
+        if (e.stdout) {
+          try {
+            const parsedErr = JSON.parse(String(e.stdout).trim());
+            if (Array.isArray(parsedErr)) {
+              for (const r of parsedErr) check(r.name, r.pass, r.detail, r.fix);
+              unwrapped = true;
+            }
+          } catch {
+            // fall through to gate error
+          }
+        }
+        if (!unwrapped) {
+          const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
+          check(
+            'source:constraints',
+            false,
+            `gate error: ${stderr}`,
+            'inspect scripts/verify/source-constraint-gate.mjs'
+          );
+        }
       }
     }
 
