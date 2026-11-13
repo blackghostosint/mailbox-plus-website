@@ -25,7 +25,11 @@
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import path from 'node:path';
 import { readFileSync, existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { getPRContext } from './pr-utils.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DEFAULT_ROOT = path.resolve(__dirname, '..', '..');
 
 const HEADING = /#{2,4}\s*business\s+claims/i;
 const MIN_SECTION_CHARS = 120; // heading + real ledger content, not a bare word
@@ -55,7 +59,27 @@ const CLAIM_PATTERNS = [
     category: 'packing-guidance',
     re: /\b(?:we|our (?:team|staff|clerk|experts?))\s+(?:pack|wrap|crate|box|cushion)\w*\b|\bprofessional(?:ly)?\s+pack\w*\b/gi,
   },
+  {
+    category: 'turnaround-promise',
+    re: /\b(?:in\s+)?under\s+(?:\d+|two|three|five|ten)\s+minutes\b|\b(?:two|three|five)[- ]minute\s+(?:fix|turnaround|setup|drop[- ]?off)\b|\bguaranteed\s+same[- ](?:hour|day)\b/gi,
+  },
 ];
+
+export function loadApprovedStoreClaims(root = DEFAULT_ROOT) {
+  const manifestPath = path.join(root, 'content', 'approved-store-claims.json');
+  if (!existsSync(manifestPath)) {
+    throw new Error(`Missing canonical store claims manifest: ${manifestPath}`);
+  }
+  const parsed = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  if (
+    !parsed.version ||
+    !Array.isArray(parsed.approved_capabilities) ||
+    !Array.isArray(parsed.forbidden_without_signoff)
+  ) {
+    throw new Error(`Invalid schema in ${manifestPath}`);
+  }
+  return parsed;
+}
 
 const ARTICLE_PATH = /^content\/articles\/.*\.md$/;
 

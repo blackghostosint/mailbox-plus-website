@@ -1,0 +1,19 @@
+{
+  "version": "2026-11-12",
+  "owner_approved_by": "Frank Schwarz",
+  "approved_capabilities": [
+    "Concord Township counter at 7554 Fredle Dr ships via USPS, UPS, FedEx, and DHL",
+    "Staff boxes, packs, tapes, weighs, and prints labels for items brought in unboxed or untaped",
+    "Accepts pre-labeled drop-off packages for UPS, FedEx, USPS, and DHL",
+    "Accepts QR-code returns for Happy Returns (no box or label needed)",
+    "Rents Private Mailboxes (PMB) with real street address formatting (# or PMB, never Suite); Mail-Only and package-receiving tiers differ per published pricing page",
+    "Provides walk-in notary public (Ohio statutory fee cap $5 per notarization), digital fax send/receive (no customer-operated physical fax machine or printed confirmation slip), document shredding, scanning, and printing"
+  ],
+  "forbidden_without_signoff": [
+    "Quantitative turnaround or wait-time promises ('under 3 minutes', 'in two minutes', 'guaranteed same-hour')",
+    "Superlatives ('cheapest', 'best', '#1', 'lowest price')",
+    "Unverified volume/experience counts ('thousands of packages', 'decades')",
+    "Categorical claims that every mailbox tier includes package receiving or 24/7 access",
+    "Categorical claims about competitor internal operations not backed by an official URL in .factchecks/"
+  ]
+}
