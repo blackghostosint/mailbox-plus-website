@@ -298,9 +298,10 @@ export function parsePRCliArgs(args = process.argv) {
  * @param {string} [options.root=process.cwd()]
  * @param {string} [options.bodyFile]
  * @param {string|string[]} [options.filesFile]
+ * @param {Record<string, string> | null} [options.fileStatuses]
  * @param {string} [options.author]
  * @param {boolean} [options.isLocal]
- * @returns {{ body: string, changedFiles: string[], author: string, isLocal: boolean, isCi: boolean, prNumber: string|number|null }}
+ * @returns {{ body: string, changedFiles: string[], fileStatuses: Record<string, string> | null, author: string, isLocal: boolean, isCi: boolean, prNumber: string|number|null }}
  */
 export function getPRContext(options = {}) {
   const args = options.args || process.argv;

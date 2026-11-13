@@ -39,6 +39,7 @@ export { detectLocalChangedFiles, detectLocalBodyFile };
  * @param {Object} [options]
  * @param {string} [options.body]
  * @param {string[]} [options.changedFiles]
+ * @param {Record<string, string> | null} [options.fileStatuses]
  * @param {string} [options.author]
  * @param {boolean} [options.isLocal]
  */
