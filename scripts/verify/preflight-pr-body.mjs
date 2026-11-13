@@ -23,6 +23,7 @@ import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { checkAuthModel } from './check-auth-model.mjs';
 import { checkOwnerClaims } from './check-owner-claims.mjs';
 import { checkArticleOwnership } from './check-article-ownership.mjs';
+import { checkArticlePaperwork } from './check-article-paperwork.mjs';
 import {
   readPRBody,
   readFilesList,
@@ -38,12 +39,14 @@ export { detectLocalChangedFiles, detectLocalBodyFile };
  * @param {Object} [options]
  * @param {string} [options.body]
  * @param {string[]} [options.changedFiles]
+ * @param {Record<string, string> | null} [options.fileStatuses]
  * @param {string} [options.author]
  * @param {boolean} [options.isLocal]
  */
 export function validatePRBody({
   body = '',
   changedFiles = /** @type {string[]} */ ([]),
+  fileStatuses = null,
   author = '',
   isLocal = true,
 } = {}) {
@@ -69,6 +72,7 @@ export function validatePRBody({
   const ownerRes = checkArticleOwnership({
     body,
     changedFiles,
+    fileStatuses,
     author: author || 'blackghostosint',
     isLocal,
   });
@@ -76,6 +80,18 @@ export function validatePRBody({
     gate: 'check-article-ownership',
     success: ownerRes.success,
     message: ownerRes.message,
+  });
+
+  // 4. Article Workflow Paperwork (Rule 6: receipt ref + copy review score)
+  const rule6Res = checkArticlePaperwork({
+    body,
+    changedFiles,
+    fileStatuses,
+  });
+  results.push({
+    gate: 'check-article-paperwork',
+    success: rule6Res.success,
+    message: rule6Res.message,
   });
 
   const allPassed = results.every((r) => r.success);
