@@ -10977,7 +10977,7 @@ The system that keeps tripping people up is the gap between "expected" and "guar
 
 Priority Mail is USPS's workhorse: 2-3 days in most cases, priced by weight and zone (or Flat Rate), up to 70 lbs. But read the fine print USPS itself puts on the page: the expected delivery date printed on your receipt "does not come with a money-back guarantee." If it lands on day four, your refund is the apology in your inbox. Nothing else.
 
-Priority Mail Express is the only domestic service USPS sells with a money-back guarantee: 1-3 days, delivered by 6 PM on the scheduled day. Miss the guaranteed date and time on your receipt and you can file a refund request within 30 days of the mailing date. That piece of paper is the entire difference between the two tiers — one promises you a number, the other promises you a number and puts its own money behind it.
+Priority Mail Express is the USPS domestic service that carries a money-back guarantee: 1-3 days, delivered by 6 PM on the scheduled day. Miss the guaranteed date and time on your receipt and you can file a refund request within 30 days of the mailing date. That piece of paper is the entire difference between the two tiers — one promises you a number, the other promises you a number and puts its own money behind it.
 
 The system is legal, it is published, and almost nobody reads it. It is not a scam. It is two products priced for two very different stakes — and the counter clerk will not always know which one you need, because only you know what a missed day costs.
 
@@ -11007,16 +11007,16 @@ Because we are independent, we are not steering you toward one carrier's premium
 
 Here is the honest comparison, straight from USPS's own published service pages. Express is not a better Priority Mail — it is a different contract.
 
-|                         | **Priority Mail**                                            | **Priority Mail Express**                                   |
-| ----------------------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| Delivery time           | 2-3 days, expected                                           | 1-3 days, guaranteed by 6 PM                                |
-| Money-back guarantee    | None                                                         | Yes, with limited exceptions                                |
-| Retail starting price   | From $11.50 at a Post Office                                 | From $37.05 at a Post Office                                |
-| Days delivered          | Monday through Saturday (no surcharge for Saturday delivery) | 7 days a week, 365 days a year, with limited exceptions     |
-| Sunday/holiday delivery | No                                                           | Yes, in many major markets, for an added fee                |
-| Weight limit            | 70 lbs                                                       | 70 lbs                                                      |
-| Included insurance      | Up to $100 with most shipments                               | Up to $100 with most shipments; more available up to $5,000 |
-| Delivery to PO Boxes    | Yes                                                          | Yes, most addresses and PO Boxes                            |
+| | **Priority Mail** | **Priority Mail Express** |
+|---|---|---|
+| Delivery time | 2-3 days, expected | 1-3 days, guaranteed by 6 PM |
+| Money-back guarantee | None | Yes, with limited exceptions |
+| Retail starting price | From $11.50 at a Post Office | From $37.05 at a Post Office |
+| Days delivered | Monday through Saturday (no surcharge for Saturday delivery) | 7 days a week, 365 days a year, with limited exceptions |
+| Sunday/holiday delivery | No | Yes, in many major markets, for an added fee |
+| Weight limit | 70 lbs | 70 lbs |
+| Included insurance | Up to $100 with most shipments | Up to $100 with most shipments; more available up to $5,000 |
+| Delivery to PO Boxes | Yes | Yes, most addresses and PO Boxes |
 
 Three things that table doesn't show, and they matter:
 
@@ -11024,9 +11024,9 @@ Three things that table doesn't show, and they matter:
 
 **Where the hidden fees are.** Both services price by weight and zone when you use your own box, and both add nonstandard fees: $4.50 for a package between 22 and 30 inches long, $21.00 over 30 inches, and $35.00 over 2 cubic feet. Flat Rate packaging is exempt from all of them — which is why an oddly-shaped item sometimes prices out better in a Flat Rate box even when it "feels" heavier.
 
-**Where Express quietly loses.** If your package is going zone-to-adjacent-zone and nothing is time-sensitive, Express buys you, on a good day, one day earlier and a promise. Priority Mail does the same physical job at a fraction of the price. USPS itself calls Priority Mail its bestselling service for a reason — most mail is not an emergency, and paying emergency prices for routine mail is the most common overspend at any shipping counter. (And if 2-3 days still feels slow, we've written about [what "same-day delivery" actually means](/articles/same-day-delivery-expectation/) and why no one truly does it.)
+**Where Express quietly loses.** If your package is going zone-to-adjacent-zone and nothing is time-sensitive, Express buys you, on a good day, one day earlier and a promise. Priority Mail does the same physical job at a fraction of the price. USPS itself calls Priority Mail its bestselling service for a reason — most mail is not an emergency, and paying emergency prices for routine mail is the easiest way to overpay on a shipment. (And if 2-3 days still feels slow, we've written about [what "same-day delivery" actually means](/articles/same-day-delivery-expectation/) and why no one truly does it.)
 
-The flip side is just as real. Express delivers on Saturday and Sunday without the weekend being a wait, delivers to most PO Boxes, delivers by 6 PM on the scheduled day, and includes proof of delivery signature record if you request it at purchase. When a date matters — legally, financially, or personally — that is the service built for it.
+The flip side is just as real. Express delivers Saturdays with no surcharge and offers Sunday delivery in many major markets for an added fee, reaches most U.S. addresses and PO Boxes, delivers by 6 PM on the scheduled day, and includes proof of delivery signature record if you request it at purchase. When a date matters — legally, financially, or personally — that is the service built for it.
 
 ## Hand It Over: Three Steps to Offload It
 
