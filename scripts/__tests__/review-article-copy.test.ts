@@ -6,6 +6,9 @@ import {
   globMatch,
   resolveFiles,
   evaluateArticle,
+  shouldEscalateBorderline,
+  resolveReviewVerdict,
+  printReport,
 } from '../review-article-copy.ts';
 
 describe('review-article-copy', () => {
@@ -111,6 +114,84 @@ describe('review-article-copy', () => {
         expect(mockFetch).toHaveBeenCalledTimes(2);
       } finally {
         vi.unstubAllGlobals();
+      }
+    });
+  });
+
+  describe('scale-separated borderline escalation and verdict reporting', () => {
+    it('escalates only in [78, 84] for non-kimi models', () => {
+      expect(shouldEscalateBorderline('deepseek/deepseek-v4.1-flash', 90)).toBe(false);
+      expect(shouldEscalateBorderline('deepseek/deepseek-v4.1-flash', 85)).toBe(false);
+      expect(shouldEscalateBorderline('deepseek/deepseek-v4.1-flash', 84)).toBe(true);
+      expect(shouldEscalateBorderline('deepseek/deepseek-v4.1-flash', 78)).toBe(true);
+      expect(shouldEscalateBorderline('deepseek/deepseek-v4.1-flash', 77)).toBe(false);
+      expect(shouldEscalateBorderline('moonshotai/kimi-k2.6', 81)).toBe(false);
+    });
+
+    it('keeps flash score as total_score and PASS when K2.6 advisory rescore is >= 60', () => {
+      const base = {
+        total_score: 81,
+        executive_summary: 'Base summary',
+        flagged_passages: [],
+        dimensions: { fluff_density: { score: 16, critique: 'Base' } },
+      };
+      const rescore = {
+        total_score: 68,
+        executive_summary: 'Harsher K2.6 summary',
+        flagged_passages: [{ dimension: 'fluff', quote: 'x', problem: 'tighten', fix: 'y' }],
+        dimensions: { fluff_density: { score: 13, critique: 'K2.6 critique' } },
+      };
+
+      const { result, failed } = resolveReviewVerdict(
+        base,
+        rescore,
+        'deepseek/deepseek-v4.1-flash',
+        'moonshotai/kimi-k2.6',
+        70
+      );
+
+      expect(failed).toBe(false);
+      expect(result.total_score).toBe(81);
+      expect(result.gate_score).toBe(81);
+      expect(result.escalation.rescore_score).toBe(68);
+      expect(result.flagged_passages).toHaveLength(1);
+
+      const spy = vi.spyOn(console, 'log').mockImplementation(() => {});
+      try {
+        printReport('notarize-car-title-ohio.md', result, 70);
+        const out = spy.mock.calls.map((c) => c.join(' ')).join('\n');
+        expect(out).toContain('Score: 81/100 (PASS, floor 70)');
+        expect(out).toContain('Advisory rescore (moonshotai/kimi-k2.6): 68/100');
+        expect(out).not.toContain('Score: 68/100 (FAIL)');
+      } finally {
+        spy.mockRestore();
+      }
+    });
+
+    it('triggers hard-floor FAIL veto when K2.6 rescore falls below 60', () => {
+      const base = { total_score: 82 };
+      const rescore = { total_score: 54 };
+
+      const { result, failed } = resolveReviewVerdict(
+        base,
+        rescore,
+        'deepseek/deepseek-v4.1-flash',
+        'moonshotai/kimi-k2.6',
+        70
+      );
+
+      expect(failed).toBe(true);
+      expect(result.total_score).toBe(74);
+      expect(result.verdict_note).toContain('K2.6 hard-floor veto');
+
+      const spy = vi.spyOn(console, 'log').mockImplementation(() => {});
+      try {
+        printReport('bad-draft.md', result, 70);
+        const out = spy.mock.calls.map((c) => c.join(' ')).join('\n');
+        expect(out).toContain('(FAIL, floor 70)');
+        expect(out).toContain('K2.6 hard-floor veto');
+      } finally {
+        spy.mockRestore();
       }
     });
   });
