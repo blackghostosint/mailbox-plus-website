@@ -23,6 +23,7 @@ import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { checkAuthModel } from './check-auth-model.mjs';
 import { checkOwnerClaims } from './check-owner-claims.mjs';
 import { checkArticleOwnership } from './check-article-ownership.mjs';
+import { checkArticlePaperwork } from './check-article-paperwork.mjs';
 import {
   readPRBody,
   readFilesList,
@@ -76,6 +77,17 @@ export function validatePRBody({
     gate: 'check-article-ownership',
     success: ownerRes.success,
     message: ownerRes.message,
+  });
+
+  // 4. Article Workflow Paperwork (Rule 6: receipt ref + copy review score)
+  const rule6Res = checkArticlePaperwork({
+    body,
+    changedFiles,
+  });
+  results.push({
+    gate: 'check-article-paperwork',
+    success: rule6Res.success,
+    message: rule6Res.message,
   });
 
   const allPassed = results.every((r) => r.success);

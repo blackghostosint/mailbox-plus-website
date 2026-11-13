@@ -48,9 +48,15 @@ describe('preflight-pr-body', () => {
     expect(ownerGate?.success).toBe(false);
   });
 
-  it('passes if content/articles changed and authorship stamp is present', () => {
+  it('passes if content/articles changed and authorship stamp + Rule-6 paperwork are present', () => {
     const res = validatePRBody({
-      body: '## What this changes\n\nNew article.\n\nauthorship: article-writer-bot (in-house)',
+      body: [
+        '## What this changes',
+        'New article.',
+        '- Fact-check receipt: `.factchecks/test.factcheck.md`',
+        '- Copy review score: 86/100 PASS',
+        'authorship: article-writer-bot (in-house)',
+      ].join('\n'),
       changedFiles: ['content/articles/pack-ship/test.md'],
       author: 'blackghostosint',
       isLocal: false,
