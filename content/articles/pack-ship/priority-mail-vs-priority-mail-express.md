@@ -90,7 +90,7 @@ Here is the honest comparison, straight from USPS's own published service pages.
 | Money-back guarantee    | None                                                         | Yes, with limited exceptions                                |
 | Retail starting price   | From $11.50 at a Post Office                                 | From $37.05 at a Post Office                                |
 | Days delivered          | Monday through Saturday (no surcharge for Saturday delivery) | 7 days a week, 365 days a year, with limited exceptions     |
-| Sunday/holiday delivery | No                                                           | Yes, in many major markets, for an added fee                |
+| Sunday/holiday delivery | No, except Amazon parcels                                    | Yes, in many major markets, for an added fee                |
 | Weight limit            | 70 lbs                                                       | 70 lbs                                                      |
 | Included insurance      | Up to $100 with most shipments                               | Up to $100 with most shipments; more available up to $5,000 |
 | Delivery to PO Boxes    | Yes                                                          | Yes, most addresses and PO Boxes                            |
@@ -103,7 +103,7 @@ Three things that table doesn't show, and they matter:
 
 **Where Express quietly loses.** If your package is going zone-to-adjacent-zone and nothing is time-sensitive, Express buys you, on a good day, one day earlier and a promise. Priority Mail does the same physical job at a fraction of the price. USPS itself calls Priority Mail its bestselling service for a reason — most mail is not an emergency, and paying emergency prices for routine mail is the easiest way to overpay on a shipment. (And if 2-3 days still feels slow, we've written about [what "same-day delivery" actually means](/articles/same-day-delivery-expectation/) and why no one truly does it.)
 
-The flip side is just as real. Express delivers Saturdays with no surcharge and offers Sunday delivery in many major markets for an added fee, reaches most U.S. addresses and PO Boxes, delivers by 6 PM on the scheduled day, and includes proof of delivery signature record if you request it at purchase. When a date matters — legally, financially, or personally — that is the service built for it.
+The flip side is just as real. Express delivers every day, all year — Saturdays included, Sundays in many major markets for an added fee — reaches most U.S. addresses and PO Boxes, delivers by 6 PM on the scheduled day, and includes proof of delivery signature record if you request it at purchase. When a date matters — legally, financially, or personally — that is the service built for it.
 
 ## Hand It Over: Three Steps to Offload It
 
