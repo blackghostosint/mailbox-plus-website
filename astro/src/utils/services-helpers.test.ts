@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { services } from '../config/services';
+import { pillarConfigs } from '../config/pillars';
 import {
   getServicesByCategory,
   getPopularServices,
@@ -43,6 +44,19 @@ describe('services-helpers', () => {
     it('returns undefined for unknown ID', () => {
       const result = getServiceById('nonexistent');
       expect(result).toBeUndefined();
+    });
+
+    it('asserts exact linking metadata parity between core services and pillar configs', () => {
+      for (const pillarId of ['pack-ship', 'copy-print']) {
+        const service = getServiceById(pillarId);
+        const pillar = pillarConfigs.find((p) => p.id === pillarId);
+        expect(service).toBeDefined();
+        expect(pillar).toBeDefined();
+        expect(service?.internalLink).toBeDefined();
+        expect(service?.anchorText).toBeDefined();
+        expect(service?.internalLink).toEqual(pillar?.internalLink);
+        expect(service?.anchorText).toEqual(pillar?.anchorText);
+      }
     });
   });
 
