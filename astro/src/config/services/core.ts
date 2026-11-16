@@ -8,6 +8,10 @@ import Star from '~icons/lucide/star';
 import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/media';
 import { packShipFaqs, generalCopyPrintFaqs } from '../faqs';
+import { pillarConfigs } from '../pillars';
+
+const packShipPillar = pillarConfigs.find((p) => p.id === 'pack-ship');
+const copyPrintPillar = pillarConfigs.find((p) => p.id === 'copy-print');
 
 export const coreServices: Service[] = [
   // ---------------------------
@@ -15,35 +19,8 @@ export const coreServices: Service[] = [
   // ---------------------------
   {
     id: 'pack-ship',
-    internalLink: {
-      parent: null,
-      related: [
-        'fedex-shipping',
-        'ups-shipping',
-        'usps-services',
-        'dhl-express',
-        'professional-packing',
-        'packaging-supplies',
-        'package-drop-offs',
-        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
-        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
-        'print-amazon-return-label',
-        'print-return-label-without-printer',
-        'return-without-original-box',
-        'package-a-return-so-its-accepted-by-the-carrier',
-        'ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment',
-        'unsure-of-carrier-rules',
-        'mailing-services-concord-ohio',
-        'ship-a-return-with-strict-size-or-weight-limits',
-        'pickup-hours',
-      ],
-      priority: true,
-    },
-    anchorText: {
-      exact: ['Pack & Ship', 'Packing and Shipping'],
-      lsi: ['shipping services', 'parcel delivery', 'shipping store', 'send a package'],
-      geo: ['shipping store in Concord Township', 'pack and ship near Mentor'],
-    },
+    internalLink: packShipPillar?.internalLink,
+    anchorText: packShipPillar?.anchorText,
     category: 'core',
     city: 'Concord Township',
     serviceName: 'Pack & Ship',
@@ -228,35 +205,8 @@ export const coreServices: Service[] = [
   },
   {
     id: 'copy-print',
-    internalLink: {
-      parent: null,
-      related: [
-        'document-printing',
-        'business-cards',
-        'flyers-brochures',
-        'posters-printing',
-        'postcard-printing',
-        'graphic-design',
-        'copies',
-        'office-depot-alternative-concord-township',
-      ],
-      priority: true,
-    },
-    anchorText: {
-      exact: ['Copy & Print', 'Copy and Print Services', 'Printing Center'],
-      lsi: [
-        'printing services',
-        'copy center',
-        'digital printing',
-        'professional printing',
-        'document solutions',
-      ],
-      geo: [
-        'copy and print in Concord Township',
-        'printing center near Mentor',
-        'copy services in Lake County',
-      ],
-    },
+    internalLink: copyPrintPillar?.internalLink,
+    anchorText: copyPrintPillar?.anchorText,
     category: 'core',
     city: 'Concord Township',
     serviceName: 'Copy & Print',
