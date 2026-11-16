@@ -14,7 +14,7 @@ quickAnswer: >-
   First-Class Mail International size limits match the domestic ones, but its
   large-envelope weight cap runs about 15.994 oz versus 13 oz domestic.
 
-image: 'articles/store-library/counter/counter-01.webp'
+image: 'articles/pack-ship/envelope-sizes-usps-chart-featured.webp'
 imageAlt: 'A stack of envelopes of different sizes next to a postal scale on the counter at a packing and shipping store in Concord Township, Ohio.'
 keywords: ['envelope sizes usps chart', 'usps letter size limits', 'nonmachinable surcharge', 'usps large envelope']
 relatedServices:
@@ -106,7 +106,7 @@ The counter at Mailbox Plus, 7554 Fredle Dr in Concord Township, handles USPS, U
 
 For the envelope question specifically: you bring the envelope, sealed or not, and staff weigh it and help determine correct postage. You don't stand there with a ruler and a chart. You hand it over, they measure and weigh, they tell you what it costs, and you're done. If it's lumpy and nonmachinable, they'll tell you that before you pay, not after it comes back.
 
-![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
+![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/box-on-scale-01.webp)
 
 If your envelope turns out to actually be a package — over 3/4" thick, or lumpy enough to lose flat pricing — the [professional packing service](/pack-ship/professional-packing/) handles that too. The category doesn't matter to you; it gets sorted out at the counter either way.
 
