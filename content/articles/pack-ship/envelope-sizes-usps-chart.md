@@ -16,7 +16,13 @@ quickAnswer: >-
 
 image: 'articles/pack-ship/envelope-sizes-usps-chart-featured.webp'
 imageAlt: 'A stack of envelopes of different sizes next to a postal scale on the counter at a packing and shipping store in Concord Township, Ohio.'
-keywords: ['envelope sizes usps chart', 'usps letter size limits', 'nonmachinable surcharge', 'usps large envelope']
+keywords:
+  [
+    'envelope sizes usps chart',
+    'usps letter size limits',
+    'nonmachinable surcharge',
+    'usps large envelope',
+  ]
 relatedServices:
   ['/pack-ship/package-drop-offs/', '/pack-ship/', '/pack-ship/professional-packing/']
 
@@ -32,10 +38,9 @@ faqs:
 author: 'Reviewed by Frank Schwarz, COO'
 ---
 
-
 ## This Shouldn't Be a Chore
 
-You've got an envelope in your hand. Maybe it's a stack of invoices, maybe it's a birthday card with a photo tucked inside, maybe it's a padded mailer going to your sister in another state. And the question in your head is the same one that sends people to the USPS website at odd hours: *what size is this, and what does it cost?*
+You've got an envelope in your hand. Maybe it's a stack of invoices, maybe it's a birthday card with a photo tucked inside, maybe it's a padded mailer going to your sister in another state. And the question in your head is the same one that sends people to the USPS website at odd hours: _what size is this, and what does it cost?_
 
 Here's the outcome you want: you walk up to a counter, someone weighs it, tells you what it is, and you pay the right amount. That's it. No guessing, no returned mail, no surprise surcharges.
 
@@ -51,7 +56,7 @@ A letter envelope qualifies for First-Class Mail letter prices if it's up to **1
 
 Cross that line and you're into **large envelope (flat) territory: 11-1/2"–15" long, 6-1/8"–12" high, and up to 3/4" thick**. The price jumps too. A Forever stamp covers a 1 oz letter at **$0.82**. A flat starts at **$1.69** for 1 oz domestically. Nobody warns you at the moment you seal the envelope.
 
-And there's a floor as well as a ceiling. The minimum mailable size for anything 1/4" thick or less is **5" long x 3-1/2" high x 0.007" thick**. That 0.007" minimum exists because very thin, very small pieces jam sorting equipment. If your piece is under that, USPS won't take it — it gets returned.
+And there's a floor as well as a ceiling. The minimum mailable size for anything 1/4" thick or less is **5" long x 3-1/2" high x 0.007" thick**. That 0.007" minimum exists because very thin, very small pieces jam sorting equipment. If your piece is under that, it falls below USPS minimum size and may be returned to sender.
 
 Then there's the surcharge nobody sees coming. If your letter is rigid, lumpy, square, vertical, or has a clasp, string, or button closure, it's "nonmachinable" — the sorting equipment can't handle it — and you pay an extra **$0.49**. And if a flat is nonrectangular, rigid, or lumpy, it doesn't get the flat rate at all. It gets charged the **package** price.
 
@@ -70,28 +75,34 @@ That's the gap. The rules are real, the cutoffs are real, and the average person
 Let's put the whole chart in one place, so you can see the boundaries clearly.
 
 **Letters (First-Class Mail letter prices):**
+
 - Maximum: **11-1/2" long x 6-1/8" high, max 1/4" thick**
 - The standard No. 10 envelope — the business envelope you see everywhere — is **9-1/2" x 4-1/8"**, comfortably inside letter limits
 - Postage: **$0.82** Forever stamp for a 1 oz letter, which is about 4 sheets of 8-1/2" x 11" paper
 - Nonmachinable surcharge: **+$0.49** if rigid, lumpy, square, vertical, or with clasps/string/buttons
 
 **Large envelopes (flats):**
+
 - **11-1/2"–15" long, 6-1/8"–12" high, max 3/4" thick**
 - Domestic postage starts at **$1.69** for 1 oz
 - If nonrectangular, rigid, or lumpy: charged at the **package** price instead
 
 **Postcards:**
+
 - **5"–6" long, 3-1/2"–4-1/4" high, 0.007"–0.016" thick**
 - Postage: **$0.65** with a standard postcard stamp
 
 **Minimum mailable size (anything 1/4" thick or less):**
+
 - **5" long x 3-1/2" high, minimum 0.007" thick**
 
 **International:**
+
 - A **$1.75** Global Forever stamp covers a 1 oz international letter or postcard
 - First-Class Mail International large envelopes (flats) start at **$3.30**
 
 **Packages:**
+
 - Maximum length plus girth is **108 inches** for most USPS services (USPS Ground Advantage allows up to 130 inches)
 
 Notice what's not on this chart: any allowance for "close enough." A 9-1/2" x 4-1/8" envelope with a pen inside is still a letter — but a lumpy, nonmachinable one that costs an extra $0.49 instead of machine-processing for $0.82. A manila envelope that's 1/2" thick is not a letter. The system doesn't grade on a curve.
