@@ -123,9 +123,13 @@ jobs:
 
       - name: Dependency Security Audit (Astro)
         # GHSA-vfj7-8cjw-p6xm (braces <=3.0.3): no upstream fix until 3.0.4 ships.
-        # Scoped allowlist — any OTHER high advisory still fails the gate.
+        # GHSA-fc5q-39xc-vjpf (picomatch <=4.0.7, ReDoS): no upstream fix yet —
+        # build-time glob matching only, no untrusted input. Astro itself was
+        # upgraded 7.4.0 -> 7.4.12 in this change, clearing GHSA-mh32-jxcr-mh9f
+        # and GHSA-r3h5-4585-7x3w. Scoped allowlist — any OTHER high advisory
+        # still fails the gate.
         run: |
-          AUDIT_ALLOW="GHSA-vfj7-8cjw-p6xm" node scripts/verify/audit-astro-gate.mjs
+          AUDIT_ALLOW="GHSA-vfj7-8cjw-p6xm GHSA-fc5q-39xc-vjpf" node scripts/verify/audit-astro-gate.mjs
 
       - name: Dependency Security Audit (Netlify Functions)
         run: npm run audit:functions
