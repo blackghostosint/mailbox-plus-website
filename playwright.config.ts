@@ -22,10 +22,16 @@ export default defineConfig({
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // WebKit runs weekly on main via the CI schedule (e2e-webkit-weekly job,
+    // which sets PLAYWRIGHT_WEBKIT=1 and pins ubuntu-24.04), not per-PR.
+    // Rationale (2026-11-17, Frank): the suite asserts DOM/behavior only —
+    // no visual/screenshot tests — so a third engine adds ~1/3 E2E time per
+    // PR for near-zero signal. The pinned webkit-2370 build also broke when
+    // ubuntu-latest migrated to Ubuntu 26.04 (missing libicudata.so.74).
+    // Revisit if a Safari-specific bug ships.
+    ...(process.env.PLAYWRIGHT_WEBKIT
+      ? [{ name: 'webkit', use: { ...devices['Desktop Safari'] } }]
+      : []),
   ],
   webServer: {
     // Build inside the webServer so E2E always tests fresh dist — but the
