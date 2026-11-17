@@ -96,7 +96,8 @@ export function runAuditGate(options = {}) {
   } else {
     try {
       const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-      raw = execFileSync(npmCmd, ['audit', '--json', '--audit-level=high'], {
+      const npmArgs = options.npmArgs || ['audit', '--json', '--audit-level=high'];
+      raw = execFileSync(npmCmd, npmArgs, {
         cwd: options.cwd,
         encoding: 'utf8',
         maxBuffer: 1024 * 1024 * 64,
