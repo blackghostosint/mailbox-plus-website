@@ -31,10 +31,6 @@ lastModified: '2026-11-10T09:00:00-05:00'
 quickAnswer: 'You have 21 days from your cancel or swap date to return AT&T equipment or a non-return fee hits your bill — $150 for a Wi-Fi or All-Fi Gateway, $200 for an All-Fi Hub, $65 for a Wi-Fi extender. Take the hub, any plan extenders, and each power supply — unpackaged — to a company-owned FedEx Office or The UPS Store, hand the rep your account number, and keep the tracking receipt. Wall-mounted gear and your own cables stay put.'
 ---
 
-## The Short Answer
-
-Here is the whole verdict up front: AT&T equipment goes back within 21 days of your cancel or swap date, unboxed, to a company-owned FedEx Office or The UPS Store — nowhere else. A rep scans it, packs it, and hands you a tracking receipt, and that receipt is what keeps a $150 to $200 non-return fee off your final bill. Wall-mounted gear stays in the wall, your own cables stay in your drawer, and the only mistakes that actually cost you money are dropping it in a drop box and running out the clock.
-
 ## The Canceled Fiber Bill That Starts a 21-Day Clock
 
 You finally canceled your AT&T fiber. Good for you — that was a ten-minute phone call and a relief. Then, in the confirmation email, two sentences: "Return your equipment within 21 days. A non-return fee will apply."
@@ -59,19 +55,15 @@ It is the ambiguity that gets you. You stand at the table and ask the same quest
 
 Every wrong answer has a cost. Take it to the wrong place and the clerk says no. Send the wrong thing and you still owe the fee. Miss the window and you are paying $150 for a router you stopped using months ago.
 
-So you put it off. It sits on the table for a week. Then two. The equipment is not really in the way — it is the paperwork you are avoiding, the unknown of it, the feeling that you are going to mess it up and get charged for the privilege.
+So it sits. The dust films over the gateway's vents. The sticky note with your account number curls off the table edge and drops behind the mail pile — twice. You nudge the power cords aside with your coffee mug every morning, and every morning the mug leaves a new ring on the receipt you have not filed. The clock does not care that you are busy.
 
 ## Returning Borrowed Equipment Should Not Need Decoding
 
-You borrowed a box from a company to receive the internet you paid for. When the service ends, you should hand the box back and be done. That is a fair, simple transaction.
-
-It should not require decoding a return policy to avoid being billed for equipment you are happy to return. It should not hang on a three-week clock that starts the moment you cancel, with no reminder. A router you no longer even want should never become a $200 hostage.
-
-The good news is that the process itself is genuinely simple once you know the two or three things that actually matter. Most of the fear is just not knowing them yet.
+None of that should be complicated. A router you no longer even want should never become a $200 hostage. The process itself is genuinely simple once you know the two or three things that actually matter — and most of the fear is just not knowing them yet.
 
 ## The Question Our Return Counter Hears About AT&T Gear
 
-This is the part where we tell you the truth, even though it costs us a sale.
+The honest answer is no, and we will tell you that to your face.
 
 Mailbox Plus is a full-service shipping and returns store in Concord Township. Returns are our entire business — we run one of the busiest return counters in Lake County. So the first question people ask us is usually: "Can you take my AT&T equipment?"
 
@@ -83,7 +75,7 @@ Here is why that honesty matters: because it is the same instinct we apply to ev
 
 ## How the AT&T Return Actually Works
 
-Here is the whole thing, stripped down, from AT&T's own published process.
+Here is exactly what the rep behind the FedEx counter will ask for.
 
 **What has to go back.** The All-Fi Hub or gateway — the white unit. The exact model number depends on your plan: the BGW320, BGW210, and CGW450 are the All-Fi Hub models, while the BGW830 and BGW530 appear on AT&T Internet Air. Any Wi-Fi extenders that came as part of your plan — the AirTies 4971, 4981, or 4991. And the power supply for each piece. That is it.
 
@@ -115,7 +107,7 @@ First, the money: $150 to $200 charged to an account you already closed, which m
 
 Second, the confusion compounds. Every week you wait, you are less sure what belonged to the account, and you are one step closer to returning the wrong thing the wrong way and still owing the fee.
 
-And third, there is the habit of avoidance itself. The person who puts off the AT&T return is the same person who lets returns pile up, drives to three different carriers in one afternoon, and treats shipping like a chore instead of a two-minute errand. That is the pattern worth breaking.
+And third, there is the pile itself. Glovebox full of crumpled return receipts. The AT&T gateway joined a QVC box and a mattress-topper carton nobody has driven anywhere yet. The fix is not willpower — it is one counter where a human scans the stack without judging it and hands you receipts for all of it.
 
 ## The Errand That Ends the Fee Risk
 
@@ -125,8 +117,6 @@ Now the rest of your returns, and your next shipment, are one counter. You walk 
 
 ## One Counter for Every Return That Is Not AT&T
 
-Returning equipment should not be a scavenger hunt, and shipping should not be a three-stop errand.
-
-Bring your AT&T gear to an authorized FedEx Office or The UPS Store to clear your account — and bring everything else to us. Pack-and-ship, printed labels, Happy Returns drop-offs, all four carriers at one counter, at 7554 Fredle Drive in Concord Township.
+Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a label or a QR code — bring the whole pile here. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
 
 [Visit Mailbox Plus →](/contact-us/)
