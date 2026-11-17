@@ -44,12 +44,21 @@ export function loadRecaptchaScript(siteKey: string): Promise<void> {
       resolve();
     };
 
-    script.onload = cleanupAndResolve;
-    script.onerror = cleanupAndResolve;
+    const timeoutId = setTimeout(cleanupAndResolve, 2000);
+
+    script.onload = () => {
+      clearTimeout(timeoutId);
+      cleanupAndResolve();
+    };
+    script.onerror = () => {
+      clearTimeout(timeoutId);
+      cleanupAndResolve();
+    };
 
     document.head.appendChild(script);
 
     if (window.grecaptcha) {
+      clearTimeout(timeoutId);
       resolve();
     }
   });
@@ -73,21 +82,31 @@ export async function executeRecaptcha(
     }
 
     return await new Promise<string>((resolve) => {
+      const timeoutId = setTimeout(() => {
+        resolve('');
+      }, 2000);
+
       try {
         window.grecaptcha?.ready(() => {
           if (!window.grecaptcha?.execute) {
+            clearTimeout(timeoutId);
             resolve('');
             return;
           }
           window.grecaptcha
             .execute(siteKey, { action })
-            .then((token) => resolve(token || ''))
+            .then((token) => {
+              clearTimeout(timeoutId);
+              resolve(token || '');
+            })
             .catch((err) => {
+              clearTimeout(timeoutId);
               console.error('reCAPTCHA execution error:', err);
               resolve('');
             });
         });
       } catch (err) {
+        clearTimeout(timeoutId);
         console.error('reCAPTCHA execution error:', err);
         resolve('');
       }

@@ -85,10 +85,14 @@ export function initMotion(doc: Document = document): Cleanup {
     { rootMargin: '0px 0px -40px 0px', threshold: 0 }
   );
 
-  // Safety net: a jump scroll (End key, anchor link, fast fling) can carry a target
-  // from below the viewport to above it without it ever intersecting, so the observer
-  // never fires. A rAF-throttled passive scroll sweep reveals anything whose top has
-  // passed the viewport bottom. Detached as soon as nothing is pending.
+  // Safety net: a jump scroll (End key, anchor link, fast fling, or programmatic
+  // window.scrollTo) can carry a target from below the viewport to above it
+  // without it ever intersecting, so the observer never fires. In headless WebKit,
+  // programmatic scroll events may also be coalesced or delayed when the window
+  // rendering loop is idle. We hook scroll events on both window and document,
+  // keyboard navigation (End/Home/PageDown/PageUp), wrap programmatic scroll
+  // methods, and re-sweep on any observer intersection.
+  // Detached as soon as nothing is pending.
   let frame = 0;
   let sweeping = false;
   const sweep = () => {
@@ -101,10 +105,25 @@ export function initMotion(doc: Document = document): Cleanup {
   const onScroll = () => {
     if (!frame) frame = win.requestAnimationFrame(sweep);
   };
+  const onKeyDown = (event: KeyboardEvent) => {
+    if (['End', 'Home', 'PageDown', 'PageUp'].includes(event.key)) {
+      if (!frame) frame = win.requestAnimationFrame(sweep);
+    }
+  };
+
+  const origScrollTo = typeof win.scrollTo === 'function' ? win.scrollTo : null;
+  const origScroll = typeof win.scroll === 'function' ? win.scroll : null;
+  const origScrollBy = typeof win.scrollBy === 'function' ? win.scrollBy : null;
+
   function detachSweep() {
     if (!sweeping) return;
     sweeping = false;
     view.removeEventListener('scroll', onScroll);
+    doc.removeEventListener('scroll', onScroll);
+    doc.removeEventListener('keydown', onKeyDown);
+    if (origScrollTo) view.scrollTo = origScrollTo;
+    if (origScroll) view.scroll = origScroll;
+    if (origScrollBy) view.scrollBy = origScrollBy;
     if (frame) view.cancelAnimationFrame(frame);
     frame = 0;
   }
@@ -113,7 +132,29 @@ export function initMotion(doc: Document = document): Cleanup {
     el.classList.add(PENDING_CLASS);
     observer.observe(el);
   }
+
+  if (origScrollTo) {
+    win.scrollTo = function (this: Window, ...args: [any?, any?]) {
+      origScrollTo.apply(this, args as [any, any]);
+      sweep();
+    } as typeof win.scrollTo;
+  }
+  if (origScroll) {
+    win.scroll = function (this: Window, ...args: [any?, any?]) {
+      origScroll.apply(this, args as [any, any]);
+      sweep();
+    } as typeof win.scroll;
+  }
+  if (origScrollBy) {
+    win.scrollBy = function (this: Window, ...args: [any?, any?]) {
+      origScrollBy.apply(this, args as [any, any]);
+      sweep();
+    } as typeof win.scrollBy;
+  }
+
   win.addEventListener('scroll', onScroll, { passive: true });
+  doc.addEventListener('scroll', onScroll, { passive: true });
+  doc.addEventListener('keydown', onKeyDown, { passive: true });
   sweeping = true;
 
   const onFocusIn = (event: Event) => {
