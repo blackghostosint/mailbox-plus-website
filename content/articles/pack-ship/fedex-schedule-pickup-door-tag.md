@@ -22,7 +22,7 @@ faqs:
   - question: 'Do I have to be home for a scheduled FedEx pickup?'
     answer: 'No. FedEx says you can leave the package somewhere safe and accessible, and the driver leaves a FedEx door tag confirming the pickup with tracking information. If the driver determines the package cannot be picked up, the door tag explains why and what to do next — which is often where the frustration begins.'
   - question: 'How long will FedEx hold a package picked up with a door tag?'
-    answer: 'According to FedEx''s Delivery Manager FAQ, packages picked up via door tag at the listed location are kept 5 business days before possible return to the shipper. Separately, FedEx''s Hold at Location option for missed deliveries keeps packages up to 7 days before return to the shipper. Either way, the clock starts immediately.'
+    answer: "According to FedEx's Delivery Manager FAQ, packages picked up via door tag at the listed location are kept 5 business days before possible return to the shipper. Separately, FedEx's Hold at Location option for missed deliveries keeps packages up to 7 days before return to the shipper. Either way, the clock starts immediately."
   - question: 'What do I need to pick up a package using a FedEx door tag?'
     answer: 'FedEx requires a government-issued photo ID and your tracking number. If the address on your ID does not match the label, bring a matching utility or other bill to prove the address.'
   - question: 'Can I schedule a FedEx pickup without an account?'
@@ -30,6 +30,7 @@ faqs:
   - question: 'Does FedEx charge for parcel pickups now?'
     answer: 'Yes. Effective August 18, 2025, FedEx uses a new pricing and rating structure to charge for parcel pickups, though exact fee amounts are not published on that page. Dropping off at a staffed retail counter like ours costs nothing extra for the drop itself.'
 ---
+
 ## The Errand That Should Be Simple
 
 You have a package. It needs to go somewhere. That is the whole errand — one object, one destination, one label. It should be the easiest thing on your list.
@@ -48,7 +49,7 @@ Then the pickup window comes. You do not actually have to be home — FedEx says
 
 But if the driver decides the package cannot be picked up — inaccessible, unlabeled, unprotected, whatever the reason — you come home to a door tag instead of a shipped package. The door tag explains why the pickup did not happen and what to do next, which usually means one of two things: reschedule and try again, or drive to a FedEx location to pick something up or drop something off. The errand you tried to automate by scheduling a pickup has now become a car trip anyway, plus a delay.
 
-And there is the other door tag — the one you get when a FedEx driver tries to *deliver* to you and you are not there. That tag sends you to a location to retrieve your own package, with a photo ID and tracking number in hand, and a countdown running.
+And there is the other door tag — the one you get when a FedEx driver tries to _deliver_ to you and you are not there. That tag sends you to a location to retrieve your own package, with a photo ID and tracking number in hand, and a countdown running.
 
 Per FedEx's Delivery Manager FAQ, packages picked up via door tag at the location listed are kept 5 business days before possible return to the shipper.
 
@@ -76,7 +77,7 @@ Here is the thing almost nobody tells you when you are deep in FedEx's FAQ pages
 
 That is what we are. Mailbox Plus in Concord Township is an authorized staffed drop-off for UPS, FedEx, USPS, and DHL. If your package already has a label on it, you bring it to us and we accept it — that is the whole transaction. No pickup fee to schedule, no window to wait for, no door tag to decode, because the package never has to survive a porch unsupervised.
 
-If you are the *recipient* stuck with a door tag instead of a delivery, the calculus changes but the fix rhymes: get your photo ID and tracking number, get to the listed location before that 5 business day window closes, and collect your package. Then, going forward, consider having things sent somewhere that can actually receive them for you — more on that below.
+If you are the _recipient_ stuck with a door tag instead of a delivery, the calculus changes but the fix rhymes: get your photo ID and tracking number, get to the listed location before that 5 business day window closes, and collect your package. Then, going forward, consider having things sent somewhere that can actually receive them for you — more on that below.
 
 The deeper point is this: the friction you are experiencing is not a personal failing. It is what happens when a system built for warehouses tries to accommodate a driveway. A counter is a driveway that is always staffed.
 
@@ -108,7 +109,7 @@ Here is the entire process, with no steps withheld:
 
 That is it. There is no scheduling step because there is nothing to schedule. There is no door tag step because your package is handed to a human being at a counter, not left on a porch hoping a driver can reach it.
 
-If you are coming to *collect* a door-tag package instead of ship one, the process on your side is equally short: grab your government-issued photo ID and your tracking number. If the address on your ID does not match the label, bring a bill that matches. Then get to the location on the tag before the 5 business days run out.
+If you are coming to _collect_ a door-tag package instead of ship one, the process on your side is equally short: grab your government-issued photo ID and your tracking number. If the address on your ID does not match the label, bring a bill that matches. Then get to the location on the tag before the 5 business days run out.
 
 Either way, the future version of this errand is the same: bring things here first, and the door tag stops being part of your life.
 
