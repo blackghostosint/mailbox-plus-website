@@ -12,7 +12,6 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import {
   retrievalTests,
-  FALLBACK_RESPONSE,
   getTestStats,
   type TestCase,
   type TestResult,
@@ -20,6 +19,7 @@ import {
 import {
   EMBEDDING_MODEL,
   EMBEDDING_DIMENSION,
+  FALLBACK_RESPONSE,
   MINIMUM_SIMILARITY,
   buildCacheKey,
   cosineSimilarity,

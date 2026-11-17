@@ -19,16 +19,9 @@ export interface TestCase {
 }
 
 /**
- * Fallback Response (used for all REFUSE cases)
+ * Canonical retrieval constants re-exported from core retrieval module
  */
-export const FALLBACK_RESPONSE =
-  "I don't have that information. Please contact the store directly or visit us in person.";
-
-/**
- * Minimum Similarity Threshold
- * Must match the value in kb.entries.json
- */
-export const MINIMUM_SIMILARITY = 0.78;
+export { FALLBACK_RESPONSE, MINIMUM_SIMILARITY } from './retrieval-core.js';
 
 /**
  * Test Suite: All test cases organized by category
