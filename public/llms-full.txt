@@ -1053,13 +1053,17 @@ Mailbox Plus — 7554 Fredle Drive, Concord Township, OH 44077, in the Gristmill
 
 ---
 
-### How to Return Your AT&T Equipment (Without the Surprise Fee)
+### Where and How to Return AT&T Equipment — Fees Hit at 21 Days
 
 URL: https://mailboxplusohio.com/articles/att-equipment-return-guide/
 Category: pack-ship
-Published: 2026-08-12
+Published: 2026-08-12 | Updated: 2026-11-10
 
-## The Scene That Starts Everything
+## The Short Answer
+
+Here is the whole verdict up front: AT&T equipment goes back within 21 days of your cancel or swap date, unboxed, to a company-owned FedEx Office or The UPS Store — nowhere else. A rep scans it, packs it, and hands you a tracking receipt, and that receipt is what keeps a $150 to $200 non-return fee off your final bill. Wall-mounted gear stays in the wall, your own cables stay in your drawer, and the only mistakes that actually cost you money are dropping it in a drop box and running out the clock.
+
+## The Canceled Fiber Bill That Starts a 21-Day Clock
 
 You finally canceled your AT&T fiber. Good for you — that was a ten-minute phone call and a relief. Then, in the confirmation email, two sentences: "Return your equipment within 21 days. A non-return fee will apply."
 
@@ -1073,11 +1077,11 @@ Here is the thing about returning AT&T equipment: it is not hard, but it is genu
 
 The equipment has to go back — not because it is valuable to you, but because AT&T will bill you for it if it does not. The amounts are blunt: $150 for a Wi-Fi or All-Fi gateway, $200 for an All-Fi Hub, $65 for a Wi-Fi extender or All-Fi booster that came with your extended Wi-Fi service. Return it damaged from rough handling and there can be a damaged-equipment fee on top. The policy is written in dollars because the dollars are the enforcement.
 
-There are also small traps in the details. Wall-mounted gear — the fiber jack, the Optical Network Terminal, anything a technician screwed into the wall — stays put. Do not unplug it, do not remove it. And there is a strict list of what has to come back: the hub, the extender, and the power supply for each. The HDMI cables, the ethernet cables, and the extra extender you bought yourself? Those are yours to keep.
+There are also small traps in the details. Wall-mounted gear — the fiber jack, the Optical Network Terminal, anything a technician screwed into the wall — stays put. Do not unplug it, do not remove it. And there is a strict list of what has to come back: the hub, the extender, and the power supply for each. The HDMI cables, the ethernet cables, and the extra extender you bought yourself? Those are yours to keep — we break the whole list down in [our guide to returning AT&T Fiber equipment and cables](/articles/att-fiber-equipment-return-cables/).
 
 None of this arrives in a letter. It is scattered across a support page, a confirmation email, and the memory of a phone call you half-listened to. Miss the 21-day mark and the fee appears on your next bill — and you are on the phone for an hour trying to reverse it.
 
-## What It Actually Feels Like
+## Staring at a Gateway You Are Not Sure You Can Return
 
 It is the ambiguity that gets you. You stand at the table and ask the same questions out loud: Do I have to box this up? Do I need a label? Do I take it to an AT&T store? Was there a return kit I was supposed to get?
 
@@ -1085,7 +1089,7 @@ Every wrong answer has a cost. Take it to the wrong place and the clerk says no.
 
 So you put it off. It sits on the table for a week. Then two. The equipment is not really in the way — it is the paperwork you are avoiding, the unknown of it, the feeling that you are going to mess it up and get charged for the privilege.
 
-## Why It Should Not Be This Way
+## Returning Borrowed Equipment Should Not Need Decoding
 
 You borrowed a box from a company to receive the internet you paid for. When the service ends, you should hand the box back and be done. That is a fair, simple transaction.
 
@@ -1093,7 +1097,7 @@ It should not require decoding a return policy to avoid being billed for equipme
 
 The good news is that the process itself is genuinely simple once you know the two or three things that actually matter. Most of the fear is just not knowing them yet.
 
-## What We See Every Day
+## The Question Our Return Counter Hears About AT&T Gear
 
 This is the part where we tell you the truth, even though it costs us a sale.
 
@@ -1109,15 +1113,17 @@ Here is why that honesty matters: because it is the same instinct we apply to ev
 
 Here is the whole thing, stripped down, from AT&T's own published process.
 
-**What has to go back.** The All-Fi Hub or gateway — the white unit. The exact model number depends on your plan: the BGW320, BGW210, and CGW450 cover AT&T Internet and Fiber, while the BGW830 and BGW530 appear on AT&T Internet Air. Any Wi-Fi extenders that came as part of your plan — the AirTies 4971, 4981, or 4991. And the power supply for each piece. That is it.
+**What has to go back.** The All-Fi Hub or gateway — the white unit. The exact model number depends on your plan: the BGW320, BGW210, and CGW450 are the All-Fi Hub models, while the BGW830 and BGW530 appear on AT&T Internet Air. Any Wi-Fi extenders that came as part of your plan — the AirTies 4971, 4981, or 4991. And the power supply for each piece. That is it.
 
 **What stays.** Anything mounted to the wall — the fiber jack, the ONT, the green cable — leave it in place. Do not unplug it. And cables, third-party extenders, and gear you bought yourself are yours to keep.
 
-**Where it goes.** AT&T accepts returns at a company-owned FedEx Office or a The UPS Store. You do not box it, you do not print a label. You bring the equipment unboxed, tell them it is an AT&T return, and give them your nine-digit account number. A store representative scans the equipment, packs and ships it for you, and hands you a tracking receipt. [AT&T's return page](https://www.att.com/support/how-to/internet/equipment-return/) is the reference for all of this.
+**Where it goes.** AT&T accepts returns at a company-owned FedEx Office or a The UPS Store. You do not box it, you do not print a label. You bring the equipment unboxed, tell them it is an AT&T return, and give them your nine-digit account number. A store representative scans the equipment, packs and ships it for you, and hands you a tracking receipt. [AT&T's return page](https://www.att.com/support/how-to/internet/equipment-return/) is the reference for all of this, and if you are weighing drop-off options, we compare [where to return AT&T equipment — FedEx, UPS, or a local shipping center](/articles/where-to-return-att-equipment-fedex-or-ups/).
 
-**Two warnings.** Do not drop the equipment in a drop box — it must be scanned by a store rep so AT&T knows it is coming, or the fee can still apply. And watch the clock: you have 21 days from your cancel or swap date. If you cannot get to an authorized location, call AT&T at 800.288.2020 first — that number starts the return and, in a few cases (a disability, or living more than ten miles from a FedEx Office or The UPS Store), gets you a return kit with a prepaid label you ship yourself.
+**Two warnings.** Do not drop the equipment in a drop box — it must be scanned by a store rep so AT&T knows it is coming, or the fee can still apply. And watch the clock: you have 21 days from your cancel or swap date. If you cannot get to an authorized location, call AT&T at 800.288.2020 first — that number starts the return and AT&T will tell you what your options are if you cannot reach an authorized location.
 
 That is the entire procedure. Two hours of fear, five minutes of action.
+
+![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 ## What We Can Do for You
 
@@ -1129,7 +1135,7 @@ We also sell you the thing you are probably missing right now: time. We pack and
 
 When your equipment return is AT&T, we will point you honestly to where it has to go. When it is anything else, we will take it, pack it, and ship it from the same counter. [See what we handle at our pack-and-ship counter →](/pack-ship/)
 
-## What You Lose by Not Acting
+## What Waiting Past the 21-Day Window Actually Costs
 
 If the AT&T gear sits on your table past the window, the fee is not the only cost.
 
@@ -1139,13 +1145,13 @@ Second, the confusion compounds. Every week you wait, you are less sure what bel
 
 And third, there is the habit of avoidance itself. The person who puts off the AT&T return is the same person who lets returns pile up, drives to three different carriers in one afternoon, and treats shipping like a chore instead of a two-minute errand. That is the pattern worth breaking.
 
-## Your Afternoon After the Change
+## The Errand That Ends the Fee Risk
 
-You drive to the authorized location with the gateway, the extender, and both power supplies in a bag, plus your account number saved in your phone. The rep scans everything, packs it, and hands you a receipt. Forty-eight hours later your account shows the return. No fee. The white box is gone from your dining room table, and with it the low hum of anxiety you had stopped noticing.
+You drive to the authorized location with the gateway, the extender, and both power supplies in a bag, plus your account number saved in your phone. The rep scans everything, packs it, and hands you a receipt. Within days your account shows the return. No fee. The white box is gone from your dining room table, and with it the low hum of anxiety you had stopped noticing.
 
 Now the rest of your returns, and your next shipment, are one counter. You walk into Mailbox Plus at 7554 Fredle Drive in Concord Township, drop the Amazon box and the Zappos box and the Etsy box, and the person at the counter routes all three to their carriers while you wait. Under three minutes. Receipts in hand, you walk out.
 
-## Bring It In
+## One Counter for Every Return That Is Not AT&T
 
 Returning equipment should not be a scavenger hunt, and shipping should not be a three-stop errand.
 
