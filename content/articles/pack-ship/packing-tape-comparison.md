@@ -40,15 +40,13 @@ No. Duct tape is on the do-not-use list at USPS, UPS, and FedEx — in writing �
 
 ## What USPS, UPS, and FedEx Actually Require
 
-The rules are public, they are specific, and they agree with each other more than most people expect.
+Three carriers, three rulebooks, one identical number: 2 inches.
 
 **USPS.** Postal Explorer's Preparing Packages guide says to tape the opening of the box and reinforce all seams with 2-inch-wide tape — clear or brown packaging tape, reinforced packing tape, or paper tape. Cord, string, twine, masking tape, and cellophane tape are named as do-not-use. USPS's own published shipper guidance goes further and names duct tape on that list too.
 
 **UPS.** UPS's how-to-ship guide says to seal your box with plastic or nylon tape at least 2 inches wide. Its packaging tips page then draws the line by name: do not use masking, cellophane, duct, or water-activated paper tapes, string, or paper over-wrap.
 
 **FedEx.** FedEx's How to Pack guide calls for pressure-sensitive plastic tape, water-activated paper tape (minimum 60-lb grade), or water-activated reinforced tape at least 2 inches wide, applied with the H-taping method — and names cellophane, duct, and masking tape as do-not-use.
-
-One correction worth flagging: an earlier version of this article said FedEx wanted 3-inch tape. The guide says at least 2 inches. We re-checked the source and fixed it.
 
 ## The Tape Chart: What Each Carrier Says
 
@@ -83,10 +81,14 @@ Do not just tape over it. A strip of packing tape laid across duct tape is a str
 
 ## The Dollar Fix at Our Counter
 
+![The packing bench at Mailbox Plus in Concord Township — kraft paper, tape guns, and boxes staged for a counter pickup](articles/store-library/packing/kraft-bench-01.webp)
+
 If re-taping sounds like a hassle, that is literally our job. We are Mailbox Plus at 7554 Fredle Drive in Concord Township, and we seal boxes all day long — including plenty that arrive wearing every tape on the chart above.
 
 Here is the deal: bring the box as-is and we will strip the failed tape, re-seal every seam with proper 2-inch-plus packing tape in the H-pattern, and hand you a receipt — **for $1**. If the box itself is wrong for what is inside, we will say so before it ships, and we stock [boxes and packing supplies](/pack-ship/packaging-supplies/) right at the counter. We are an independent shipping center, so we hand boxes to UPS, USPS, and FedEx from the same counter — and we answer for each one.
 
 ## Bring It In
 
-Got a box already taped — or one you are not sure about? Bring it to Mailbox Plus at **7554 Fredle Drive, Concord Township, OH 44077**, or call **440-709-1946**. We will re-seal it for **$1**, check it against the carrier's requirements, and get it moving. And if you would rather never think about tape at all, hand us the whole job — packing, sealing, and shipping — through [our professional packing service](/pack-ship/professional-packing/) and it is done right the first time.
+Taping the box is one thing. Getting it to the right counter is another. — see [can you drop off UPS at FedEx or the Post Office?](/articles/can-you-drop-off-ups-at-fedex-or-post-office/) for how cross-carrier drop-offs actually work, and [what happens to returned packages](/articles/what-happens-to-returned-packages/) once they leave your hands.
+
+Got a box already taped — or one you are not sure about? Bring it to Mailbox Plus at **7554 Fredle Drive, Concord Township, OH 44077**, or call **440-709-1946**. We will re-seal it for **$1**, check it against the carrier's requirements, and get it moving. And you do not need to apologize for the tape, pre-fix it, or know the rules — bring the box as-is and that is what the counter is for.
