@@ -2,7 +2,7 @@ import internalLinks from '../data/internalLinks.json';
 import anchorText from '../data/anchorText.json';
 import { toCanonicalUrlPath } from './url-normalization';
 import { hashString } from './hash-helpers';
-import { getInternalLinkNode, getParentPillarByServiceId } from './site-registry';
+import { getInternalLinkNode } from './site-registry';
 
 type AnchorVariant = 'exact' | 'lsi' | 'geo';
 export type ServiceId = keyof typeof internalLinks;
@@ -62,10 +62,6 @@ export const getRelatedServices = (serviceId: ServiceId) => {
   if (!linkData || !linkData.related) return [];
 
   return linkData.related.map((id: string) => getInternalLink(id)).filter(Boolean);
-};
-
-export const getParentPillar = (serviceId: ServiceId) => {
-  return getParentPillarByServiceId(serviceId) || null;
 };
 
 export interface RelatedArticleInput {
