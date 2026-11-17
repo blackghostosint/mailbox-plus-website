@@ -5,6 +5,9 @@ on:
     branches: [main, staging]
   pull_request:
     branches: [main, staging]
+  schedule:
+    # Weekly webkit E2E drift check (e2e-webkit-weekly). Monday 13:00 UTC = 8am EST.
+    - cron: '0 13 * * 1'
 
 permissions:
   contents: read
@@ -244,7 +247,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: [chromium, firefox, webkit]
+        # WebKit excluded from per-PR matrix (see playwright.config.ts);
+        # runs weekly on main via e2e-webkit-weekly below.
+        project: [chromium, firefox]
 
     steps:
       - name: Checkout code
@@ -296,6 +301,75 @@ jobs:
         continue-on-error: true
         with:
           name: playwright-artifacts-${{ matrix.project }}
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+
+  # Weekly Safari/WebKit drift check. Not per-PR: the suite is DOM/behavior
+  # only, and ubuntu-latest (Ubuntu 26.04) can't launch the pinned webkit
+  # build — hence the ubuntu-24.04 pin. Runs only on the default branch.
+  e2e-webkit-weekly:
+    name: Playwright E2E (webkit, weekly)
+    if: github.event_name == 'schedule'
+    needs: build-and-test
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [webkit]
+    env:
+      # playwright.config.ts only registers the webkit project when set.
+      PLAYWRIGHT_WEBKIT: '1'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: build-output-22.x
+          path: dist
+
+      - name: Cache Playwright browser binaries
+        id: playwright-cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ matrix.project }}-24.04-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-${{ matrix.project }}-24.04-
+
+      - name: Install Playwright system dependencies
+        run: npx playwright install-deps ${{ matrix.project }}
+
+      - name: Install Playwright browser binaries
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install ${{ matrix.project }}
+
+      - name: Run Playwright E2E tests (${{ matrix.project }})
+        env:
+          # See the e2e job comment: reCAPTCHA key is inlined at build time.
+          # Weekly run has no PR-context secret need beyond the same fallback.
+          VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY || '6LfCI-PLACEHOLDER-KEY-0000000000000000000' }}
+        run: npx playwright test --project=${{ matrix.project }}
+
+      - name: Upload Playwright test artifacts (${{ matrix.project }})
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        continue-on-error: true
+        with:
+          name: playwright-artifacts-webkit-weekly
           path: |
             playwright-report/
             test-results/
