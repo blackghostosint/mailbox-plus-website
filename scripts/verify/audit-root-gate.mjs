@@ -10,7 +10,7 @@
 // fails the gate. Scoped allowlist — removal TODO once picomatch >=4.0.8 ships.
 // TODO(2026-11): remove GHSA-fc5q-39xc-vjpf from the allowlist when the patched
 // version is published and the lockfile picks it up.
-import { parseAuditPayload, runAuditGate } from './audit-utils.mjs';
+import { runAuditGate } from './audit-utils.mjs';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { parseAllowList } from './audit-astro-gate.mjs';
 
