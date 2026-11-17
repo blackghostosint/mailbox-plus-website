@@ -5175,7 +5175,7 @@ Then the pickup window comes. You do not actually have to be home — FedEx says
 
 But if the driver decides the package cannot be picked up — inaccessible, unlabeled, unprotected, whatever the reason — you come home to a door tag instead of a shipped package. The door tag explains why the pickup did not happen and what to do next, which usually means one of two things: reschedule and try again, or drive to a FedEx location to pick something up or drop something off. The errand you tried to automate by scheduling a pickup has now become a car trip anyway, plus a delay.
 
-And there is the other door tag — the one you get when a FedEx driver tries to *deliver* to you and you are not there. That tag sends you to a location to retrieve your own package, with a photo ID and tracking number in hand, and a countdown running.
+And there is the other door tag — the one you get when a FedEx driver tries to _deliver_ to you and you are not there. That tag sends you to a location to retrieve your own package, with a photo ID and tracking number in hand, and a countdown running.
 
 Per FedEx's Delivery Manager FAQ, packages picked up via door tag at the location listed are kept 5 business days before possible return to the shipper.
 
@@ -5203,7 +5203,7 @@ Here is the thing almost nobody tells you when you are deep in FedEx's FAQ pages
 
 That is what we are. Mailbox Plus in Concord Township is an authorized staffed drop-off for UPS, FedEx, USPS, and DHL. If your package already has a label on it, you bring it to us and we accept it — that is the whole transaction. No pickup fee to schedule, no window to wait for, no door tag to decode, because the package never has to survive a porch unsupervised.
 
-If you are the *recipient* stuck with a door tag instead of a delivery, the calculus changes but the fix rhymes: get your photo ID and tracking number, get to the listed location before that 5 business day window closes, and collect your package. Then, going forward, consider having things sent somewhere that can actually receive them for you — more on that below.
+If you are the _recipient_ stuck with a door tag instead of a delivery, the calculus changes but the fix rhymes: get your photo ID and tracking number, get to the listed location before that 5 business day window closes, and collect your package. Then, going forward, consider having things sent somewhere that can actually receive them for you — more on that below.
 
 The deeper point is this: the friction you are experiencing is not a personal failing. It is what happens when a system built for warehouses tries to accommodate a driveway. A counter is a driveway that is always staffed.
 
