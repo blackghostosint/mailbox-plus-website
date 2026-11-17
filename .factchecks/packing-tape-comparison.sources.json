@@ -28,12 +28,16 @@
   ],
   "numeric_claims": [
     {
-      "value": "2-inch-wide / 2 inches / 2\"",
-      "scope": "Minimum tape width required by USPS (DMM100 sealing), UPS (plastic or nylon tape), and FedEx (plastic or water-activated tape) per the sources above. Corrects the original article's 3-inch FedEx claim."
+      "value": "2",
+      "scope": "Minimum tape width in inches required by USPS (DMM100 sealing: 2-inch-wide tape), UPS (plastic or nylon tape at least two inches wide), and FedEx (tape at least 2\" wide) per the sources above. Corrects the original article's 3-inch FedEx claim."
     },
     {
-      "value": "60-lb. grade",
-      "scope": "FedEx minimum grade for water-activated paper tape, per the FedEx How to Pack PDF."
+      "value": "3",
+      "scope": "The 3-inch FedEx width figure appears ONLY inside the explicit correction sentence ('an earlier version said FedEx wanted 3-inch tape; the guide says at least 2 inches') — it documents the old error, it is not a current requirement."
+    },
+    {
+      "value": "60",
+      "scope": "FedEx minimum grade for water-activated paper tape: 60-lb grade, per the FedEx How to Pack PDF."
     },
     {
       "value": "$1",
