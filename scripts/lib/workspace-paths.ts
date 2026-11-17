@@ -11,8 +11,21 @@ export function resetWorkspaceRootCache(): void {
 }
 
 /**
- * Deterministically resolves the root directory of the workspace by climbing
- * up the directory tree looking for a root marker (`package.json` or `.git`).
+ * Deterministically resolves the root directory of the workspace.
+ *
+ * Walks up from `startDir` (default `process.cwd()`) and stops at the FIRST
+ * project boundary:
+ *
+ * 1. A `.git` entry — a directory in a normal clone, a FILE in a worktree or
+ *    submodule — is a hard repo wall. Whatever sits above it belongs to a
+ *    different checkout, so the walk must never continue past it. Climbing
+ *    past the nearest `.git` made scripts running inside batch/worktree
+ *    wrappers resolve into the WRAPPER's tree instead of the worktree (the
+ *    2026-11-17 llms-feed contamination: feeds generated from the outer
+ *    batch repo's content tree, missing draft articles).
+ * 2. If no `.git` exists anywhere up the tree, fall back to the nearest
+ *    enclosing `package.json` (preferring one with `workspaces`), matching
+ *    node's own project-root convention.
  *
  * @param startDir Optional starting directory. Defaults to `process.cwd()`.
  * @returns Absolute path to the workspace root directory.
@@ -23,26 +36,30 @@ export function getWorkspaceRoot(startDir?: string): string {
   }
 
   let currentDir = startDir ? path.resolve(startDir) : process.cwd();
-  let rootWithGitOrWorkspaces: string | null = null;
-  let highestPkgDir: string | null = null;
+  let nearestWorkspacesPkgDir: string | null = null;
+  let nearestPkgDir: string | null = null;
 
   while (currentDir && currentDir !== path.parse(currentDir).root) {
-    const gitPath = path.join(currentDir, '.git');
-    const pkgPath = path.join(currentDir, 'package.json');
-
-    if (fs.existsSync(gitPath)) {
-      rootWithGitOrWorkspaces = currentDir;
+    // Hard boundary: nearest enclosing repo root wins, unconditionally.
+    if (fs.existsSync(path.join(currentDir, '.git'))) {
+      if (!startDir) {
+        cachedWorkspaceRoot = currentDir;
+      }
+      return currentDir;
     }
 
+    const pkgPath = path.join(currentDir, 'package.json');
     if (fs.existsSync(pkgPath)) {
-      highestPkgDir = currentDir;
+      if (nearestPkgDir === null) {
+        nearestPkgDir = currentDir;
+      }
       try {
         const pkgContent = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
-        if (pkgContent && pkgContent.workspaces) {
-          rootWithGitOrWorkspaces = currentDir;
+        if (pkgContent && pkgContent.workspaces && nearestWorkspacesPkgDir === null) {
+          nearestWorkspacesPkgDir = currentDir;
         }
       } catch {
-        // Ignore parse error
+        // Ignore parse errors; keep climbing.
       }
     }
 
@@ -51,8 +68,9 @@ export function getWorkspaceRoot(startDir?: string): string {
     currentDir = parentDir;
   }
 
+  // No git boundary anywhere: nearest enclosing package is the project.
   const resolved =
-    rootWithGitOrWorkspaces || highestPkgDir || (startDir ? path.resolve(startDir) : process.cwd());
+    nearestWorkspacesPkgDir || nearestPkgDir || (startDir ? path.resolve(startDir) : process.cwd());
 
   if (!startDir) {
     cachedWorkspaceRoot = resolved;
