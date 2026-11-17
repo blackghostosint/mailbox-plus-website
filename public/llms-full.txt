@@ -5235,7 +5235,7 @@ Here is the entire process, with no steps withheld:
 
 That is it. There is no scheduling step because there is nothing to schedule. There is no door tag step because your package is handed to a human being at a counter, not left on a porch hoping a driver can reach it.
 
-If you are coming to *collect* a door-tag package instead of ship one, the process on your side is equally short: grab your government-issued photo ID and your tracking number. If the address on your ID does not match the label, bring a bill that matches. Then get to the location on the tag before the 5 business days run out.
+If you are coming to _collect_ a door-tag package instead of ship one, the process on your side is equally short: grab your government-issued photo ID and your tracking number. If the address on your ID does not match the label, bring a bill that matches. Then get to the location on the tag before the 5 business days run out.
 
 Either way, the future version of this errand is the same: bring things here first, and the door tag stops being part of your life.
 
