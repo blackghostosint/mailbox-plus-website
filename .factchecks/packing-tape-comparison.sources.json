@@ -1,0 +1,65 @@
+{
+  "source_extracts": [
+    {
+      "label": "USPS Postal Explorer — Preparing Packages, Sealing",
+      "url": "https://pe.usps.com/text/dmm100/preparing-packages.htm",
+      "quote": "Tape the opening of your box and reinforce all seams with 2-inch-wide tape. Use clear or brown packaging tape, reinforced packing tape, or paper tape. Do not use cord, string, twine, masking, or cellophane tape."
+    },
+    {
+      "label": "USPS national release — holiday shipping guidance",
+      "url": "https://about.usps.com/news/national-releases/2012/pr12_151.htm",
+      "quote": "Use pressure-sensitive tape, nylon-reinforced craft paper tape or glass-reinforced pressure-sensitive tape for shipping. Do not use wrapping paper, string, masking tape, duct tape or cellophane tape."
+    },
+    {
+      "label": "UPS — How To Ship a Package",
+      "url": "https://www.ups.com/us/en/shipping/how-to-ship-package",
+      "quote": "Then, seal your box with plastic or nylon tape at least two inches wide."
+    },
+    {
+      "label": "UPS — Packaging Tips, Only Use Shipping Tape",
+      "url": "https://www.ups.com/us/en/support/shipping-support/packaging-tips",
+      "quote": "Do not use masking, cellophane, duct or water activated paper tapes, string or paper over-wrap. Securely seal closures and seams."
+    },
+    {
+      "label": "FedEx — How to Pack, Sealing Your Package",
+      "url": "https://www.fedex.com/content/dam/fedex/us-united-states/services/HowToPack_fxcom.pdf",
+      "quote": "Use pressure-sensitive plastic tape, water-activated paper tape (minimum 60-lb. grade), or water-activated reinforced tape that is at least 2\" wide. ... Use the H taping method. ... Do not use cellophane tape, duct tape, masking tape, string, or rope to seal packages."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "2-inch-wide / 2 inches / 2\"",
+      "scope": "Minimum tape width required by USPS (DMM100 sealing), UPS (plastic or nylon tape), and FedEx (plastic or water-activated tape) per the sources above. Corrects the original article's 3-inch FedEx claim."
+    },
+    {
+      "value": "60-lb. grade",
+      "scope": "FedEx minimum grade for water-activated paper tape, per the FedEx How to Pack PDF."
+    },
+    {
+      "value": "$1",
+      "scope": "Published Mailbox Plus counter price for a professional re-seal (owner-published since 2026-09-11)."
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number, 7554 Fredle Drive, Concord Township, OH 44077 (siteConfig)."
+    },
+    {
+      "value": "440-709-1946",
+      "scope": "Store phone number (siteConfig)."
+    },
+    {
+      "value": "44077",
+      "scope": "Store ZIP code (siteConfig)."
+    },
+    {
+      "value": "two / three",
+      "scope": "Spelled-out counts describing the H-taping pattern (one center strip plus a strip across each of the two end seams, top and bottom = three strips per side, per UPS/FedEx sealing guidance)."
+    }
+  ],
+  "scope_rules": [
+    "Each carrier rule is attributed to that carrier's own published guidance; USPS duct-tape prohibition is cited to the USPS national release, not the DMM100 page, which names only masking and cellophane.",
+    "The FedEx 3-inch figure from the 2026-09-11 original is corrected to 2 inches; no 3-inch width claim appears in the rewrite.",
+    "No claim about claim-denial outcomes or repack-bag procedures is asserted as carrier policy; consequences are framed as what the carriers' own written rules imply."
+  ],
+  "required_when": "Any edit adding a tape width, tape grade, price, address, or phone number to this article must register it here first."
+}
