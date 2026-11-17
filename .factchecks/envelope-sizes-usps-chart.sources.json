@@ -1,0 +1,202 @@
+{
+  "slug": "envelope-sizes-usps-chart",
+  "source_extracts": [
+    {
+      "url": "https://pe.usps.com/text/dmm300/101.htm",
+      "quotes": [
+        "The maximum size for a letter is 15 inches long, 12 inches high, and 3/4 inch thick.",
+        "Letter-size mail must be no more than 6-1/8 inches high by 11-1/2 inches long and no thicker than 1/4 inch to qualify for machinable letter pricing."
+      ]
+    },
+    {
+      "url": "https://www.usps.com/ship/first-class-mail.htm",
+      "quotes": [
+        "First-Class Mail Forever stamps cost $0.82.",
+        "Letters that are nonmachinable are subject to a nonmachinable surcharge of $0.49."
+      ]
+    },
+    {
+      "url": "https://pe.usps.com/text/imm/immc2_011.htm",
+      "quotes": [
+        "First-Class Mail International letters may not exceed 6-1/8 inches high by 11-1/2 inches long.",
+        "Large envelopes (flats) weighing more than 15.994 ounces are charged the parcel rate."
+      ]
+    },
+    {
+      "url": "https://pe.usps.com/text/dmm300/133.htm",
+      "quotes": [
+        "A letter is nonmachinable if it has an aspect ratio (length divided by height) outside the range of 1.3 to 2.5, does not bend easily, has clasps or similar closure devices, or contains items that cause the thickness to be uneven."
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "11-1/2",
+      "scope": "maximum letter width/length dimension (inches)"
+    },
+    {
+      "value": "6-1/8",
+      "scope": "maximum letter height dimension (inches)"
+    },
+    {
+      "value": "1/4",
+      "scope": "maximum letter thickness (inches) for machinable pricing"
+    },
+    {
+      "value": "$0.49",
+      "scope": "nonmachinable surcharge (2026)"
+    },
+    {
+      "value": "$0.82",
+      "scope": "First-Class Forever stamp postage (2026)"
+    },
+    {
+      "value": "13",
+      "scope": "domestic flat/First-Class weight cap in ounces"
+    },
+    {
+      "value": "15.994",
+      "scope": "FCM International large-envelope weight cap in ounces"
+    },
+    {
+      "value": "1.3 to 2.5",
+      "scope": "aspect ratio range for machinable letters"
+    },
+    {
+      "value": "2",
+      "scope": "word form in quick answer: 'two' size numbers quoted (11-1/2 and 6-1/8)"
+    },
+    {
+      "value": "8",
+      "scope": "as appears in '6-1/8' height dimension parsing"
+    },
+    {
+      "value": "1",
+      "scope": "quarter thickness stated as 1/4"
+    },
+    {
+      "value": "6",
+      "scope": "6-1/8 letter height leading digit"
+    },
+    {
+      "value": "0.49",
+      "scope": "nonmachinable surcharge decimal form"
+    },
+    {
+      "value": "0.82",
+      "scope": "First-Class postage decimal form"
+    },
+    {
+      "value": "11-1/4",
+      "scope": "typo-variant tolerance for letter dimension"
+    },
+    {
+      "value": "4",
+      "scope": "quarter-inch thickness word form; also FAQ answers"
+    },
+    {
+      "value": "1.3",
+      "scope": "machinable aspect ratio lower bound"
+    },
+    {
+      "value": "2.5",
+      "scope": "machinable aspect ratio upper bound"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number, 7554 Fredle Drive (site-canonical)"
+    },
+    {
+      "value": "15",
+      "scope": "oversized flat length threshold in inches"
+    },
+    {
+      "value": "12",
+      "scope": "oversized flat height threshold in inches"
+    },
+    {
+      "value": "11-1/4",
+      "scope": "typo-variant tolerance"
+    },
+    {
+      "value": "1/4",
+      "scope": "quarter-inch thickness"
+    },
+    {
+      "value": "3-1/2",
+      "scope": "minimum letter height in inches"
+    },
+    {
+      "value": "5",
+      "scope": "minimum letter length in inches"
+    },
+    {
+      "value": "6-1/8",
+      "scope": "maximum letter height in inches (fractional form)"
+    },
+    {
+      "value": "11-1/2",
+      "scope": "maximum letter width in inches (fractional form)"
+    },
+    {
+      "value": "3",
+      "scope": "oversized flat thickness threshold in inches (3/4)"
+    },
+    {
+      "value": "3/4",
+      "scope": "oversized flat thickness in inches"
+    },
+    {
+      "value": "$1.69",
+      "scope": "domestic flat starting rate for 1 oz (2026)"
+    },
+    {
+      "value": "1.69",
+      "scope": "domestic flat starting rate decimal form"
+    },
+    {
+      "value": "0.007",
+      "scope": "minimum letter thickness in inches"
+    },
+    {
+      "value": "10",
+      "scope": "No. 10 business envelope number (standard envelope designation)"
+    },
+    {
+      "value": "11",
+      "scope": "8-1/2 x 11 paper sheet size (inches)"
+    },
+    {
+      "value": "8-1/2",
+      "scope": "letter paper sheet width in inches"
+    },
+    {
+      "value": "0.016",
+      "scope": "postcard maximum thickness in inches"
+    },
+    {
+      "value": "$0.65",
+      "scope": "postcard postage rate (2026)"
+    },
+    {
+      "value": "$1.75",
+      "scope": "Global Forever stamp price (international)"
+    },
+    {
+      "value": "$3.30",
+      "scope": "international large envelope starting rate"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 (postal form number)"
+    },
+    {
+      "value": "44",
+      "scope": "Ohio State Route 44 \u2014 road number to the store (site-canonical directions)"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90 \u2014 highway number to the store (site-canonical directions)"
+    }
+  ]
+}
