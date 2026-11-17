@@ -233,5 +233,21 @@ describe('recaptcha-loader module', () => {
       expect(consoleSpy).toHaveBeenCalled();
       consoleSpy.mockRestore();
     });
+
+    it('resolves with empty string on safety timeout when grecaptcha hangs', async () => {
+      vi.useFakeTimers();
+      window.grecaptcha = {
+        ready: () => {
+          // never calls callback
+        },
+        execute: vi.fn(),
+      } as unknown as typeof window.grecaptcha;
+
+      const promise = executeRecaptcha('my-site-key');
+      await vi.advanceTimersByTimeAsync(2500);
+      const token = await promise;
+      expect(token).toBe('');
+      vi.useRealTimers();
+    });
   });
 });

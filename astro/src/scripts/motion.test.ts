@@ -143,6 +143,72 @@ describe('initMotion (scroll reveals, DESIGN_PHASE1_SPEC Task 3)', () => {
     expect(document.querySelectorAll(`.${PENDING_CLASS}`).length).toBe(0);
   });
 
+  it('sets dataset.motion = ready and returns noop when all targets are above the fold', () => {
+    document.body.innerHTML = '<section id="above" data-reveal>Above fold</section>';
+    setTop(document.getElementById('above')!, 100);
+    const cleanup = initMotion(document);
+    expect(document.documentElement.dataset.motion).toBe('ready');
+    cleanup();
+  });
+
+  it('reveals targets skipped by keyboard jump keys (End, PageDown)', () => {
+    initMotion(document);
+    setTop(document.getElementById('below')!, -500);
+    setTop(document.getElementById('grid')!, -200);
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }));
+    vi.advanceTimersByTime(50);
+    expect(document.querySelectorAll(`.${PENDING_CLASS}`).length).toBe(0);
+  });
+
+  it('wraps window.scrollTo, window.scroll, and window.scrollBy to trigger sweep and restores them on cleanup', () => {
+    const origScrollTo = vi.fn();
+    const origScroll = vi.fn();
+    const origScrollBy = vi.fn();
+    window.scrollTo = origScrollTo;
+    window.scroll = origScroll;
+    window.scrollBy = origScrollBy;
+
+    const cleanup = initMotion(document);
+    setTop(document.getElementById('below')!, -500);
+
+    window.scrollTo(0, 500);
+    expect(origScrollTo).toHaveBeenCalledWith(0, 500);
+
+    window.scroll(0, 500);
+    expect(origScroll).toHaveBeenCalledWith(0, 500);
+
+    window.scrollBy(0, 100);
+    expect(origScrollBy).toHaveBeenCalledWith(0, 100);
+
+    cleanup();
+    expect(window.scrollTo).toBe(origScrollTo);
+    expect(window.scroll).toBe(origScroll);
+    expect(window.scrollBy).toBe(origScrollBy);
+  });
+
+  it('cancels active animations when element settles', () => {
+    initMotion(document);
+    const below = document.getElementById('below')!;
+    const mockAnim = { cancel: vi.fn() };
+    (below as unknown as { getAnimations: () => unknown[] }).getAnimations = () => [mockAnim];
+
+    FakeIO.instances[0].fire(below);
+    expect(below.classList.contains(ACTIVE_CLASS)).toBe(true);
+
+    vi.advanceTimersByTime(SETTLE_MS);
+    expect(below.classList.contains(ACTIVE_CLASS)).toBe(false);
+    expect(mockAnim.cancel).toHaveBeenCalled();
+  });
+
+  it('clears active timers on cleanup while reveal transition is pending', () => {
+    const cleanup = initMotion(document);
+    const below = document.getElementById('below')!;
+    FakeIO.instances[0].fire(below);
+    expect(below.classList.contains(ACTIVE_CLASS)).toBe(true);
+    cleanup();
+    expect(document.querySelectorAll(`.${PENDING_CLASS}`).length).toBe(0);
+  });
+
   it('cleanup restores full visibility and disconnects', () => {
     const cleanup = initMotion(document);
     cleanup();

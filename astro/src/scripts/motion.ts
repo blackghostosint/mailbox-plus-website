@@ -60,6 +60,11 @@ export function initMotion(doc: Document = document): Cleanup {
     el.classList.remove(PENDING_CLASS);
     const t = setTimeout(() => {
       el.classList.remove(ACTIVE_CLASS);
+      if (typeof el.getAnimations === 'function') {
+        for (const anim of el.getAnimations()) {
+          anim.cancel();
+        }
+      }
       timers.delete(t);
     }, SETTLE_MS);
     timers.add(t);
@@ -70,6 +75,11 @@ export function initMotion(doc: Document = document): Cleanup {
       pending.delete(el);
       observer.unobserve(el);
       el.classList.remove(PENDING_CLASS);
+      if (typeof el.getAnimations === 'function') {
+        for (const anim of el.getAnimations()) {
+          anim.cancel();
+        }
+      }
     }
     detachSweep();
   };
