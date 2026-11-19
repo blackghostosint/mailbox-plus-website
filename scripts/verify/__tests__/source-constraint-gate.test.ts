@@ -233,7 +233,13 @@ describe('source-constraint-gate', () => {
       const mockFs = createMockFs({ [`${slug}.sources.json`]: sources });
       const { runSourceConstraintGate } = makeSourceConstraintGate(mockFs, path);
       const { check, must } = createCheckCollector();
-      runSourceConstraintGate(slug, 'We are the Cheapest mailbox in town.', check, '/root', '/drafts');
+      runSourceConstraintGate(
+        slug,
+        'We are the Cheapest mailbox in town.',
+        check,
+        '/root',
+        '/drafts'
+      );
       const rows = must('source:scope-rule');
       expect(rows.some((r) => !r.pass && /scope violation/.test(r.detail))).toBe(true);
       expect(rows.some((r) => /bad scope_rule regex/.test(r.detail))).toBe(false);
@@ -271,13 +277,22 @@ describe('source-constraint-gate', () => {
       const sources = {
         ...goodSources,
         required_when: [
-          { trigger: '(?i)sign for (your |the )?deliveries', must_include: 'when a carrier requires' },
+          {
+            trigger: '(?i)sign for (your |the )?deliveries',
+            must_include: 'when a carrier requires',
+          },
         ],
       };
       const mockFs = createMockFs({ [`${slug}.sources.json`]: sources });
       const { runSourceConstraintGate } = makeSourceConstraintGate(mockFs, path);
       const { check, must } = createCheckCollector();
-      runSourceConstraintGate(slug, 'We SIGN FOR your deliveries, always.', check, '/root', '/drafts');
+      runSourceConstraintGate(
+        slug,
+        'We SIGN FOR your deliveries, always.',
+        check,
+        '/root',
+        '/drafts'
+      );
       const failing = must('source:required-qualifier').filter((r) => !r.pass);
       expect(failing.length).toBeGreaterThan(0);
     });
