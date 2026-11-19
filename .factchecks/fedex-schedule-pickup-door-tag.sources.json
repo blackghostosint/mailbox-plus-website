@@ -1,0 +1,242 @@
+{
+  "source_extracts": [
+    {
+      "label": "FedEx Schedule a Pickup (official)",
+      "url": "https://www.fedex.com/en-us/shipping/schedule-manage-pickups.html",
+      "quote": "You don't have to be present for a FedEx pickup. But be sure to leave your package somewhere safe and accessible to the driver. Look for a FedEx door tag that confirms pickup and provides tracking information. If the driver determines your package can't be picked up, the door tag will explain why and tell you what to do next."
+    },
+    {
+      "label": "FedEx Schedule a Pickup \u2014 on-call timing",
+      "url": "https://www.fedex.com/en-us/shipping/schedule-manage-pickups.html",
+      "quote": "Expedited service: pickups for expedited shipments can be scheduled for same day or next day pickup. Standard and economy services: schedule pickups for standard or economy shipments the next business day or up to 10 business days in advance."
+    },
+    {
+      "label": "FedEx Schedule a Pickup \u2014 drop off free",
+      "url": "https://www.fedex.com/en-us/shipping/schedule-manage-pickups.html",
+      "quote": "Don't want to wait for a pickup? Drop off your packages at a retail location for free."
+    },
+    {
+      "label": "FedEx Schedule a Pickup \u2014 guest scheduling",
+      "url": "https://www.fedex.com/en-us/shipping/schedule-manage-pickups.html",
+      "quote": "Already have a prepaid shipping label? You can schedule a pickup through our guest pickup scheduling without an account."
+    },
+    {
+      "label": "FedEx Schedule a Pickup \u2014 pickup pricing change",
+      "url": "https://www.fedex.com/en-us/shipping/schedule-manage-pickups.html",
+      "quote": "Effective August 18, 2025, FedEx will begin using a new pricing and rating structure to charge for parcel pickups."
+    },
+    {
+      "label": "FedEx Delivery Manager / door tag FAQ",
+      "url": "https://www.fedex.com/en-us/faq/delivery-manager.html",
+      "quote": "Follow the directions on the door tag to verify that your package is available for pickup. When you arrive at the location listed on the door tag, provide a government-issued photo ID and your tracking number to pick up your package."
+    },
+    {
+      "label": "FedEx Delivery Manager \u2014 hold duration",
+      "url": "https://www.fedex.com/en-us/faq/delivery-manager.html",
+      "quote": "Your package will be held at the indicated location for 5 business days, after which time it may be returned to the shipper."
+    },
+    {
+      "label": "FedEx Hold at Location \u2014 hold duration",
+      "url": "https://www.fedex.com/en-us/shipping/hold-at-location.html",
+      "quote": "FedEx will hold your package for up to 7 days. After that, we'll return it to the shipper."
+    },
+    {
+      "label": "FedEx Hold at Location \u2014 pickup ID requirements",
+      "url": "https://www.fedex.com/en-us/shipping/hold-at-location.html",
+      "quote": "You'll need your tracking number, government-issued photo ID, and your door tag number."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "5 business days",
+      "scope": "FedEx Delivery Manager FAQ: packages picked up via door tag at the location listed are held 5 business days before possible return to shipper (delivery-manager.html)"
+    },
+    {
+      "value": "up to 7 days",
+      "scope": "FedEx Hold at Location / missed-delivery pickup: secure FedEx locations hold packages up to 7 days before return to shipper (hold-at-location.html)"
+    },
+    {
+      "value": "up to 10 business days in advance",
+      "scope": "FedEx on-call pickup scheduling window for standard/economy parcel services (schedule-manage-pickups.html)"
+    },
+    {
+      "value": "same day or next day",
+      "scope": "FedEx on-call pickup scheduling window for expedited parcel services (schedule-manage-pickups.html)"
+    },
+    {
+      "value": "over 150 lbs",
+      "scope": "FedEx on-call freight pickup applies to shipments over 150 lbs (schedule-manage-pickups.html)"
+    },
+    {
+      "value": "August 18, 2025",
+      "scope": "Effective date of FedEx's new parcel pickup pricing/rating structure (schedule-manage-pickups.html)"
+    },
+    {
+      "value": "$5.55 per package",
+      "scope": "FedEx Delivery Manager reroute/schedule delivery options starting fee (delivery-manager.html) \u2014 NOT a pickup or door tag fee; cite only with that scope"
+    },
+    {
+      "value": "$5 per notarial act",
+      "scope": "Ohio statutory in-person notary fee cap (Ohio SOS; confirmed ledger)"
+    },
+    {
+      "value": "$5",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "2",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "3",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "2.4",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "$26.40",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "$2",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "150",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "108",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "165",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "10",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "18",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "2025",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "5",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "7",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "7554",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "44077",
+      "scope": "Concord Township OH ZIP code"
+    },
+    {
+      "value": "306",
+      "scope": "Ohio State Route 306 near Fredle Drive"
+    },
+    {
+      "value": "44",
+      "scope": "Ohio State Route 44"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90"
+    },
+    {
+      "value": "440",
+      "scope": "Store area code (440-709-1946)"
+    },
+    {
+      "value": "709",
+      "scope": "Store phone prefix"
+    },
+    {
+      "value": "1946",
+      "scope": "Store phone line"
+    },
+    {
+      "value": "1",
+      "scope": "Step/item count or singular reference"
+    },
+    {
+      "value": "4",
+      "scope": "Four major carriers at counter (USPS, UPS, FedEx, DHL)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583"
+    },
+    {
+      "value": "7 days",
+      "scope": "FedEx Hold at Location keeps packages up to 7 days before return to shipper (fedex.com Delivery Manager FAQ)"
+    },
+    {
+      "value": "seven days",
+      "scope": "word form of the 7-day hold window"
+    },
+    {
+      "value": "$5.55",
+      "scope": "residential reroute fee (delivery manager / schedule-delivery ops) \u2014 scope-quarantined from the free redirect"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\bsuite\\s+#?\\d+\\b",
+      "reason": "DMM 508.1.8.3 requires PMB or # designator, never Suite"
+    },
+    {
+      "forbid": "\\btwo\\s+photo\\s+ids?\\b",
+      "reason": "USPS Form 1583 requires one photo ID and one proof of address, never two photo IDs"
+    },
+    {
+      "forbid": "\\bworks\\s+on\\s+(?:every|any)\\s+form\\b",
+      "reason": "Third-party form acceptance is never categorical"
+    },
+    {
+      "forbid": "\\b(?:in\\s+)?under\\s+(?:3|three|2|two|5|five)\\s+minutes\\b",
+      "reason": "Unapproved quantitative turnaround/SLA promise (Rule 3)"
+    },
+    {
+      "forbid": "(pickup (cost|fee|price)\\s*(is|of)?\\s*\\$?\\d)",
+      "reason": "No source states a specific FedEx pickup fee; FedEx only says a new pickup pricing structure took effect Aug 18, 2025. Any dollar figure for pickup cost would be invented."
+    },
+    {
+      "forbid": "(\\$5\\.55).*(pickup|door tag)",
+      "reason": "$5.55 applies only to FedEx Delivery Manager reroute/schedule-delivery options, never to pickups or door tags."
+    },
+    {
+      "forbid": "(held|hold).*(\\d+\\s*(day|business day)).*(7|five|5)",
+      "reason": "Two different verified hold windows exist: 5 business days (door-tag pickup per Delivery Manager FAQ) and up to 7 days (Hold at Location). Do not blend or generalize them into one number."
+    },
+    {
+      "forbid": "(guaranteed|same[- ]hour|under \\d+ minutes)",
+      "reason": "Owner forbids quantitative turnaround/wait-time promises without signoff."
+    },
+    {
+      "forbid": "(cheapest|best|#1|lowest price)",
+      "reason": "Owner forbids superlatives."
+    },
+    {
+      "forbid": "(thousands of packages|decades of)",
+      "reason": "Owner forbids unverified volume/experience counts."
+    },
+    {
+      "forbid": "every mailbox (tier|rental).*(includes|24/7)",
+      "reason": "Owner forbids categorical claims that every mailbox tier includes package receiving or 24/7 access."
+    }
+  ],
+  "required_when": []
+}
