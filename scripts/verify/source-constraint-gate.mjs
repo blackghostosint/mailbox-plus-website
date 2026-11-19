@@ -47,6 +47,22 @@ const WORD_NUMBERS = {
 };
 
 export function makeSourceConstraintGate(fs, path) {
+  // Writer LLMs sometimes emit Python-style leading inline flags, e.g. (?i)foo.
+  // JavaScript rejects inline flag groups ("Invalid group"), which used to fail
+  // the whole rule even though the gate already compiles case-insensitive.
+  // Fold a leading (?ims) group into RegExp flags instead — same semantics,
+  // no policy change. Mid-pattern/scoped inline flags remain unsupported.
+  function compileGateRegex(pattern, baseFlags = 'i') {
+    let flags = baseFlags;
+    let src = String(pattern);
+    const m = src.match(/^\(\?([ims]+)\)/);
+    if (m) {
+      for (const f of m[1]) if (!flags.includes(f)) flags += f;
+      src = src.slice(m[0].length);
+    }
+    return new RegExp(src, flags);
+  }
+
   function parseValueToken(token) {
     // Normalize "$15", "15", "five", "10-12", "$150.50", "5%" to a comparable string.
     const t = token
@@ -196,7 +212,7 @@ export function makeSourceConstraintGate(fs, path) {
       if (!rule.forbid) continue;
       let re;
       try {
-        re = new RegExp(rule.forbid, 'i');
+        re = compileGateRegex(rule.forbid);
       } catch (e) {
         check('source:scope-rule', false, `bad scope_rule regex: ${rule.forbid} (${e.message})`);
         continue;
@@ -217,8 +233,8 @@ export function makeSourceConstraintGate(fs, path) {
       if (!rule.trigger || !rule.must_include) continue;
       let reT, reM;
       try {
-        reT = new RegExp(rule.trigger, 'i');
-        reM = new RegExp(rule.must_include, 'i');
+        reT = compileGateRegex(rule.trigger);
+        reM = compileGateRegex(rule.must_include);
       } catch (e) {
         check('source:required-qualifier', false, `bad required_when regex: ${e.message}`);
         continue;
@@ -236,7 +252,7 @@ export function makeSourceConstraintGate(fs, path) {
     }
   }
 
-  return { runSourceConstraintGate, parseValueToken, extractNumericTokens };
+  return { runSourceConstraintGate, parseValueToken, extractNumericTokens, compileGateRegex };
 }
 
 if (isMainModuleFor(import.meta.url)) {
