@@ -191,4 +191,110 @@ describe('source-constraint-gate', () => {
       expect(parseValueToken('tuesday')).toBeNull();
     });
   });
+
+  describe('compileGateRegex — Python-style leading inline flags (2026-11-17 held-draft class)', () => {
+    it('folds a leading (?i) into the case-insensitive flag instead of throwing', () => {
+      const mockFs = createMockFs({});
+      const { compileGateRegex } = makeSourceConstraintGate(mockFs, path);
+      const re = compileGateRegex('(?i)(cheapest|best)');
+      expect(re.flags).toContain('i');
+      expect(re.test('The CHEAPEST option')).toBe(true);
+      expect(re.test('a fine option')).toBe(false);
+    });
+
+    it('folds (?im) into both flags', () => {
+      const mockFs = createMockFs({});
+      const { compileGateRegex } = makeSourceConstraintGate(mockFs, path);
+      const re = compileGateRegex('(?im)^guaranteed');
+      expect(re.flags).toContain('i');
+      expect(re.flags).toContain('m');
+      expect(re.test('line one\nGUARANTEED same-day')).toBe(true);
+    });
+
+    it('leaves plain patterns untouched', () => {
+      const mockFs = createMockFs({});
+      const { compileGateRegex } = makeSourceConstraintGate(mockFs, path);
+      expect(compileGateRegex('all four carriers').test('All Four Carriers')).toBe(true);
+    });
+
+    it('still rejects mid-pattern inline flags (unsupported in JS)', () => {
+      const mockFs = createMockFs({});
+      const { compileGateRegex } = makeSourceConstraintGate(mockFs, path);
+      expect(() => compileGateRegex('foo(?i)bar')).toThrow();
+    });
+
+    it('gate: scope_rule with (?i) prefix compiles and still FAILS matching copy', () => {
+      const sources = {
+        ...goodSources,
+        scope_rules: [
+          { forbid: '(?i)(cheapest|best|\\#1)', reason: 'no superlatives without sign-off' },
+        ],
+      };
+      const mockFs = createMockFs({ [`${slug}.sources.json`]: sources });
+      const { runSourceConstraintGate } = makeSourceConstraintGate(mockFs, path);
+      const { check, must } = createCheckCollector();
+      runSourceConstraintGate(
+        slug,
+        'We are the Cheapest mailbox in town.',
+        check,
+        '/root',
+        '/drafts'
+      );
+      const rows = must('source:scope-rule');
+      expect(rows.some((r) => !r.pass && /scope violation/.test(r.detail))).toBe(true);
+      expect(rows.some((r) => /bad scope_rule regex/.test(r.detail))).toBe(false);
+    });
+
+    it('gate: scope_rule with (?i) prefix PASSES clean copy', () => {
+      const sources = {
+        ...goodSources,
+        scope_rules: [
+          { forbid: '(?i)(cheapest|best|\\#1)', reason: 'no superlatives without sign-off' },
+        ],
+      };
+      const mockFs = createMockFs({ [`${slug}.sources.json`]: sources });
+      const { runSourceConstraintGate } = makeSourceConstraintGate(mockFs, path);
+      const { check, must } = createCheckCollector();
+      runSourceConstraintGate(slug, 'Tiers are $15 and $25.', check, '/root', '/drafts');
+      const failing = must('source:scope-rule').filter((r) => !r.pass);
+      expect(failing.length).toBe(0);
+    });
+
+    it('gate: genuinely malformed regex still fails closed', () => {
+      const sources = {
+        ...goodSources,
+        scope_rules: [{ forbid: '(?i)(unclosed', reason: 'broken pattern' }],
+      };
+      const mockFs = createMockFs({ [`${slug}.sources.json`]: sources });
+      const { runSourceConstraintGate } = makeSourceConstraintGate(mockFs, path);
+      const { check, must } = createCheckCollector();
+      runSourceConstraintGate(slug, 'Body.', check, '/root', '/drafts');
+      const rows = must('source:scope-rule');
+      expect(rows.some((r) => !r.pass && /bad scope_rule regex/.test(r.detail))).toBe(true);
+    });
+
+    it('gate: required_when trigger with (?i) prefix compiles and enforces the qualifier', () => {
+      const sources = {
+        ...goodSources,
+        required_when: [
+          {
+            trigger: '(?i)sign for (your |the )?deliveries',
+            must_include: 'when a carrier requires',
+          },
+        ],
+      };
+      const mockFs = createMockFs({ [`${slug}.sources.json`]: sources });
+      const { runSourceConstraintGate } = makeSourceConstraintGate(mockFs, path);
+      const { check, must } = createCheckCollector();
+      runSourceConstraintGate(
+        slug,
+        'We SIGN FOR your deliveries, always.',
+        check,
+        '/root',
+        '/drafts'
+      );
+      const failing = must('source:required-qualifier').filter((r) => !r.pass);
+      expect(failing.length).toBeGreaterThan(0);
+    });
+  });
 });
