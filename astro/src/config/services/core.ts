@@ -92,7 +92,7 @@ export const coreServices: Service[] = [
               <a href="/pack-ship/package-receiving" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
                 <div class="text-3xl mb-4">🛡️</div>
                 <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Package Receiving</h3>
-                <p class="text-sm text-[var(--color-text-secondary)]">We sign. We store. You pick up. No porch needed. From $10/package.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">We sign. We store. You pick up. No porch needed. Package receiving for mailbox holders and non-holders — ask at the counter.</p>
               </a>
               <a href="/amazon-returns" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
                 <div class="text-3xl mb-4">↩️</div>
@@ -185,7 +185,7 @@ export const coreServices: Service[] = [
         icon: Truck,
         title: 'Package Receiving',
         description:
-          'We sign for and store packages from all carriers \u2014 from $10/package or $35/month unlimited.',
+          'We sign for and store packages from all carriers \u2014 for mailbox holders and walk-in customers alike.',
       },
     ],
     faqs: packShipFaqs,
@@ -196,7 +196,7 @@ export const coreServices: Service[] = [
     cta: {
       title: 'One Counter. All 4 Carriers.',
       subtitle:
-        'Compare UPS, FedEx, USPS, DHL side-by-side. Custom packing and free drop-offs. From $35/month for a private mailbox.',
+        'Compare UPS, FedEx, USPS, DHL side-by-side. Custom packing and free drop-offs. From $15/month for a private mailbox.',
       buttonText: 'Get Started Shipping \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -384,7 +384,7 @@ export const coreServices: Service[] = [
     cta: {
       title: 'Need Something Printed?',
       subtitle:
-        "Business cards, flyers, posters, copies \u2014 we print so you don't have to. From $35/month for a private mailbox.",
+        "Business cards, flyers, posters, copies \u2014 we print so you don't have to. From $15/month for a private mailbox.",
       buttonText: 'Start Your Print Job \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',

@@ -499,7 +499,7 @@ export const mailboxRentalServices: Service[] = [
     slug: '/virtual-mailbox-concord-township',
     pageTitle: 'Virtual Mailbox Concord Township OH | Real Street Address | Mailbox Plus',
     metaDescription:
-      'Virtual mailbox with a real Concord Township street address. We scan your envelopes, you decide: forward, shred, or open. Walk in or sign up online. From $35/mo.',
+      'Virtual mailbox with a real Concord Township street address. We scan your envelopes, you decide: forward, shred, or open. Walk in or sign up online.',
     keywords:
       'virtual mailbox, virtual mailbox near me, virtual mailbox concord township, virtual mailbox ohio, virtual po box, virtual po box alternative, street address mailbox',
     heroTitle: 'Your Virtual Mailbox — See Your Mail From Anywhere',

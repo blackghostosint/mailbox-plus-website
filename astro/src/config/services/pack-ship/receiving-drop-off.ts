@@ -149,7 +149,7 @@ export const receivingDropOffServices: Service[] = [
     cta: {
       title: 'Got a Pre-Labeled Package?',
       subtitle:
-        'Free drop-offs for UPS, FedEx, USPS, DHL. One stop, all 4 carriers. From $35/month for a private mailbox.',
+        'Free drop-offs for UPS, FedEx, USPS, DHL. One stop, all 4 carriers. From $15/month for a private mailbox.',
       buttonText: 'Drop It Off \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -199,7 +199,7 @@ export const receivingDropOffServices: Service[] = [
       'package receiving, mail handling, Concord Township, Lake County, porch pirate protection',
     heroTitle: 'Never Miss a Package Again',
     heroSubtitle:
-      'We sign for and securely store packages from all carriers. No porch pirates. No missed deliveries. From $10/package or $30/month unlimited.',
+      'We sign for and securely store packages from all carriers. No porch pirates. No missed deliveries. Package receiving for mailbox holders and non-holders — ask at the counter.',
     heroImage: getServiceImageUrl('/images/package-receiving.webp'),
     hideCarrierLogos: true,
     content: [
@@ -279,7 +279,7 @@ export const receivingDropOffServices: Service[] = [
               Whether you travel frequently, work during delivery hours, or just want the peace of mind that your packages are safe \u2014 Mailbox Plus has you covered.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
-              <strong>Stop by and set up package receiving.</strong> From $10/package or $30/month unlimited. No contract, no hassle.
+              <strong>Stop by and set up package receiving.</strong> Available for mailbox holders and non-holders. No term commitment, no hassle.
             </p>`,
       },
     ],
@@ -306,7 +306,7 @@ export const receivingDropOffServices: Service[] = [
     cta: {
       title: 'Tired of Porch Pirates?',
       subtitle:
-        'We sign. We store. You pick up. From $10/package or $30/month unlimited. From $35/month for a private mailbox.',
+        'We sign. We store. You pick up. Package receiving for mailbox holders and non-holders — ask at the counter. From $15/month for a private mailbox.',
       buttonText: 'Set Up Package Receiving \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',

@@ -156,7 +156,7 @@ export const packingServices: Service[] = [
     cta: {
       title: 'Got Something Fragile?',
       subtitle:
-        "We pack it so sorting machines can't break it. Carrier-compliant materials. From $35/month for a private mailbox.",
+        "We pack it so sorting machines can't break it. Carrier-compliant materials. From $15/month for a private mailbox.",
       buttonText: 'Bring It In \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -301,7 +301,7 @@ export const packingServices: Service[] = [
     cta: {
       title: "Item Doesn't Fit a Standard Box?",
       subtitle:
-        'We build custom boxes for odd-shaped, oversized, and fragile items. From $35/month for a private mailbox.',
+        'We build custom boxes for odd-shaped, oversized, and fragile items. From $15/month for a private mailbox.',
       buttonText: 'Get a Custom Box \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -432,7 +432,7 @@ export const packingServices: Service[] = [
     cta: {
       title: 'Need Boxes or Tape?',
       subtitle:
-        'Boxes, bubble wrap, tape, peanuts \u2014 everything you need, right where you ship. From $35/month for a private mailbox.',
+        'Boxes, bubble wrap, tape, peanuts \u2014 everything you need, right where you ship. From $15/month for a private mailbox.',
       buttonText: 'Shop Supplies \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
