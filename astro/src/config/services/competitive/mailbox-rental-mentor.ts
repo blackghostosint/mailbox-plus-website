@@ -29,11 +29,11 @@ export const competePages: Service[] = [
     category: 'mailbox-rentals',
     city: 'Mentor',
     serviceName:
-      'Mailbox Rental in Mentor, OH --- Real Street Address | From $35/mo --- Mailbox Plus',
+      'Mailbox Rental in Mentor, OH --- Real Street Address | From $15/mo --- Mailbox Plus',
     slug: '/mailbox-rental-mentor',
     canonicalUrl: '/mailbox-rental-mentor/',
     pageTitle:
-      'Mailbox Rental in Mentor, OH --- Real Street Address | From $35/mo --- Mailbox Plus',
+      'Mailbox Rental in Mentor, OH --- Real Street Address | From $15/mo --- Mailbox Plus',
     metaDescription:
       'Rent a private mailbox in Mentor, OH with a real street address. Secure USPS mail, package receiving, and 24/7 access — from $35/month. Locally owned.',
     keywords:
@@ -57,13 +57,13 @@ export const competePages: Service[] = [
       {
         title: 'Clear Price, No Hidden Fees',
         description:
-          "From $35/month. No application fee. No surprise charges. The UPS Store won't tell you their price online. We do.",
+          "From $15/month. No application fee. No surprise charges. The UPS Store won't tell you their price online. We do.",
         icon: Clock,
       },
       {
         title: 'Month-to-Month, No Contract',
         description:
-          'Try us 30 days risk-free. Not for you? Cancel with no penalty. No annual contract. No paperwork.',
+          'Completely risk-free. Month-to-month, cancel anytime — no penalty, no annual contract, no paperwork.',
         icon: Mail,
       },
       {
@@ -83,7 +83,7 @@ export const competePages: Service[] = [
       // ── H2: The UPS Store Alternative Comparison ──
       {
         heading: 'Mailbox Plus vs. The UPS Store in Mentor',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">The UPS Store has two Mentor locations, but both use the same corporate template. Here is how Mailbox Plus stacks up.</p><div class="overflow-x-auto my-6"><table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm"><thead class="bg-[var(--color-bg-secondary)]/80"><tr><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]"></th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Mailbox Plus</th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">The UPS Store (Mentor)</th></tr></thead><tbody class="divide-y divide-[var(--color-border)]"><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Monthly price</th><td class="p-4 text-[var(--color-text-primary)] font-bold">From $35 --- shown online</td><td class="p-4 text-[var(--color-text-secondary)]">"Call for pricing"</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Contract</th><td class="p-4 text-[var(--color-text-primary)]">Month-to-month, cancel anytime</td><td class="p-4 text-[var(--color-text-secondary)]">Annual deal varies</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Carriers at one counter</th><td class="p-4 text-[var(--color-text-primary)]">UPS, FedEx, USPS, DHL</td><td class="p-4 text-[var(--color-text-secondary)]">UPS-focused</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Package alert</th><td class="p-4 text-[var(--color-text-primary)]">Within 4 hours</td><td class="p-4 text-[var(--color-text-secondary)]">Yes</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Risk-free trial</th><td class="p-4 text-[var(--color-text-primary)]">30 days</td><td class="p-4 text-[var(--color-text-secondary)]">Not offered</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Locally owned</th><td class="p-4 text-[var(--color-text-primary)]">Yes --- Concord Township</td><td class="p-4 text-[var(--color-text-secondary)]">Corporate franchise</td></tr></tbody></table></div>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">The UPS Store has two Mentor locations, but both use the same corporate template. Here is how Mailbox Plus stacks up.</p><div class="overflow-x-auto my-6"><table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm"><thead class="bg-[var(--color-bg-secondary)]/80"><tr><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]"></th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Mailbox Plus</th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">The UPS Store (Mentor)</th></tr></thead><tbody class="divide-y divide-[var(--color-border)]"><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Monthly price</th><td class="p-4 text-[var(--color-text-primary)] font-bold">From $15 --- shown online</td><td class="p-4 text-[var(--color-text-secondary)]">"Call for pricing"</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Contract</th><td class="p-4 text-[var(--color-text-primary)]">Month-to-month, cancel anytime</td><td class="p-4 text-[var(--color-text-secondary)]">Annual deal varies</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Carriers at one counter</th><td class="p-4 text-[var(--color-text-primary)]">UPS, FedEx, USPS, DHL</td><td class="p-4 text-[var(--color-text-secondary)]">UPS-focused</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Package alert</th><td class="p-4 text-[var(--color-text-primary)]">Within 4 hours</td><td class="p-4 text-[var(--color-text-secondary)]">Yes</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Risk-free</th><td class="p-4 text-[var(--color-text-primary)]">Completely — month-to-month, cancel anytime</td><td class="p-4 text-[var(--color-text-secondary)]">Not offered</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Locally owned</th><td class="p-4 text-[var(--color-text-primary)]">Yes --- Concord Township</td><td class="p-4 text-[var(--color-text-secondary)]">Corporate franchise</td></tr></tbody></table></div>`,
       },
       // ── H2: Audience Segments ──
       {
@@ -105,7 +105,7 @@ export const competePages: Service[] = [
       // ── H2: Local Area ──
       {
         heading: 'Serving Mentor and All of Lake County',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Located at 7554 Fredle Drive, Concord Township — just off Mentor Avenue near Great Lakes Mall. We serve Little Mountain, Mentor-on-the-Lake, Headlands, and Mentor Lagoons. About 5 minutes from Great Lakes Mall and an 8-minute drive from central Mentor.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed mt-4">Whether you're a small business owner needing a professional address, a remote worker managing mail from the road, or a resident tired of porch theft — <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">Mailbox Plus</a> is your Mentor-area mailbox solution. No contract. Month-to-month. 30-day risk-free. And when it's time to ship, we take <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">drop-offs for all four carriers</a> at the same counter.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Located at 7554 Fredle Drive, Concord Township — just off Mentor Avenue near Great Lakes Mall. We serve Little Mountain, Mentor-on-the-Lake, Headlands, and Mentor Lagoons. About 5 minutes from Great Lakes Mall and an 8-minute drive from central Mentor.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed mt-4">Whether you're a small business owner needing a professional address, a remote worker managing mail from the road, or a resident tired of porch theft — <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">Mailbox Plus</a> is your Mentor-area mailbox solution. No contract. Month-to-month. Completely risk-free. And when it's time to ship, we take <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">drop-offs for all four carriers</a> at the same counter.</p>`,
       },
     ],
     faqs: [
@@ -140,7 +140,7 @@ export const competePages: Service[] = [
     },
     cta: {
       title: 'Ready to Stop Using Your Home Address?',
-      subtitle: 'Get a Mentor-area mailbox from $35/month. No contract. 30-day risk-free.',
+      subtitle: 'Get a Mentor-area mailbox from $15/month. No contract. Completely risk-free.',
       buttonText: 'Get Your Mentor Address →',
       buttonLink: '/contact-us',
     },

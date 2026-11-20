@@ -144,7 +144,7 @@ export const competePages: Service[] = [
       {
         question: 'Do you offer mailbox rentals for Kirtland residents?',
         answer:
-          'Absolutely! Our private mailboxes with real street addresses serve customers from Kirtland and all across Lake County. From $35/month with 4-hour email notification.',
+          'Absolutely! Our private mailboxes with real street addresses serve customers from Kirtland and all across Lake County. From $25/month with 4-hour email notification.',
       },
       {
         question: 'Can I make Amazon returns at Mailbox Plus?',

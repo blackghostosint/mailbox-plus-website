@@ -28,7 +28,7 @@ export const competePages: Service[] = [
       'mailbox rental near me Willoughby, private mailbox Willoughby, mailbox rental Willoughby OH, business address Willoughby, mail receiving Willoughby',
     heroTitle: 'Mailbox Rental Near Me Willoughby --- Private Mailbox Serving Willoughby, OH',
     heroSubtitle:
-      'A real street address serving Willoughby residents. All 4 carriers. Package acceptance included. From $35/month. Your home stays private.',
+      'A real street address serving Willoughby residents. All 4 carriers. Package acceptance included. From $25/month. Your home stays private.',
     features: [
       {
         title: 'Real Street Address',
@@ -74,7 +74,7 @@ export const competePages: Service[] = [
       // ── Features Table ──
       {
         heading: 'What You Get With a Mailbox Rental Serving Willoughby',
-        body: `<div class="overflow-x-auto my-6"><table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm"><thead class="bg-[var(--color-bg-secondary)]/80"><tr><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Feature</th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">What It Means</th></tr></thead><tbody class="divide-y divide-[var(--color-border)]"><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Real Street Address</th><td class="p-4 text-[var(--color-text-secondary)]">7554 Fredle Drive, Concord Township --- not a P.O. Box number</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">All 4 Carriers</th><td class="p-4 text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL --- we accept everything</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Package Signing</th><td class="p-4 text-[var(--color-text-secondary)]">We sign for every package so you never miss a delivery</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">4-Hour Notification</th><td class="p-4 text-[var(--color-text-secondary)]">We notify you within 4 hours of mail arrival</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Secure Storage</th><td class="p-4 text-[var(--color-text-secondary)]">Your mail is held behind a locked counter</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Month-to-Month</th><td class="p-4 text-[var(--color-text-secondary)]">No annual contract. Cancel anytime.</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">30-Day Risk-Free</th><td class="p-4 text-[var(--color-text-secondary)]">Not sure? Try it. Walk away if it's not for you.</td></tr></tbody></table></div>`,
+        body: `<div class="overflow-x-auto my-6"><table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm"><thead class="bg-[var(--color-bg-secondary)]/80"><tr><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Feature</th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">What It Means</th></tr></thead><tbody class="divide-y divide-[var(--color-border)]"><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Real Street Address</th><td class="p-4 text-[var(--color-text-secondary)]">7554 Fredle Drive, Concord Township --- not a P.O. Box number</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">All 4 Carriers</th><td class="p-4 text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL --- we accept everything</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Package Signing</th><td class="p-4 text-[var(--color-text-secondary)]">We sign for every package so you never miss a delivery</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">4-Hour Notification</th><td class="p-4 text-[var(--color-text-secondary)]">We notify you within 4 hours of mail arrival</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Secure Storage</th><td class="p-4 text-[var(--color-text-secondary)]">Your mail is held behind a locked counter</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Month-to-Month</th><td class="p-4 text-[var(--color-text-secondary)]">No annual contract. Cancel anytime.</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Completely Risk-Free</th><td class="p-4 text-[var(--color-text-secondary)]">Month-to-month, cancel anytime. Not sure? Try it. Walk away if it's not for you.</td></tr></tbody></table></div>`,
         isFullWidth: false,
       },
       // ── Pricing Table ──
@@ -139,7 +139,7 @@ export const competePages: Service[] = [
     cta: {
       title: 'Your Home Address Is On Every Package You Ship',
       subtitle:
-        'A real street address serving Willoughby. All 4 carriers. From $35/month. 30-day risk-free.',
+        'A real street address serving Willoughby. All 4 carriers. From $25/month. Completely risk-free.',
       buttonText: 'Get Your Willoughby-Area Address →',
       buttonLink: '/contact-us',
     },
