@@ -3,7 +3,8 @@ import type { FAQ } from '../../../types/faq';
 export const upsShippingFaqs: FAQ[] = [
   {
     question: 'Do you accept Amazon UPS returns?',
-    answer: 'Yes, we can accept and ship labeled Amazon returns.',
+    answer:
+      'Yes — Amazon returns are accepted with a pre-printed carrier label on the package. We can’t take Amazon QR codes. (QR codes from other programs — Happy Returns, FedEx Easy Returns, USPS Label Broker — are no problem.)',
   },
   {
     question: 'Can I ship hazardous materials?',
