@@ -90,7 +90,7 @@ Mailbox Plus is at **7554 Fredle Drive in Concord Township**, just off Crile Roa
 
 From there it runs on your schedule. **Call us ahead of time** and we'll have everything ready when you swing by — no standing at a counter while we hunt. **Packages get signed for** by a staff member and held in a locked building, not left in the weather at a friend's house. And when you need it, we can **forward mail to you** — one-time or recurring, weekly, bi-weekly, monthly, or just when you call and say "send it all." We notify you within four hours of mail arriving, so you're never wondering what's sitting in the box.
 
-Month-to-month. No contract. And because you're dealing with the store directly, there's no middleman charging per-item scan fees on top.
+Month-to-month. No lock-in — cancel anytime. And because you're dealing with the store directly, there's no middleman charging per-item scan fees on top.
 
 ## The Local Math
 

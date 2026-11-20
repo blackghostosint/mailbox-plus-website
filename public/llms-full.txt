@@ -403,7 +403,7 @@ The honest comparison, then, is not "PO Box vs. private mailbox." It is "a numbe
 
 Here is a plan that fits a schedule like yours, in three steps:
 
-1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental/) has the sizes, the pricing (personal tiers from $15 a month, business $35/$50; no annual contract), and the details.
+1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental/) has the sizes, the pricing (personal tiers from $15 a month, business $35/$50; no term commitment), and the details.
 2. **Use call-ahead.** Before you leave work, call us. We pull your mail and packages and have them waiting. You are in and out on your schedule, not ours.
 3. **Check your phone, not your porch.** Mail is scanned and you get notified within four hours of arrival. If you are traveling or on a stretch of double shifts, you can see what is waiting without driving anywhere — and if you need mail opened, forwarded, or handled remotely, the [digital mailbox option](/virtual-mailbox-concord-township/) adds that layer on top.
 
@@ -2928,7 +2928,7 @@ If the comparison lands on the independent option, here's how little there is to
 2. **Pick your tier at the counter.** Tell us what shows up for you in a normal month — letters, a couple of packages, a stream of returns — and the right size and price is usually obvious from that. Not sure whether you need the $25 plan? Tell us what shows up in a normal month and we'll point you at the size that fits it.
 3. **Get your key and your address, and you're done.** Your new street address works that day. From then on, the carriers deliver to us, we sign for what needs signing, and you get the "ready" alert instead of a porch anxiety attack.
 
-No appointment. No annual contract. No second trip for paperwork you could have brought the first time if someone had told you — so consider this the telling.
+No appointment. No term commitment. No second trip for paperwork you could have brought the first time if someone had told you — so consider this the telling.
 
 ## The Cost of Leaving It Alone
 
@@ -3125,7 +3125,7 @@ A student at either campus can stop by between classes, on the way home, or on a
 2. **Fill out the standard Form 1583** — the same USPS form every licensed mailbox service uses. Ten minutes, once.
 3. **Start using the address the same day.** Mail arrives, staff notifies, packages get signed for and held in a locked building.
 
-Month-to-month. No contract. No per-piece fees. If the student changes apartments — or moves to a first job across the state — the address doesn't move with them. It stays put, and the mail follows the student through the pickup.
+Month-to-month. No lock-in — cancel anytime. No per-piece fees. If the student changes apartments — or moves to a first job across the state — the address doesn't move with them. It stays put, and the mail follows the student through the pickup.
 
 ## What You Lose by Not Doing This
 
@@ -5549,7 +5549,7 @@ Here is what we tell them, and what it looks like in practice:
 - **A real street address, not a PO Box.** A private mailbox at our counter gives you a street address you can put on your mail — for anything beyond mail, check the specific form rules with the issuer, since government agencies and financial institutions set their own rules.
 - **Every carrier, one place.** USPS, UPS, FedEx, and DHL all deliver to your box or behind the counter. No forwarding order needed, because the address was correct the whole time.
 - **No forwarding clock.** Month-to-month rent means the box lasts as long as you keep it — no 12-month expiration, no extension fees, no month where your insurance mail quietly dies at your old house.
-- **Pricing you can check.** Personal mailbox plans run $15, $25, $30, or $40 per month depending on box size and package volume; business plans are $35 and $50. Month-to-month, no annual contract, with a $5 refundable key deposit.
+- **Pricing you can check.** Personal mailbox plans run $15, $25, $30, or $40 per month depending on box size and package volume; business plans are $35 and $50. Month-to-month, no term commitment, with a $5 refundable key deposit.
 
 We are independent — not a franchise — so the person behind the counter is the person accountable for the answer. That matters when the question is "which of my senders will this address actually work for?"
 
@@ -6404,7 +6404,7 @@ Published: 2026-08-19 | Updated: 2026-11-03
 
 ## The Answer Up Front
 
-For a home business that needs a street address for business forms, a **private mailbox (PMB) at a licensed commercial mail receiving agency** is the option that actually clears the check. It is a real street address at a staffed commercial location, it is not a PO box, business plans start at $35 a month with no annual contract, and it keeps your home address off the forms themselves and the public records they create. Two slots it cannot fill — Ohio's statutory agent and a Google Business Profile location — and both have clean workarounds covered below. That is the whole decision. The rest of this article is the evidence.
+For a home business that needs a street address for business forms, a **private mailbox (PMB) at a licensed commercial mail receiving agency** is the option that actually clears the check. It is a real street address at a staffed commercial location, it is not a PO box, business plans start at $35 a month with no term commitment, and it keeps your home address off the forms themselves and the public records they create. Two slots it cannot fill — Ohio's statutory agent and a Google Business Profile location — and both have clean workarounds covered below. That is the whole decision. The rest of this article is the evidence.
 
 ![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
@@ -6459,7 +6459,7 @@ Here is how it works at Mailbox Plus:
 3. **Use it everywhere a street address is required.** The bank account, the vendor form, the website contact page, the business cards, the invoices, the shipping labels. One professional address, repeated everywhere, none of it your home.
 4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds mail scanning and remote management from your phone — the same street address, with control when you are out of town.
 
-Business plans start at $35 a month, month to month, no annual contract; personal tiers run $15 to $40 depending on size and package allowance. Set against an office lease — or against another year of your home address living in vendor databases — the math is not close.
+Business plans start at $35 a month, month to month, no term commitment; personal tiers run $15 to $40 depending on size and package allowance. Set against an office lease — or against another year of your home address living in vendor databases — the math is not close.
 
 **One labeling rule worth knowing:** mail addressed to a PMB must carry the PMB or # designation. Write it with the PMB designation ("7554 Fredle Drive PMB" plus your box number), never dressed up as a generic office label — under USPS rules a missing PMB or # designator can get mail returned as undeliverable. Your rental paperwork gives you the exact format.
 
@@ -6561,7 +6561,7 @@ Mailbox Plus is at **7554 Fredle Drive in Concord Township**, just off Crile Roa
 
 From there it runs on your schedule. **Call us ahead of time** and we'll have everything ready when you swing by — no standing at a counter while we hunt. **Packages get signed for** by a staff member and held in a locked building, not left in the weather at a friend's house. And when you need it, we can **forward mail to you** — one-time or recurring, weekly, bi-weekly, monthly, or just when you call and say "send it all." We notify you within four hours of mail arriving, so you're never wondering what's sitting in the box.
 
-Month-to-month. No contract. And because you're dealing with the store directly, there's no middleman charging per-item scan fees on top.
+Month-to-month. No lock-in — cancel anytime. And because you're dealing with the store directly, there's no middleman charging per-item scan fees on top.
 
 ## The Local Math
 
@@ -10427,7 +10427,7 @@ At Mailbox Plus — 7554 Fredle Drive, Concord Township, in the Gristmill Villag
 
 Picture your first pickup. You walk in with your IDs, and ten minutes later you're holding a key to a street address that UPS actually recognizes — because it's a real building with a staffed counter, not a box in a wall. UPS, FedEx, and DHL drivers walk through the same door the post office does, so your inbound stock and your buyers' returns all land in one place.
 
-Whoever's at the counter scrawls a name, sets the box on the shelf behind them, and writes your PMB number on the log in black marker. You see the signature line and the shelf when you pick it up. And your return address stops being your front door. It becomes the store's street address with your PMB number on it, so the label that travels with every shipment points at a counter full of people, not a porch nobody's watching. Most sellers fit the $25 tier — ten packages, all carriers, someone to sign. Month to month. No contract.
+Whoever's at the counter scrawls a name, sets the box on the shelf behind them, and writes your PMB number on the log in black marker. You see the signature line and the shelf when you pick it up. And your return address stops being your front door. It becomes the store's street address with your PMB number on it, so the label that travels with every shipment points at a counter full of people, not a porch nobody's watching. Most sellers fit the $25 tier — ten packages, all carriers, someone to sign. Month to month. No lock-in — cancel anytime.
 
 The setup is deliberately boring. **You bring what you have** — your driver's license and one more ID that confirms your address, which is exactly what Form 1583 asks for. No appointment, no forms to download, no second trip; the paperwork lives at the counter and we walk through it with you.
 
@@ -11726,7 +11726,7 @@ At Mailbox Plus in Concord Township, the process is simple and the paperwork is 
 3. **Use it everywhere a business address is required.** The bank's business-address line. The vendor form's physical-address field. Your licenses. Your website footer. Your invoices. Your shipping labels. One professional address, repeated everywhere, none of it your home.
 4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds scanning — we scan envelopes within four hours and you manage, forward, or shred everything from your phone. Same street address, plus remote control for the weeks you're not in town.
 
-Rates for a business mailbox start at **$35/month** (personal tiers start at $15) — a fraction of an office lease, month to month, no annual contract. For a new LLC, that's the cheapest "real street address" you'll find.
+Rates for a business mailbox start at **$35/month** (personal tiers start at $15) — a fraction of an office lease, month to month, no term commitment. For a new LLC, that's the cheapest "real street address" you'll find.
 
 ## The Honest Boundary (Read This Before You Sign Up)
 
@@ -16164,7 +16164,7 @@ Three steps, and the hard part is none of them.
 2. **We sign for it.** The driver arrives, our 21-plus staff signs for the adult-signature delivery, and your wine comes inside to our temperature-controlled receiving area. No porch, no sun, no truck.
 3. **Pick it up on your time.** Come in during our business hours, show your ID, and your wine is yours. Whether that's the same afternoon or three days later, it's waiting for you, safe and sound.
 
-It's the same for a single bottle, a mixed case, or a monthly wine club shipment. **$10 per package**, or **$50 per month** for unlimited receiving if you get packages regularly. No contract to lock you in.
+It's the same for a single bottle, a mixed case, or a monthly wine club shipment. If you rent a mailbox with us, receiving is built into the $25 and $40 plans — ten packages a month included, $5 a package beyond that. Not a mailbox holder? Ask at the counter and we'll set up the receiving option that fits your volume — no lock-in, cancel anytime.
 
 ## What You Lose by Not Acting
 
@@ -16192,6 +16192,6 @@ You ordered something nice for yourself. Now it actually arrives — on your ter
 
 If you order wine, liquor, or anything else online and you're tired of babysitting a delivery window, stop by Mailbox Plus in Concord Township. We sign for it, we store it safely and securely, and you pick it up when it's convenient for you.
 
-**$10 per package, or $50 per month for unlimited receiving. No contract.** Swing by the counter and we'll get you set up in a couple of minutes.
+**Package receiving is included with the $25 and $40 mailbox plans — ten packages a month, $5 a package after that.** Swing by the counter and we'll get you set up in a couple of minutes.
 
 ---

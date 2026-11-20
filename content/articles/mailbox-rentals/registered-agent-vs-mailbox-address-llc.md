@@ -27,7 +27,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -120,7 +120,7 @@ At Mailbox Plus in Concord Township, the process is simple and the paperwork is 
 3. **Use it everywhere a business address is required.** The bank's business-address line. The vendor form's physical-address field. Your licenses. Your website footer. Your invoices. Your shipping labels. One professional address, repeated everywhere, none of it your home.
 4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds scanning — we scan envelopes within four hours and you manage, forward, or shred everything from your phone. Same street address, plus remote control for the weeks you're not in town.
 
-Rates for a business mailbox start at **$35/month** (personal tiers start at $15) — a fraction of an office lease, month to month, no annual contract. For a new LLC, that's the cheapest "real street address" you'll find.
+Rates for a business mailbox start at **$35/month** (personal tiers start at $15) — a fraction of an office lease, month to month, no term commitment. For a new LLC, that's the cheapest "real street address" you'll find.
 
 ## The Honest Boundary (Read This Before You Sign Up)
 

@@ -81,7 +81,7 @@ Here is what we tell them, and what it looks like in practice:
 - **A real street address, not a PO Box.** A private mailbox at our counter gives you a street address you can put on your mail — for anything beyond mail, check the specific form rules with the issuer, since government agencies and financial institutions set their own rules.
 - **Every carrier, one place.** USPS, UPS, FedEx, and DHL all deliver to your box or behind the counter. No forwarding order needed, because the address was correct the whole time.
 - **No forwarding clock.** Month-to-month rent means the box lasts as long as you keep it — no 12-month expiration, no extension fees, no month where your insurance mail quietly dies at your old house.
-- **Pricing you can check.** Personal mailbox plans run $15, $25, $30, or $40 per month depending on box size and package volume; business plans are $35 and $50. Month-to-month, no annual contract, with a $5 refundable key deposit.
+- **Pricing you can check.** Personal mailbox plans run $15, $25, $30, or $40 per month depending on box size and package volume; business plans are $35 and $50. Month-to-month, no term commitment, with a $5 refundable key deposit.
 
 We are independent — not a franchise — so the person behind the counter is the person accountable for the answer. That matters when the question is "which of my senders will this address actually work for?"
 

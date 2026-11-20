@@ -30,7 +30,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a package receiving service cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. The $25 tier includes 10 packages a month with carrier delivery and signing. Month-to-month, no annual contract, and a $5 refundable key deposit.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. The $25 tier includes 10 packages a month with carrier delivery and signing. Month-to-month, no term commitment, and a $5 refundable key deposit.'
   - question: 'Will UPS and FedEx deliver to a private mailbox?'
     answer: 'Yes. A private mailbox sits at a real street address, so USPS, UPS, FedEx, and DHL can all deliver to it. A PO Box cannot accept private-carrier packages.'
   - question: 'What do I need to set it up?'
@@ -77,7 +77,7 @@ At Mailbox Plus — 7554 Fredle Drive, Concord Township, in the Gristmill Villag
 
 Picture your first pickup. You walk in with your IDs, and ten minutes later you're holding a key to a street address that UPS actually recognizes — because it's a real building with a staffed counter, not a box in a wall. UPS, FedEx, and DHL drivers walk through the same door the post office does, so your inbound stock and your buyers' returns all land in one place.
 
-Whoever's at the counter scrawls a name, sets the box on the shelf behind them, and writes your PMB number on the log in black marker. You see the signature line and the shelf when you pick it up. And your return address stops being your front door. It becomes the store's street address with your PMB number on it, so the label that travels with every shipment points at a counter full of people, not a porch nobody's watching. Most sellers fit the $25 tier — ten packages, all carriers, someone to sign. Month to month. No contract.
+Whoever's at the counter scrawls a name, sets the box on the shelf behind them, and writes your PMB number on the log in black marker. You see the signature line and the shelf when you pick it up. And your return address stops being your front door. It becomes the store's street address with your PMB number on it, so the label that travels with every shipment points at a counter full of people, not a porch nobody's watching. Most sellers fit the $25 tier — ten packages, all carriers, someone to sign. Month to month. No lock-in — cancel anytime.
 
 The setup is deliberately boring. **You bring what you have** — your driver's license and one more ID that confirms your address, which is exactly what Form 1583 asks for. No appointment, no forms to download, no second trip; the paperwork lives at the counter and we walk through it with you.
 

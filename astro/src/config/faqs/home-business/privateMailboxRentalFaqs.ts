@@ -34,6 +34,6 @@ export const privateMailboxRentalFaqs: FAQ[] = [
   {
     question: 'Can I cancel anytime?',
     answer:
-      "Yes. We're month-to-month — no annual contract, no cancellation fee, no surprise charges. Just let us know.",
+      "Yes. We're month-to-month — no term commitment, no cancellation fee, no surprise charges. Just let us know.",
   },
 ];

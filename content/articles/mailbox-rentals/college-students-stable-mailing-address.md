@@ -122,7 +122,7 @@ A student at either campus can stop by between classes, on the way home, or on a
 2. **Fill out the standard Form 1583** — the same USPS form every licensed mailbox service uses. Ten minutes, once.
 3. **Start using the address the same day.** Mail arrives, staff notifies, packages get signed for and held in a locked building.
 
-Month-to-month. No contract. No per-piece fees. If the student changes apartments — or moves to a first job across the state — the address doesn't move with them. It stays put, and the mail follows the student through the pickup.
+Month-to-month. No lock-in — cancel anytime. No per-piece fees. If the student changes apartments — or moves to a first job across the state — the address doesn't move with them. It stays put, and the mail follows the student through the pickup.
 
 ## What You Lose by Not Doing This
 

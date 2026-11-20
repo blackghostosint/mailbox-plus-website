@@ -35,7 +35,7 @@ faqs:
   - question: 'What do I need to set up a private mailbox?'
     answer: 'USPS Form 1583 plus two forms of ID, one with a photo. The counter keeps the forms on hand and walks you through them.'
   - question: 'How much does a private mailbox cost?'
-    answer: 'Personal tiers are $15, $25, $30, or $40 a month; business plans are $35 and $50 — month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, or $40 a month; business plans are $35 and $50 — month-to-month, no term commitment.'
   - question: 'Where is Mailbox Plus?'
     answer: '7554 Fredle Drive, Concord Township, OH 44077, in the Gristmill Village plaza — Monday-Friday 9-6, Saturday 9-2.'
 ---
