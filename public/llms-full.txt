@@ -489,10 +489,10 @@ We are a UPS Authorized Shipping Outlet. We handle FedEx, USPS, and DHL too. We 
 You do not need to wait for a drone, or hope the weather cooperates, or hover over your Ring camera. You need a place where packages land safely and returns leave easily. Three steps:
 
 1. **Walk in.** Tell us what you are expecting, or what you are sending. No appointment, no membership required to start.
-2. **We handle it.** For receiving, we sign for the package and hold it until you pick it up — $10 per package, or $30 a month for unlimited receiving. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
+2. **We handle it.** For receiving, we sign for the package and hold it until you pick it up. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
 3. **Walk out.** Your package is safe behind the counter, or your shipment is in the system with a tracking number in your hand — usually in under five minutes.
 
-If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $35 a month — and private carriers can actually deliver to it, which they cannot do with a PO box.
+If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $15 a month (the $25 tier adds package receiving) — and private carriers can actually deliver to it, which they cannot do with a PO box.
 
 ## What You Lose by Not Acting
 
@@ -3736,7 +3736,7 @@ Three steps, and none of them involve waiting two weeks.
 
 1. **Get the box before you move.** Come to 7554 Fredle Drive with two forms of ID — one photo ID like a driver's license, and one proof of address. We complete the paperwork, hand you your keys, and you have a working address that day. Mailbox rentals start at $15 a month (personal mail-only tier).
 2. **Use it as your landing address.** Give the Fredle Drive address to your bank, your employer, your subscriptions, and as the shipping address on your online orders during the move. Packages from every carrier arrive behind our counter. You never route anything through the forwarding lag.
-3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, we can receive and hold it all; package receiving runs $10 per package, or $30 a month for unlimited packages.
+3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, a mailbox handles it: the $25 package tier receives and holds it all, ten packages a month included, five dollars a package beyond that.
 
 File the USPS change of address too, if you want the old-address mail rerouted — the two work together. The difference is that nothing important depends on the reroute starting on time or lasting past month twelve.
 
@@ -8114,7 +8114,7 @@ That is what a real mailbox service gives you that forwarding cannot: the addres
 
 If you are planning a move, a long trip, or a season away from Lake County, do not wait until the first envelope goes missing. Set up the address while you are still home, update your accounts over the next week, and travel with the knowledge that your mail is handled by real people at a real counter.
 
-Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, all four carriers, package signing included, from around $35 a month. If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms.
+Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, and from $15 a month (the $25 tier adds all four carriers, package receiving, and signing). If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms.
 
 Your mail has been waiting for a system that works as hard as your lifestyle. Give it one. Set up your mailbox at Mailbox Plus, and stop letting the forwarding network decide what you see.
 
@@ -8179,7 +8179,7 @@ At Mailbox Plus, switching from a PO Box — or from a home address you are tire
 
 **Step 1 — Walk in with two forms of ID.** A driver's license plus a credit card, passport, or second government ID works. You fill out USPS Form 1583 at the counter, which is the standard form every mailbox service uses to verify who you are.
 
-**Step 2 — Pick your size.** Personal tiers start at **$15 a month**, month-to-month (business plans $35/$50), no annual contract, with a 30-day risk-free period. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
+**Step 2 — Pick your size.** Personal tiers start at **$15 a month**, month-to-month (business plans $35/$50), no term commitment — completely risk-free, cancel anytime. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
 
 **Step 3 — Give out your new address.** Update your bank, your employer, your vendors, your seller accounts, your license and registration — anywhere you need a street address. From that day forward, every carrier delivers to one place: Mailbox Plus, 7554 Fredle Drive in Concord Township.
 
@@ -8299,7 +8299,7 @@ What the flat rate includes at our store:
 - **All four carriers deliver** — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages.
 - **We notify you when mail arrives**, usually within four hours.
 - **Secure holding** behind our locked counter — no doorstep, no porch pirates.
-- **Month-to-month.** Try it for a month; cancel anytime. There's a 30-day risk-free window so you can test the address before committing.
+- **Month-to-month.** Completely risk-free — cancel anytime, so you can test the address before committing.
 - **The paperwork is the standard Form 1583** — two forms of ID and about ten minutes at the counter. That's the same USPS form every legitimate mailbox store uses, including The UPS Store.
 
 The honest trade-off: a private mailbox costs more per month than the _advertised_ price of a PO Box or a virtual mailbox. But it's a real street address with all carriers, and the price doesn't move when your mail volume does. One bill. No surprise fees.
@@ -12595,7 +12595,7 @@ A private mailbox at a local mailbox store solves the travel nurse problem at th
 
 Here is how it works, step by step:
 
-**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month, month-to-month, no annual contract, with a 30-day risk-free period.
+**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month — month-to-month, completely risk-free, cancel anytime.
 
 **Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
 
@@ -14744,7 +14744,7 @@ If you're still comparing "best virtual mailbox" options on a Reddit thread at m
 
 We're at 7554 Fredle Drive in Concord Township — just off Crile Road, minutes from SR-44 and I-90, about a mile south of Route 20. Walk in with two forms of ID, and you can have a real street address before your coffee gets cold. No appointment, no waiting period, no middleman.
 
-If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township/) or check out [private mailbox rental](/private-mailbox-rental/) — both start at $35 a month, both include package signing from every carrier, and both come with people who will know your name.
+If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township/) or check out [private mailbox rental](/private-mailbox-rental/) — both include package signing from every carrier, and both come with people who will know your name. The private mailbox starts at $15 a month.
 
 Your mail is going to arrive somewhere. The only question is who's holding it — a call center on the other end of a phone tree, or the person you can walk up to and say hi to.
 
@@ -15620,7 +15620,7 @@ We don't sell you a miracle. We sell you the thing the form actually asks for: a
 2. **Fill out the standard Form 1583** — the same USPS form every CMRA uses. It takes about ten minutes.
 3. **Start using your street address the same day.** Your mail arrives, we notify you, and every carrier's packages land on our counter instead of a doorstep.
 
-Month-to-month, no contract, no per-piece fees. Try it for 30 days and see if it holds up.
+Month-to-month, cancel anytime — no lock-in, no per-piece fees.
 
 ## What You Lose by Not Acting
 

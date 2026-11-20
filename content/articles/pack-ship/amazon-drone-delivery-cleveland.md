@@ -81,10 +81,10 @@ We are a UPS Authorized Shipping Outlet. We handle FedEx, USPS, and DHL too. We 
 You do not need to wait for a drone, or hope the weather cooperates, or hover over your Ring camera. You need a place where packages land safely and returns leave easily. Three steps:
 
 1. **Walk in.** Tell us what you are expecting, or what you are sending. No appointment, no membership required to start.
-2. **We handle it.** For receiving, we sign for the package and hold it until you pick it up — $10 per package, or $30 a month for unlimited receiving. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
+2. **We handle it.** For receiving, we sign for the package and hold it until you pick it up. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
 3. **Walk out.** Your package is safe behind the counter, or your shipment is in the system with a tracking number in your hand — usually in under five minutes.
 
-If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $35 a month — and private carriers can actually deliver to it, which they cannot do with a PO box.
+If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $15 a month (the $25 tier adds package receiving) — and private carriers can actually deliver to it, which they cannot do with a PO box.
 
 ## What You Lose by Not Acting
 

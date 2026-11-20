@@ -36,7 +36,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -129,7 +129,7 @@ What the flat rate includes at our store:
 - **All four carriers deliver** — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages.
 - **We notify you when mail arrives**, usually within four hours.
 - **Secure holding** behind our locked counter — no doorstep, no porch pirates.
-- **Month-to-month.** Try it for a month; cancel anytime. There's a 30-day risk-free window so you can test the address before committing.
+- **Month-to-month.** Completely risk-free — cancel anytime, so you can test the address before committing.
 - **The paperwork is the standard Form 1583** — two forms of ID and about ten minutes at the counter. That's the same USPS form every legitimate mailbox store uses, including The UPS Store.
 
 The honest trade-off: a private mailbox costs more per month than the _advertised_ price of a PO Box or a virtual mailbox. But it's a real street address with all carriers, and the price doesn't move when your mail volume does. One bill. No surprise fees.

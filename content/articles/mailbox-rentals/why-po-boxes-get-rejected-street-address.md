@@ -132,7 +132,7 @@ We don't sell you a miracle. We sell you the thing the form actually asks for: a
 2. **Fill out the standard Form 1583** — the same USPS form every CMRA uses. It takes about ten minutes.
 3. **Start using your street address the same day.** Your mail arrives, we notify you, and every carrier's packages land on our counter instead of a doorstep.
 
-Month-to-month, no contract, no per-piece fees. Try it for 30 days and see if it holds up.
+Month-to-month, cancel anytime — no lock-in, no per-piece fees.
 
 ## What You Lose by Not Acting
 

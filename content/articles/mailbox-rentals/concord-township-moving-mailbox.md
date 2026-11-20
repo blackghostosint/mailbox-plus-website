@@ -20,7 +20,7 @@ relatedServices: ['/private-mailbox-rental/', '/mailbox-rental-concord-ohio/', '
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -91,7 +91,7 @@ Three steps, and none of them involve waiting two weeks.
 
 1. **Get the box before you move.** Come to 7554 Fredle Drive with two forms of ID — one photo ID like a driver's license, and one proof of address. We complete the paperwork, hand you your keys, and you have a working address that day. Mailbox rentals start at $15 a month (personal mail-only tier).
 2. **Use it as your landing address.** Give the Fredle Drive address to your bank, your employer, your subscriptions, and as the shipping address on your online orders during the move. Packages from every carrier arrive behind our counter. You never route anything through the forwarding lag.
-3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, we can receive and hold it all; package receiving runs $10 per package, or $30 a month for unlimited packages.
+3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, a mailbox handles it: the $25 package tier receives and holds it all, ten packages a month included, five dollars a package beyond that.
 
 File the USPS change of address too, if you want the old-address mail rerouted — the two work together. The difference is that nothing important depends on the reroute starting on time or lasting past month twelve.
 

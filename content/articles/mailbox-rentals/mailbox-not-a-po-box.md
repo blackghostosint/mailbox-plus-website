@@ -27,7 +27,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -89,7 +89,7 @@ At Mailbox Plus, switching from a PO Box — or from a home address you are tire
 
 **Step 1 — Walk in with two forms of ID.** A driver's license plus a credit card, passport, or second government ID works. You fill out USPS Form 1583 at the counter, which is the standard form every mailbox service uses to verify who you are.
 
-**Step 2 — Pick your size.** Personal tiers start at **$15 a month**, month-to-month (business plans $35/$50), no annual contract, with a 30-day risk-free period. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
+**Step 2 — Pick your size.** Personal tiers start at **$15 a month**, month-to-month (business plans $35/$50), no term commitment — completely risk-free, cancel anytime. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
 
 **Step 3 — Give out your new address.** Update your bank, your employer, your vendors, your seller accounts, your license and registration — anywhere you need a street address. From that day forward, every carrier delivers to one place: Mailbox Plus, 7554 Fredle Drive in Concord Township.
 

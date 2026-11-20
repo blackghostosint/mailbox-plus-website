@@ -25,7 +25,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -168,7 +168,7 @@ If you're still comparing "best virtual mailbox" options on a Reddit thread at m
 
 We're at 7554 Fredle Drive in Concord Township — just off Crile Road, minutes from SR-44 and I-90, about a mile south of Route 20. Walk in with two forms of ID, and you can have a real street address before your coffee gets cold. No appointment, no waiting period, no middleman.
 
-If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township/) or check out [private mailbox rental](/private-mailbox-rental/) — both start at $35 a month, both include package signing from every carrier, and both come with people who will know your name.
+If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township/) or check out [private mailbox rental](/private-mailbox-rental/) — both include package signing from every carrier, and both come with people who will know your name. The private mailbox starts at $15 a month.
 
 Your mail is going to arrive somewhere. The only question is who's holding it — a call center on the other end of a phone tree, or the person you can walk up to and say hi to.
 

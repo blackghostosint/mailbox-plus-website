@@ -27,7 +27,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -84,7 +84,7 @@ A private mailbox at a local mailbox store solves the travel nurse problem at th
 
 Here is how it works, step by step:
 
-**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month, month-to-month, no annual contract, with a 30-day risk-free period.
+**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month — month-to-month, completely risk-free, cancel anytime.
 
 **Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
 
