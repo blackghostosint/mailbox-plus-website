@@ -91,7 +91,7 @@ Let me be specific about what happens at 7554 Fredle Dr, because "we ship stuff"
 
 ![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
-**QR-code returns.** We accept Happy Returns by QR code — no box, no label, no printer needed. If a retailer sends you a return code instead of a shipping label, we can handle that too.
+**QR-code returns.** We scan QR codes for Happy Returns, FedEx Easy Returns, and USPS Label Broker — no box, no label, no printer needed. If a retailer sends you a return code instead of a shipping label, we can handle that too. The one exception is Amazon: Amazon returns ride on a pre-printed carrier label, not a QR code, and we accept those label-only.
 
 **A real street address for receiving.** If missed deliveries are your recurring nightmare, we rent Private Mailboxes with real street-address formatting. And to be precise, because the details matter: a PMB uses a # or PMB designation, never a "suite." The postal paperwork involved is USPS Form 1583, and it requires one valid government photo ID plus one proof of address. Also worth knowing: package receiving is a package-receiving tier, not part of the Mail-Only tier — the tiers differ per our published pricing page. If Amazon deliveries to a PO Box have bitten you before, we explain why that fails and how a street address fixes it in our piece on [Amazon PO Box Delivery](/articles/amazon-po-box-delivery/).
 

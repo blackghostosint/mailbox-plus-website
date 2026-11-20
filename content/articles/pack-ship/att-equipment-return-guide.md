@@ -117,6 +117,6 @@ Now the rest of your returns, and your next shipment, are one counter. You walk 
 
 ## One Counter for Every Return That Is Not AT&T
 
-Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a label or a QR code — bring the whole pile here. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
+Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a printed label — bring the whole pile here. QR-code returns are welcome too: we scan them for Happy Returns, FedEx Easy Returns, and USPS Label Broker. Amazon is the one program that does not run on a QR code — it needs the pre-printed carrier label, and we accept those label-only. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
 
 [Visit Mailbox Plus →](/contact-us/)

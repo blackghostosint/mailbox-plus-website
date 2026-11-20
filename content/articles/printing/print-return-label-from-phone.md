@@ -79,10 +79,10 @@ One more tip: if your printer has a dedicated rear or bypass tray, 4×6 paper of
 
 ## When You Don't Want to Print It at All
 
-Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — and many of them do these days — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. No printing, no trimming, no wasted sheets.
+Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — Happy Returns, FedEx Easy Returns, and USPS Label Broker all run on them — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. The exception is Amazon: those returns ride on a pre-printed carrier label, so that is the one program where the label has to come along — bring the box with the label on it and we take it from there. No printing, no trimming, no wasted sheets.
 
 And if you do want a clean label, we're happy to print one for you at the right size while you wait. Printing is one of the things we're here for.
 
 ## Bring It In
 
-A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or you just want to scan a QR code and be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest.
+A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or your QR-code return — Happy Returns, FedEx Easy Returns, or USPS Label Broker — just needs a scan and to be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest.
