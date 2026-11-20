@@ -18,12 +18,21 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental',
-    '/articles/private-mailbox-vs-po-box',
-    '/articles/chardon-rver-mailbox',
-    '/home-business/digital-mailbox-rental',
+    '/private-mailbox-rental/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/articles/chardon-rver-mailbox/',
+    '/home-business/digital-mailbox-rental/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'Can UPS and FedEx deliver to a private mailbox?'
+    answer: 'Yes. A private mailbox sits at a real street address, so USPS, UPS, FedEx, and DHL all deliver to it — and a staff member signs for anything that needs a signature.'
+  - question: 'What do I need to set up a mailbox at Mailbox Plus?'
+    answer: 'Two forms of ID — one with a photo, one confirming your address — and USPS Form 1583, which we fill out with you at the counter. The whole setup takes about ten minutes.'
+  - question: 'Can you forward my mail to me while I am on the road?'
+    answer: 'Yes. Call ahead and we pull your mail and have it ready; we can also forward it to you on a schedule you set — weekly, bi-weekly, monthly, or whenever you say "send it all."'
+  - question: 'How do I know when mail has arrived?'
+    answer: 'We scan incoming mail and notify you within four hours of arrival, so you can see what is waiting without driving anywhere.'
 ---
 
 ## The Question That Follows You Down Every Highway
@@ -96,6 +105,8 @@ Month-to-month. No lock-in — cancel anytime. And because you're dealing with t
 
 If your home base is Lake County, the convenience is the point. Mailbox Plus is 13 miles from **Love's RV Hookup in Madison** — a full-hookup RV park right off I-90 — about a 17-minute drive. That's a quick trip when you're parked nearby, and a pleasant detour when you roll through town on your way somewhere else.
 
+![The private mailbox counter at Mailbox Plus in Concord Township, Ohio, where full-time RVers pick up mail and packages](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-rentals/pmb-counter-01.webp)
+
 More importantly, the mailbox doesn't move when you do. You can be in Florida in January and Wyoming in July, and every piece of mail that matters lands at the same address, waiting for your call. You don't update the bank. You don't re-file a change of address every season. The address is the constant; you're the variable.
 
 ## What You Lose by Not Doing This
@@ -107,7 +118,7 @@ Let's be concrete about the cost of the makeshift approach, because it isn't abs
 - The **jury summons** with a deadline you never saw, and the letter from the court that starts with the words "failure to appear."
 - The **W-2** that went to last year's mailing address, and the tax season that starts with a call to a stranger who lives there now.
 - The **package** with the part your RV needed, sitting on a porch for a week because nobody was there to sign for it.
-- The **fee per scan, per pickup, per forward** on a national service — a bill that quietly adds $20 or $30 a month on top of the plan you already pay for.
+- The **fee per scan, per pickup, per forward** on a national service — a bill that quietly grows on top of the plan you already pay for.
 
 None of these are disasters on their own. They're all just the tax you pay for an address that isn't really yours.
 

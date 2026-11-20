@@ -1,0 +1,147 @@
+{
+  "source_extracts": [
+    {
+      "label": "pricing factory",
+      "url": "PRICING-AND-FEES.md (pricing factory, owner-approved 2026-08-23/25)",
+      "quote": "Personal: $15 / $25 / $30 / $40; Business $35 / $50; month-to-month only."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$15",
+      "scope": "Personal Small · Mail Only tier, monthly price"
+    },
+    {
+      "value": "$25",
+      "scope": "Personal Small · +10 Packages tier, monthly price (featured tier)"
+    },
+    {
+      "value": "$30",
+      "scope": "Personal Large · Mail Only tier, monthly price"
+    },
+    {
+      "value": "$40",
+      "scope": "Personal Large · +10 Packages tier, monthly price"
+    },
+    {
+      "value": "$35",
+      "scope": "Business Small tier, monthly price (business tiers only)"
+    },
+    {
+      "value": "$50",
+      "scope": "Business Large tier, monthly price (business tiers only)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA customer registration form number"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number: 7554 Fredle Drive, Concord Township, OH 44077"
+    },
+    {
+      "value": "44",
+      "scope": "State Route 44 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "9",
+      "scope": "Store opening hour: 9 AM (Mon–Fri 9–6, Sat 9–2)"
+    },
+    {
+      "value": "6",
+      "scope": "Store weekday closing hour: 6 PM (Mon–Fri 9–6)"
+    },
+    {
+      "value": "2",
+      "scope": "Two forms of ID required on Form 1583; also Saturday closing hour (9 AM–2 PM)"
+    },
+    {
+      "value": "4",
+      "scope": "All four carriers (USPS, UPS, FedEx, DHL) deliver to a private mailbox"
+    },
+    {
+      "value": "4 hours",
+      "scope": "Mail scanned and customer notified within four hours of arrival (site service claim)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Typical Form 1583 counter setup time (store service claim)"
+    },
+    {
+      "value": "1",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "3",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "10 packages",
+      "scope": "+10 Packages tiers include 10 packages per month (factory §1)"
+    },
+    {
+      "value": "5 dollars",
+      "scope": "$5 per package overage beyond the included 10 (factory §2); also $5 refundable key deposit"
+    },
+    {
+      "value": "5",
+      "scope": "$5 per-package overage (factory §2); also $5 refundable key deposit"
+    },
+    {
+      "value": "12 months",
+      "scope": "Year-round operation phrasing ('twelve months a year'); USPS mail forwarding also runs 12 months (usps.com)"
+    },
+    {
+      "value": "100",
+      "scope": "Heading word 'Hundred' — narrative count, not a business claim"
+    },
+    {
+      "value": "20 minutes",
+      "scope": "Drive-time estimate (narrative)"
+    },
+    {
+      "value": "24",
+      "scope": "Article subject number — 24-hour mail access (title/topic; store staffed business hours, article explains reality)"
+    },
+    {
+      "value": "24 hours",
+      "scope": "Article subject — 24-hour mail service (topic phrase; not an availability claim)"
+    },
+    {
+      "value": "7",
+      "scope": "Part of '24/7' topic phrase (narrative)"
+    },
+    {
+      "value": "11",
+      "scope": "Narrative scene time — shift ends at 11 PM"
+    },
+    {
+      "value": "2 minutes",
+      "scope": "Narrative in-and-out estimate at pickup"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "no contract",
+      "reason": "Factory §3: banned phrase — use 'no lock-in / no term commitment'"
+    },
+    {
+      "forbid": "30-day risk",
+      "reason": "Factory §3: banned framing — use 'completely risk-free'"
+    },
+    {
+      "forbid": "24/7 access to the store",
+      "reason": "Store is staffed business hours only; the article debunks 24/7 claims"
+    }
+  ],
+  "required_when": []
+}

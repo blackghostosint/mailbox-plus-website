@@ -8,7 +8,7 @@
     {
       "label": "pricing page tiers",
       "url": "https://mailboxplusohio.com/private-mailbox-rental/",
-      "quote": "Small \u00b7 Mail Only $15 \u00b7 Small +10 Packages $25 \u00b7 Large \u00b7 Mail Only $30 \u00b7 Large +10 Packages $40"
+      "quote": "Small · Mail Only $15 · Small +10 Packages $25 · Large · Mail Only $30 · Large +10 Packages $40"
     }
   ],
   "numeric_claims": [
@@ -98,7 +98,7 @@
     },
     {
       "value": "3",
-      "scope": "PO Box 3-month term \u2014 'paid in 3-, 6-, or 12-month terms' (pricing page)"
+      "scope": "PO Box 3-month term — 'paid in 3-, 6-, or 12-month terms' (pricing page)"
     },
     {
       "value": "6",
@@ -118,7 +118,7 @@
     },
     {
       "value": "25 minutes",
-      "scope": "competitive framing \u2014 distant facility travel time, not our counter"
+      "scope": "competitive framing — distant facility travel time, not our counter"
     },
     {
       "value": "4",
@@ -126,21 +126,29 @@
     },
     {
       "value": "2",
-      "scope": "'two minutes' \u2014 rhetorical section heading, What Should Take Two Minutes"
+      "scope": "'two minutes' — rhetorical section heading, What Should Take Two Minutes"
     },
     {
       "value": "2 minutes",
-      "scope": "'What Should Take Two Minutes' \u2014 rhetorical section heading"
+      "scope": "'What Should Take Two Minutes' — rhetorical section heading"
     },
     {
       "value": "12 minutes",
-      "scope": "narrative scene \u2014 counter closes in twelve minutes (story device, not a service figure)"
+      "scope": "narrative scene — counter closes in twelve minutes (story device, not a service figure)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA customer registration form number"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number: 7554 Fredle Drive, Concord Township, OH 44077"
     }
   ],
   "scope_rules": [
     {
       "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
-      "reason": "Mail Only tiers ($15/$30) do not take carrier packages \u2014 package plans only"
+      "reason": "Mail Only tiers ($15/$30) do not take carrier packages — package plans only"
     },
     {
       "forbid": "every plan[^.]*(carrier|deliver)",
@@ -148,7 +156,7 @@
     },
     {
       "forbid": "(five|five-minute|\\b5\\s*minute)",
-      "reason": "setup time is 'about 10 minutes' per the pricing page \u2014 invented timing"
+      "reason": "setup time is 'about 10 minutes' per the pricing page — invented timing"
     }
   ],
   "required_when": [

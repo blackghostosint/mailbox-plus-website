@@ -1,0 +1,147 @@
+{
+  "source_extracts": [
+    {
+      "label": "FTC — INFORM Consumers Act",
+      "url": "https://www.ftc.gov/business-guidance/resources/INFORMAct",
+      "quote": "200 or more separate sales or transactions … $5,000 or more in gross revenues … in any continuous 12-month period during the past 24 months."
+    },
+    {
+      "label": "eBay 1099-K threshold (OBBBA restoration)",
+      "url": "https://community.ebay.com/forum/selling-57920/topic/1099k-for-tax-year-2026-441809/",
+      "quote": "the 1099-K threshold was permanently restored to its earlier level of $20,000 and 200 transactions."
+    },
+    {
+      "label": "CNBC — INFORM Act disclosure tier",
+      "url": "https://www.cnbc.com/amp/2023/06/27/the-inform-act-takes-effect-targeting-organized-retail-theft.html",
+      "quote": "The disclosure requirements are steeper for sellers that have annual gross revenues of $20,000 or more on a particular marketplace."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$15",
+      "scope": "Personal Small · Mail Only tier, monthly price"
+    },
+    {
+      "value": "$25",
+      "scope": "Personal Small · +10 Packages tier, monthly price (featured tier)"
+    },
+    {
+      "value": "$30",
+      "scope": "Personal Large · Mail Only tier, monthly price"
+    },
+    {
+      "value": "$40",
+      "scope": "Personal Large · +10 Packages tier, monthly price"
+    },
+    {
+      "value": "$35",
+      "scope": "Business Small tier, monthly price (business tiers only)"
+    },
+    {
+      "value": "$50",
+      "scope": "Business Large tier, monthly price (business tiers only)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA customer registration form number"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number: 7554 Fredle Drive, Concord Township, OH 44077"
+    },
+    {
+      "value": "44",
+      "scope": "State Route 44 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "9",
+      "scope": "Store opening hour: 9 AM (Mon–Fri 9–6, Sat 9–2)"
+    },
+    {
+      "value": "6",
+      "scope": "Store weekday closing hour: 6 PM (Mon–Fri 9–6)"
+    },
+    {
+      "value": "2",
+      "scope": "Two forms of ID required on Form 1583; also Saturday closing hour (9 AM–2 PM)"
+    },
+    {
+      "value": "4",
+      "scope": "All four carriers (USPS, UPS, FedEx, DHL) deliver to a private mailbox"
+    },
+    {
+      "value": "4 hours",
+      "scope": "Mail scanned and customer notified within four hours of arrival (site service claim)"
+    },
+    {
+      "value": "1",
+      "scope": "Narrative — 'one seller with 1,800+ sales' (review anecdote; also list marker)"
+    },
+    {
+      "value": "3",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "10 packages",
+      "scope": "+10 Packages tiers include 10 packages per month (factory §1)"
+    },
+    {
+      "value": "5 dollars",
+      "scope": "$5 per package overage beyond the included 10 (factory §2); also $5 refundable key deposit"
+    },
+    {
+      "value": "5",
+      "scope": "$5 per-package overage (factory §2); also $5 refundable key deposit"
+    },
+    {
+      "value": "12 months",
+      "scope": "Year-round operation phrasing ('twelve months a year'); USPS mail forwarding also runs 12 months (usps.com)"
+    },
+    {
+      "value": "100",
+      "scope": "Heading word 'Hundred' — narrative count, not a business claim"
+    },
+    {
+      "value": "20 minutes",
+      "scope": "Drive-time estimate (narrative)"
+    },
+    {
+      "value": "200",
+      "scope": "eBay 1099-K / INFORM threshold: 200+ transactions (restored permanently by OBBBA, July 2025)"
+    },
+    {
+      "value": "$5",
+      "scope": "eBay/INFORM $5,000 gross-revenue threshold (registered as $5 + 000 tokens of '5,000')"
+    },
+    {
+      "value": "000",
+      "scope": "Trailing digits of '$5,000' threshold (comma-split token)"
+    },
+    {
+      "value": "12",
+      "scope": "12-month period for the high-volume seller threshold (FTC)"
+    },
+    {
+      "value": "$20",
+      "scope": "eBay 1099-K threshold $20,000 in gross payments (registered as $20 + 000 tokens of '20,000'); restored by OBBBA July 2025"
+    },
+    {
+      "value": "800",
+      "scope": "Narrative — '1,800+ sales' seller-review anecdote (comma-split token)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Narrative in-store setup time ('takes about ten minutes')"
+    },
+    {
+      "value": "15 minutes",
+      "scope": "Chardon Square to store drive time — OSRM 13 min (verified 2026-11-20); copy says 'about fifteen minutes'"
+    }
+  ],
+  "scope_rules": [],
+  "required_when": []
+}

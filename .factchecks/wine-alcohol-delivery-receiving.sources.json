@@ -1,0 +1,108 @@
+{
+  "source_extracts": [
+    {
+      "label": "pricing factory",
+      "url": "PRICING-AND-FEES.md (pricing factory, owner-approved 2026-08-23/25)",
+      "quote": "Small · +10 Packages $25 … 10+ pkgs/mo included; Large · +10 Packages $40; overage $5/package; Mail-Only tiers are BARE (no receiving)."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$25",
+      "scope": "Personal Small · +10 Packages tier — receiving included (factory §1)"
+    },
+    {
+      "value": "$40",
+      "scope": "Personal Large · +10 Packages tier — receiving included (factory §1)"
+    },
+    {
+      "value": "$5",
+      "scope": "$5 per package overage beyond the included 10 (factory §2)"
+    },
+    {
+      "value": "ten packages",
+      "scope": "+10 Packages tiers include 10 packages per month (factory §1)"
+    },
+    {
+      "value": "21",
+      "scope": "Adult-signature age requirement: 21+ for alcohol deliveries (carrier policy; article subject)"
+    },
+    {
+      "value": "$200",
+      "scope": "Narrative example — illustrative price of a wine order (scene detail, not a price claim)"
+    },
+    {
+      "value": "1",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "2",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "3",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "3 days",
+      "scope": "Narrative — 'three days later' pickup phrasing (any storage within business rules)"
+    },
+    {
+      "value": "10",
+      "scope": "Narrative — carrier delivery window '10:00 AM' (scene detail)"
+    },
+    {
+      "value": "00",
+      "scope": "Trailing digits of '10:00 AM' (time-split token)"
+    },
+    {
+      "value": "5",
+      "scope": "Narrative — '5:30' work end time (scene detail)"
+    },
+    {
+      "value": "30",
+      "scope": "Narrative — '5:30' trailing digits (scene detail)"
+    },
+    {
+      "value": "4",
+      "scope": "Narrative — '4:00 PM' delivery window end (scene detail)"
+    },
+    {
+      "value": "9",
+      "scope": "Store opening hour: 9 AM (Mon–Fri 9–6, Sat 9–2)"
+    },
+    {
+      "value": "6",
+      "scope": "Store weekday closing hour: 6 PM"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number: 7554 Fredle Drive, Concord Township, OH 44077"
+    },
+    {
+      "value": "44077",
+      "scope": "Store ZIP code (siteConfig)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\$10 per package|\\$50 per month|unlimited receiving",
+      "reason": "Invented receiving pricing removed fail-closed — no such line item in the factory"
+    },
+    {
+      "forbid": "no contract",
+      "reason": "Factory §3: banned phrase"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "receiving is (built into|included)",
+      "must_include": "\\$25 and \\$40"
+    }
+  ]
+}

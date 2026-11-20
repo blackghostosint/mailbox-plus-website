@@ -1,0 +1,88 @@
+{
+  "source_extracts": [
+    {
+      "label": "Good Sam — Love's RV Hookup #863",
+      "url": "https://www.goodsam.com/campgrounds-rv-parks/ohio/madison/loves-rv-hookup-863/cgid-202424167",
+      "quote": "1601 Great Lakes Way, Madison, Ohio, 44057. Coordinates: 41.75635, -81.04686."
+    },
+    {
+      "label": "OSRM route (verified 2026-11-20)",
+      "url": "http://router.project-osrm.org/route/v1/driving",
+      "quote": "Love's RV Hookup→store: 17.0 min, 13.3 mi."
+    },
+    {
+      "label": "receipt (W8 P5 backfill)",
+      "url": ".factchecks/how-to-get-mail-living-in-an-rv-ohio.factcheck.md",
+      "quote": "Rows 1–7 re-verified 2026-11-20; competitor fee figures removed fail-closed."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "7554",
+      "scope": "Store street number: 7554 Fredle Drive, Concord Township, OH 44077"
+    },
+    {
+      "value": "44",
+      "scope": "State Route 44 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "1",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "3",
+      "scope": "Numbered step in copy (narrative list marker)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA customer registration form number"
+    },
+    {
+      "value": "13 miles",
+      "scope": "Store to Love's RV Hookup (Madison, 1601 Great Lakes Way) — OSRM 13.3 mi (verified 2026-11-20)"
+    },
+    {
+      "value": "17",
+      "scope": "Store to Love's RV Hookup drive time — OSRM 17 min ('17-minute drive', verified 2026-11-20)"
+    },
+    {
+      "value": "2",
+      "scope": "Two forms of ID required on Form 1583"
+    },
+    {
+      "value": "500 miles",
+      "scope": "Narrative — 'someone 500 miles away in a phone tree' (scene detail)"
+    },
+    {
+      "value": "2 weeks",
+      "scope": "Narrative — jury summons sitting for two weeks (scene detail)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Typical Form 1583 counter setup time (store service claim)"
+    },
+    {
+      "value": "4 hours",
+      "scope": "Mail scanned and customer notified within four hours of arrival (site service claim)"
+    },
+    {
+      "value": "20",
+      "scope": "Narrative — 'in twenty years' rhetorical phrasing (scene detail)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "no contract",
+      "reason": "Factory §3: banned phrase"
+    },
+    {
+      "forbid": "\\$20 or \\$30",
+      "reason": "Unverifiable competitor fee figures removed (factory honesty rule)"
+    }
+  ],
+  "required_when": []
+}
