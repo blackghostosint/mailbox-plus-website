@@ -1,0 +1,79 @@
+{
+  "source_extracts": [
+    {
+      "label": "site config",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "street: '7554 Fredle Drive'"
+    },
+    {
+      "label": "document-scanning service config",
+      "url": "astro/src/config/services/document-services.ts",
+      "quote": "PDF, JPEG, or searchable PDF with OCR ... no minimum page count ... never farmed out ... USB, email, or cloud"
+    },
+    {
+      "label": "canonical SOT location facts",
+      "url": "Mailbox Plus/MAILBOX_PLUS_SOURCE_OF_TRUTH.md — 'Location Facts — CANONICAL' (2026-11-20 W8 correction)",
+      "quote": "Store is just off Crile Road, minutes from SR-44 and I-90. Route 306 mentions are valid ONLY when describing the reader's own Kirtland-area streets."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "7554", "scope": "store street number (siteConfig.ts)" },
+    {
+      "value": "4",
+      "scope": "narrative scene clock (4:58 PM file-size error scene) — not a service claim"
+    },
+    {
+      "value": "58",
+      "scope": "narrative scene clock (4:58 PM file-size error scene) — not a service claim"
+    },
+    { "value": "1", "scope": "step numbering (Step 1 — Bring what you have)" },
+    { "value": "2", "scope": "step numbering (Step 2 — Tell us where it goes)" },
+    { "value": "3", "scope": "step numbering (Step 3 — Take your originals back)" },
+    {
+      "value": "5",
+      "scope": "word-form 'five' in narrative phrasing (a deadline 'before five' = 5 PM scene clock) — not a service claim"
+    },
+    {
+      "value": "44",
+      "scope": "SR-44 route number in the canonical location phrasing (SOT 'Location Facts — CANONICAL')"
+    },
+    {
+      "value": "90",
+      "scope": "I-90 interstate number in the canonical location phrasing (SOT 'Location Facts — CANONICAL')"
+    },
+    {
+      "value": "100",
+      "scope": "word-form 'hundred' in 'several-hundred-dollar' — receipt row 8: general characterization, softened, no specific figure asserted"
+    },
+    {
+      "value": "6",
+      "scope": "word-form 'six times a year' — narrative frequency characterization, not a service claim"
+    },
+    {
+      "value": "8 minutes",
+      "scope": "narrative scene ('eight minutes into' fiddling with an app) — not a service-duration claim (receipt row 9: no in-store service durations asserted)"
+    },
+    {
+      "value": "10 steps",
+      "scope": "word-form 'ten steps away' — proximity idiom for the in-store notary desk, not a measured distance"
+    },
+    {
+      "value": "10",
+      "scope": "bare word-form 'ten' (as in 'ten steps away') — proximity idiom, not a measured distance"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "narrative time-cost estimate for DIY home scanning ('Ten minutes per document' about the do-it-yourself path) — not an in-store service duration"
+    },
+    {
+      "value": "1 miles",
+      "scope": "regex word-boundary artifact from 'one misplaced folder' — narrative, not a distance claim"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "(off|on|down|along|near) Route 306",
+      "reason": "canonical SOT location facts: the store is just off Crile Road, minutes from SR-44 and I-90 — never located via Route 306 (OH-306/Chillicothe Rd, ~3 mi west); corrected 2026-11-20 per W8 sweep"
+    }
+  ]
+}
