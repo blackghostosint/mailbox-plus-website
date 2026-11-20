@@ -35,10 +35,10 @@ export const competePages: Service[] = [
     pageTitle:
       'Mailbox Rental in Mentor, OH --- Real Street Address | From $15/mo --- Mailbox Plus',
     metaDescription:
-      'Rent a private mailbox in Mentor, OH with a real street address. Secure USPS mail, package receiving, and 24/7 access — from $35/month. Locally owned.',
+      'Rent a private mailbox in Mentor, OH with a real street address. Secure USPS mail, package receiving during business hours — from $25/month. Locally owned.',
     keywords:
       'mailbox rental Mentor OH, private mailbox Mentor Ohio, real street address Mentor OH, UPS Store alternative Mentor Ohio, PO Box alternative Mentor OH, package receiving service Mentor OH, mailbox rental near Mentor OH 44060, small business mailing address Mentor Ohio',
-    heroTitle: 'Get a Real Street Address for Your Home or Business --- From Just $35/Month',
+    heroTitle: 'Get a Real Street Address for Your Home or Business --- From Just $25/Month',
     heroSubtitle:
       'Stop using your home address for packages, business mail, and online orders. Mailbox Plus gives you a real Mentor-area street address. We accept packages from all four carriers --- UPS, FedEx, USPS, and DHL --- at one counter. No PO Box. No hidden fees. No annual contract.',
     features: [

@@ -23,12 +23,12 @@ export const competePages: Service[] = [
     canonicalUrl: '/private-mailbox-rental-lake-county/',
     pageTitle: 'Private Mailbox Rental in Lake County | Mailbox Plus',
     metaDescription:
-      'Private mailbox rental serving all of Lake County, OH. Real street address, secure mail, package receiving — from $35/month at Mailbox Plus in Concord.',
+      'Private mailbox rental serving all of Lake County, OH. Real street address, secure mail, package receiving — from $25/month at Mailbox Plus in Concord.',
     keywords:
       'private mailbox rental Lake County OH, mailbox rental Lake County Ohio, business mailbox Lake County, street address Lake County, mailbox rental Mentor, mailbox rental Painesville, mailbox rental Willoughby',
     heroTitle: 'Private Mailbox Rental Serving All of Lake County, Ohio',
     heroSubtitle:
-      'A real street address that works for every Lake County town. Accepts UPS, FedEx, USPS & DHL. From $35/month. Your home stays private.',
+      'A real street address that works for every Lake County town. Accepts UPS, FedEx, USPS & DHL. From $25/month. Your home stays private.',
     features: [
       {
         title: 'Real Street Address',
