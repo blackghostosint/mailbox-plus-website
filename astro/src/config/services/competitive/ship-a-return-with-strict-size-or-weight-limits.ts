@@ -75,7 +75,7 @@ export const competePages: Service[] = [
       {
         heading: 'How We Help',
         body: `<ol class="space-y-4 my-6 list-decimal list-inside text-lg text-[var(--color-text-primary)] leading-relaxed">
-              <li><strong>Bring it in.</strong> Bring the item, the retailer's return label, and any original packaging you still have. Amazon returns need a pre-printed carrier label — we can't accept QR codes.</li>
+              <li><strong>Bring it in.</strong> Bring the item, the retailer's return label or QR code, and any original packaging you still have. Amazon is the exception: its returns need a pre-printed carrier label — no Amazon QR codes.</li>
               <li><strong>We size it up.</strong> We measure and weigh the package, then check the limits for each carrier.</li>
               <li><strong>We pack it right.</strong> Right box, right cushioning, right sealing — so it clears carrier acceptance.</li>
               <li><strong>We ship it.</strong> We pick the carrier that fits the size and weight, hand it off, and give you a drop-off receipt.</li>
@@ -88,7 +88,7 @@ export const competePages: Service[] = [
         heading: 'What to Bring',
         body: `<ul class="space-y-4 my-6 list-disc list-inside text-lg text-[var(--color-text-primary)] leading-relaxed">
               <li>The item you're returning (assembled or disassembled as much as practical).</li>
-              <li>The retailer's return label (for Amazon: a pre-printed carrier label — no QR codes) or return authorization.</li>
+              <li>The retailer's return label or QR code (Happy Returns, FedEx Easy Returns, USPS Label Broker). Amazon: pre-printed carrier label only — no Amazon QR codes.</li>
               <li>Original packaging if you still have it — we'll reuse what we can.</li>
               <li>Any documentation about the retailer's size or weight limits if you received it.</li>
             </ul>
