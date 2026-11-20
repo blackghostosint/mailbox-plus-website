@@ -221,7 +221,7 @@ export const receivingDropOffServices: Service[] = [
               Mailbox Plus offers <strong>secure package receiving</strong> for all carriers \u2014 UPS, FedEx, USPS, and DHL. When a package arrives with your name, we sign for it, log it in our system, and store it safely in our secure facility.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Two options to fit your needs: <strong>$10 per package</strong> for occasional deliveries, or <strong>$30 per month unlimited</strong> for regular shippers and small businesses. No contract required.
+              Package receiving is available for occasional deliveries and for regular shippers and small businesses alike — ask at the counter and we'll set up the option that fits your volume. No term commitment required.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
               Pick up during our business hours. Just show your ID, and we'll hand you your package \u2014 dry, safe, and waiting for you.
@@ -233,7 +233,7 @@ export const receivingDropOffServices: Service[] = [
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Plan</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Per-package ($10) for occasional use, or unlimited ($30/month) for regular shipments.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Occasional or regular — ask at the counter which receiving option fits your shipments.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
