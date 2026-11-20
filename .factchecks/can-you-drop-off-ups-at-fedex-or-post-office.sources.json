@@ -1,0 +1,55 @@
+{
+  "source_extracts": [
+    {
+      "label": "FedEx — returns policy (archived snapshot, bot-wall)",
+      "url": "https://web.archive.org/web/2026/https://www.fedex.com/en-us/shipping/returns.html",
+      "quote": "Can I return UPS packages or USPS packages at a FedEx location? No. Only FedEx shipments can be processed at a FedEx location."
+    },
+    {
+      "label": "UPS — official drop-off options",
+      "url": "https://www.ups.com/us/en/business-solutions/expand-your-online-business/ups-access-point",
+      "quote": "UPS drop-off options: The UPS Store, UPS Customer Centers, UPS Drop Boxes, and UPS Access Points at participating retailers. No post office appears on the list."
+    },
+    {
+      "label": "Mailbox Plus counter QR programs (owner ruling)",
+      "url": "vault://Mailbox Plus/Planning/Decision Log.md#2026-11-20",
+      "quote": "QR scanning IS offered for FedEx Easy Returns, Happy Returns, USPS Label Broker. Amazon returns: pre-printed carrier label ONLY, no Amazon QR codes."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "7554", "scope": "Store street number, 7554 Fredle Drive (siteConfig)" },
+    {
+      "value": "4",
+      "scope": "Four major carriers at one counter (UPS, FedEx, USPS, DHL) — serviceAreas copy"
+    },
+    {
+      "value": "11",
+      "scope": "Scene narrative clock ('11 p.m.') — figurative, not a service-hours claim"
+    },
+    {
+      "value": "1",
+      "scope": "Ordered-list markers ('1.') and word 'one' in narrative idioms ('in one stop') — structural/figurative, not a quantity claim"
+    },
+    { "value": "2", "scope": "Ordered-list markers ('2.') — structural" },
+    { "value": "3", "scope": "Ordered-list markers ('3.') — structural" },
+    {
+      "value": "two minutes",
+      "scope": "Comparative narrative ('the FedEx store is two minutes closer') — figurative drive-time flavor, not a measured route claim"
+    },
+    {
+      "value": "ten minutes",
+      "scope": "Narrative anecdote ('saved you ten minutes of driving') — figurative, not a measured route claim"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\$\\d+",
+      "reason": "Article makes no pricing claims; any dollar figure would be unverified."
+    },
+    {
+      "forbid": "QR code(?!\\s*\\((?:Happy Returns|FedEx Easy|USPS Label)[^)]*\\))[^.]{0,120}Amazon|Amazon[^.]{0,80}QR",
+      "reason": "Amazon returns are label-only (Decision Log 2026-11-20); QR mentions must carry the named-programs scope + Amazon exception."
+    }
+  ],
+  "required_when": []
+}
