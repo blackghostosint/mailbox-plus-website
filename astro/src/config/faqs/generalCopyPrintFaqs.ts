@@ -8,7 +8,7 @@ export const generalCopyPrintFaqs: FAQ[] = [
   {
     question: 'How long does printing take?',
     answer:
-      'Most orders are ready within 3–5 business days, with same-day options available for rush jobs.',
+      'Document printing and copies are done in-store, usually while you wait. Ordered products like business cards, flyers, and posters are ready in 3–5 business days.',
   },
   {
     question: 'Can you help design my materials?',

@@ -107,9 +107,9 @@ export const generalShippingFaqs: FAQ[] = [
     id: 'shipping-returns',
     question: 'Can you handle product returns?',
     answer:
-      'Yes, we process returns for UPS, FedEx, and other retailers. Bring your return label or QR code.',
+      'Yes, we accept returns for Amazon, UPS, FedEx, and other retailers. The package must have a pre-printed carrier label on it — we can’t scan QR codes.',
     category: 'Returns',
-    tags: ['returns', 'amazon', 'qr code'],
+    tags: ['returns', 'amazon', 'pre-labeled'],
     order: 12,
   },
   {

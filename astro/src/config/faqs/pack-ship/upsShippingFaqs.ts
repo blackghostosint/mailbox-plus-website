@@ -3,7 +3,8 @@ import type { FAQ } from '../../../types/faq';
 export const upsShippingFaqs: FAQ[] = [
   {
     question: 'Do you accept Amazon UPS returns?',
-    answer: 'Yes, we can accept and ship labeled Amazon returns.',
+    answer:
+      'Yes — Amazon returns are accepted with a pre-printed carrier label on the package. We can’t accept QR-code returns.',
   },
   {
     question: 'Can I ship hazardous materials?',

@@ -11,6 +11,7 @@ export const documentPrintingFaqs: FAQ[] = [
   },
   {
     question: 'Do you offer same-day printing?',
-    answer: 'Yes, most jobs can be completed the same day.',
+    answer:
+      'Document printing and copies are done in-store, usually while you wait. Ordered products like business cards, flyers, and posters are ready in 3–5 business days.',
   },
 ];
