@@ -100,7 +100,7 @@ export const competePages: Service[] = [
       {
         question: 'I live in Mentor — do I need to drive to Concord Township for my mailbox?',
         answer:
-          'Yes, and it is a six-minute drive. We are at 7554 Fredle Drive, right off I-90 and SR 306.',
+          'Yes, and it is a six-minute drive. We are at 7554 Fredle Drive, just off Crile Road, minutes from SR-44 and I-90.',
       },
       {
         question: 'Can I receive FedEx and UPS packages at a mailbox rental?',

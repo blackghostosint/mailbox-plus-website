@@ -59,7 +59,7 @@ export const competePages: Service[] = [
       },
       {
         heading: "Don't Settle — Willoughby Deserves Better Service",
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Willoughby residents deserve a shipping experience that respects their time. Just off I-90, SR 2, and SR 306, Mailbox Plus is only 5 miles from Willoughby. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 5 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Willoughby residents deserve a shipping experience that respects their time. Just off Crile Road, minutes from SR-44 and I-90, Mailbox Plus is only 5 miles from Willoughby. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 5 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
       },
       {
         heading: 'What to Expect When You Visit',

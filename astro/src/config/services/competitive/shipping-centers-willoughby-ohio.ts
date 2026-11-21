@@ -129,10 +129,10 @@ export const competePages: Service[] = [
         heading: 'Your Willoughby Shipping Center --- 5 Minutes Away',
         body: `<div class="p-8 rounded-2xl bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg-primary)] border border-[var(--color-border)] mb-6">
               <p class="text-xl font-bold text-[var(--color-text-primary)] mb-2">7554 Fredle Drive, Concord Township, OH 44077</p>
-              <p class="text-base text-[var(--color-text-secondary)]">Just off I-90, SR 2, and SR 306. Less than 5 miles / ~10 minutes from downtown Willoughby.</p>
+              <p class="text-base text-[var(--color-text-secondary)]">Just off Crile Road, minutes from SR-44 and I-90. Less than 5 miles / ~10 minutes from downtown Willoughby.</p>
             </div>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              From Willoughby: take SR 2 west to SR 306 north, or head west on Euclid Avenue to Fredle Drive. No highway required --- an easy straight shot.
+              From Willoughby: head east on I-90 or SR-2 to SR-44, then just off Crile Road to 7554 Fredle Drive in Gristmill Village.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               <strong>Hours:</strong> Monday through Saturday, walk-in friendly. Most drop-offs take under 2 minutes.

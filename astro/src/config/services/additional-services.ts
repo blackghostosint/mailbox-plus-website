@@ -223,7 +223,7 @@ export const additionalServices: Service[] = [
       {
         heading: 'Comprehensive Business Solutions',
         body: `<ul>
-                    <li><strong>Mailbox Rentals:</strong> Get a prestigious street address and secure 24-hour access to your mail.</li>
+                    <li><strong>Mailbox Rentals:</strong> Get a prestigious street address and secure mailbox access during store hours.</li>
                     <li><strong>Notary Public:</strong> On-site notary services to legalize your important documents.</li>
                     <li><strong>Document Shredding:</strong> Securely destroy sensitive files and protect your business data.</li>
                     <li><strong>Fax & Scan:</strong> Send and receive faxes or digitize your paper records.</li>
