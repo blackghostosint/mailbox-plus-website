@@ -270,7 +270,7 @@ function main() {
     process.exit(2);
   }
 
-  const res = runSotCheck({ root: DEFAULT_ROOT, files, all });
+  const res = runSotCheck({ root: all ? DEFAULT_ROOT : process.cwd(), files, all });
   if (res.success) {
     console.log(`✅ source-of-truth: ${res.scannedCount} file(s) clean`);
     process.exit(0);

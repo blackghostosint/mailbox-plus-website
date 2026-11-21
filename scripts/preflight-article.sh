@@ -127,7 +127,8 @@ for f in "${ARTICLES[@]}"; do
   fi
   rm -f "$VERIFY_LOG"
   # 3e. canonical Source of Truth mechanical lint (docs/SOURCE_OF_TRUTH.md)
-  if ! node scripts/verify/check-source-of-truth.mjs --files "$f" >"$LOG_FILE" 2>&1; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  if ! node "${SCRIPT_DIR}/verify/check-source-of-truth.mjs" --files "$f" >"$LOG_FILE" 2>&1; then
     echo "❌ source-of-truth: $f violated canonical store facts/rules"
     cat "$LOG_FILE"
     FAIL=1
