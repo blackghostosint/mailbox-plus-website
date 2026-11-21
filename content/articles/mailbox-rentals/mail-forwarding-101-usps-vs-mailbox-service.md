@@ -19,13 +19,24 @@ keywords:
   ]
 relatedServices:
   [
-    '/virtual-mailbox-concord-township',
-    '/private-mailbox-rental',
-    '/mail-forwarding-concord-township',
-    '/articles/private-mailbox-vs-po-box',
-    '/home-business/mailbox-rental',
+    '/virtual-mailbox-concord-township/',
+    '/private-mailbox-rental/',
+    '/mail-forwarding-concord-township/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/home-business/mailbox-rental/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How long does USPS mail forwarding actually last?'
+    answer: 'Standard forwarding runs for 12 months. You can pay to extend it in 6-, 12-, or 18-month blocks, and 18 months is the maximum. After it lapses, USPS returns mail to the sender for six months with your new address on the label.'
+  - question: 'Does USPS forwarding cover UPS and FedEx packages?'
+    answer: 'No. A change of address only changes your mailing address with the Post Office — UPS, FedEx, and DHL keep delivering to whatever street address is printed on the label until you update them separately.'
+  - question: 'What mail does USPS not forward?'
+    answer: 'USPS Marketing Mail — catalogs, flyers, political mail, credit-card offers — is not forwarded under a standard change of address. Government agencies and financial institutions also block forwarding of sensitive documents, so you must update those senders directly.'
+  - question: 'Can I hold my mail instead of forwarding it?'
+    answer: 'USPS Hold Mail pauses everything for 3 to 30 days at your local post office. Longer trips need a temporary change of address. A private mailbox at Mailbox Plus holds everything — packages included — for as long as you are gone, and you pick it up or have it forwarded on your schedule.'
+  - question: 'What does a private mailbox cost for forwarding-heavy travel?'
+    answer: 'Personal tiers start at $15 a month for a mail-only small box; the $25 tier adds package receiving and signing from all four carriers. There is no term commitment — month-to-month.'
 ---
 
 ## The Mail Problem Nobody Plans For
@@ -84,6 +95,8 @@ Here is how the two approaches compare in practice:
 
 When you rent a [private mailbox](/private-mailbox-rental/) at Mailbox Plus, your mail and packages land at 7554 Fredle Drive — a real street address in a staffed building. Every carrier delivers there: USPS, UPS, FedEx, and DHL. A staff member signs for packages that would otherwise bounce back to the sender. Mail accumulates in a locked, secure area instead of an overflowing box or a porch.
 
+![The staffed mailbox counter at Mailbox Plus in Concord Township, Ohio, where traveler mail and packages are signed for and held](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/digital-mailbox-counter-01.webp)
+
 Then you control the forwarding. Going to Florida for the winter? Tell us when you want your mail shipped and we bundle it and send it — via whatever carrier works best — on your schedule, not whenever the forwarding queue gets around to it. And with a [virtual mailbox](/virtual-mailbox-concord-township/), you do not even need to wait for a shipment: we scan your envelopes and you see what arrived from anywhere in the world, then decide what to open, forward, or shred.
 
 ## The Three-Step Plan to Fix Your Mail
@@ -116,7 +129,7 @@ That is what a real mailbox service gives you that forwarding cannot: the addres
 
 If you are planning a move, a long trip, or a season away from Lake County, do not wait until the first envelope goes missing. Set up the address while you are still home, update your accounts over the next week, and travel with the knowledge that your mail is handled by real people at a real counter.
 
-Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, and from $15 a month (the $25 tier adds all four carriers, package receiving, and signing). If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms.
+Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, and from $15 a month (the $25 tier adds all four carriers, package receiving, and signing). If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms — and for the digital side of the same decision, our [virtual mailbox versus a real local mailbox](/articles/virtual-mailbox-vs-real-local-mailbox/) breakdown covers what a scan-only service still cannot do for you.
 
 Your mail has been waiting for a system that works as hard as your lifestyle. Give it one. Set up your mailbox at Mailbox Plus, and stop letting the forwarding network decide what you see.
 

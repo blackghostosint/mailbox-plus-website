@@ -1,0 +1,106 @@
+{
+  "source_extracts": [
+    {
+      "label": "site pricing pages",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/pages/home-business/mailbox-rental.astro",
+      "quote": "Personal tiers $15/$25/$30/$40 per month; business plans $35/$50 per month; month-to-month, no term commitment."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2; (440) 709-1946."
+    },
+    {
+      "label": "USPS standard forwarding & change of address",
+      "url": "https://www.usps.com/manage/forward.htm",
+      "quote": "Pay the $1.25 identity verification fee (online COA). Standard mail forwarding lasts 12 months. You can pay to extend mail forwarding for 6, 12, or 18 more months (18 months is the maximum). When forwarding ends, USPS returns mail to sender for 6 months with a label showing the new address. USPS Hold Mail: 3–30 days. Allow at least 7-10 business days for COA to take effect. First-Class, Priority Mail Express, Priority Mail, USPS Ground Advantage forwarded free; Media Mail forwarded but you pay shipping; Marketing Mail not forwarded unless sender paid forwarding postage. (verified 2026-11-20)"
+    },
+    {
+      "label": "USPS DMM 507 / forward.htm carrier scope",
+      "url": "https://www.usps.com/manage/forward.htm",
+      "quote": "Your change of address order only changes your mailing address with the Post Office — UPS, FedEx, and DHL are not notified. (verified 2026-11-20)"
+    }
+  ],
+  "numeric_claims": [
+    { "value": "$15", "scope": "Personal Small Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$25",
+      "scope": "Personal Small +10 Packages tier — adds all four carriers' package receiving and signing (site pricing pages)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 (CMRA registration; article references setup generally)"
+    },
+    { "value": "7554", "scope": "Store street number — 7554 Fredle Drive (siteConfig)" },
+    {
+      "value": "101",
+      "scope": "Title convention — 'Mail Forwarding 101' (headline idiom, not a claim)"
+    },
+    {
+      "value": "12 months",
+      "scope": "USPS standard mail forwarding lasts 12 months (usps.com/manage/forward.htm, verified 2026-11-20)"
+    },
+    {
+      "value": "$1.25",
+      "scope": "USPS online change-of-address identity verification fee (usps.com/manage/forward.htm, verified 2026-11-20)"
+    },
+    { "value": "6", "scope": "Extended forwarding blocks: 6, 12, or 18 more months (usps.com)" },
+    { "value": "12", "scope": "Extended forwarding blocks: 6, 12, or 18 more months (usps.com)" },
+    { "value": "18", "scope": "Extended forwarding blocks: 6, 12, or 18 more months (usps.com)" },
+    {
+      "value": "18 months",
+      "scope": "18 months is the maximum total extension (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "13",
+      "scope": "Traveling nurse 13-week contract length (industry staffing norm; narrative context)"
+    },
+    {
+      "value": "3",
+      "scope": "USPS Hold Mail covers 3–30 days (lower bound, usps.com); numbered list marker"
+    },
+    {
+      "value": "30 days",
+      "scope": "USPS Hold Mail covers 3–30 days (upper bound, usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "2 weeks",
+      "scope": "COA startup timing — USPS advises allowing at least 7-10 business days; article rounds to 'up to two weeks' (usps.com)"
+    },
+    { "value": "1", "scope": "Numbered step marker or narrative count" },
+    { "value": "2", "scope": "Numbered step marker or narrative count" },
+    {
+      "value": "30",
+      "scope": "'No 30-day limit' — refers to USPS Hold Mail's 30-day cap (usps.com)"
+    },
+    { "value": "3 weeks", "scope": "Narrative scene detail (trip timing in the opening story)" },
+    {
+      "value": "6 months",
+      "scope": "After forwarding ends, USPS returns mail to sender for 6 months (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Mailbox setup takes about ten minutes (established store copy)"
+    },
+    {
+      "value": "one package",
+      "scope": "Narrative scene detail ('three letters and one package arrived')"
+    },
+    { "value": "5", "scope": "Narrative — pickup is a five-minute stop (illustrative timing)" },
+    {
+      "value": "4",
+      "scope": "'All four carriers' — USPS, UPS, FedEx, DHL deliver to a CMRA street address (USPS DMM 508)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
+      "reason": "Mail-Only tier ($15) does not take carrier packages — the $25 package tier does"
+    },
+    {
+      "forbid": "every plan[^.]*(carrier|deliver)",
+      "reason": "carrier package delivery is package-plan scoped"
+    }
+  ],
+  "required_when": []
+}

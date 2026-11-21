@@ -1,0 +1,161 @@
+{
+  "source_extracts": [
+    {
+      "label": "site pricing pages",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/pages/home-business/mailbox-rental.astro",
+      "quote": "Personal tiers $15/$25/$30/$40 per month; business plans $35/$50 per month; month-to-month, no term commitment."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2; (440) 709-1946."
+    },
+    {
+      "label": "USPS Premium Forwarding Service Residential fees",
+      "url": "https://www.usps.com/manage/forward-premium.htm",
+      "quote": "Enrollment fees (non-refundable): $26.40 if you enroll online; $28.70 if you enroll at the Post Office. Weekly fees: $29.70 for each week of service. (verified 2026-11-20)"
+    },
+    {
+      "label": "USPS standard forwarding rules",
+      "url": "https://www.usps.com/manage/forward.htm",
+      "quote": "Standard mail forwarding lasts 12 months. Periodicals are forwarded free for 60 days if fully prepaid by the sender. Allow at least 7-10 business days for a change of address to take effect. USPS Hold Mail: 3–30 days. (verified 2026-11-20)"
+    }
+  ],
+  "numeric_claims": [
+    { "value": "$15", "scope": "Personal Small Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$25",
+      "scope": "Personal Small +10 Packages tier monthly price — receiving included (site pricing pages / PRICING-AND-FEES.md)"
+    },
+    { "value": "$30", "scope": "Personal Large Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$40",
+      "scope": "Personal Large +10 Packages tier monthly price — receiving included (site pricing pages / PRICING-AND-FEES.md)"
+    },
+    { "value": "$35", "scope": "Business plan monthly price (site pricing pages)" },
+    { "value": "$50", "scope": "Business plan monthly price (site pricing pages)" },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA mailbox registration form (about.usps.com/forms/ps1583.pdf)"
+    },
+    { "value": "7554", "scope": "Store street number — 7554 Fredle Drive (siteConfig)" },
+    { "value": "44", "scope": "SR-44 route number (location fact, Concord Township)" },
+    { "value": "90", "scope": "I-90 route number (location fact, Concord Township)" },
+    { "value": "9", "scope": "Weekday opening hour — Mon–Fri 9 AM (siteConfig contact.hours)" },
+    { "value": "6", "scope": "Weekday closing hour — 6 PM (siteConfig contact.hours)" },
+    { "value": "2", "scope": "Saturday closing hour — 2 PM (siteConfig contact.hours)" },
+    {
+      "value": "1",
+      "scope": "Numbered list/step marker or narrative count (not a price/policy claim)"
+    },
+    {
+      "value": "2",
+      "scope": "Numbered list/step marker or narrative count, incl. two forms of ID for Form 1583 (usps.com)"
+    },
+    { "value": "3", "scope": "Numbered list/step marker or narrative count" },
+    {
+      "value": "12",
+      "scope": "USPS standard mail forwarding lasts 12 months (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "12 months",
+      "scope": "USPS standard forwarding duration (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "60 days",
+      "scope": "Periodicals forwarded free for 60 days if fully prepaid by sender (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "60",
+      "scope": "Same 60-day periodicals forwarding limit, narrative wording (usps.com)"
+    },
+    {
+      "value": "2 months",
+      "scope": "Same 60-day periodicals limit restated as two months (usps.com)"
+    },
+    {
+      "value": "10 days",
+      "scope": "USPS advises allowing 7–10 business days for a change of address to take effect (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "7",
+      "scope": "Lower bound of USPS 7–10 business-day COA startup guidance (usps.com)"
+    },
+    {
+      "value": "1 miles",
+      "scope": "Narrative — 'One missed insurance renewal...' (word-boundary artifact, not a distance claim)"
+    },
+    {
+      "value": "10",
+      "scope": "Upper bound of the USPS 7–10 business-day COA startup guidance (usps.com)"
+    },
+    {
+      "value": "30 days",
+      "scope": "USPS Hold Mail covers 3–30 days (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "3 weeks",
+      "scope": "Narrative scene detail (moving-story timing, not a policy claim)"
+    },
+    {
+      "value": "ten packages",
+      "scope": "+10 Packages tiers include 10 packages per month (PRICING-AND-FEES.md factory §1)"
+    },
+    {
+      "value": "five dollars",
+      "scope": "$5 per package overage beyond the included 10 (PRICING-AND-FEES.md factory §2)"
+    },
+    {
+      "value": "two packages",
+      "scope": "Narrative scene detail (packages from different carriers)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Mailbox setup takes about ten minutes with two forms of ID (established store copy / pricing page)"
+    },
+    {
+      "value": "1 week",
+      "scope": "Narrative comparison — $15/month vs one week of Premium Forwarding's $29.70 weekly fee (usps.com)"
+    },
+    {
+      "value": "2 weeks",
+      "scope": "USPS COA startup timing — USPS advises allowing 7-10 business days; article rounds to 'up to two weeks' (usps.com/manage/forward.htm)"
+    },
+    {
+      "value": "$26.40",
+      "scope": "USPS PFS-Residential enrollment fee, online (usps.com/manage/forward-premium.htm, verified 2026-11-20)"
+    },
+    {
+      "value": "$28.70",
+      "scope": "USPS PFS-Residential enrollment fee, at the Post Office (usps.com/manage/forward-premium.htm, verified 2026-11-20)"
+    },
+    {
+      "value": "$29.70",
+      "scope": "USPS PFS-Residential weekly fee (usps.com/manage/forward-premium.htm, verified 2026-11-20)"
+    },
+    {
+      "value": "$260",
+      "scope": "Narrative breakeven math — illustrative spend where forwarding fees overtake a mailbox rental (scene arithmetic, not a published price)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
+      "reason": "Mail-Only tiers ($15/$30) do not take carrier packages — package plans ($25/$40) only"
+    },
+    {
+      "forbid": "every plan[^.]*(carrier|deliver)",
+      "reason": "carrier package delivery is package-plan scoped"
+    },
+    {
+      "forbid": "24/7|24-hour|24 hour",
+      "reason": "NEVER-CLAIM (owner 2026-10-05): 24-hour access is not a Mailbox Plus service — never frame the store as offering it"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "sign for (your |the |a )?(package|delivery)",
+      "must_include": "when a carrier requires"
+    }
+  ]
+}

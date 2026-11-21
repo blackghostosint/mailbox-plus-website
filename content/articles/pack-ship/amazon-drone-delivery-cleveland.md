@@ -17,11 +17,20 @@ keywords:
     'package receiving concord township ohio',
     'amazon drone returns',
   ]
-relatedServices: ['/pack-ship/package-receiving', '/home-business/mailbox-rental', '/pack-ship']
-author: 'Mailbox Plus Team'
+relatedServices: ['/pack-ship/package-receiving/', '/home-business/mailbox-rental/', '/pack-ship/']
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'Is Amazon drone delivery coming to Cleveland?'
+    answer: 'Amazon announced in August 2026 that Prime Air plans to reach nearly 500 US cities and towns by the end of 2026 — a sixfold expansion — with metro Cleveland on the launch list. No specific launch date for the Cleveland area has been announced.'
+  - question: 'What can an Amazon drone actually carry?'
+    answer: 'Drones carry items weighing 5 pounds or less that fit in a large shoebox — phones, small electronics, small household orders. Anything heavier, oversized, or fragile still moves by truck, and Amazon says drone delivery only runs in daylight and fair weather.'
+  - question: 'Can a drone deliver to a PO box or hold a package for me?'
+    answer: 'No. Drones drop at a physical street address with a clear landing zone, and they do not wait for you or take signatures. A private mailbox at Mailbox Plus gives every carrier — including UPS, FedEx, and DHL, which cannot deliver to PO boxes — a staffed counter that signs for and holds your packages.'
+  - question: 'What is the cheapest way to get packages held safely in Concord Township?'
+    answer: 'A private mailbox rental starts at $15 a month for a mail-only small box; the $25 tier adds package receiving from all carriers. Staff sign for deliveries when a carrier requires it and hold everything behind the counter until you pick it up.'
 ---
 
-## The Scene That Starts Everything
+## The Headline and the Package You Are Actually Waiting On
 
 You saw the headline the same way everyone else did — halfway through your morning coffee, thumb hovering over the phone. Amazon is bringing drone delivery to Cleveland. Metro Cleveland, specifically. Nearly 500 cities and towns by the end of 2026, a sixfold expansion of the program, with Northeast Ohio on the launch list.
 
@@ -43,7 +52,7 @@ But read the fine print of the announcement, because the mechanism has hard edge
 
 Here is the part the headline does not tell you: the drone is solving the easiest problem in delivery. Small, light, valuable-enough-to-justify-the-hype items, in good weather, during the day, to a physical street address with a clear landing zone. Everything else — the heavy box, the bad weather, the night delivery, the return — still runs through the old system of trucks, labels, and human hands.
 
-## What It Actually Feels Like
+## What Delivery Still Feels Like in 2026
 
 It feels like watching a news story about someone else's life.
 
@@ -55,7 +64,7 @@ Or you run a home business, and your address is your home address. Every package
 
 The drone flies overhead. Your packages still sit on the step.
 
-## Why It Should Not Be This Way
+## The System Is Built for the Package, Not for You
 
 A package should not be an adventure. You should not have to plan your afternoon around a delivery window, or race home because a truck driver is six minutes away, or apologize to a customer because the carrier handed your box to the rain.
 
@@ -63,7 +72,7 @@ And yet the entire industry has built itself around the assumption that the pack
 
 It should not be this way. The system should work for you — for your schedule, your privacy, your business. The delivery should end somewhere safe, at a time that makes sense, with a human who can say "this arrived, and here it is."
 
-## What We See Every Day
+## What Lands on Our Counter Instead
 
 This is where Mailbox Plus comes in, and we are not going to pretend we are a drone company. We are not. We are the opposite of a drone: a counter at 7554 Fredle Drive in Concord Township, with people behind it, open on a schedule you can plan around.
 
@@ -76,7 +85,7 @@ Every day we see the packages the drone news never mentions:
 
 We are a UPS Authorized Shipping Outlet. We handle FedEx, USPS, and DHL too. We receive packages for you, we hold them, we sign for them, we call you when they land. We are the part of the delivery system that actually cares about the receiving end.
 
-## How It Works
+## Three Steps at the Counter
 
 You do not need to wait for a drone, or hope the weather cooperates, or hover over your Ring camera. You need a place where packages land safely and returns leave easily. Three steps:
 
@@ -86,7 +95,7 @@ You do not need to wait for a drone, or hope the weather cooperates, or hover ov
 
 If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $15 a month (the $25 tier adds package receiving) — and private carriers can actually deliver to it, which they cannot do with a PO box.
 
-## What You Lose by Not Acting
+## What You Keep Paying Without a Real Address
 
 The drone is coming. The porch is not going to fix itself.
 
@@ -96,7 +105,7 @@ The drone is coming. The porch is not going to fix itself.
 
 **Privacy.** If you run a business from home, your address is public the moment you print a label. Your customers, your returns, your registry listing — all pointing at your house. A professional address changes that, and it costs less than you think.
 
-## Your Afternoon After the Change
+## A Thursday With the Counter Instead of the Porch
 
 Picture a Thursday. The tracking app says your package is out for delivery, and you do not care, because it is not going to your porch — it is coming to the counter at 7554 Fredle Drive.
 
@@ -104,8 +113,10 @@ You get the text from us that it is in. You swing by after work. The clerk knows
 
 The drone hums somewhere over the lake, delivering an iPhone to a driveway in Willoughby Hills. Good for them. Your packages are already home.
 
-## Bring It In
+## Stop By Before the Drones Beat You To It
 
 Amazon is spending billions to deliver small things fast. We are right here in Concord Township, delivering the rest of it — safely, affordably, and with a human being on the other side of the counter.
 
-Stop by 7554 Fredle Drive, call us, or [send a message](/contact-us/). Ask about package receiving, a mailbox rental with a real street address, or a return you have been putting off. We will take it from there.
+![Packages staged behind the counter at Mailbox Plus in Concord Township, Ohio, waiting for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/package-staging-01.webp)
+
+Stop by 7554 Fredle Drive, call us, or [send a message](/contact-us/). Ask about package receiving, a mailbox rental with a real street address, or a return you have been putting off. We will take it from there. And if the drone news has you thinking about how Amazon actually handles PO boxes and odd deliveries, read [Amazon PO Box Delivery: Why It Fails](/articles/amazon-po-box-delivery/) next — or, if you sell online, [how to compare UPS, FedEx, and USPS rates](/articles/compare-shipping-rates-ups-fedex-usps-dhl/) before your next drop-off.

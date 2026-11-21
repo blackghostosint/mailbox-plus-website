@@ -17,8 +17,17 @@ keywords:
     'can you use a po box for taxes',
     'po box vs street address',
   ]
-relatedServices: ['/private-mailbox-rental', '/articles/private-mailbox-vs-po-box']
-author: 'Mailbox Plus Team'
+relatedServices: ['/private-mailbox-rental/', '/articles/private-mailbox-vs-po-box/']
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'Can a PO box be a residential address on a driver license?'
+    answer: 'No. Ohio BMV documents require the residence address — a PO box is not accepted as a residence — and proving residency takes two documents from different sources showing an Ohio street address.'
+  - question: 'Why do banks require a street address instead of a PO box?'
+    answer: 'Federal Customer Identification Program rules (31 CFR 1020.220) require banks to collect a residential or business street address for every customer. A PO box alone does not satisfy that requirement.'
+  - question: 'Can I use a PO box on IRS forms?'
+    answer: 'Usually yes on Form 1040 as a mailing address. But the street-address line on Form SS-4 when you apply for an EIN says plainly: do not enter a P.O. box.'
+  - question: 'Can a private mailbox be my LLC registered agent in Ohio?'
+    answer: 'No. Ohio requires a statutory agent at a street address where someone is present during business hours. A mailbox can be your business mailing address, but you still need a separate statutory agent.'
 ---
 
 ## The Question You Just Typed
@@ -52,7 +61,7 @@ When a bank, the DMV, the IRS, or an insurer asks for your address, they aren't 
 
 None of this is a conspiracy. It's the difference between "where do we mail it?" and "where are you?" And that difference is why the same PO box that works for your magazine subscriptions fails for your bank account.
 
-## What It Actually Feels Like
+## What the Rejection Loop Actually Looks Like
 
 You know the loop. You fill out the form, everything checks out, and then the address field stops you cold. You type "P.O. Box 47" and the form either:
 
@@ -120,13 +129,13 @@ When you rent a PMB, you get:
 
 And here's the part that builds the trust this whole article is about: **a private mailbox does not solve everything.** It is not a residence, so it won't fix a driver's license address or voter registration by itself. It is not a statutory agent, so it can't be the registered agent for your Ohio LLC. If someone tells you a mailbox fixes those, they're overselling you — and you deserve better than that.
 
-## What We See Every Day
+## The Conversation We Have at the Counter
 
 We're Mailbox Plus, an independent mailbox store in Concord Township, Ohio, and this is the conversation we have at the counter almost daily: someone who rented a PO box last month, and is now standing in front of us holding a bank letter, an LLC form, or an EIN application that says "street address required."
 
 We don't sell you a miracle. We sell you the thing the form actually asks for: a real street address at 7554 Fredle Drive, with your PMB number, that banks, the DMV's document flow, the IRS's EIN line, and every carrier on the road can use. We'll also tell you the truth about what a mailbox can't do — because a customer who understands the rules is a customer who comes back.
 
-## How It Works
+## How to Set Up a Street-Address Mailbox
 
 1. **Walk in** with two forms of ID — a driver's license and a credit card, for example.
 2. **Fill out the standard Form 1583** — the same USPS form every CMRA uses. It takes about ten minutes.
@@ -134,7 +143,7 @@ We don't sell you a miracle. We sell you the thing the form actually asks for: a
 
 Month-to-month, cancel anytime — no lock-in, no per-piece fees.
 
-## What You Lose by Not Acting
+## What Keeping the PO Box Costs You
 
 Every week you keep a PO box that can't be used is a week of running around:
 
@@ -145,15 +154,17 @@ Every week you keep a PO box that can't be used is a week of running around:
 
 None of those are disasters. They're just the slow, expensive tax you pay for an address that doesn't fit the forms you have to fill out.
 
-## Your Afternoon After the Change
+## Your Paperwork After the Change
 
 Picture it: you fill out the bank form, and the address field takes it. You file the EIN application, and the street-address line is just... a street address. Your LLC's correspondence lands at a professional business address, not your kitchen table. The FedEx driver walks into the store, signs the package over, and you pick it up when you're ready.
 
 Same you. Same paperwork. Zero rejection loops.
 
-## Bring It In
+## Come See the Address That Works
 
 If you're tired of typing "can you use a PO box for X" at 11 PM, come in and we'll show you the X that works: a real street address at Mailbox Plus. Two forms of ID, ten minutes, and you're set up the same day. See our [private mailbox rental page](/private-mailbox-rental/) for details, or stop by **7554 Fredle Drive in Concord Township** — just off Crile Road, minutes from SR-44 and I-90.
+
+![The mailbox rental counter at Mailbox Plus in Concord Township, Ohio, where Form 1583 setups happen in about ten minutes](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 For the full comparison of a private mailbox versus a post office box, read [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/). And if you're weighing the franchise option, our honest take is in [UPS Store vs Mailbox Plus](/articles/ups-store-vs-mailbox-plus-comparison/).
 

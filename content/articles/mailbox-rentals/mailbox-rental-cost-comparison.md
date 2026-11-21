@@ -126,7 +126,7 @@ That's the monthly price. No per-piece scan fees, no per-item storage fees, no a
 What the flat rate includes at our store:
 
 - **A real street address** at 7554 Fredle Drive in Concord Township — 7554 Fredle Drive plus your PMB number.
-- **All four carriers deliver** — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages.
+- **All four carriers deliver** — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages when a carrier requires it.
 - **We notify you when mail arrives**, usually within four hours.
 - **Secure holding** behind our locked counter — no doorstep, no porch pirates.
 - **Month-to-month.** Completely risk-free — cancel anytime, so you can test the address before committing.

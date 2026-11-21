@@ -1,0 +1,200 @@
+{
+  "source_extracts": [
+    {
+      "label": "site pricing pages",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/pages/home-business/mailbox-rental.astro",
+      "quote": "Personal tiers $15/$25/$30/$40 per month; business plans $35/$50 per month; month-to-month, no term commitment."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2; (440) 709-1946."
+    },
+    {
+      "label": "USPS Notice 123 — PO Box Service fees",
+      "url": "https://pe.usps.com/text/dmm300/Notice123.htm",
+      "quote": "Market Dominant Box Size and Fee Per Quarterly (3-month) Period: fee group 7, Size 1 = $21.00 (≈$7/month). Box sizes are Size 1 (XS) through Size 5 (XL). (verified 2026-11-20)"
+    },
+    {
+      "label": "USPS PO Box sizes",
+      "url": "https://www.usps.com/manage/po-boxes.htm",
+      "quote": "Size 1 diagram: 3\" high, 5.5\" wide, 14.75\" deep. Sizes run extra small (XS – Size 1) to extra large (XL – Size 5). (verified 2026-11-20)"
+    },
+    {
+      "label": "iPostal1 published pricing",
+      "url": "https://ipostal1.com/pricing/",
+      "quote": "Entry plans from $9.99/mo; content scanning $2.25 per envelope (open + scan up to 10 pages, $0.25/page after); per-item over-limit and storage fees; check deposit $4.95; consolidation fees around $1.95 per package."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "$15", "scope": "Personal Small Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$25",
+      "scope": "Personal Small +10 Packages tier monthly price — receiving included (site pricing pages)"
+    },
+    { "value": "$30", "scope": "Personal Large Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$40",
+      "scope": "Personal Large +10 Packages tier monthly price — receiving included (site pricing pages)"
+    },
+    { "value": "$35", "scope": "Business plan monthly price (site pricing pages)" },
+    { "value": "$50", "scope": "Business plan monthly price (site pricing pages)" },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA mailbox registration form (about.usps.com/forms/ps1583.pdf)"
+    },
+    { "value": "7554", "scope": "Store street number — 7554 Fredle Drive (siteConfig)" },
+    { "value": "44", "scope": "SR-44 route number (location fact, Concord Township)" },
+    { "value": "90", "scope": "I-90 route number (location fact, Concord Township)" },
+    { "value": "9", "scope": "Weekday opening hour — Mon–Fri 9 AM (siteConfig contact.hours)" },
+    { "value": "6", "scope": "Weekday closing hour — 6 PM (siteConfig contact.hours)" },
+    { "value": "2", "scope": "Saturday closing hour — 2 PM (siteConfig contact.hours)" },
+    {
+      "value": "$7",
+      "scope": "Smallest USPS PO Box ≈ $7/month ($21 per 3-month quarter, fee group 7 Size 1 — USPS Notice 123, verified 2026-11-20)"
+    },
+    {
+      "value": "123",
+      "scope": "USPS Notice 123 price list citation; also hypothetical 'PMB 123' example — illustrative"
+    },
+    {
+      "value": "$9.99",
+      "scope": "National virtual-mailbox entry plan price (iPostal1/Anytime Mailbox published entry pricing)"
+    },
+    {
+      "value": "$60",
+      "scope": "Upper bound of typical virtual-mailbox effective cost range $40–$60 once per-item fees apply (competitor published pricing; receipt row 6)"
+    },
+    {
+      "value": "$21",
+      "scope": "Smallest PO Box, 3-month term, fee group 7 Size 1 (USPS Notice 123, verified 2026-11-20)"
+    },
+    {
+      "value": "5",
+      "scope": "USPS PO Box sizes run Size 1 through Size 5 (XS–XL) (usps.com/manage/po-boxes.htm)"
+    },
+    {
+      "value": "5.5",
+      "scope": "PO Box dimension — Size 1 is 5.5\" wide / Size 3 is 5.5\" high (usps.com PO Box size diagrams, verified 2026-11-20)"
+    },
+    {
+      "value": "11",
+      "scope": "PO Box dimension — Size 3 is 11\" wide / Size 4 is 11\" high (usps.com PO Box size diagrams)"
+    },
+    {
+      "value": "12",
+      "scope": "PO Box dimension — Size 5 is 12\" high (usps.com PO Box size diagrams)"
+    },
+    {
+      "value": "22.5",
+      "scope": "PO Box dimension — Size 5 is 22.5\" wide (usps.com PO Box size diagrams)"
+    },
+    {
+      "value": "14.75 inches",
+      "scope": "PO Box depth — Sizes 1–2 are 14.75\" deep (usps.com PO Box size diagrams, verified 2026-11-20)"
+    },
+    {
+      "value": "$100",
+      "scope": "Narrative — large PO Boxes at expensive locations can run over $100/month (Notice 123 competitive/semi-annual rates; illustrative)"
+    },
+    {
+      "value": "10",
+      "scope": "Size 1 PO Box holds roughly 10–15 letters (lower bound, usps.com size guidance)"
+    },
+    {
+      "value": "15",
+      "scope": "Size 1 PO Box holds roughly 10–15 letters (upper bound, usps.com size guidance)"
+    },
+    {
+      "value": "$39.99",
+      "scope": "National virtual-mailbox plan price cap in comparison (iPostal1 published plan tier)"
+    },
+    {
+      "value": "30",
+      "scope": "Entry virtual-mailbox plans cap ~30 mail items/month (iPostal1 published entry plan terms)"
+    },
+    {
+      "value": "$0.35",
+      "scope": "Over-limit fee per mail item above plan cap (iPostal1 published per-item fee schedule)"
+    },
+    {
+      "value": "$2.25",
+      "scope": "Content scanning $2.25 per envelope, open + scan up to 10 pages (iPostal1 published pricing; receipt row 8)"
+    },
+    {
+      "value": "$0.25",
+      "scope": "$0.25 per page after the first 10 scanned pages (iPostal1 published pricing; receipt row 8)"
+    },
+    {
+      "value": "$1.10",
+      "scope": "Extended storage $1.10 per mail item per month (iPostal1 published per-item fee schedule)"
+    },
+    {
+      "value": "$4.95",
+      "scope": "Check deposit fee $4.95 (iPostal1 published per-item fee schedule)"
+    },
+    {
+      "value": "$1.95",
+      "scope": "Consolidation fees around $1.95 per package (iPostal1 published per-item fee schedule)"
+    },
+    {
+      "value": "12 month",
+      "scope": "Generic 6–12 month contract term found in competitor/virtual-mailbox plans (comparison framing)"
+    },
+    { "value": "20", "scope": "Route 20 route number (location fact, Concord Township)" },
+    {
+      "value": "3 months",
+      "scope": "USPS PO Box quarterly (3-month) payment period (USPS Notice 123)"
+    },
+    {
+      "value": "4 hours",
+      "scope": "Mail-arrival notification, usually within four hours (established store service copy)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Form 1583 setup — two forms of ID and about ten minutes at the counter (established store copy)"
+    },
+    {
+      "value": "12 months",
+      "scope": "Competitor contract lock-in of six to twelve months (comparison framing, Notice 123 semi-annual terms)"
+    },
+    {
+      "value": "5 minutes",
+      "scope": "Narrative — 'live five minutes from a post office' (illustrative, not a service claim)"
+    },
+    { "value": "1", "scope": "Numbered list/step marker or narrative count" },
+    { "value": "3", "scope": "Numbered list/step marker or narrative count" },
+    { "value": "4", "scope": "Numbered list marker ('one of these four' options)" },
+    { "value": "four", "scope": "'All four carriers' — USPS, UPS, FedEx, DHL (USPS DMM 508)" },
+    {
+      "value": "four hours",
+      "scope": "Mail-arrival notification within four hours (established store service copy)"
+    },
+    { "value": "ten minutes", "scope": "Setup takes about ten minutes (established store copy)" },
+    { "value": "five minutes", "scope": "Narrative proximity example (illustrative)" },
+    {
+      "value": "twelve months",
+      "scope": "Competitor contract framing six to twelve months (comparison)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
+      "reason": "Mail-Only tiers ($15/$30) do not take carrier packages — package plans ($25/$40) only"
+    },
+    {
+      "forbid": "every plan[^.]*(carrier|deliver)",
+      "reason": "carrier package delivery is package-plan scoped"
+    },
+    {
+      "forbid": "(all|every) plans?[^.]{0,40}(carrier|deliver)",
+      "reason": "carrier package delivery is package-plan scoped, not Mail-Only"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "sign for (your |the |a )?(package|delivery)",
+      "must_include": "when a carrier requires"
+    }
+  ]
+}

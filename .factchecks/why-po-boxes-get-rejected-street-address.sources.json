@@ -1,0 +1,79 @@
+{
+  "source_extracts": [
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2; (440) 709-1946."
+    },
+    {
+      "label": "USA PATRIOT Act CIP rule",
+      "url": "https://www.law.cornell.edu/cfr/text/31/1020.220",
+      "quote": "31 CFR 1020.220 — banks must collect a residential or business street address for each customer under the Customer Identification Program rules; a PO box alone does not satisfy the requirement."
+    },
+    {
+      "label": "IRS Form SS-4 instructions",
+      "url": "https://www.irs.gov/pub/irs-pdf/fss4.pdf",
+      "quote": "Form SS-4 (EIN application), street address line: 'Don't enter a P.O. box.' Form 1040 permits a PO box as mailing address where the post office does not deliver to the home."
+    },
+    {
+      "label": "Ohio BMV acceptable documents / residence address",
+      "url": "https://www.bmv.ohio.gov/dl-real-id.aspx + https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/bmv5745.pdf",
+      "quote": "Ohio BMV requires the residence address (not a PO box) and two documents from different sources proving an Ohio street address."
+    },
+    {
+      "label": "Ohio statutory agent rules",
+      "url": "https://www.ohiosos.gov",
+      "quote": "Ohio Secretary of State: every Ohio LLC/Corporation must maintain a statutory agent whose address is a street address in Ohio where someone is present during business hours — a PO box or mailbox number does not qualify."
+    },
+    {
+      "label": "USPS DMM 508 — PO Box delivery",
+      "url": "https://pe.usps.com/text/dmm300/508.htm",
+      "quote": "Only the USPS delivers to PO Boxes; private carriers (UPS, FedEx, DHL) cannot deliver to a post office box."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "7554", "scope": "Store street number — 7554 Fredle Drive (siteConfig)" },
+    { "value": "44", "scope": "SR-44 route number (location fact, Concord Township)" },
+    { "value": "90", "scope": "I-90 route number (location fact, Concord Township)" },
+    { "value": "11", "scope": "Narrative scene clock time — 11:17 PM (scene detail)" },
+    { "value": "17", "scope": "Narrative scene clock time — 11:17 PM (scene detail)" },
+    { "value": "1040", "scope": "IRS Form 1040 (form number, irs.gov)" },
+    { "value": "4", "scope": "IRS Form SS-4 (form number, irs.gov)" },
+    { "value": "47", "scope": "Hypothetical 'P.O. Box 47' example — illustrative, not a real box" },
+    { "value": "10", "scope": "'The 10 Questions' — article's own count of its Q&A sections" },
+    { "value": "1", "scope": "Question/section numbering (1–10) or narrative count" },
+    {
+      "value": "2",
+      "scope": "Question/section numbering; two forms of ID for Form 1583 (usps.com)"
+    },
+    { "value": "3", "scope": "Question/section numbering" },
+    { "value": "5", "scope": "Question/section numbering (question 5: bank account)" },
+    { "value": "6", "scope": "Question/section numbering (question 6: credit card)" },
+    { "value": "7", "scope": "Question/section numbering (question 7: voter registration)" },
+    { "value": "8", "scope": "Question/section numbering (question 8: passport)" },
+    { "value": "9", "scope": "Question/section numbering (question 9: business address)" },
+    {
+      "value": "31",
+      "scope": "31 CFR 1020.220 — Code of Federal Regulations title (law.cornell.edu)"
+    },
+    {
+      "value": "1020.220",
+      "scope": "31 CFR 1020.220 — CIP rule requiring a street address for bank customers (law.cornell.edu/cfr/text/31/1020.220)"
+    },
+    {
+      "value": "6 weeks",
+      "scope": "Narrative — 'verification letter that takes six weeks to resolve' (illustrative delay, not a policy figure)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Form 1583 setup takes about ten minutes (established store copy)"
+    },
+    { "value": "123", "scope": "Hypothetical 'PMB 123' example — illustrative box number" },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA registration form (about.usps.com/forms/ps1583.pdf)"
+    }
+  ],
+  "scope_rules": [],
+  "required_when": []
+}

@@ -1,0 +1,81 @@
+{
+  "source_extracts": [
+    {
+      "label": "site pricing pages",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/pages/home-business/mailbox-rental.astro",
+      "quote": "Personal tiers $15/$25/$30/$40 per month; business plans $35/$50 per month; month-to-month, no term commitment."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2; (440) 709-1946."
+    },
+    {
+      "label": "USPS Form 1583",
+      "url": "https://about.usps.com/forms/ps1583.pdf",
+      "quote": "Application for Delivery of Mail Through Agent — two forms of ID (one photo) required for CMRA mailbox setup."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "$15", "scope": "Personal Small Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$25",
+      "scope": "Personal Small +10 Packages tier monthly price — receiving included (site pricing pages)"
+    },
+    { "value": "$30", "scope": "Personal Large Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$40",
+      "scope": "Personal Large +10 Packages tier monthly price — receiving included (site pricing pages)"
+    },
+    { "value": "$35", "scope": "Business plan monthly price (site pricing pages)" },
+    { "value": "$50", "scope": "Business plan monthly price (site pricing pages)" },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA mailbox registration form (about.usps.com/forms/ps1583.pdf)"
+    },
+    { "value": "7554", "scope": "Store street number — 7554 Fredle Drive (siteConfig)" },
+    { "value": "44", "scope": "SR-44 route number (location fact, Concord Township)" },
+    { "value": "90", "scope": "I-90 route number (location fact, Concord Township)" },
+    { "value": "9", "scope": "Weekday opening hour — Mon–Fri 9 AM (siteConfig contact.hours)" },
+    { "value": "6", "scope": "Weekday closing hour — 6 PM (siteConfig contact.hours)" },
+    { "value": "2", "scope": "Saturday closing hour — 2 PM (siteConfig contact.hours)" },
+    {
+      "value": "30",
+      "scope": "Headline device — 'The 30-Second Answer' (rhetorical, not a service claim)"
+    },
+    { "value": "1", "scope": "Numbered list/step marker or narrative count" },
+    {
+      "value": "2",
+      "scope": "Numbered list/step marker; two forms of ID for Form 1583 (usps.com)"
+    },
+    { "value": "3", "scope": "Numbered step marker (Step 3) or narrative count" },
+    {
+      "value": "4",
+      "scope": "'All four carriers' — USPS, UPS, FedEx, DHL deliver to a CMRA street address (USPS DMM 508; only USPS delivers to PO Boxes)"
+    },
+    { "value": "47", "scope": "Hypothetical 'PO Box 47' example — illustrative, not a real box" },
+    {
+      "value": "$10",
+      "scope": "Lower bound of national virtual-mailbox middleman entry pricing range $10–$30/mo (iPostal1/Anytime Mailbox published entry plans)"
+    },
+    {
+      "value": "500 miles",
+      "scope": "Narrative detail — national services' support is remote (illustrative distance, not a policy claim)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Mailbox setup takes about ten minutes with two forms of ID (established store copy)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
+      "reason": "Mail-Only tiers ($15/$30) do not take carrier packages — package plans ($25/$40) only"
+    },
+    {
+      "forbid": "every plan[^.]*(carrier|deliver)",
+      "reason": "carrier package delivery is package-plan scoped"
+    }
+  ],
+  "required_when": []
+}
