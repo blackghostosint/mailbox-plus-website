@@ -1,0 +1,16 @@
+# Fact-Check Receipt — print-return-label-from-phone (backfilled at W8 fact-fix, 2026-11-20)
+
+Article: `/articles/print-return-label-from-phone/` (content/articles/printing/print-return-label-from-phone.md)
+Change type: W8 P1 Amazon-QR wording scope (two paragraphs). Receipt backfilled because the article had none — receipt coverage is required for any PR touching the file.
+
+| #   | Claim                                                                                                                                                                     | Verdict        | Source                                                                                                                                                                                                    |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | QR-code returns accepted at the counter for Happy Returns, FedEx Easy Returns, and USPS Label Broker — no box, label, or printer needed; we scan the code, pack, and ship | owner-verified | Vault Decision Log 2026-11-20 (Amazon-returns rule; correction: QR rule is Amazon-ONLY); model copy astro/src/config/services/pack-ship/amazon-returns.ts                                                 |
+| 2   | Amazon returns are the QR exception: they ride on a pre-printed carrier label only (no Amazon QR codes); label-bearing Amazon boxes are accepted as-is                    | owner-verified | Vault Decision Log 2026-11-20 (Amazon-returns rule; correction: QR rule is Amazon-ONLY); /amazon-returns page copy (amazon-returns.ts: "Avoid 'No Box/No Label' options if you want to use Mailbox Plus") |
+| 3   | Store prints a properly sized shipping label for customers while they wait (staff boxes, packs, tapes, weighs, prints labels)                                             | owner-verified | https://mailboxplusohio.com/pack-ship/ (published service copy; consistent with .factchecks/fedex-schedule-pickup-door-tag.factcheck.md row 10)                                                           |
+| 4   | Printing tip: 4×6 paper often feeds best from a printer's dedicated rear or bypass tray                                                                                   | ⚠️ softened    | Generic printer-handling guidance, not a factual claim about services or prices — left as-is.                                                                                                             |
+
+## Change log (2026-11-20 W8 fact-fix)
+
+- 2026-11-20: "If your return came with a QR code — and many of them do these days" scoped to the three named QR programs + explicit Amazon label-only exception (W8 sweep corpus-A finding, ~/Fact-Check/2026-11-20-w8-content-sweep.md §4 item 3).
+- 2026-11-20: Closing "scan a QR code and be done" line scoped the same way.

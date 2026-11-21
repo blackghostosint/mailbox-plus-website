@@ -15,6 +15,7 @@
 | 10 | Store counter "scanned, receipted, and moving the same day" (operational promise) | ⚠️ softened | Owner ruling 2026-10-23 (nico working per Frank): softened to "scanned and receipted the same day, and typically moving that same day" — scan/receipt same-day is verifiable counter practice; full same-day movement qualified. |
 | 11 | Scan is "the moment responsibility transfers" | ⚠️ softened | Owner ruling 2026-10-23: softened to "receipt is your proof of handoff" — avoids an unqualified legal responsibility-transfer assertion. |
 | 12 | "No claim to file" / a store "cannot legally process" a misdirected package (legal absolutes) | ⚠️ softened | Owner ruling 2026-10-23 (scrub-absolutes rule): rewritten to "nothing to support a carrier claim" / "a store with no way to scan it into the right network" — mechanism kept, legal absolute removed. |
+| 13 | QR-code returns accepted for Happy Returns, FedEx Easy Returns, and USPS Label Broker; Amazon returns are pre-printed carrier label ONLY (no Amazon QR codes) — 2026-11-20 wording scope added ("if the label is a QR code" → named programs + Amazon exception) | owner-verified | Vault Decision Log 2026-11-20 (Amazon-returns rule; correction: QR rule is Amazon-ONLY); model copy astro/src/config/services/pack-ship/amazon-returns.ts |
 
 Note: live fedex.com URLs bot-wall automated fetches (ERR/503); archived snapshots of the same pages (retrieved and quoted 2026-10-20) are cited for machine resolution.
 

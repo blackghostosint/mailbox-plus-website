@@ -16,13 +16,24 @@ keywords:
     'how to resize return label to 4x6',
     'print return label 4x6 from phone',
   ]
-relatedServices: ['/copy-print/document-printing', '/pack-ship/package-drop-offs', '/pack-ship']
-author: 'Mailbox Plus Team'
+relatedServices: ['/copy-print/document-printing/', '/pack-ship/package-drop-offs/', '/copy-print/']
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'Why does my return label print on a full sheet of paper?'
+    answer: 'The retailer generated the label inside a standard letter-size document, so your printer prints the whole page. The fix is to set the paper size to 4×6 in the print dialog or printer app and turn on fit-to-page, which shrinks the label to the right size.'
+  - question: 'How do I resize a return label to 4x6 from my phone?'
+    answer: 'Open the label PDF in your printer manufacturer''s free app (HP, Brother, Epson, or Canon), set the paper size to 4" × 6", and enable Fit to Page. AirPrint on iPhone usually hides those controls, which is why the printer app is the reliable path.'
+  - question: 'Do I need a special thermal label printer?'
+    answer: 'No. With the paper size set to 4×6 and fit-to-page on, even plain paper renders the label at label size — trim it and tape it to the box. A thermal printer is a convenience, not a requirement.'
+  - question: 'Can I skip printing and just show a QR code?'
+    answer: 'For Happy Returns, FedEx Easy Returns, and USPS Label Broker, yes — bring the code to our Concord Township counter and we scan it, pack the item, and get it on its way. Amazon returns are the exception: they ride on a pre-printed carrier label.'
+  - question: 'Where can I drop off a return once the label is ready?'
+    answer: 'Bring it to Mailbox Plus at 7554 Fredle Drive in Concord Township — we accept pre-labeled drop-offs for UPS, FedEx, USPS, and DHL. Our Amazon returns guide covers the label-only Amazon flow in detail.'
 ---
 
 ## The Scene That Starts Everything
 
-It's 9:00 at night. You finally got the email: your return label is ready. You tap the PDF, hit print, and the printer hums to life. A full sheet of paper slides out — 8.5 by 11 inches of white, with a shipping label the size of a small envelope stranded somewhere in the middle of it.
+It's past nine at night. You finally got the email: your return label is ready. You tap the PDF, hit print, and the printer hums to life. A full sheet of paper slides out — 8.5 by 11 inches of white, with a shipping label the size of a small envelope stranded somewhere in the middle of it.
 
 You stare at it. The label is maybe a quarter of the sheet. The rest is blank paper you just wasted, and now you have to either fold a giant paper into the box or cut it down so it doesn't look like you mailed a poster. This is one of those small, maddening moments that makes returning an online order feel like a part-time job.
 
@@ -79,10 +90,12 @@ One more tip: if your printer has a dedicated rear or bypass tray, 4×6 paper of
 
 ## When You Don't Want to Print It at All
 
-Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — and many of them do these days — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. No printing, no trimming, no wasted sheets.
+Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — Happy Returns, FedEx Easy Returns, and USPS Label Broker all run on them — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. The exception is Amazon: those returns ride on a pre-printed carrier label, so that is the one program where the label has to come along — bring the box with the label on it and we take it from there. No printing, no trimming, no wasted sheets. (Our [Amazon returns guide for Concord Township](/articles/amazon-returns-concord-township/) walks through that label-only flow step by step.)
 
 And if you do want a clean label, we're happy to print one for you at the right size while you wait. Printing is one of the things we're here for.
 
 ## Bring It In
 
-A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or you just want to scan a QR code and be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest.
+![Copy center at Mailbox Plus in Concord Township, where staff print return labels at the correct 4x6 size while you wait](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/copy-center/copier-01.webp)
+
+A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or your QR-code return — Happy Returns, FedEx Easy Returns, or USPS Label Broker — just needs a scan and to be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest. And if you are also wrangling paper sizes for anything else you mail, our [USPS envelope size chart](/articles/envelope-sizes-usps-chart/) covers the common formats.
