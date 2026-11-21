@@ -119,7 +119,7 @@ export const mailboxRentalServices: Service[] = [
       // ── SB7 POSITION 4: AGREEMENT PLAN ──
       {
         heading: 'The No-Strings Pitch',
-        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No annual contract.</strong> Month-to-month. Cancel anytime.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Real street address.</strong> Not a P.O. Box. Valid for all 4 carriers — UPS, FedEx, USPS, DHL.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>4-hour notification.</strong> We scan and notify you the moment mail arrives.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>30-day risk-free.</strong> Not sure? Try it. If it\'s not for you, walk away.</span></li></ul>',
+        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No term commitment.</strong> Month-to-month. Cancel anytime.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Real street address.</strong> Not a P.O. Box. Valid for all 4 carriers — UPS, FedEx, USPS, DHL.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>4-hour notification.</strong> We scan and notify you the moment mail arrives.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Completely risk-free.</strong> Month-to-month, cancel anytime. Not sure? Try it. If it\'s not for you, walk away.</span></li></ul>',
         isFullWidth: true,
       },
       // ── SB7 POSITION 4: PRICING ──
@@ -158,7 +158,7 @@ export const mailboxRentalServices: Service[] = [
                         </tbody>
                     </table>
                 </div>
-                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Month-to-month — no annual contract. Oversized packages (over 18" or 20 lbs): $5 flat. Held longer than 5 days: $1/day. Key deposit: $5.00 refundable. Existing customers keep their current rate.</p>`,
+                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Month-to-month — no term commitment. Oversized packages (over 18" or 20 lbs): $5 flat. Held longer than 5 days: $1/day. Key deposit: $5.00 refundable. Existing customers keep their current rate.</p>`,
       },
       // ── SB7 POSITION 4b: PROCESS PLAN ──
       {
@@ -214,7 +214,7 @@ export const mailboxRentalServices: Service[] = [
     faqs: [...generalHomeBusinessFaqs, ...mailboxRentalFaqs],
     cta: {
       title: 'Take Your Address Off The Pipeline',
-      subtitle: 'Real street address. All 4 carriers. From $15/month. 30-day risk-free.',
+      subtitle: 'Real street address. All 4 carriers. From $15/month. Completely risk-free.',
       buttonText: 'Get Your Lake County Address \u2192',
       buttonLink: '/contact-us/',
       variant: 'brand',
@@ -359,7 +359,8 @@ export const mailboxRentalServices: Service[] = [
     faqs: [...generalHomeBusinessFaqs, ...digitalMailboxRentalFaqs],
     cta: {
       title: 'Leave Ohio. Keep Your Address.',
-      subtitle: 'Your Lake County address works from anywhere. From $15/month. 30-day risk-free.',
+      subtitle:
+        'Your Lake County address works from anywhere. From $15/month. Completely risk-free.',
       buttonText: 'Sign Up with iPostal1',
       buttonLink: 'https://ipostal1.com/mailboxplusohio',
       extraButtons: [
@@ -407,7 +408,7 @@ export const mailboxRentalServices: Service[] = [
       'pmb, pmb rental, private mailbox rental, private mailbox, Concord Township, Mailbox Plus',
     heroTitle: 'Your PMB — Keeps Your Home Off the Label',
     heroSubtitle:
-      'A real street address in Concord Township. UPS, FedEx, USPS, DHL. Porch theft protection. From $15/month.',
+      'A real street address in Concord Township. UPS, FedEx, USPS, DHL. Porch theft protection. From $25/month.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
     content: [
       {
@@ -498,7 +499,7 @@ export const mailboxRentalServices: Service[] = [
     slug: '/virtual-mailbox-concord-township',
     pageTitle: 'Virtual Mailbox Concord Township OH | Real Street Address | Mailbox Plus',
     metaDescription:
-      'Virtual mailbox with a real Concord Township street address. We scan your envelopes, you decide: forward, shred, or open. Walk in or sign up online. From $35/mo.',
+      'Virtual mailbox with a real Concord Township street address. We scan your envelopes, you decide: forward, shred, or open. Walk in or sign up online.',
     keywords:
       'virtual mailbox, virtual mailbox near me, virtual mailbox concord township, virtual mailbox ohio, virtual po box, virtual po box alternative, street address mailbox',
     heroTitle: 'Your Virtual Mailbox — See Your Mail From Anywhere',
@@ -687,7 +688,7 @@ export const mailboxRentalServices: Service[] = [
     ],
     cta: {
       title: 'Your Mail. Your Way. From Anywhere.',
-      subtitle: 'We scan. You decide. From $15/month. 30-day risk-free.',
+      subtitle: 'We scan. You decide. From $15/month. Completely risk-free.',
       buttonText: 'Set Up Your Virtual Mailbox \u2192',
       buttonLink: '/home-business/digital-mailbox-rental',
       variant: 'brand',
