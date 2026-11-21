@@ -27,7 +27,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15 (Small Mail-Only), $25 (Small package-receiving tier), $30 (Large Mail-Only), and $40 (Large package-receiving tier) a month; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -84,9 +84,9 @@ A private mailbox at a local mailbox store solves the travel nurse problem at th
 
 Here is how it works, step by step:
 
-**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month, month-to-month, no annual contract, with a 30-day risk-free period.
+**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month — month-to-month, completely risk-free, cancel anytime.
 
-**Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
+**Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. On a package-receiving tier ($25 Small or $40 Large), every carrier delivers to it — USPS, UPS, FedEx, and DHL — and packages are received (signed for when required by the carrier) and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
 
 **Step 3 — Get notified, pick up on your schedule.** Mail is scanned as it arrives, and you get notified within four hours — which matters when you are on nights or in another state entirely. Call ahead before you drive over and your mail and packages are pulled and waiting at the counter. If you need mail opened, forwarded, or handled while you are on assignment, a [digital mailbox](/virtual-mailbox-concord-township/) adds remote access on top of the same address.
 
@@ -100,21 +100,21 @@ There is no shortage of national companies happy to sell a travel nurse a "virtu
 - **Support is a phone tree.** When a package needs a signature or a label is wrong, you want a human who can actually look at your mailbox, not a call center script.
 - **Per-piece fees add up.** Scanning, forwarding, and package handling are sometimes billed per item, so a quiet month is cheap and a busy month is not.
 
-A local mailbox store gives you the same class of real street address — directly, without the markup — plus staff who know your name, sign for every carrier, and can pull your mail when you call ahead. You are also putting your money back into the town your contract is in, which matters when that town is your home base for the season.
+A local mailbox store gives you the same class of real street address — directly, without the markup — plus staff who know your name, receive packages from every carrier on our package-receiving tiers (signing when a carrier requires it), and can pull your mail when you call ahead. You are also putting your money back into the town your contract is in, which matters when that town is your home base for the season.
 
 ## For Nurses on Assignment in Lake County, Ohio
 
 If your contract lands you in Northeast Ohio, this is your home turf for a while. The healthcare corridor around Lake County is real: **University Hospitals TriPoint Medical Center is right here in Concord Township at 7590 Auburn Road**, Cleveland Clinic's Mentor Hospital serves Lake County just up the road, and UH runs locations across Mentor and the surrounding towns. Travel nurses staff these units on 13-week rotations year-round.
 
-For nurses coming into the area, a mailbox at a local store gives you a dependable Lake County address for the length of your contract — packages, license mail, and all. For nurses who live here and travel out, it is the address you keep at home base so your mail is waiting, sorted, and secure when you return between contracts.
+For nurses coming into the area, a mailbox at a local store gives you a dependable Lake County address for the length of your contract — license mail, plus packages on a package-receiving tier. For nurses who live here and travel out, it is the address you keep at home base so your mail is waiting, sorted, and secure when you return between contracts.
 
-Either way, the math is the same: one address, every carrier, staffed pickup, no porch, no hotel lobby, no "return to sender."
+Either way, the math is the same: one address, every carrier on a package-receiving tier, staffed pickup, no porch, no hotel lobby, no "return to sender."
 
 ## The Bottom Line for Travel Nurses
 
 Your career runs on 13-week cycles. Your mail does not have to.
 
-A stable street address — one that accepts USPS, UPS, FedEx, and DHL, one that a licensing board and a bank will accept without blinking, one that holds your packages behind a locked counter until you walk in — removes an entire category of stress from a job that already has enough of it.
+A stable street address — one that a licensing board and a bank will accept without blinking, and on a package-receiving tier accepts USPS, UPS, FedEx, and DHL and holds your packages behind a locked counter until you walk in — removes an entire category of stress from a job that already has enough of it.
 
 You have already mastered the hard part: walking into a new unit, learning a new charting system, and earning trust in a new city in a matter of days. Sorting out your mail should be the easy part.
 

@@ -88,7 +88,7 @@ And because we quote all four carriers at the counter, we can also tell you when
 
 There is no trick to doing this right. It comes down to one rule: match the counter to the label, or use a counter that matches every label.
 
-1. **Bring the box as it is.** Labeled and sealed, or not — if the label is a QR code or the box still needs packing, that is normal counter work, not a special case.
+1. **Bring the box as it is.** Labeled and sealed, or not — if the label is a QR code (Happy Returns, FedEx Easy Returns, and USPS Label Broker all run on them; Amazon is the exception that needs the printed label) or the box still needs packing, that is normal counter work, not a special case.
 2. **Tell the counter who is shipping.** UPS, FedEx, USPS, DHL — a multi-carrier counter scans it into the correct network on the spot, with a receipt in your hand before you leave.
 3. **Keep the receipt.** That scan is the moment tracking starts. From there, the carrier's own tracking takes over and you can watch the box the whole way — and the receipt is your proof of handoff if anything goes sideways later.
 

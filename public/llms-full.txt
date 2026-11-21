@@ -429,7 +429,7 @@ URL: https://mailboxplusohio.com/articles/amazon-drone-delivery-cleveland/
 Category: pack-ship
 Published: 2026-08-19
 
-## The Scene That Starts Everything
+## The Headline and the Package You Are Actually Waiting On
 
 You saw the headline the same way everyone else did — halfway through your morning coffee, thumb hovering over the phone. Amazon is bringing drone delivery to Cleveland. Metro Cleveland, specifically. Nearly 500 cities and towns by the end of 2026, a sixfold expansion of the program, with Northeast Ohio on the launch list.
 
@@ -451,7 +451,7 @@ But read the fine print of the announcement, because the mechanism has hard edge
 
 Here is the part the headline does not tell you: the drone is solving the easiest problem in delivery. Small, light, valuable-enough-to-justify-the-hype items, in good weather, during the day, to a physical street address with a clear landing zone. Everything else — the heavy box, the bad weather, the night delivery, the return — still runs through the old system of trucks, labels, and human hands.
 
-## What It Actually Feels Like
+## What Delivery Still Feels Like in 2026
 
 It feels like watching a news story about someone else's life.
 
@@ -463,7 +463,7 @@ Or you run a home business, and your address is your home address. Every package
 
 The drone flies overhead. Your packages still sit on the step.
 
-## Why It Should Not Be This Way
+## The System Is Built for the Package, Not for You
 
 A package should not be an adventure. You should not have to plan your afternoon around a delivery window, or race home because a truck driver is six minutes away, or apologize to a customer because the carrier handed your box to the rain.
 
@@ -471,7 +471,7 @@ And yet the entire industry has built itself around the assumption that the pack
 
 It should not be this way. The system should work for you — for your schedule, your privacy, your business. The delivery should end somewhere safe, at a time that makes sense, with a human who can say "this arrived, and here it is."
 
-## What We See Every Day
+## What Lands on Our Counter Instead
 
 This is where Mailbox Plus comes in, and we are not going to pretend we are a drone company. We are not. We are the opposite of a drone: a counter at 7554 Fredle Drive in Concord Township, with people behind it, open on a schedule you can plan around.
 
@@ -482,19 +482,19 @@ Every day we see the packages the drone news never mentions:
 - **The online seller** dropping off five boxes at once, needing a scan and a receipt and someone who knows which carrier is actually cheapest for a 6-pound box to Michigan.
 - **The small business owner** who does not want their home address on the package, on the registry, on the return label — who wants the world to see a professional address, not their driveway.
 
-We are a UPS Authorized Shipping Outlet. We handle FedEx, USPS, and DHL too. We receive packages for you, we hold them, we sign for them, we call you when they land. We are the part of the delivery system that actually cares about the receiving end.
+We are a UPS Authorized Shipping Outlet. We handle FedEx, USPS, and DHL too. On our package-receiving tiers, we receive packages for you, hold them, sign when a carrier requires it, and notify you when they land. We are the part of the delivery system that actually cares about the receiving end.
 
-## How It Works
+## Three Steps at the Counter
 
 You do not need to wait for a drone, or hope the weather cooperates, or hover over your Ring camera. You need a place where packages land safely and returns leave easily. Three steps:
 
 1. **Walk in.** Tell us what you are expecting, or what you are sending. No appointment, no membership required to start.
-2. **We handle it.** For receiving, we sign for the package and hold it until you pick it up — $10 per package, or $30 a month for unlimited receiving. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
+2. **We handle it.** For receiving (on a package-receiving tier), we hold your package behind the counter and sign when a carrier requires it. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
 3. **Walk out.** Your package is safe behind the counter, or your shipment is in the system with a tracking number in your hand — usually in under five minutes.
 
-If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $35 a month — and private carriers can actually deliver to it, which they cannot do with a PO box.
+If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $15 a month (the $25 tier adds package receiving) — and private carriers can actually deliver to it, which they cannot do with a PO box.
 
-## What You Lose by Not Acting
+## What You Keep Paying Without a Real Address
 
 The drone is coming. The porch is not going to fix itself.
 
@@ -504,7 +504,7 @@ The drone is coming. The porch is not going to fix itself.
 
 **Privacy.** If you run a business from home, your address is public the moment you print a label. Your customers, your returns, your registry listing — all pointing at your house. A professional address changes that, and it costs less than you think.
 
-## Your Afternoon After the Change
+## A Thursday With the Counter Instead of the Porch
 
 Picture a Thursday. The tracking app says your package is out for delivery, and you do not care, because it is not going to your porch — it is coming to the counter at 7554 Fredle Drive.
 
@@ -512,11 +512,13 @@ You get the text from us that it is in. You swing by after work. The clerk knows
 
 The drone hums somewhere over the lake, delivering an iPhone to a driveway in Willoughby Hills. Good for them. Your packages are already home.
 
-## Bring It In
+## Stop By Before the Drones Beat You To It
 
 Amazon is spending billions to deliver small things fast. We are right here in Concord Township, delivering the rest of it — safely, affordably, and with a human being on the other side of the counter.
 
-Stop by 7554 Fredle Drive, call us, or [send a message](/contact-us/). Ask about package receiving, a mailbox rental with a real street address, or a return you have been putting off. We will take it from there.
+![Packages staged behind the counter at Mailbox Plus in Concord Township, Ohio, waiting for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/package-staging-01.webp)
+
+Stop by 7554 Fredle Drive, call us, or [send a message](/contact-us/). Ask about package receiving, a mailbox rental with a real street address, or a return you have been putting off. We will take it from there. And if the drone news has you thinking about how Amazon actually handles PO boxes and odd deliveries, read [Amazon PO Box Delivery: Why It Fails](/articles/amazon-po-box-delivery/) next — or, if you sell online, [how to compare UPS, FedEx, and USPS rates](/articles/compare-shipping-rates-ups-fedex-usps-dhl/) before your next drop-off.
 
 ---
 
@@ -1121,7 +1123,7 @@ That is the entire procedure. Two hours of fear, five minutes of action.
 
 The moment your return is not AT&T equipment — and most returns are not — that is our counter.
 
-We handle the returns that do not fit one box or one carrier. An online order that needs to go back to a brand with a Happy Returns or Nuuly label: we scan the QR code on your phone, bag it, hand you a receipt — no printer, no box, no label required. We are an authorized drop-off for all four major carriers, so your UPS return, FedEx return, USPS return, and DHL return all leave from the same counter. One stop instead of three.
+We handle the returns that do not fit one box or one carrier. An online order going back through Happy Returns: we scan the QR code on your phone, bag it, and hand you a receipt — no printer, no box, no label required. We also scan QR codes for FedEx Easy Returns and USPS Label Broker. We are an authorized drop-off for all four major carriers, so your UPS return, FedEx return, USPS return, and DHL return all leave from the same counter. One stop instead of three.
 
 We also sell you the thing you are probably missing right now: time. We pack and ship for you — box, tape, fragile packing, the whole job — so you hand us the item and walk out with a receipt. We print labels. We offer notary services. And if the reason you are always dealing with returns and shipments is that your home address is getting too tangled up in your business, we rent private mailboxes.
 
@@ -1145,7 +1147,7 @@ Now the rest of your returns, and your next shipment, are one counter. You walk 
 
 ## One Counter for Every Return That Is Not AT&T
 
-Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a label or a QR code — bring the whole pile here. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
+Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a printed label — bring the whole pile here. QR-code returns are welcome too: we scan them for Happy Returns, FedEx Easy Returns, and USPS Label Broker. For Amazon returns, we do not scan Amazon QR codes — we accept Amazon returns only with a pre-printed carrier label. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
 
 [Visit Mailbox Plus →](/contact-us/)
 
@@ -1502,7 +1504,7 @@ And because we quote all four carriers at the counter, we can also tell you when
 
 There is no trick to doing this right. It comes down to one rule: match the counter to the label, or use a counter that matches every label.
 
-1. **Bring the box as it is.** Labeled and sealed, or not — if the label is a QR code or the box still needs packing, that is normal counter work, not a special case.
+1. **Bring the box as it is.** Labeled and sealed, or not — if the label is a QR code (Happy Returns, FedEx Easy Returns, and USPS Label Broker all run on them; Amazon is the exception that needs the printed label) or the box still needs packing, that is normal counter work, not a special case.
 2. **Tell the counter who is shipping.** UPS, FedEx, USPS, DHL — a multi-carrier counter scans it into the correct network on the spot, with a receipt in your hand before you leave.
 3. **Keep the receipt.** That scan is the moment tracking starts. From there, the carrier's own tracking takes over and you can watch the box the whole way — and the receipt is your proof of handoff if anything goes sideways later.
 
@@ -3726,7 +3728,7 @@ We are Mailbox Plus at 7554 Fredle Drive, right here in Concord Township — min
 
 What we see every moving season is the same pattern, usually told over the counter in the same tired voice. Someone files their change of address in good faith, then comes in three weeks later — still wearing the moving-day hoodie, still dusted with drywall — because a title document, a prescription reorder, or a birthday check went to the old house during the startup lag. They always start with the same sentence: "I did everything right." Or the twelve-month mark passes, forwarding quietly expires, and mail starts bouncing. The form was filed. The system simply was not built to hold their address for them.
 
-A private mailbox rental with us does what the forwarding order cannot. It gives you a real street address — not a PO Box number, a street address that accepts packages from every carrier, not just USPS. Packages from any delivery service sit secure behind our counter instead of on an empty porch at a house you no longer own. Your mail is held until you pick it up, on your schedule, with 24/7 access available on select boxes. And when the next move comes — or the snowbird trip, or the semester away — your address does not change at all. You just keep the box.
+A private mailbox rental with us does what the forwarding order cannot. It gives you a real street address — not a PO Box number, a street address where our +10 Package tiers ($25 Small / $40 Large) accept packages from every carrier, not just USPS. Packages from any delivery service sit secure behind our counter instead of on an empty porch at a house you no longer own (packages held longer than 5 days are $1/day). Your mail is held until you pick it up, on your schedule — call ahead during staffed hours and we have it ready at the counter. And when the next move comes — or the snowbird trip, or the semester away — your address does not change at all. You just keep the box.
 
 And if you want the whole picture, ask at the counter and we will walk you through the same [moving mail checklist](/articles/moving-mail-checklist/) we hand our neighbors — no homework required — plus the honest breakdown of [a private mailbox versus a PO Box](/articles/private-mailbox-vs-po-box/).
 
@@ -3735,8 +3737,8 @@ And if you want the whole picture, ask at the counter and we will walk you throu
 Three steps, and none of them involve waiting two weeks.
 
 1. **Get the box before you move.** Come to 7554 Fredle Drive with two forms of ID — one photo ID like a driver's license, and one proof of address. We complete the paperwork, hand you your keys, and you have a working address that day. Mailbox rentals start at $15 a month (personal mail-only tier).
-2. **Use it as your landing address.** Give the Fredle Drive address to your bank, your employer, your subscriptions, and as the shipping address on your online orders during the move. Packages from every carrier arrive behind our counter. You never route anything through the forwarding lag.
-3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, we can receive and hold it all; package receiving runs $10 per package, or $30 a month for unlimited packages.
+2. **Use it as your landing address.** Give the Fredle Drive address to your bank, your employer, your subscriptions, and as the shipping address on your online orders during the move. On a +10 Package tier ($25 Small or $40 Large), packages from every carrier arrive behind our counter. You never route anything through the forwarding lag.
+3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, a mailbox handles it: the $25 package tier receives and holds it all, ten packages a month included, five dollars a package beyond that ($1/day for packages held longer than 5 days).
 
 File the USPS change of address too, if you want the old-address mail rerouted — the two work together. The difference is that nothing important depends on the reroute starting on time or lasting past month twelve.
 
@@ -3750,7 +3752,7 @@ File the USPS change of address too, if you want the old-address mail rerouted �
 
 ## Life at the New House With Mail That Never Misses
 
-The truck is unloaded. Somewhere in the stack of boxes is the one with the coffee maker. On day three you swing down Route 44 to Fredle Drive, park by the door, and open your box with your own key: the bank statement is there, the new insurance cards are there, and two packages from different carriers are waiting behind the counter. Nothing is at the old house. Nothing is bouncing. Nothing expires in twelve months, because nothing needs to.
+The truck is unloaded. Somewhere in the stack of boxes is the one with the coffee maker. On day three you swing down Route 44 to Fredle Drive, park by the door, and open your box with your own key: the bank statement is there, the new insurance cards are there, and on a +10 Package tier, two packages from different carriers are waiting behind the counter. Nothing is at the old house. Nothing is bouncing. Nothing expires in twelve months, because nothing needs to.
 
 The move was a big change. Your address was not one of the things that broke.
 
@@ -5217,7 +5219,7 @@ Let me be specific about what happens at 7554 Fredle Dr, because "we ship stuff"
 
 ![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
-**QR-code returns.** We accept Happy Returns by QR code — no box, no label, no printer needed. If a retailer sends you a return code instead of a shipping label, we can handle that too.
+**QR-code returns.** We scan QR codes for Happy Returns (no box, no label, no printer needed), FedEx Easy Returns, and USPS Label Broker. For Amazon returns, we do not scan Amazon QR codes — we accept Amazon returns only with a pre-printed carrier label.
 
 **A real street address for receiving.** If missed deliveries are your recurring nightmare, we rent Private Mailboxes with real street-address formatting. And to be precise, because the details matter: a PMB uses a # or PMB designation, never a "suite." The postal paperwork involved is USPS Form 1583, and it requires one valid government photo ID plus one proof of address. Also worth knowing: package receiving is a package-receiving tier, not part of the Mail-Only tier — the tiers differ per our published pricing page. If Amazon deliveries to a PO Box have bitten you before, we explain why that fails and how a street address fixes it in our piece on [Amazon PO Box Delivery](/articles/amazon-po-box-delivery/).
 
@@ -8129,16 +8131,18 @@ A real mailbox service — the kind Mailbox Plus runs in Concord Township — so
 
 Here is how the two approaches compare in practice:
 
-|                              | USPS Forwarding                       | Mailbox Plus Service     |
-| ---------------------------- | ------------------------------------- | ------------------------ |
-| What it holds                | First-Class + periodicals (12 months) | Everything, indefinitely |
-| Packages from UPS/FedEx/DHL  | Not covered by change of address      | Signed for and held      |
-| Packages needing a signature | Returned or missed                    | Signed by staff          |
-| Hold while traveling         | 3–30 days only                        | As long as you need      |
-| Forwarding                   | Piece-by-piece, up to 2 weeks         | When you ask, bundled    |
-| Marketing Mail               | Discarded                             | Held (or you choose)     |
+|                              | USPS Forwarding                       | Mailbox Plus Service                                  |
+| ---------------------------- | ------------------------------------- | ----------------------------------------------------- |
+| What it holds                | First-Class + periodicals (12 months) | All mail; packages on the +10 Package tiers           |
+| Packages from UPS/FedEx/DHL  | Not covered by change of address      | Held; signed for when a carrier requires it           |
+| Packages needing a signature | Returned or missed                    | Signed by staff on package tiers                      |
+| Hold while traveling         | 3–30 days only                        | As long as you need ($1/day after 5 days on packages) |
+| Forwarding                   | Piece-by-piece, up to 2 weeks         | When you ask, bundled                                 |
+| Marketing Mail               | Discarded                             | Held (or you choose)                                  |
 
-When you rent a [private mailbox](/private-mailbox-rental/) at Mailbox Plus, your mail and packages land at 7554 Fredle Drive — a real street address in a staffed building. Every carrier delivers there: USPS, UPS, FedEx, and DHL. A staff member signs for packages that would otherwise bounce back to the sender. Mail accumulates in a locked, secure area instead of an overflowing box or a porch.
+When you rent a [private mailbox](/private-mailbox-rental/) at Mailbox Plus, your mail lands at 7554 Fredle Drive — a real street address in a staffed building — and on the $25 and $40 +10 Package tiers, packages from every carrier land there too: USPS, UPS, FedEx, and DHL. A staff member signs for packages when a carrier requires it, so they are held behind the counter instead of bouncing back to the sender. Mail and packages wait in a locked, secure area instead of an overflowing box or a porch — packages held longer than 5 days accrue a $1/day storage fee.
+
+![The staffed mailbox counter at Mailbox Plus in Concord Township, Ohio, where traveler mail and packages are signed for and held](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/digital-mailbox-counter-01.webp)
 
 Then you control the forwarding. Going to Florida for the winter? Tell us when you want your mail shipped and we bundle it and send it — via whatever carrier works best — on your schedule, not whenever the forwarding queue gets around to it. And with a [virtual mailbox](/virtual-mailbox-concord-township/), you do not even need to wait for a shipment: we scan your envelopes and you see what arrived from anywhere in the world, then decide what to open, forward, or shred.
 
@@ -8146,8 +8150,8 @@ Then you control the forwarding. Going to Florida for the winter? Tell us when y
 
 Whether you are moving once or traveling all year, the fix takes about ten minutes:
 
-1. **Get a permanent address.** Rent a mailbox at a real, staffed location — not a PO box number, but a street address every carrier delivers to. This becomes the one address you never change again.
-2. **Set your forwarding on your terms.** When you travel, call ahead or send a quick note and we hold everything — packages included — until you return or ask for a shipment. No 30-day limit, no "did it make the batch" guessing.
+1. **Get a permanent address.** Rent a mailbox at a real, staffed location — not a PO box number, but a street address where every carrier delivers on our +10 Package tiers. This becomes the one address you never change again.
+2. **Set your forwarding on your terms.** When you travel, call ahead or send a quick note and we hold your mail — packages included on the +10 Package tiers — until you return or ask for a shipment. No 30-day limit, no "did it make the batch" guessing.
 3. **Go check your mail when you want.** Walk in and pick it up, or have it scanned with a virtual mailbox and forwarded to wherever you are.
 
 That is the whole system. It is simpler than the change-of-address dance because it removes the variable that breaks the USPS version: your mail no longer depends on the forwarding network catching every piece before it is discarded.
@@ -8166,13 +8170,13 @@ Picture the difference. You are two weeks into a trip. Instead of a photo of an 
 
 When you do come home, the pickup is a five-minute stop: walk in, give your name, and walk out with a clean bundle of mail and packages that arrived exactly as addressed. No surprises. No returned-to-sender. No month-13 cliff.
 
-That is what a real mailbox service gives you that forwarding cannot: the address never changes, everything is held, and forwarding happens when you want it — not when the system gets around to it.
+That is what a real mailbox service gives you that forwarding cannot: the address never changes, your mail is held (and packages on our +10 Package tiers), and forwarding happens when you want it — not when the system gets around to it.
 
 ## Set Up Your Mailbox Before Your Next Trip
 
 If you are planning a move, a long trip, or a season away from Lake County, do not wait until the first envelope goes missing. Set up the address while you are still home, update your accounts over the next week, and travel with the knowledge that your mail is handled by real people at a real counter.
 
-Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, all four carriers, package signing included, from around $35 a month. If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms.
+Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, and from $15 a month (the $25 tier adds package receiving from all four carriers, with staff signing when a carrier requires it). If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms — and for the digital side of the same decision, our [virtual mailbox versus a real local mailbox](/articles/virtual-mailbox-vs-real-local-mailbox/) breakdown covers what a scan-only service still cannot do for you.
 
 Your mail has been waiting for a system that works as hard as your lifestyle. Give it one. Set up your mailbox at Mailbox Plus, and stop letting the forwarding network decide what you see.
 
@@ -8190,7 +8194,7 @@ Published: 2026-08-26
 
 You searched "mailbox not a PO Box," so here it is, fast:
 
-**A private mailbox. It is a real street address — your name plus a unit number — at a staffed local mailbox store. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter until you walk in. No porch. No lobby. No "sorry, we only take USPS."**
+**A private mailbox. It is a real street address — your name plus a unit number — at a staffed local mailbox store. Mail goes to the street address; package receiving is included on the $25/$40 +10 Package tiers. Staff sign for packages when a carrier requires it and hold them behind a locked counter until you walk in. No porch. No lobby. No "sorry, we only take USPS."**
 
 That is the whole answer. The rest of this page is the fine print you actually want before you hand over your ID — because there are two kinds of "not a PO Box" and they are not the same thing.
 
@@ -8219,17 +8223,17 @@ None of that is a knock on the postal service. It is simply what a locked compar
 
 ## What a Private Mailbox Gives You Instead
 
-A private mailbox at a local store gives you the thing a PO Box cannot: **a real street address that every carrier treats like any other building.**
+A private mailbox at a local store gives you the thing a PO Box cannot: **a real street address for mail; package receiving is included on the $25/$40 +10 Package tiers.**
 
 Here is what that looks like in practice at Mailbox Plus in Concord Township, Ohio:
 
 - **A street address, not a box number.** Your address is our street address with your mailbox unit — for example, 7554 Fredle Drive #\_\_\_, Concord Township, OH 44077. You put that on bank forms, business registrations, seller accounts, and shipping labels. No "PO Box" line to explain.
-- **All four carriers.** USPS walks the mail in. FedEx, UPS, and DHL trucks pull up to the same counter. They all deliver because we have a physical address, and someone is always here to receive.
-- **Packages are signed for.** Every carrier package is signed for on arrival and held behind the locked counter — not left on a doorstep, not stacked in a lobby, not returned to sender while you are at work.
+- **All four carriers on the +10 Package tiers.** USPS walks the mail in. FedEx, UPS, and DHL trucks pull up to the same counter; package receiving is included on the $25/$40 tiers.
+- **Staff sign for packages when a carrier requires it**, on package-receiving tiers, and hold them behind the locked counter — not left on a doorstep, not stacked in a lobby, not returned to sender while you are at work.
 - **Local staff who know the drill.** We are a registered Commercial Mail Receiving Agency (CMRA), which is the classification the USPS uses for mailbox services like ours. The people at the counter work here, in Concord Township, every day. If a label is wrong or a package needs special handling, you talk to a human who can walk over and look at your mailbox — not a call center in another state.
-- **Notification, so you are not guessing.** Mail and packages are scanned as they arrive, and you are notified — which matters when you are waiting on a passport, a check, or a signed delivery. Call ahead and your mail is pulled and waiting at the counter before you get here.
+- **Mail notification, so you are not guessing.** You are notified when mail arrives. Call ahead and your mail is pulled and waiting at the counter before you get here.
 
-The honest version: a private mailbox costs a little more than a post office box. In exchange, you get an address that works for everything — every carrier, every package size, every signature — and you stop making trips to carrier facilities across town.
+The honest version: a private mailbox gives you a street address that carriers can deliver to. Package receiving is included on the $25/$40 +10 Package tiers, with staff signing when a carrier requires it. Mail-only tiers do not include package receiving.
 
 ## How to Get One (Its About Ten Minutes)
 
@@ -8237,9 +8241,9 @@ At Mailbox Plus, switching from a PO Box — or from a home address you are tire
 
 **Step 1 — Walk in with two forms of ID.** A driver's license plus a credit card, passport, or second government ID works. You fill out USPS Form 1583 at the counter, which is the standard form every mailbox service uses to verify who you are.
 
-**Step 2 — Pick your size.** Personal tiers start at **$15 a month**, month-to-month (business plans $35/$50), no annual contract, with a 30-day risk-free period. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
+**Step 2 — Pick your size.** Personal tiers start at **$15 a month** for mail-only service (business plans $35/$50), with no term commitment — completely risk-free, cancel anytime. The $25/$40 +10 Package tiers include package receiving, with staff signing when a carrier requires it. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
 
-**Step 3 — Give out your new address.** Update your bank, your employer, your vendors, your seller accounts, your license and registration — anywhere you need a street address. From that day forward, every carrier delivers to one place: Mailbox Plus, 7554 Fredle Drive in Concord Township.
+**Step 3 — Give out your new address.** Update your bank, your employer, your vendors, your seller accounts, your license and registration — anywhere you need a street address. Mail goes to one place: Mailbox Plus, 7554 Fredle Drive in Concord Township. Package receiving is included on the $25/$40 +10 Package tiers.
 
 We are open Monday through Saturday, and you can [check our pickup hours](/pickup-hours/) before you head over.
 
@@ -8251,17 +8255,17 @@ There is a whole industry of national "virtual mailbox" companies that will sell
 - Scanning, forwarding, and package handling are sometimes billed **per item**, so a busy month is an expensive month.
 - When something goes wrong, your support is a phone tree and a ticket queue, because the people who actually hold your mail are 500 miles away.
 
-A local mailbox store gives you the same class of real street address — directly, without the markup — plus humans who know your name, sign for every carrier, and can pull your mail when you call ahead. And your money stays in Lake County, not in a national subscription ledger.
+A local mailbox store gives you the same class of real street address — directly, without the markup — plus humans who know your name, receive packages on the $25/$40 +10 Package tiers (signing when a carrier requires it), and can pull your mail when you call ahead. And your money stays in Lake County, not in a national subscription ledger.
 
 ## The Bottom Line
 
 The 30-second answer to "where do I get a mailbox that isn't a PO Box?" is: **a private mailbox at a local mailbox store.**
 
-It is a real street address. It takes every carrier. Packages are signed for and held securely. Local staff run the place. That is the whole pitch, and it is the truth.
+It is a real street address that carriers can deliver to. Package receiving is included on the $25/$40 +10 Package tiers, where staff sign when a carrier requires it. Mail-only tiers do not include package receiving. Local staff run the place. That is the whole pitch, and it is the truth.
 
 If you want the full comparison first, our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) walks through the differences side by side, and the [Concord Township private mailbox page](/private-mailbox-rental/) has the sizes, terms, and signup details. If your mail is mostly digital these days, our [virtual mailbox service](/virtual-mailbox-concord-township/) adds remote scanning and forwarding on top of the same street address.
 
-Or skip the reading: stop by **7554 Fredle Drive in Concord Township** with your ID, and walk out with an address that works for every carrier. Ten minutes, and you are done.
+Or skip the reading: stop by **7554 Fredle Drive in Concord Township** with your ID, and set up mail service; package receiving is available on the $25/$40 +10 Package tiers. Setup takes about ten minutes.
 
 _This article is for general information only. USPS PO Box policies, Street Addressing availability, and carrier delivery rules change periodically — verify current terms with USPS and the carriers before relying on them._
 
@@ -8340,7 +8344,7 @@ Add it up for a normal month: base plan plus scans on ten envelopes, a couple of
 
 There's a second cost that never shows on a bill: the middleman markup. iPostal1 and Anytime Mailbox don't own the stores where your mail lands. They rent space at local mail centers — places exactly like ours — and sell you remote access to a mailbox a local store could have rented to you directly. You're paying a national call center to manage a mailbox at a shop down the road.
 
-## Option 4: The Real Private Mailbox — Flat Rate, No Per-Piece Fees
+## Option 4: The Real Private Mailbox — Published Tiers, No Activation Fee
 
 A private mailbox (PMB) is the same product category as the store mailbox and the virtual mailbox — a real street address at a commercial mail receiving agency — but rented directly from the local store that holds your mail.
 
@@ -8349,29 +8353,29 @@ At Mailbox Plus, the current rates are simple:
 - **Personal tiers: $15 (mail-only small) · $25 (small + 10 packages) · $30 (large mail-only) · $40 (large + 10 packages) a month**
 - **Business plans: $35 or $50 a month**
 
-That's the monthly price. No per-piece scan fees, no per-item storage fees, no activation fee, no mandatory contract term. (Rate increases are planned in the future, so if you're reading this later, confirm the current price — but the structure stays flat.)
+That's the monthly base price — no per-piece mail scan fees, no activation fee, no mandatory contract term. On the +10 Package tiers ($25 Small or $40 Large), up to 10 packages per month are included, then $5 per extra package; packages held longer than 5 days are $1/day. (Rate increases are planned in the future, so if you're reading this later, confirm the current price.)
 
-What the flat rate includes at our store:
+What those tiers include at our store:
 
 - **A real street address** at 7554 Fredle Drive in Concord Township — 7554 Fredle Drive plus your PMB number.
-- **All four carriers deliver** — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages.
+- **All four carriers deliver** on our +10 Package tiers — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages when a carrier requires it.
 - **We notify you when mail arrives**, usually within four hours.
 - **Secure holding** behind our locked counter — no doorstep, no porch pirates.
-- **Month-to-month.** Try it for a month; cancel anytime. There's a 30-day risk-free window so you can test the address before committing.
+- **Month-to-month.** Completely risk-free — cancel anytime, so you can test the address before committing.
 - **The paperwork is the standard Form 1583** — two forms of ID and about ten minutes at the counter. That's the same USPS form every legitimate mailbox store uses, including The UPS Store.
 
-The honest trade-off: a private mailbox costs more per month than the _advertised_ price of a PO Box or a virtual mailbox. But it's a real street address with all carriers, and the price doesn't move when your mail volume does. One bill. No surprise fees.
+The honest trade-off: a private mailbox costs more per month than the _advertised_ price of a PO Box or a virtual mailbox. But it's a real street address with published, predictable rates instead of per-letter scan fees.
 
 ## The Comparison You Actually Need
 
 Here's the whole landscape in one table, with the numbers that matter:
 
-| Option                               | Advertised monthly price                   | What's really included                                      | What it costs you in practice                                                     |
-| ------------------------------------ | ------------------------------------------ | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **PO Box**                           | ~$7–$25 depending on size and location     | USPS letters only                                           | FedEx/UPS packages don't come; small boxes fill up fast                           |
-| **Store mailbox**                    | $15–$30+, set by each franchise            | Street address, but carrier coverage and fees vary by store | Activation fees, 6–12 month contracts, forwarding billed in advance               |
-| **Virtual mailbox**                  | $9.99–$15 entry plans                      | Remote scans, but per-item fees on everything               | $0.35 over-limit, $2.25 scans, $1.10 storage, $4.95 check deposits — adds up fast |
-| **Private mailbox at a local store** | Personal $15-$40 · Business $35/$50 (flat) | Street address, all 4 carriers, notification, secure hold   | One flat bill. No per-piece fees. Month-to-month.                                 |
+| Option                               | Advertised monthly price               | What's really included                                          | What it costs you in practice                                                        |
+| ------------------------------------ | -------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **PO Box**                           | ~$7–$25 depending on size and location | USPS letters only                                               | FedEx/UPS packages don't come; small boxes fill up fast                              |
+| **Store mailbox**                    | $15–$30+, set by each franchise        | Street address, but carrier coverage and fees vary by store     | Activation fees, 6–12 month contracts, forwarding billed in advance                  |
+| **Virtual mailbox**                  | $9.99–$15 entry plans                  | Remote scans, but per-item fees on everything                   | $0.35 over-limit, $2.25 scans, $1.10 storage, $4.95 check deposits — adds up fast    |
+| **Private mailbox at a local store** | Personal $15-$40 · Business $35/$50    | Street address, all 4 carriers (+10 Package tiers), 4-hr alerts | Published monthly tiers ($5/extra pkg past 10; $1/day held >5 days). Month-to-month. |
 
 The question isn't "which has the lowest advertised price?" It's "what will this mailbox cost me in a normal month, with my mail volume, my packages, and my travel?" That's the only honest way to compare.
 
@@ -11329,7 +11333,7 @@ Published: 2026-08-13
 
 ## The Scene That Starts Everything
 
-It's 9:00 at night. You finally got the email: your return label is ready. You tap the PDF, hit print, and the printer hums to life. A full sheet of paper slides out — 8.5 by 11 inches of white, with a shipping label the size of a small envelope stranded somewhere in the middle of it.
+It's past nine at night. You finally got the email: your return label is ready. You tap the PDF, hit print, and the printer hums to life. A full sheet of paper slides out — 8.5 by 11 inches of white, with a shipping label the size of a small envelope stranded somewhere in the middle of it.
 
 You stare at it. The label is maybe a quarter of the sheet. The rest is blank paper you just wasted, and now you have to either fold a giant paper into the box or cut it down so it doesn't look like you mailed a poster. This is one of those small, maddening moments that makes returning an online order feel like a part-time job.
 
@@ -11386,13 +11390,15 @@ One more tip: if your printer has a dedicated rear or bypass tray, 4×6 paper of
 
 ## When You Don't Want to Print It at All
 
-Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — and many of them do these days — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. No printing, no trimming, no wasted sheets.
+Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — Happy Returns, FedEx Easy Returns, and USPS Label Broker all run on them — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. The exception is Amazon: those returns ride on a pre-printed carrier label, so that is the one program where the label has to come along — bring the box with the label on it and we take it from there. No printing, no trimming, no wasted sheets. (Our [Amazon returns guide for Concord Township](/articles/amazon-returns-concord-township/) walks through that label-only flow step by step.)
 
 And if you do want a clean label, we're happy to print one for you at the right size while you wait. Printing is one of the things we're here for.
 
 ## Bring It In
 
-A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or you just want to scan a QR code and be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest.
+![Copy center at Mailbox Plus in Concord Township, where staff print return labels at the correct 4x6 size while you wait](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/copy-center/copier-01.webp)
+
+A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or your QR-code return — Happy Returns, FedEx Easy Returns, or USPS Label Broker — just needs a scan and to be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest. And if you are also wrangling paper sizes for anything else you mail, our [USPS envelope size chart](/articles/envelope-sizes-usps-chart/) covers the common formats.
 
 ---
 
@@ -12653,9 +12659,9 @@ A private mailbox at a local mailbox store solves the travel nurse problem at th
 
 Here is how it works, step by step:
 
-**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month, month-to-month, no annual contract, with a 30-day risk-free period.
+**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month — month-to-month, completely risk-free, cancel anytime.
 
-**Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
+**Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. On a package-receiving tier ($25 Small or $40 Large), every carrier delivers to it — USPS, UPS, FedEx, and DHL — and packages are received (signed for when required by the carrier) and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
 
 **Step 3 — Get notified, pick up on your schedule.** Mail is scanned as it arrives, and you get notified within four hours — which matters when you are on nights or in another state entirely. Call ahead before you drive over and your mail and packages are pulled and waiting at the counter. If you need mail opened, forwarded, or handled while you are on assignment, a [digital mailbox](/virtual-mailbox-concord-township/) adds remote access on top of the same address.
 
@@ -12669,21 +12675,21 @@ There is no shortage of national companies happy to sell a travel nurse a "virtu
 - **Support is a phone tree.** When a package needs a signature or a label is wrong, you want a human who can actually look at your mailbox, not a call center script.
 - **Per-piece fees add up.** Scanning, forwarding, and package handling are sometimes billed per item, so a quiet month is cheap and a busy month is not.
 
-A local mailbox store gives you the same class of real street address — directly, without the markup — plus staff who know your name, sign for every carrier, and can pull your mail when you call ahead. You are also putting your money back into the town your contract is in, which matters when that town is your home base for the season.
+A local mailbox store gives you the same class of real street address — directly, without the markup — plus staff who know your name, receive packages from every carrier on our package-receiving tiers (signing when a carrier requires it), and can pull your mail when you call ahead. You are also putting your money back into the town your contract is in, which matters when that town is your home base for the season.
 
 ## For Nurses on Assignment in Lake County, Ohio
 
 If your contract lands you in Northeast Ohio, this is your home turf for a while. The healthcare corridor around Lake County is real: **University Hospitals TriPoint Medical Center is right here in Concord Township at 7590 Auburn Road**, Cleveland Clinic's Mentor Hospital serves Lake County just up the road, and UH runs locations across Mentor and the surrounding towns. Travel nurses staff these units on 13-week rotations year-round.
 
-For nurses coming into the area, a mailbox at a local store gives you a dependable Lake County address for the length of your contract — packages, license mail, and all. For nurses who live here and travel out, it is the address you keep at home base so your mail is waiting, sorted, and secure when you return between contracts.
+For nurses coming into the area, a mailbox at a local store gives you a dependable Lake County address for the length of your contract — license mail, plus packages on a package-receiving tier. For nurses who live here and travel out, it is the address you keep at home base so your mail is waiting, sorted, and secure when you return between contracts.
 
-Either way, the math is the same: one address, every carrier, staffed pickup, no porch, no hotel lobby, no "return to sender."
+Either way, the math is the same: one address, every carrier on a package-receiving tier, staffed pickup, no porch, no hotel lobby, no "return to sender."
 
 ## The Bottom Line for Travel Nurses
 
 Your career runs on 13-week cycles. Your mail does not have to.
 
-A stable street address — one that accepts USPS, UPS, FedEx, and DHL, one that a licensing board and a bank will accept without blinking, one that holds your packages behind a locked counter until you walk in — removes an entire category of stress from a job that already has enough of it.
+A stable street address — one that a licensing board and a bank will accept without blinking, and on a package-receiving tier accepts USPS, UPS, FedEx, and DHL and holds your packages behind a locked counter until you walk in — removes an entire category of stress from a job that already has enough of it.
 
 You have already mastered the hard part: walking into a new unit, learning a new charting system, and earning trust in a new city in a matter of days. Sorting out your mail should be the easy part.
 
@@ -14804,7 +14810,7 @@ If you're still comparing "best virtual mailbox" options on a Reddit thread at m
 
 We're at 7554 Fredle Drive in Concord Township — just off Crile Road, minutes from SR-44 and I-90, about a mile south of Route 20. Walk in with two forms of ID, and you can have a real street address before your coffee gets cold. No appointment, no waiting period, no middleman.
 
-If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township/) or check out [private mailbox rental](/private-mailbox-rental/) — both start at $35 a month, both include package signing from every carrier, and both come with people who will know your name.
+If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township/) or check out [private mailbox rental](/private-mailbox-rental/) — both come with people who will know your name, and package-receiving tiers ($25 Small / $40 Large) accept packages from every carrier (signed for when required by the carrier). Personal mail-only private mailboxes start at $15 a month.
 
 Your mail is going to arrive somewhere. The only question is who's holding it — a call center on the other end of a phone tree, or the person you can walk up to and say hi to.
 
@@ -15600,7 +15606,7 @@ When a bank, the DMV, the IRS, or an insurer asks for your address, they aren't 
 
 None of this is a conspiracy. It's the difference between "where do we mail it?" and "where are you?" And that difference is why the same PO box that works for your magazine subscriptions fails for your bank account.
 
-## What It Actually Feels Like
+## What the Rejection Loop Actually Looks Like
 
 You know the loop. You fill out the form, everything checks out, and then the address field stops you cold. You type "P.O. Box 47" and the form either:
 
@@ -15654,7 +15660,7 @@ Here are the "can you use a PO box for X" questions people actually type — ans
 
 ### 10. Can you use a PO box for UPS, FedEx, or DHL packages?
 
-**No — and this one is absolute.** Only the U.S. Postal Service delivers to PO boxes. UPS, FedEx, and DHL drivers physically cannot put a package in a post office locker. If you ship or receive with any carrier but USPS, the package gets refused, redirected, or left at a facility you'll drive across town to visit. A private mailbox is a street address at a real building, so all four carriers deliver to it — that's the single biggest practical difference between the two.
+**No — and this one is absolute.** Only the U.S. Postal Service delivers to PO boxes. UPS, FedEx, and DHL drivers physically cannot put a package in a post office locker. If you ship or receive with any carrier but USPS, the package gets refused, redirected, or left at a facility you'll drive across town to visit. A private mailbox uses a street address; package receiving at Mailbox Plus is included on the $25/$40 +10 Package tiers, and staff sign when a carrier requires it.
 
 ## What a Private Mailbox Actually Is
 
@@ -15663,26 +15669,27 @@ A private mailbox (PMB) is not a PO box, and it's not a loophole. It's a specifi
 When you rent a PMB, you get:
 
 - **A real street address.** Your mail is addressed to the store's physical address plus your box number — e.g., 7554 Fredle Drive, #123 — not "P.O. Box 47."
-- **All four carriers.** Because it's a street address, UPS, FedEx, DHL, and USPS all deliver.
+- **Package receiving on the +10 Package tiers.** The $25/$40 tiers include receiving for USPS, UPS, FedEx, and DHL packages; mail-only tiers do not include package receiving.
+- **Carrier-required signatures on package tiers.** Staff sign when a carrier requires it.
 - **The same federal paperwork as every legitimate mailbox store.** Form 1583, two forms of ID, and a signature. That form is what registers the address with the USPS and makes it a valid street-format address rather than a locker number.
 
 And here's the part that builds the trust this whole article is about: **a private mailbox does not solve everything.** It is not a residence, so it won't fix a driver's license address or voter registration by itself. It is not a statutory agent, so it can't be the registered agent for your Ohio LLC. If someone tells you a mailbox fixes those, they're overselling you — and you deserve better than that.
 
-## What We See Every Day
+## The Conversation We Have at the Counter
 
 We're Mailbox Plus, an independent mailbox store in Concord Township, Ohio, and this is the conversation we have at the counter almost daily: someone who rented a PO box last month, and is now standing in front of us holding a bank letter, an LLC form, or an EIN application that says "street address required."
 
-We don't sell you a miracle. We sell you the thing the form actually asks for: a real street address at 7554 Fredle Drive, with your PMB number, that banks, the DMV's document flow, the IRS's EIN line, and every carrier on the road can use. We'll also tell you the truth about what a mailbox can't do — because a customer who understands the rules is a customer who comes back.
+Banks, the DMV's document flow, and the IRS's EIN line can use a private mailbox's street-format address, but package delivery is included only on the $25/$40 +10 Package tiers.
 
-## How It Works
+## How to Set Up a Street-Address Mailbox
 
 1. **Walk in** with two forms of ID — a driver's license and a credit card, for example.
 2. **Fill out the standard Form 1583** — the same USPS form every CMRA uses. It takes about ten minutes.
-3. **Start using your street address the same day.** Your mail arrives, we notify you, and every carrier's packages land on our counter instead of a doorstep.
+3. **Start using your street address the same day.** Your mail arrives, we notify you, and on a package-receiving tier, every carrier's packages land on our counter instead of a doorstep.
 
-Month-to-month, no contract, no per-piece fees. Try it for 30 days and see if it holds up.
+Month-to-month, cancel anytime — no lock-in.
 
-## What You Lose by Not Acting
+## What Keeping the PO Box Costs You
 
 Every week you keep a PO box that can't be used is a week of running around:
 
@@ -15693,15 +15700,17 @@ Every week you keep a PO box that can't be used is a week of running around:
 
 None of those are disasters. They're just the slow, expensive tax you pay for an address that doesn't fit the forms you have to fill out.
 
-## Your Afternoon After the Change
+## Your Paperwork After the Change
 
 Picture it: you fill out the bank form, and the address field takes it. You file the EIN application, and the street-address line is just... a street address. Your LLC's correspondence lands at a professional business address, not your kitchen table. The FedEx driver walks into the store, signs the package over, and you pick it up when you're ready.
 
 Same you. Same paperwork. Zero rejection loops.
 
-## Bring It In
+## Come See the Address That Works
 
 If you're tired of typing "can you use a PO box for X" at 11 PM, come in and we'll show you the X that works: a real street address at Mailbox Plus. Two forms of ID, ten minutes, and you're set up the same day. See our [private mailbox rental page](/private-mailbox-rental/) for details, or stop by **7554 Fredle Drive in Concord Township** — just off Crile Road, minutes from SR-44 and I-90.
+
+![The mailbox rental counter at Mailbox Plus in Concord Township, Ohio, where Form 1583 setups happen in about ten minutes](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 For the full comparison of a private mailbox versus a post office box, read [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/). And if you're weighing the franchise option, our honest take is in [UPS Store vs Mailbox Plus](/articles/ups-store-vs-mailbox-plus-comparison/).
 
