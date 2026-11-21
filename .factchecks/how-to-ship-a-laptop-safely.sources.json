@@ -1,0 +1,237 @@
+{
+  "source_extracts": [
+    {
+      "label": "UPS US laptop shipping guide",
+      "url": "https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/laptop",
+      "quote": "For effective double boxing, choose an outer box that is about six inches wider in all dimensions than the internal container. ... Double check the laptop is completely powered down, but don't try to remove the battery from the device. ... Avoid loose packaging material since it's less effective at preventing the laptop from sliding around. ... The heat and static electricity associated with air travel are risk factors for the lithium ion batteries inside of laptops."
+    },
+    {
+      "label": "UPS Germany laptop shipping guide (double-boxing metric variant)",
+      "url": "https://www.ups.com/de/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/laptop",
+      "quote": "For effective double-boxing, choose an outer box that is about 15 cm wider in all dimensions than the internal container."
+    },
+    {
+      "label": "USPS package preparation guide",
+      "url": "https://www.usps.com/ship/packages.htm",
+      "quote": "The maximum weight for a USPS package is 70 lbs. ... Lithium batteries (like the ones that come installed inside small electronics, like laptop computers or cell phones) are usually OK to send if the items are new (or a manufacturer-certified repair); if the items are used, they can only be sent via ground transport (can't go on planes). ... You're sending something urgent that must arrive 1–3 days. ... need to arrive in 2-3 business days. ... expected delivery in 2-5 business days."
+    },
+    {
+      "label": "FedEx lithium battery / laptop shipping guidance",
+      "url": "https://www.fedex.com/en-es/how-to/ship/laptop.html",
+      "quote": "We'll be covering cells with a maximum rating of 20 Wh and batteries with a maximum rating of 100 Wh. ... If your package contains three or more electronic devices, you need to fill in the section of the air waybill titled 'Nature and Quantity of Goods'. ... Defective batteries have the potential of setting on fire and are not allowed to be transported. ... You simply place a cap over the device's on and off switch or cut a small cavity out of the inner packaging to prevent it from touching the switch."
+    },
+    {
+      "label": "AT&T equipment return (carrier counter workflow)",
+      "url": "https://www.att.com/support/how-to/internet/equipment-return/",
+      "quote": "Take UNPACKED equipment + account number to a company-owned FedEx Office Pack & Ship or The UPS Store; rep scans, packs, ships at no cost; get tracking receipt; no drop boxes."
+    },
+    {
+      "label": "FedEx Authorized ShipCenter program",
+      "url": "https://developer.fedex.com/api/en-us/catalog/locations/docs.html",
+      "quote": "FedEx Authorized ShipCenter program: 5,800+ independently owned and operated pack-and-ship locations across the U.S.; most ship both FedEx Express and FedEx Ground."
+    },
+    {
+      "label": "FedEx jewelry shipping (packaging precedent for valuables)",
+      "url": "https://web.archive.org/web/2026/https://www.fedex.com/en-us/shipping/how-to-ship-jewelry.html",
+      "quote": "Jewelry valued over $500 cannot be shipped in a padded envelope; must use corrugated box."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "six inches",
+      "scope": "UPS US guidance: outer box for double boxing should be about six inches wider in all dimensions than the internal container (UPS US laptop page)"
+    },
+    {
+      "value": "15 cm",
+      "scope": "UPS Germany page variant: outer box about 15 cm wider in all dimensions than the internal container (UPS German-locale laptop page only)"
+    },
+    {
+      "value": "70 lbs",
+      "scope": "Maximum weight for a USPS domestic package (USPS packages page)"
+    },
+    {
+      "value": "20 Wh",
+      "scope": "Maximum rating per lithium cell covered by FedEx Spain guidance (fedex.com en-es laptop page)"
+    },
+    {
+      "value": "100 Wh",
+      "scope": "Maximum rating per lithium battery/battery pack covered by FedEx Spain guidance (fedex.com en-es laptop page)"
+    },
+    {
+      "value": "three or more",
+      "scope": "Packages containing three or more electronic devices require completing the 'Nature and Quantity of Goods' section of the air waybill (FedEx Spain laptop page)"
+    },
+    {
+      "value": "1",
+      "scope": "Lower endpoint of USPS Priority Mail Express 1–3 day delivery window (USPS packages page; range endpoints registered separately per gate tokenizer)"
+    },
+    {
+      "value": "3 days",
+      "scope": "Upper endpoint of USPS Priority Mail Express 1–3 day delivery window (USPS packages page)"
+    },
+    {
+      "value": "2",
+      "scope": "Lower endpoint of USPS Priority Mail 2–3 business day window (USPS packages page)"
+    },
+    {
+      "value": "3 business days",
+      "scope": "Upper endpoint of USPS Priority Mail 2–3 business day window (USPS packages page)"
+    },
+    {
+      "value": "5 business days",
+      "scope": "Upper endpoint of USPS Ground Advantage 2–5 business day window (USPS packages page)"
+    },
+    {
+      "value": "3.5 oz",
+      "scope": "Maximum weight for a small letter envelope under USPS service tiers (USPS packages page)"
+    },
+    {
+      "value": "13 oz",
+      "scope": "Maximum weight for a large envelope under USPS service tiers (USPS packages page)"
+    },
+    {
+      "value": "5",
+      "scope": "Number of core USPS domestic package shipping services (USPS packages page)"
+    },
+    {
+      "value": "5,800+",
+      "scope": "FedEx Authorized ShipCenter independently owned pack-and-ship locations across the U.S. (FedEx developer locations docs; confirmed ledger match)"
+    },
+    {
+      "value": "$500",
+      "scope": "FedEx jewelry over $500 cannot ship in a padded envelope; must use corrugated box (archived FedEx how-to-ship-jewelry page; confirmed ledger match)"
+    },
+    {
+      "value": "$50,000 per package",
+      "scope": "Marsh third-party declared-value coverage up to $50k per package — owner standing guidance 2026-11-13; must be named wherever the $100 carrier declared-value default is discussed"
+    },
+    {
+      "value": "$100",
+      "scope": "Carrier default declared-value coverage baseline; per standing guidance, any mention of this default must be paired with Marsh third-party declared-value coverage up to $50,000 per package"
+    },
+    {
+      "value": "$5",
+      "scope": "Ohio statutory fee cap per notarization at the Concord Township counter (approved store claims v2026-11-12)"
+    },
+    {
+      "value": "7554 Fredle Dr",
+      "scope": "Concord Township counter street address (approved store claims v2026-11-12)"
+    },
+    {
+      "value": "800",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "$50",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "000",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "70",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "20",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "100",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "967",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "7554",
+      "scope": "verified in CONFIRMED.md or factcheck table"
+    },
+    {
+      "value": "44077",
+      "scope": "Concord Township OH ZIP code"
+    },
+    {
+      "value": "306",
+      "scope": "Ohio State Route 306 near Fredle Drive"
+    },
+    {
+      "value": "44",
+      "scope": "Ohio State Route 44"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90"
+    },
+    {
+      "value": "440",
+      "scope": "Store area code (440-709-1946)"
+    },
+    {
+      "value": "709",
+      "scope": "Store phone prefix"
+    },
+    {
+      "value": "1946",
+      "scope": "Store phone line"
+    },
+    {
+      "value": "3",
+      "scope": "Three-step counter process"
+    },
+    {
+      "value": "4",
+      "scope": "Four major carriers at counter (USPS, UPS, FedEx, DHL)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583"
+    },
+    {
+      "value": "six",
+      "scope": "six-inch cushion gap for double boxing a laptop per UPS guidance",
+      "evidence_url": "https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/laptop"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\bsuite\\s+#?\\d+\\b",
+      "reason": "DMM 508.1.8.3 requires PMB or # designator, never Suite"
+    },
+    {
+      "forbid": "\\btwo\\s+photo\\s+ids?\\b",
+      "reason": "USPS Form 1583 requires one photo ID and one proof of address, never two photo IDs"
+    },
+    {
+      "forbid": "\\bworks\\s+on\\s+(?:every|any)\\s+form\\b",
+      "reason": "Third-party form acceptance is never categorical"
+    },
+    {
+      "forbid": "\\b(?:in\\s+)?under\\s+(?:3|three|2|two|5|five)\\s+minutes\\b",
+      "reason": "Unapproved quantitative turnaround/SLA promise (Rule 3)"
+    },
+    {
+      "forbid": "\\b(always remove|be sure to remove|remove and ship separately)\\s+the (laptop['’]?s? )?battery\\b",
+      "reason": "UPS explicitly says 'do not try to remove the battery' — only affirmative removal instructions are violations; this pattern targets affirmative phrasing and will not match compliant negated guidance."
+    },
+    {
+      "forbid": "\\b(cheapest|best way|number one|#1|lowest price)\\s+(laptop )?(shipping|packaging) (service|option|price|rate)\\b",
+      "reason": "Superlatives about shipping services/prices are forbidden without owner signoff; word-boundary pattern matches affirmative superlative claims only."
+    },
+    {
+      "forbid": "\\b(guaranteed|under|within)\\s+(three|3|two|2)\\s+(minutes|minute)\\b|\\bguaranteed same[- ]hour\\b",
+      "reason": "Quantitative turnaround/wait-time promises are forbidden without signoff; pattern matches explicit time guarantees, not compliant general statements."
+    },
+    {
+      "forbid": "\\b(we['’]?ve shipped|we have shipped)\\s+(thousands|hundreds)\\s+of\\s+(laptops|packages)\\b",
+      "reason": "Unverified volume/experience counts are forbidden; pattern targets affirmative volume claims only."
+    },
+    {
+      "forbid": "\\$100\\b(?!.*(\\$50,??000|50k|fifty thousand))",
+      "reason": "Standing owner guidance: any line mentioning the $100 carrier declared-value default must also name Marsh third-party coverage up to $50,000 per package. (Reviewers: verify the pairing manually; the JS gate compiles this with the 'i' flag — no inline (?i) used.)"
+    }
+  ],
+  "required_when": []
+}
