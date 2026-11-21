@@ -149,7 +149,7 @@ export const coreServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Porch Pirate Risk</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Having packages delivered to your home? We receive, sign for, and store packages from all carriers. No porch required. <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">From $35/month</a>.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Having packages delivered to your home? We receive, sign for, and store packages from all carriers. No porch required. <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">From $25/month</a>.</p>
               </div>
             </div>`,
         isFullWidth: true,
