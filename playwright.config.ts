@@ -34,12 +34,11 @@ export default defineConfig({
       : []),
   ],
   webServer: {
-    // Build inside the webServer so E2E always tests fresh dist — but the
-    // reCAPTCHA site key is inlined at build time from VITE_RECAPTCHA_SITE_KEY,
-    // which exists only in the CI job environment, not this command shell.
-    // Pass it through or the env-inlining guard test (mailbox-reservation
-    // spec:45) fails closed. See the 2026-10-21 empty-object inline incident.
-    command: 'npm run build && npm run preview',
+    // In CI, build-and-test (22.x) already built dist/ with VITE_RECAPTCHA_SITE_KEY
+    // inlined and uploaded build-output-22.x, which the e2e job downloads into dist/.
+    // Reusing that artifact avoids two redundant 387-page Astro builds per PR.
+    // Locally, keep building fresh dist with VITE_RECAPTCHA_SITE_KEY passed through.
+    command: process.env.CI ? 'npm run preview' : 'npm run build && npm run preview',
     env: {
       VITE_RECAPTCHA_SITE_KEY: process.env.VITE_RECAPTCHA_SITE_KEY || '',
     },
