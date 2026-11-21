@@ -32,11 +32,11 @@ faqs:
   - question: 'Does USPS forwarding cover UPS and FedEx packages?'
     answer: 'No. A change of address only changes your mailing address with the Post Office — UPS, FedEx, and DHL keep delivering to whatever street address is printed on the label until you update them separately.'
   - question: 'What mail does USPS not forward?'
-    answer: 'USPS Marketing Mail — catalogs, flyers, political mail, credit-card offers — is not forwarded under a standard change of address. Government agencies and financial institutions also block forwarding of sensitive documents, so you must update those senders directly.'
+    answer: 'USPS Marketing Mail — catalogs, flyers, political mail, credit-card offers — is not forwarded under a standard change of address. It is discarded unless the sender already has your current address, which is why catalog subscriptions and bulk mailers need your new address directly.'
   - question: 'Can I hold my mail instead of forwarding it?'
-    answer: 'USPS Hold Mail pauses everything for 3 to 30 days at your local post office. Longer trips need a temporary change of address. A private mailbox at Mailbox Plus holds everything — packages included — for as long as you are gone, and you pick it up or have it forwarded on your schedule.'
+    answer: 'USPS Hold Mail pauses everything for 3 to 30 days at your local post office. Longer trips need a temporary change of address. A private mailbox at Mailbox Plus holds your mail for as long as you are gone — packages included on the $25 and $40 +10 Package tiers (mail-only tiers start at $15) — and you pick it up or have it forwarded on your schedule. Packages held longer than 5 days accrue a $1/day storage fee.'
   - question: 'What does a private mailbox cost for forwarding-heavy travel?'
-    answer: 'Personal tiers start at $15 a month for a mail-only small box; the $25 tier adds package receiving and signing from all four carriers. There is no term commitment — month-to-month.'
+    answer: 'Personal tiers start at $15 a month for a mail-only small box; the $25 tier adds package receiving from all four carriers, with staff signing when a carrier requires it. There is no term commitment — month-to-month.'
 ---
 
 ## The Mail Problem Nobody Plans For
@@ -84,16 +84,16 @@ A real mailbox service — the kind Mailbox Plus runs in Concord Township — so
 
 Here is how the two approaches compare in practice:
 
-|                              | USPS Forwarding                       | Mailbox Plus Service     |
-| ---------------------------- | ------------------------------------- | ------------------------ |
-| What it holds                | First-Class + periodicals (12 months) | Everything, indefinitely |
-| Packages from UPS/FedEx/DHL  | Not covered by change of address      | Signed for and held      |
-| Packages needing a signature | Returned or missed                    | Signed by staff          |
-| Hold while traveling         | 3–30 days only                        | As long as you need      |
-| Forwarding                   | Piece-by-piece, up to 2 weeks         | When you ask, bundled    |
-| Marketing Mail               | Discarded                             | Held (or you choose)     |
+|                              | USPS Forwarding                       | Mailbox Plus Service                                  |
+| ---------------------------- | ------------------------------------- | ----------------------------------------------------- |
+| What it holds                | First-Class + periodicals (12 months) | All mail; packages on the +10 Package tiers           |
+| Packages from UPS/FedEx/DHL  | Not covered by change of address      | Held; signed for when a carrier requires it           |
+| Packages needing a signature | Returned or missed                    | Signed by staff on package tiers                      |
+| Hold while traveling         | 3–30 days only                        | As long as you need ($1/day after 5 days on packages) |
+| Forwarding                   | Piece-by-piece, up to 2 weeks         | When you ask, bundled                                 |
+| Marketing Mail               | Discarded                             | Held (or you choose)                                  |
 
-When you rent a [private mailbox](/private-mailbox-rental/) at Mailbox Plus, your mail and packages land at 7554 Fredle Drive — a real street address in a staffed building. Every carrier delivers there: USPS, UPS, FedEx, and DHL. A staff member signs for packages that would otherwise bounce back to the sender. Mail accumulates in a locked, secure area instead of an overflowing box or a porch.
+When you rent a [private mailbox](/private-mailbox-rental/) at Mailbox Plus, your mail lands at 7554 Fredle Drive — a real street address in a staffed building — and on the $25 and $40 +10 Package tiers, packages from every carrier land there too: USPS, UPS, FedEx, and DHL. A staff member signs for packages when a carrier requires it, so they are held behind the counter instead of bouncing back to the sender. Mail and packages wait in a locked, secure area instead of an overflowing box or a porch — packages held longer than 5 days accrue a $1/day storage fee.
 
 ![The staffed mailbox counter at Mailbox Plus in Concord Township, Ohio, where traveler mail and packages are signed for and held](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/digital-mailbox-counter-01.webp)
 
@@ -104,7 +104,7 @@ Then you control the forwarding. Going to Florida for the winter? Tell us when y
 Whether you are moving once or traveling all year, the fix takes about ten minutes:
 
 1. **Get a permanent address.** Rent a mailbox at a real, staffed location — not a PO box number, but a street address every carrier delivers to. This becomes the one address you never change again.
-2. **Set your forwarding on your terms.** When you travel, call ahead or send a quick note and we hold everything — packages included — until you return or ask for a shipment. No 30-day limit, no "did it make the batch" guessing.
+2. **Set your forwarding on your terms.** When you travel, call ahead or send a quick note and we hold your mail — packages included on the +10 Package tiers — until you return or ask for a shipment. No 30-day limit, no "did it make the batch" guessing.
 3. **Go check your mail when you want.** Walk in and pick it up, or have it scanned with a virtual mailbox and forwarded to wherever you are.
 
 That is the whole system. It is simpler than the change-of-address dance because it removes the variable that breaks the USPS version: your mail no longer depends on the forwarding network catching every piece before it is discarded.
@@ -129,7 +129,7 @@ That is what a real mailbox service gives you that forwarding cannot: the addres
 
 If you are planning a move, a long trip, or a season away from Lake County, do not wait until the first envelope goes missing. Set up the address while you are still home, update your accounts over the next week, and travel with the knowledge that your mail is handled by real people at a real counter.
 
-Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, and from $15 a month (the $25 tier adds all four carriers, package receiving, and signing). If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms — and for the digital side of the same decision, our [virtual mailbox versus a real local mailbox](/articles/virtual-mailbox-vs-real-local-mailbox/) breakdown covers what a scan-only service still cannot do for you.
+Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, and from $15 a month (the $25 tier adds package receiving from all four carriers, with staff signing when a carrier requires it). If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms — and for the digital side of the same decision, our [virtual mailbox versus a real local mailbox](/articles/virtual-mailbox-vs-real-local-mailbox/) breakdown covers what a scan-only service still cannot do for you.
 
 Your mail has been waiting for a system that works as hard as your lifestyle. Give it one. Set up your mailbox at Mailbox Plus, and stop letting the forwarding network decide what you see.
 

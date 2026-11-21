@@ -90,6 +90,22 @@
     {
       "value": "4",
       "scope": "'All four carriers' — USPS, UPS, FedEx, DHL deliver to a CMRA street address (USPS DMM 508)"
+    },
+    {
+      "value": "$40",
+      "scope": "Personal Large +10 Package tier monthly price — package receiving tier (site pricing pages, verified 2026-11-21)"
+    },
+    {
+      "value": "10",
+      "scope": "+10 Package tiers — package receiving included on $25/$40 plans (site pricing pages, verified 2026-11-21)"
+    },
+    {
+      "value": "5 days",
+      "scope": "Packages held longer than 5 days accrue storage fee (private-mailbox-rental.astro price-note, verified 2026-11-21)"
+    },
+    {
+      "value": "$1",
+      "scope": "$1/day storage fee for packages held longer than 5 days (private-mailbox-rental.astro price-note, verified 2026-11-21)"
     }
   ],
   "scope_rules": [
