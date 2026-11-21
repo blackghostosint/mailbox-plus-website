@@ -20,7 +20,7 @@ relatedServices: ['/private-mailbox-rental/', '/mailbox-rental-concord-ohio/', '
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15 (Small Mail-Only), $25 (Small +10 Packages), $30 (Large Mail-Only), and $40 (Large +10 Packages) a month; business plans are $35 and $50 a month. Packages held longer than 5 days are $1/day. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -81,7 +81,7 @@ We are Mailbox Plus at 7554 Fredle Drive, right here in Concord Township — min
 
 What we see every moving season is the same pattern, usually told over the counter in the same tired voice. Someone files their change of address in good faith, then comes in three weeks later — still wearing the moving-day hoodie, still dusted with drywall — because a title document, a prescription reorder, or a birthday check went to the old house during the startup lag. They always start with the same sentence: "I did everything right." Or the twelve-month mark passes, forwarding quietly expires, and mail starts bouncing. The form was filed. The system simply was not built to hold their address for them.
 
-A private mailbox rental with us does what the forwarding order cannot. It gives you a real street address — not a PO Box number, a street address that accepts packages from every carrier, not just USPS. Packages from any delivery service sit secure behind our counter instead of on an empty porch at a house you no longer own. Your mail is held until you pick it up, on your schedule, with 24/7 access available on select boxes. And when the next move comes — or the snowbird trip, or the semester away — your address does not change at all. You just keep the box.
+A private mailbox rental with us does what the forwarding order cannot. It gives you a real street address — not a PO Box number, a street address where our +10 Package tiers ($25 Small / $40 Large) accept packages from every carrier, not just USPS. Packages from any delivery service sit secure behind our counter instead of on an empty porch at a house you no longer own (packages held longer than 5 days are $1/day). Your mail is held until you pick it up, on your schedule — call ahead during staffed hours and we have it ready at the counter. And when the next move comes — or the snowbird trip, or the semester away — your address does not change at all. You just keep the box.
 
 And if you want the whole picture, ask at the counter and we will walk you through the same [moving mail checklist](/articles/moving-mail-checklist/) we hand our neighbors — no homework required — plus the honest breakdown of [a private mailbox versus a PO Box](/articles/private-mailbox-vs-po-box/).
 
@@ -90,8 +90,8 @@ And if you want the whole picture, ask at the counter and we will walk you throu
 Three steps, and none of them involve waiting two weeks.
 
 1. **Get the box before you move.** Come to 7554 Fredle Drive with two forms of ID — one photo ID like a driver's license, and one proof of address. We complete the paperwork, hand you your keys, and you have a working address that day. Mailbox rentals start at $15 a month (personal mail-only tier).
-2. **Use it as your landing address.** Give the Fredle Drive address to your bank, your employer, your subscriptions, and as the shipping address on your online orders during the move. Packages from every carrier arrive behind our counter. You never route anything through the forwarding lag.
-3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, we can receive and hold it all; package receiving runs $10 per package, or $30 a month for unlimited packages.
+2. **Use it as your landing address.** Give the Fredle Drive address to your bank, your employer, your subscriptions, and as the shipping address on your online orders during the move. On a +10 Package tier ($25 Small or $40 Large), packages from every carrier arrive behind our counter. You never route anything through the forwarding lag.
+3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, a mailbox handles it: the $25 package tier receives and holds it all, ten packages a month included, five dollars a package beyond that ($1/day for packages held longer than 5 days).
 
 File the USPS change of address too, if you want the old-address mail rerouted — the two work together. The difference is that nothing important depends on the reroute starting on time or lasting past month twelve.
 
@@ -105,7 +105,7 @@ File the USPS change of address too, if you want the old-address mail rerouted �
 
 ## Life at the New House With Mail That Never Misses
 
-The truck is unloaded. Somewhere in the stack of boxes is the one with the coffee maker. On day three you swing down Route 44 to Fredle Drive, park by the door, and open your box with your own key: the bank statement is there, the new insurance cards are there, and two packages from different carriers are waiting behind the counter. Nothing is at the old house. Nothing is bouncing. Nothing expires in twelve months, because nothing needs to.
+The truck is unloaded. Somewhere in the stack of boxes is the one with the coffee maker. On day three you swing down Route 44 to Fredle Drive, park by the door, and open your box with your own key: the bank statement is there, the new insurance cards are there, and on a +10 Package tier, two packages from different carriers are waiting behind the counter. Nothing is at the old house. Nothing is bouncing. Nothing expires in twelve months, because nothing needs to.
 
 The move was a big change. Your address was not one of the things that broke.
 

@@ -1,0 +1,90 @@
+{
+  "source_extracts": [
+    {
+      "label": "site pricing pages",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/pages/home-business/mailbox-rental.astro",
+      "quote": "Personal tiers $15/$25/$30/$40 per month; business plans $35/$50 per month; month-to-month, no term commitment."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2; (440) 709-1946."
+    },
+    {
+      "label": "UH TriPoint Medical Center",
+      "url": "https://www.uhhospitals.org/locations/uh-tripoint-medical-center",
+      "quote": "UH TriPoint Medical Center, 7590 Auburn Rd., Concord Township, OH 44077 — full-service hospital in Concord Township. (verified 2026-11-20)"
+    },
+    {
+      "label": "Ohio BMV address change",
+      "url": "https://www.bmv.ohio.gov",
+      "quote": "Ohio drivers must report an address change to the BMV within 30 days (BMV address-change guidance; also OAC 4501:1-1-21)."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "$15", "scope": "Personal Small Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$25",
+      "scope": "Personal Small +10 Packages tier monthly price — receiving included (site pricing pages)"
+    },
+    { "value": "$30", "scope": "Personal Large Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$40",
+      "scope": "Personal Large +10 Packages tier monthly price — receiving included (site pricing pages)"
+    },
+    { "value": "$35", "scope": "Business plan monthly price (site pricing pages)" },
+    { "value": "$50", "scope": "Business plan monthly price (site pricing pages)" },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA mailbox registration form (about.usps.com/forms/ps1583.pdf)"
+    },
+    { "value": "7554", "scope": "Store street number — 7554 Fredle Drive (siteConfig)" },
+    { "value": "44", "scope": "SR-44 route number (location fact, Concord Township)" },
+    { "value": "90", "scope": "I-90 route number (location fact, Concord Township)" },
+    { "value": "9", "scope": "Weekday opening hour — Mon–Fri 9 AM (siteConfig contact.hours)" },
+    { "value": "6", "scope": "Weekday closing hour — 6 PM (siteConfig contact.hours)" },
+    { "value": "2", "scope": "Saturday closing hour — 2 PM (siteConfig contact.hours)" },
+    {
+      "value": "13",
+      "scope": "Travel nurse 13-week contract length (industry staffing norm; article subject)"
+    },
+    {
+      "value": "12",
+      "scope": "Narrative — 'a 12-hour shift' (shift-length idiom, not a policy claim)"
+    },
+    {
+      "value": "30 days",
+      "scope": "Ohio BMV: report an address change within 30 days (Ohio BMV address-change guidance)"
+    },
+    { "value": "123", "scope": "Hypothetical 'PO Box 123' example — illustrative, not a real box" },
+    {
+      "value": "$10",
+      "scope": "Lower bound of national virtual-address middleman pricing $10–$30/mo (iPostal1/Anytime Mailbox published entry plans)"
+    },
+    {
+      "value": "7590",
+      "scope": "UH TriPoint Medical Center street number — 7590 Auburn Road, Concord Township (uhhospitals.org, verified 2026-11-20)"
+    },
+    {
+      "value": "6 months",
+      "scope": "Narrative — renewal notice from an address you left six months ago (illustrative)"
+    },
+    {
+      "value": "4 hours",
+      "scope": "Mail-arrival notification, usually within four hours (established store service copy)"
+    },
+    { "value": "1", "scope": "Numbered list/step marker or narrative count" },
+    { "value": "3", "scope": "Numbered list marker ('the same three questions')" }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
+      "reason": "Mail-Only tiers ($15/$30) do not take carrier packages — package plans ($25/$40) only"
+    },
+    {
+      "forbid": "every plan[^.]*(carrier|deliver)",
+      "reason": "carrier package delivery is package-plan scoped"
+    }
+  ],
+  "required_when": []
+}

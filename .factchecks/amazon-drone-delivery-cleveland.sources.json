@@ -1,0 +1,87 @@
+{
+  "source_extracts": [
+    {
+      "label": "Amazon Prime Air expansion announcement",
+      "url": "https://www.aboutamazon.com/news/transportation/amazon-prime-air-drone-delivery-expansion",
+      "quote": "Amazon Prime Air plans to serve nearly 500 cities and towns by the end of 2026 — a sixfold increase from its current footprint — with Cleveland, Ohio on the launch list. \"We've already delivered hundreds of thousands of packages to customers by drone this year.\" Items arrive in as fast as 30 minutes, with most deliveries landing around an hour after the order. (verified 2026-11-20)"
+    },
+    {
+      "label": "Amazon Prime Air operating rules",
+      "url": "https://www.aboutamazon.com/news/transportation/amazon-prime-air-drone-delivery-expansion + https://www.retaildive.com/news/amazon-expand-drone-delivery-reach-sixfold/828281/",
+      "quote": "Drones carry items weighing 5 pounds or less that fit in a large shoebox. Drone delivery is not available at night, during heavy winds, or in unfavorable weather (per Amazon). (verified 2026-11-20)"
+    },
+    {
+      "label": "site pricing pages",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/pages/home-business/mailbox-rental.astro",
+      "quote": "Personal tiers $15 (Small Mail-Only) and $25 (Small +10 Packages) per month; month-to-month, no term commitment."
+    },
+    {
+      "label": "siteConfig",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; Mon–Fri 9–6, Sat 9–2; (440) 709-1946."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "$15", "scope": "Personal Small Mail-Only tier monthly price (site pricing pages)" },
+    {
+      "value": "$25",
+      "scope": "Personal Small +10 Packages tier — adds package receiving (site pricing pages)"
+    },
+    { "value": "7554", "scope": "Store street number — 7554 Fredle Drive (siteConfig)" },
+    {
+      "value": "500",
+      "scope": "Amazon plans drone delivery to nearly 500 US cities and towns by end of 2026, a sixfold expansion (aboutamazon.com, verified 2026-11-20)"
+    },
+    {
+      "value": "2",
+      "scope": "Narrative delivery window — 'between 2 and 6 p.m.' (scene detail, not a policy claim)"
+    },
+    { "value": "6", "scope": "Narrative delivery window — 'between 2 and 6 p.m.' (scene detail)" },
+    {
+      "value": "30 minutes",
+      "scope": "Amazon: drone items can arrive in as fast as 30 minutes; most deliveries land around an hour (aboutamazon.com, verified 2026-11-20)"
+    },
+    { "value": "5", "scope": "Narrative — darkness at 5 p.m. in December (scene detail)" },
+    {
+      "value": "9",
+      "scope": "Narrative — 'a 9-pound box to a customer in Texas' (illustrative seller scenario)"
+    },
+    {
+      "value": "11",
+      "scope": "Narrative — 'the 11-pound box' that does not fit the drone profile (scene detail)"
+    },
+    {
+      "value": "eleven pounds",
+      "scope": "Narrative scene detail — the box the reader is waiting on (illustrative weight, above the 5-lb drone ceiling)"
+    },
+    {
+      "value": "five pounds",
+      "scope": "Amazon: drones carry items weighing 5 pounds or less (aboutamazon.com, verified 2026-11-20)"
+    },
+    {
+      "value": "6 minutes",
+      "scope": "Narrative — 'a truck driver is six minutes away' (scene detail)"
+    },
+    {
+      "value": "5 minutes",
+      "scope": "Store service copy — shipment processed 'usually in under five minutes' (established store copy)"
+    },
+    {
+      "value": "2 minutes",
+      "scope": "Narrative scene detail — 'two minutes later you are back in the car'"
+    },
+    { "value": "1", "scope": "Numbered step marker (1. Walk in) or narrative count" },
+    { "value": "3", "scope": "Numbered step marker ('three steps', 3. Walk out)" }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
+      "reason": "Mail-Only tier ($15) does not take carrier packages — the $25 package tier does"
+    },
+    {
+      "forbid": "every plan[^.]*(carrier|deliver)",
+      "reason": "carrier package delivery is package-plan scoped"
+    }
+  ],
+  "required_when": []
+}
