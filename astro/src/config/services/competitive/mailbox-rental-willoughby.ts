@@ -104,7 +104,7 @@ export const competePages: Service[] = [
       {
         question: 'How far is Mailbox Plus from Willoughby?',
         answer:
-          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just six minutes from Willoughby. The drive is quick and easy --- right off I-90 and SR 306.',
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just six minutes from Willoughby. The drive is quick and easy --- just off Crile Road, minutes from SR-44 and I-90.',
       },
       {
         question: 'Can I receive UPS and FedEx packages at a mailbox rental?',

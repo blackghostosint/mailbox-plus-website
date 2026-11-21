@@ -112,7 +112,7 @@ export const primaryLocations: LocationData[] = [
     population: 24000,
     uniqueContent: {
       directions:
-        "From downtown Willoughby, take Route 306 north to Route 6, then east to Route 44 south. We're about 8 minutes from there.",
+        'From downtown Willoughby, head east on I-90 or SR-2 to SR-44, then just off Crile Road to 7554 Fredle Drive.',
       landmarks: [
         'Downtown Willoughby',
         'Lost Nation Airport',
@@ -121,7 +121,7 @@ export const primaryLocations: LocationData[] = [
       ],
       localExample: 'Downtown Willoughby boutique owners use us for e-commerce fulfillment.',
       driveTime: 'About 12-15 minutes from downtown',
-      nearbyHighways: ['Route 306', 'Route 6', 'Route 2'],
+      nearbyHighways: ['I-90', 'SR-44', 'Route 2'],
     },
     seo: {
       demonymSingular: 'Willoughby resident',
@@ -170,7 +170,7 @@ export const secondaryLocations: LocationData[] = [
       landmarks: ['Kirtland Temple', 'Holden Arboretum', 'Lake Metroparks Farmpark'],
       localExample: 'Holden Arboretum members ship plant specimens through us.',
       driveTime: 'About 10-12 minutes',
-      nearbyHighways: ['Route 306', 'Route 6'],
+      nearbyHighways: ['I-90', 'SR-44', 'Route 6'],
     },
     seo: {
       demonymSingular: 'Kirtland resident',
@@ -204,11 +204,11 @@ export const secondaryLocations: LocationData[] = [
     population: 18000,
     uniqueContent: {
       directions:
-        'From Eastlake, take Vine Street to Route 306 north, then Route 6 east to Route 44 south.',
+        'From Eastlake, head east on SR-2 or I-90 to SR-44, then just off Crile Road to 7554 Fredle Drive.',
       landmarks: ['Classic Park', 'Eastlake North High School', 'Lakeland Boulevard'],
       localExample: 'Eastlake residents ship collectibles from estate sales through us.',
       driveTime: 'About 12-15 minutes',
-      nearbyHighways: ['Route 306', 'Route 2', 'I-90'],
+      nearbyHighways: ['I-90', 'SR-44', 'Route 2'],
     },
     seo: {
       demonymSingular: 'Eastlake resident',
@@ -223,11 +223,11 @@ export const secondaryLocations: LocationData[] = [
     population: 12500,
     uniqueContent: {
       directions:
-        'From Wickliffe, take Route 306 north to Route 6 east, then Route 44 south. About 10 minutes.',
+        'From Wickliffe, head east on I-90 to SR-44, then just off Crile Road to 7554 Fredle Drive.',
       landmarks: ['Notre Dame College', 'Lloyd Road Shopping', 'Wickliffe Italian-American Club'],
       localExample: 'Notre Dame College families ship care packages through us.',
       driveTime: 'About 10-12 minutes',
-      nearbyHighways: ['Route 306', 'I-90', 'Route 2'],
+      nearbyHighways: ['I-90', 'SR-44', 'Route 2'],
     },
     seo: {
       demonymSingular: 'Wickliffe resident',

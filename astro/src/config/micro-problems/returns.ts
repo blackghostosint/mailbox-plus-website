@@ -681,17 +681,17 @@ export const returnMicroProblems: Service[] = [
     slug: '/vinted-drop-off',
     pageTitle: 'Vinted Drop-Off in Concord Township | Mailbox Plus',
     metaDescription:
-      'Selling on Vinted? Drop off your prepaid packages at Mailbox Plus in Concord Township. We are an official Vinted Go drop-off location — fast, friendly, and local.',
+      'Selling on Vinted? Drop off your prepaid packages at Mailbox Plus in Concord Township. Drop off prepaid Vinted packages (via SpeedX, FedEx, or USPS) — fast, friendly, and local.',
     heroTitle: 'Vinted Drop-Off Location in Concord Township',
     heroSubtitle:
-      'Selling clothes, shoes, or accessories on Vinted? We are an official Vinted Go drop-off location. Bring your prepaid package — we scan, receipt, and send it on its way.',
+      'Selling clothes, shoes, or accessories on Vinted? We accept prepaid Vinted drop-offs via SpeedX, FedEx, and USPS. Bring your prepaid package — we scan, receipt, and send it on its way.',
     content: [
       {
-        heading: 'We Are a Vinted Go Drop-Off Location',
+        heading: 'We Accept Vinted Drop-Offs (SpeedX, FedEx, and USPS)',
         body: `<img src="/vinted-drop-off-featured.webp" alt="Clothing item in a poly mailer with prepaid shipping label ready for drop-off at a service counter" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
-<p>Mailbox Plus is listed as an official <strong>Vinted Go drop-off point</strong>. If you sell on Vinted and need to ship an item, you can drop your prepaid package at our counter.</p>
+<p>Mailbox Plus accepts prepaid <strong>Vinted drop-offs via SpeedX, FedEx, and USPS</strong>. If you sell on Vinted and need to ship an item, you can drop your prepaid package at our counter.</p>
 <p>When you select a drop-off location on Vinted, choose <strong>Mailbox Plus</strong> at <strong>${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}</strong> — and we will handle the rest.</p>
-<p><a href="https://vintedgo.com/en/carrier-locations?country=us&region=usa&bounds=%7B%22south%22%3A41.62709183690886%2C%22west%22%3A-81.3299555189492%2C%22north%22%3A41.81765298829317%2C%22east%22%3A-81.07463982316776%7D&selected_point=147495" rel="nofollow" target="_blank">View Mailbox Plus on the Vinted Go locations map →<span class="sr-only">(opens in a new tab)</span></a></p>`,
+<p><a href="https://vintedgo.com/en/carrier-locations?country=us&region=usa&bounds=%7B%22south%22%3A41.62709183690886%2C%22west%22%3A-81.3299555189492%2C%22north%22%3A41.81765298829317%2C%22east%22%3A-81.07463982316776%7D&selected_point=147495" rel="nofollow" target="_blank">View Mailbox Plus on the Vinted carrier locations map →<span class="sr-only">(opens in a new tab)</span></a></p>`,
       },
       {
         heading: 'How Vinted Shipping Works',
@@ -706,7 +706,7 @@ export const returnMicroProblems: Service[] = [
       {
         heading: 'Why Drop Off at Mailbox Plus?',
         body: `<ul>
-<li><strong>Official Vinted Go location</strong> — listed on Vinted's carrier locator</li>
+<li><strong>Vinted drop-off location</strong> — listed on Vinted's carrier locator for SpeedX, FedEx, and USPS</li>
 <li><strong>Immediate scanning</strong> — your package is scanned and receipted right away, so Vinted knows it is on its way</li>
 <li><strong>Free <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">package drop-off</a></strong> — no charge for dropping off your prepaid Vinted packages</li>
 <li><strong>No extended waiting in line</strong> — we are faster and friendlier than the big chain stores</li>
@@ -726,7 +726,7 @@ export const returnMicroProblems: Service[] = [
       {
         question: 'Does Mailbox Plus really accept Vinted drop-offs?',
         answer:
-          'Yes — we are listed on Vinted Go as an official drop-off location. Just select us when you choose your drop-off point on Vinted.',
+          'Yes — we accept prepaid Vinted drop-offs via SpeedX, FedEx, and USPS. Just select Mailbox Plus when you choose your drop-off point on Vinted.',
       },
       {
         question: 'What are your hours for Vinted drop-offs?',
