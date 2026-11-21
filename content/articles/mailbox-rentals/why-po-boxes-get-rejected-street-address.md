@@ -139,9 +139,9 @@ We don't sell you a miracle. We sell you the thing the form actually asks for: a
 
 1. **Walk in** with two forms of ID — a driver's license and a credit card, for example.
 2. **Fill out the standard Form 1583** — the same USPS form every CMRA uses. It takes about ten minutes.
-3. **Start using your street address the same day.** Your mail arrives, we notify you, and every carrier's packages land on our counter instead of a doorstep.
+3. **Start using your street address the same day.** Your mail arrives, we notify you, and on a package-receiving tier, every carrier's packages land on our counter instead of a doorstep.
 
-Month-to-month, cancel anytime — no lock-in, no per-piece fees.
+Month-to-month, cancel anytime — no lock-in.
 
 ## What Keeping the PO Box Costs You
 

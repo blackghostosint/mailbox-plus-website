@@ -86,7 +86,7 @@ Here is how it works, step by step:
 
 **Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month — month-to-month, completely risk-free, cancel anytime.
 
-**Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
+**Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. On a package-receiving tier ($25 Small or $40 Large), every carrier delivers to it — USPS, UPS, FedEx, and DHL — and packages are received (signed for when required by the carrier) and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
 
 **Step 3 — Get notified, pick up on your schedule.** Mail is scanned as it arrives, and you get notified within four hours — which matters when you are on nights or in another state entirely. Call ahead before you drive over and your mail and packages are pulled and waiting at the counter. If you need mail opened, forwarded, or handled while you are on assignment, a [digital mailbox](/virtual-mailbox-concord-township/) adds remote access on top of the same address.
 
