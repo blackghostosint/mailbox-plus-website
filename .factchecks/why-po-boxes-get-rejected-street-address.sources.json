@@ -72,6 +72,26 @@
     {
       "value": "1583",
       "scope": "USPS Form 1583 — CMRA registration form (about.usps.com/forms/ps1583.pdf)"
+    },
+    {
+      "value": "$25",
+      "scope": "Personal Small +10 Package tier monthly price — includes package receiving (site pricing pages)"
+    },
+    {
+      "value": "$40",
+      "scope": "Personal Large +10 Package tier monthly price — includes package receiving (site pricing pages)"
+    },
+    {
+      "value": "$25/$40",
+      "scope": "Personal +10 Package tiers — Small $25 and Large $40 monthly prices; both include package receiving (site pricing pages)"
+    },
+    {
+      "value": "+10 Package",
+      "scope": "Personal +10 Package tiers include package receiving (site pricing pages)"
+    },
+    {
+      "value": "when a carrier requires",
+      "scope": "Staff sign for package deliveries when required by a carrier (site pricing page)"
     }
   ],
   "scope_rules": [],

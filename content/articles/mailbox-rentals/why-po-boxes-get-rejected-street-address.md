@@ -115,7 +115,7 @@ Here are the "can you use a PO box for X" questions people actually type — ans
 
 ### 10. Can you use a PO box for UPS, FedEx, or DHL packages?
 
-**No — and this one is absolute.** Only the U.S. Postal Service delivers to PO boxes. UPS, FedEx, and DHL drivers physically cannot put a package in a post office locker. If you ship or receive with any carrier but USPS, the package gets refused, redirected, or left at a facility you'll drive across town to visit. A private mailbox is a street address at a real building, so all four carriers deliver to it — that's the single biggest practical difference between the two.
+**No — and this one is absolute.** Only the U.S. Postal Service delivers to PO boxes. UPS, FedEx, and DHL drivers physically cannot put a package in a post office locker. If you ship or receive with any carrier but USPS, the package gets refused, redirected, or left at a facility you'll drive across town to visit. A private mailbox uses a street address; package receiving at Mailbox Plus is included on the $25/$40 +10 Package tiers, and staff sign when a carrier requires it.
 
 ## What a Private Mailbox Actually Is
 
@@ -124,7 +124,8 @@ A private mailbox (PMB) is not a PO box, and it's not a loophole. It's a specifi
 When you rent a PMB, you get:
 
 - **A real street address.** Your mail is addressed to the store's physical address plus your box number — e.g., 7554 Fredle Drive, #123 — not "P.O. Box 47."
-- **All four carriers.** Because it's a street address, UPS, FedEx, DHL, and USPS all deliver.
+- **Package receiving on the +10 Package tiers.** The $25/$40 tiers include receiving for USPS, UPS, FedEx, and DHL packages; mail-only tiers do not include package receiving.
+- **Carrier-required signatures on package tiers.** Staff sign when a carrier requires it.
 - **The same federal paperwork as every legitimate mailbox store.** Form 1583, two forms of ID, and a signature. That form is what registers the address with the USPS and makes it a valid street-format address rather than a locker number.
 
 And here's the part that builds the trust this whole article is about: **a private mailbox does not solve everything.** It is not a residence, so it won't fix a driver's license address or voter registration by itself. It is not a statutory agent, so it can't be the registered agent for your Ohio LLC. If someone tells you a mailbox fixes those, they're overselling you — and you deserve better than that.
@@ -133,7 +134,7 @@ And here's the part that builds the trust this whole article is about: **a priva
 
 We're Mailbox Plus, an independent mailbox store in Concord Township, Ohio, and this is the conversation we have at the counter almost daily: someone who rented a PO box last month, and is now standing in front of us holding a bank letter, an LLC form, or an EIN application that says "street address required."
 
-We don't sell you a miracle. We sell you the thing the form actually asks for: a real street address at 7554 Fredle Drive, with your PMB number, that banks, the DMV's document flow, the IRS's EIN line, and every carrier on the road can use. We'll also tell you the truth about what a mailbox can't do — because a customer who understands the rules is a customer who comes back.
+Banks, the DMV's document flow, and the IRS's EIN line can use a private mailbox's street-format address, but package delivery is included only on the $25/$40 +10 Package tiers.
 
 ## How to Set Up a Street-Address Mailbox
 

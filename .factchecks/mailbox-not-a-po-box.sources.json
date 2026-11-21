@@ -30,6 +30,18 @@
     { "value": "$35", "scope": "Business plan monthly price (site pricing pages)" },
     { "value": "$50", "scope": "Business plan monthly price (site pricing pages)" },
     {
+      "value": "+10 Packages",
+      "scope": "Personal +10 Package tiers include package receiving (site pricing pages)"
+    },
+    {
+      "value": "10",
+      "scope": "Package allowance naming convention in +10 Package tiers (site pricing pages)"
+    },
+    {
+      "value": "when a carrier requires",
+      "scope": "Staff sign for package deliveries when required by a carrier (site pricing page)"
+    },
+    {
       "value": "1583",
       "scope": "USPS Form 1583 — CMRA mailbox registration form (about.usps.com/forms/ps1583.pdf)"
     },
