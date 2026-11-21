@@ -1,6 +1,6 @@
 ---
-title: 'Online Sellers: Get Your Home Address Off Your Labels (Before Someone Looks You Up)'
-description: 'Every label you ship carries your home address. eBay must show seller addresses, Amazon rejects PO boxes. A private mailbox keeps your home off the label.'
+title: 'Does eBay Show Your Address to Buyers? How to Keep Your Home Off Every Label'
+description: 'eBay discloses your registered address to buyers once you pass $20,000 in annual sales — and every label carries your return address. What gets shown, and the fix.'
 slug: 'online-sellers-keep-home-address-private'
 category: 'mailbox-rentals'
 intentKey: 'online-sellers-keep-home-address-private'
@@ -11,12 +11,14 @@ imageAlt: 'A seller at a kitchen table peeling a shipping label off a printer, w
 location: 'lake-county'
 keywords:
   [
-    'etsy return address po box',
-    'ebay po box',
+    'does ebay show your address',
+    'can ebay buyers see my address',
+    'do ebay sellers see your address',
+    'ebay seller address',
     'home address privacy',
-    'return address not home address',
     'private mailbox for online sellers',
   ]
+quickAnswer: "Yes. Once you pass $20,000 in annual eBay sales, the INFORM Consumers Act requires eBay to include your name and full physical address in buyers' order confirmations — and until then, your return address still rides on every shipping label you print. The fix is a private mailbox: a real street address, not a PO box, at a staffed store, used as your registered and return address so your home never appears on a label."
 relatedServices:
   [
     '/home-business/mailbox-rental/',
@@ -39,6 +41,8 @@ faqs:
   - question: 'What are your hours?'
     answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
+
+**Short answer: yes.** Once you cross $20,000 in annual eBay sales, federal law requires eBay to put your name and full physical address into buyers' order confirmations — eBay states this plainly in its own INFORM Consumers Act guidance. And even below that threshold, every label you print on every platform carries your return address. Your home is exposed either way — unless you give the platforms a different real street address. This article breaks down exactly what each platform discloses and the fix that takes your home off all of it.
 
 ## The Address On Every Box You Ship
 
