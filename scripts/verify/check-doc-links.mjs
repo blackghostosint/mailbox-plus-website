@@ -330,14 +330,24 @@ export function checkDynamicPathBaseExists(term, dirOfDoc, rootDir = ROOT) {
 export function isPathCandidate(term) {
   if (!term) return false;
 
-  // Contains slashes
-  if (term.includes('/')) return true;
-
-  // Has recognized file extension
+  // Has recognized file extension (e.g. non/existent/script/file.js, README.md)
   if (FILE_EXTENSIONS_REGEX.test(term)) return true;
 
-  // Matches known repo root file
+  // Matches known repo root file (e.g. package.json, netlify.toml)
   if (REPO_ROOT_FILES.has(term)) return true;
+
+  // Slash-containing tokens are only treated as paths when anchored to a
+  // relative prefix (./, ../), leading slash, or a known top-level repo folder
+  // (avoids false positives on slash prose like "24/7", "USPS/Certified", "signature/notarization").
+  if (term.includes('/')) {
+    if (term.startsWith('./') || term.startsWith('../') || term.startsWith('/')) {
+      return true;
+    }
+    const firstSeg = term.split('/')[0].toLowerCase();
+    if (REPO_TOP_FOLDERS.has(firstSeg)) {
+      return true;
+    }
+  }
 
   return false;
 }
