@@ -50,7 +50,7 @@
 
 ### Explicitly FALSE / Forbidden Claims (Never Write)
 
-- **NEVER** say `"We keep USPS/Certified Mail forms in stock and fill them out for you"` or that we do USPS forwarding/COA paperwork for customers (PR #953, #957).
+- **NEVER** say "We keep USPS/Certified Mail forms in stock and fill them out for you" or that we do USPS forwarding/COA paperwork for customers (PR #953, #957).
 - **NEVER** say `"we'll read the scans with you... and help you pull together a Missing Mail search / service request / insurance claim"` (PR #904).
 - **NEVER** say `"Sizing up the surcharge stack on your package is our job"` — carriers dictate surcharges, not Mailbox Plus (PR #791).
 - **NEVER** promise `"never get a door tag"` / `"No door tag will ever be involved"` (PR #1002).
@@ -129,7 +129,7 @@
 - **NEVER** cite **"$35/month"** as the _personal_ mailbox starting price (personal starts at $15/mo mail-only / $25/mo with packages; $35/mo is **Business Small** only — PR #1008, #1009).
 - **NEVER** claim Mail-Only tiers include package receiving, signing, or notifications.
 - **NEVER** invent **`"$30 per month unlimited"`** receiving fees (PR #1008, #1012). (Non-holder walk-in receiving is $10/package; PMB overage is $5/package.)
-- **NEVER** use **`"24/7 access"`** or `"24-hour"` anything — access and services are during **regular store hours only**.
+- **NEVER** use **"24/7 access"** or `"24-hour"` anything — access and services are during **regular store hours only**.
 
 ---
 
@@ -137,7 +137,7 @@
 
 ### Approved
 
-- **Notary Public:** Walk-in notary during all store hours (Mon–Fri 9–6, Sat 9–2, Sun closed — PR #824). **`$5.00 per signature/notarization`** (Ohio statutory fee cap). Can notarize and ship documents (e.g., for Ohio apostille to Columbus) in a single transaction (PR #895, #829).
+- **Notary Public:** Walk-in notary during all store hours (Mon–Fri 9–6, Sat 9–2, Sun closed — PR #824). **$5.00 per signature/notarization** (Ohio statutory fee cap). Can notarize and ship documents (e.g., for Ohio apostille to Columbus) in a single transaction (PR #895, #829).
 - **Copies & Document Printing (In-House):** B&W and color copies (collated/sorted) and document printing from USB/email/cloud, single/double-sided, sizes **`8.5×11`, `LEGAL`, `11×17`** (PR #663).
 - **Laminating (In-House):** Yes, **up to `8.5×11` (letter size)**.
 - **Graphic Design (In-House):** We actually design (logos, layouts, etc.).
