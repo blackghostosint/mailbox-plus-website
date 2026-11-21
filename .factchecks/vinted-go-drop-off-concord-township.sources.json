@@ -1,0 +1,76 @@
+{
+  "source_extracts": [
+    {
+      "label": "Vinted help center — integrated shipping",
+      "url": "https://www.vinted.com/help/234",
+      "quote": "the order will be cancelled automatically (prepaid label must be used for that order; wrong label/method cancels the order)"
+    },
+    {
+      "label": "Vinted help center — how to send with a shipping label",
+      "url": "https://www.vinted.com/help/1549",
+      "quote": "shop staff will scan it ... tracking can take up to 48 hours after sending to appear; you'll receive an email to confirm the package drop-off"
+    },
+    {
+      "label": "SpeedX",
+      "url": "https://speedx.io/",
+      "quote": "SpeedX is a technology company for e-commerce deliveries (last-mile carrier)"
+    },
+    {
+      "label": "site config",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "street: '7554 Fredle Drive'"
+    },
+    {
+      "label": "owner naming ruling",
+      "url": "Frank Schwarz, 2026-11-20 (kanban card W8 P3)",
+      "quote": "Vinted is the company name ... 'Vinted Go' is only their in-app shipping label brand — at most ONE clarified mention"
+    }
+  ],
+  "numeric_claims": [
+    { "value": "7554", "scope": "store street number (siteConfig.ts)" },
+    {
+      "value": "48 hours",
+      "scope": "Vinted help center: tracking may take up to 48 hours after sending to appear"
+    },
+    { "value": "11", "scope": "narrative scene clock (11:47 at night) — not a service claim" },
+    { "value": "47", "scope": "narrative scene clock (11:47 at night) — not a service claim" },
+    {
+      "value": "25",
+      "scope": "narrative contrast: a hypothetical 25-minute drive to a far-side-of-county drop-off — not a store drive-time claim"
+    },
+    {
+      "value": "1",
+      "scope": "word-form 'one' in narrative phrasing (one counter, one scan, one confirmation) — not a policy claim"
+    },
+    {
+      "value": "3",
+      "scope": "word-form 'three' in narrative phrasing (reading the same three lines; Three Steps heading) — not a policy claim"
+    },
+    { "value": "2", "scope": "step numbering (Step 2 — Bring it to Mailbox Plus)" },
+    {
+      "value": "44",
+      "scope": "SR-44 route number in the canonical location phrasing (SOT 'Location Facts — CANONICAL')"
+    },
+    {
+      "value": "90",
+      "scope": "I-90 interstate number in the canonical location phrasing (SOT 'Location Facts — CANONICAL')"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "Vinted Go (drop-off|network|shop|shops)",
+      "reason": "owner naming ruling 2026-11-20: 'Vinted' leads and packages ship via SpeedX; 'Vinted Go' appears only as the clarified in-app shipping-label brand mention"
+    },
+    {
+      "forbid": "(off|on|down|along|near) Route 306",
+      "reason": "canonical SOT location facts: the store is just off Crile Road, minutes from SR-44 and I-90 — never located via Route 306 (OH-306/Chillicothe Rd, ~3 mi west)"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "48 hours",
+      "must_include": "up to",
+      "note": "Vinted states tracking CAN TAKE UP TO 48 hours — never a flat 48-hour guarantee"
+    }
+  ]
+}

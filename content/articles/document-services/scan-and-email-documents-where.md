@@ -108,7 +108,7 @@ Stick with the kitchen-table method and here's the bill you keep paying without 
 
 ## Off Your Desk, Off Your Mind
 
-Picture the rest of that day. You swing by the store on your normal route — minutes from Concord, Mentor, Painesville, and Chardon — just off Route 306 (Chillicothe Road). You hand over the pages, give the email address, and answer exactly zero questions about resolution or file format. The counter sends it. You take your originals back and you're done.
+Picture the rest of that day. You swing by the store on your normal route — an easy drive from Concord, Mentor, Painesville, and Chardon — just off Crile Road, minutes from SR-44 and I-90. You hand over the pages, give the email address, and answer exactly zero questions about resolution or file format. The counter sends it. You take your originals back and you're done.
 
 And here's the part that matters: the mental tab closes. No notification chime you keep glancing at to see if the attachment bounced. No faint worry that the scan was too dark. It's gone from your head because someone competent took custody of it — the same feeling as handing your tax folder to your accountant in April instead of doing the math yourself at the kitchen table at midnight. That document is sent, readable, and out of your life. That's what "scanned and emailed" is supposed to feel like.
 
