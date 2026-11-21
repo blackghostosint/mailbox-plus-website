@@ -1,5 +1,8 @@
 {
-  "$comment": "Canonical store/business facts. Source of truth: vault MAILBOX_PLUS_SOURCE_OF_TRUTH.md 'Location Facts' section + Frank. Any PR editing this file requires owner review.",
+  "$comment": "Canonical store/business facts. Machine-synced companion to docs/SOURCE_OF_TRUTH.md (verified 2026-11-21, Frank Schwarz). Any PR editing this file requires owner review.",
+  "legal_name": "Mailbox Plus Ohio, LLC",
+  "founding_year": 2024,
+  "official_opening": "2025-05-05",
   "address": {
     "street": "7554 Fredle Drive",
     "city": "Concord Township",
@@ -7,7 +10,7 @@
     "zip": "44077",
     "plaza": "Gristmill Village",
     "neighbor": "Pub Frato",
-    "coordinates": { "lat": 41.6656, "lng": -81.2419 }
+    "coordinates": { "lat": 41.664989741819, "lng": -81.24164826876654 }
   },
   "phone": "(440) 709-1946",
   "phone_alt": "440-709-1946",
@@ -20,7 +23,11 @@
   "approved_phrasing": [
     "just off Crile Road, minutes from SR-44 and I-90",
     "Gristmill Village",
-    "next to Pub Frato"
+    "next to Pub Frato",
+    "Month-to-month, no term commitment, cancel anytime",
+    "we sign for your deliveries if required",
+    "We pull live rates from all four carriers — UPS, FedEx, USPS, and DHL — side by side",
+    "we are package experts, not your attorneys… we cannot give legal advice"
   ],
   "forbidden": [
     {
@@ -32,31 +39,67 @@
       "reason": "Stale/wrong plaza name (was in old locations config). Plaza is Gristmill Village."
     },
     { "pattern": "Pet Supplies Plus", "reason": "Wrong neighbor. Neighbor is Pub Frato." },
-    { "pattern": "just off Route 306", "reason": "wrong road claim" }
+    { "pattern": "just off Route 306", "reason": "wrong road claim" },
+    {
+      "pattern": "no annual contract",
+      "reason": "Use 'no term commitment' (docs/SOURCE_OF_TRUTH.md §4)."
+    },
+    {
+      "pattern": "30-day risk-free",
+      "reason": "Unapproved offer language (docs/SOURCE_OF_TRUTH.md §4)."
+    },
+    {
+      "pattern": "24/7 access",
+      "reason": "Store hours only; no 24/7 access (docs/SOURCE_OF_TRUTH.md §1, §4)."
+    },
+    {
+      "pattern": "Vinted Go",
+      "reason": "Use 'Vinted (via SpeedX, FedEx, or USPS)' (docs/SOURCE_OF_TRUTH.md §3)."
+    },
+    {
+      "pattern": "passport photo",
+      "reason": "Passport photos are NOT offered in store (docs/SOURCE_OF_TRUTH.md §5)."
+    },
+    {
+      "pattern": "Plus Points",
+      "reason": "Rewards / Plus Points are NOT live yet (docs/SOURCE_OF_TRUTH.md §5)."
+    },
+    {
+      "pattern": "everything prints here",
+      "reason": "Business cards/posters/banners are outsourced (docs/SOURCE_OF_TRUTH.md §5)."
+    },
+    {
+      "pattern": "$1.25/lb",
+      "reason": "Stale shredding price; canonical is $1.00/lb (docs/SOURCE_OF_TRUTH.md §5)."
+    },
+    {
+      "pattern": "$30 per month unlimited",
+      "reason": "Invented receiving fee; non-holder walk-in is $10/pkg, PMB overage $5/pkg (docs/SOURCE_OF_TRUTH.md §4)."
+    }
   ],
   "owner_verified_claims": [
     {
       "claim": "Certificate of Destruction provided for shredding jobs",
       "since": "2026-09-12",
-      "note": "Frank designing official certificate; claims in articles OK (PR #461 thread)."
+      "note": "Claims in articles OK (PR #461; reconfirmed 2026-11-21)."
     },
     {
       "claim": "International drop-offs accepted; NO in-store international shipment processing",
       "since": "2026-09-11",
-      "note": "PR #460/#462 threads."
+      "note": "PR #460/#462; reconfirmed 2026-11-21."
     },
     {
-      "claim": "Fingerprinting (Live Scan, Ohio BCI/FBI) offered at counter",
+      "claim": "Fingerprinting (Live Scan, Ohio BCI/FBI) via fastfingerprints.com offered in store",
       "since": "2026-09-15",
-      "note": "Eastlake fingerprinting/fingerprinting articles; services catalog."
+      "note": "Reconfirmed 2026-11-21."
     },
     {
       "claim": "Shredding $1.00/lb on-site, no minimums, staples OK",
       "since": "2026-09-15",
-      "note": "Site config + PR #461."
+      "note": "Site config + PR #461; reconfirmed 2026-11-21."
     },
     {
-      "claim": "Notary on duty all open hours, walk-in, no appointment",
+      "claim": "Notary on duty all open hours, walk-in, no appointment ($5/signature)",
       "since": "2026-09-15",
       "note": "Notary articles + site config."
     },
@@ -66,12 +109,50 @@
       "note": "PR #457 packing-tape article."
     },
     {
-      "claim": "SpeedX drop-off / Vinted Go pre-labeled drop-off accepted",
-      "since": "2026-09-10",
-      "note": "PR #455."
+      "claim": "Label printing service $2.00 flat (customer emails PDF)",
+      "since": "2026-09-12",
+      "note": "Canonical business-rules.md + docs/SOURCE_OF_TRUTH.md §2."
+    },
+    {
+      "claim": "SpeedX drop-off and Vinted drop-offs (via SpeedX, FedEx, or USPS) accepted",
+      "since": "2026-11-21",
+      "note": "Updated from legacy 'Vinted Go' wording per owner + vinted.com/help/234."
+    },
+    {
+      "claim": "QR-code returns accepted for Happy Returns, FedEx Easy Returns, and USPS Label Broker only (NO Amazon QR codes)",
+      "since": "2026-11-21",
+      "note": "Owner confirmed 2026-11-21; Amazon accepted pre-labeled only."
+    },
+    {
+      "claim": "Inbound alcohol shipments accepted; staff signs if needed (no outbound consumer alcohol shipping)",
+      "since": "2026-11-21",
+      "note": "Owner confirmed 2026-11-21; PR #894."
+    },
+    {
+      "claim": "Non-holder walk-in package receiving fee is $10.00/package (PMB overage $5.00/package)",
+      "since": "2026-11-21",
+      "note": "Owner confirmed 2026-11-21."
     }
   ],
+  "pmb_pricing": {
+    "personal": {
+      "small_mail_only": "$15/mo",
+      "small_plus_10_packages": "$25/mo",
+      "large_mail_only": "$30/mo",
+      "large_plus_10_packages": "$40/mo"
+    },
+    "business": {
+      "business_small_10_packages": "$35/mo",
+      "business_large_25_packages": "$50/mo"
+    },
+    "overage_per_package": "$5.00",
+    "non_holder_receiving_per_package": "$10.00",
+    "oversized_flat": "$5.00",
+    "long_hold_after_5_days_per_day": "$1.00",
+    "key_deposit_refundable": "$5.00"
+  },
   "notary_fee_cap_ohio": "$5",
   "shredding_price_per_pound": "$1.00",
+  "label_printing_flat": "$2.00",
   "reseal_price": "$1.00"
 }

@@ -1,19 +1,23 @@
 {
-  "version": "2026-11-12",
+  "version": "2026-11-21",
   "owner_approved_by": "Frank Schwarz",
+  "source_of_truth": "docs/SOURCE_OF_TRUTH.md",
   "approved_capabilities": [
-    "Concord Township counter at 7554 Fredle Dr ships via USPS, UPS, FedEx, and DHL",
-    "Staff boxes, packs, tapes, weighs, and prints labels for items brought in unboxed or untaped",
-    "Accepts pre-labeled drop-off packages for UPS, FedEx, USPS, and DHL",
-    "Accepts QR-code returns for Happy Returns (no box or label needed)",
-    "Rents Private Mailboxes (PMB) with real street address formatting (# or PMB, never Suite); Mail-Only and package-receiving tiers differ per published pricing page",
-    "Provides walk-in notary public (Ohio statutory fee cap $5 per notarization), digital fax send/receive (no customer-operated physical fax machine or printed confirmation slip), document shredding, scanning, and printing"
+    "Concord Township counter at 7554 Fredle Dr (Gristmill Village, next to Pub Frato, just off Crile Road, minutes from SR-44 and I-90) ships via USPS, UPS, FedEx, and DHL",
+    "Staff boxes, custom-packs, tapes, weighs, and prints labels for items brought in unboxed or untaped ($2.00 flat label printing; $1.00 re-seal/tape-check)",
+    "Accepts pre-labeled drop-off packages for UPS, FedEx, USPS, DHL, and SpeedX (including pre-labeled international drop-offs; NO in-store international shipment processing)",
+    "Accepts QR-code returns for Happy Returns Bar (#1 locator for 44077), FedEx Easy Returns, and USPS Label Broker ONLY (Amazon accepted pre-labeled only; NO Amazon QR codes)",
+    "Accepts Nuuly and Vinted drop-offs (via SpeedX, FedEx, or USPS; never 'Vinted Go')",
+    "Accepts inbound alcohol shipments and signs if needed (cannot ship consumer alcohol outbound)",
+    "Rents Private Mailboxes (PMB) month-to-month with no term commitment, cancel anytime, real street address formatting (# or PMB, never Suite): Personal $15/$25/$30/$40 and Business $35/$50; non-holder walk-in package receiving $10/package",
+    "Provides walk-in notary public ($5/signature), digital fax send/receive (no customer-operated physical fax machine or printed confirmation slip), document shredding ($1.00/lb, no minimum, staples OK, Certificate of Destruction), scanning, in-house B&W/color copies and document printing (8.5x11/LEGAL/11x17), laminating up to 8.5x11, in-house graphic design, EDDM, and Live Scan (Ohio BCI/FBI) fingerprinting via fastfingerprints.com"
   ],
   "forbidden_without_signoff": [
     "Quantitative turnaround or wait-time promises ('under 3 minutes', 'in two minutes', 'guaranteed same-hour')",
-    "Superlatives ('cheapest', 'best', '#1', 'lowest price')",
+    "Superlatives ('cheapest', 'best', '#1', 'lowest price') — exception: Happy Returns #1 locator for 44077",
     "Unverified volume/experience counts ('thousands of packages', 'decades')",
-    "Categorical claims that every mailbox tier includes package receiving or 24/7 access",
+    "Categorical claims that every mailbox tier includes package receiving or 24/7 access, or 'no annual contract' / '30-day risk-free' wording",
+    "Claiming unoffered/unlaunched services: passport photos, Plus Points rewards, Amazon QR codes, AT&T/Verizon/Spectrum/Cox/Xfinity equipment returns, on-site business card/poster/banner printing, or in-store international shipment processing",
     "Categorical claims about competitor internal operations not backed by an official URL in .factchecks/"
   ]
 }
