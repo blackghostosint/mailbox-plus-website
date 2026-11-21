@@ -40,6 +40,18 @@
     { "value": "$35", "scope": "Business plan monthly price (site pricing pages)" },
     { "value": "$50", "scope": "Business plan monthly price (site pricing pages)" },
     {
+      "value": "$5",
+      "scope": "Per-package overage fee beyond 10 included packages/month on +10 Package tiers (site pricing pages)"
+    },
+    {
+      "value": "$1",
+      "scope": "Daily storage fee ($1/day) for packages held longer than 5 days (site pricing pages)"
+    },
+    {
+      "value": "5 days",
+      "scope": "Free package holding window before $1/day storage fee applies (site pricing pages)"
+    },
+    {
       "value": "1583",
       "scope": "USPS Form 1583 — CMRA mailbox registration form (about.usps.com/forms/ps1583.pdf)"
     },

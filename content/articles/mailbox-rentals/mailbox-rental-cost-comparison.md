@@ -112,7 +112,7 @@ Add it up for a normal month: base plan plus scans on ten envelopes, a couple of
 
 There's a second cost that never shows on a bill: the middleman markup. iPostal1 and Anytime Mailbox don't own the stores where your mail lands. They rent space at local mail centers — places exactly like ours — and sell you remote access to a mailbox a local store could have rented to you directly. You're paying a national call center to manage a mailbox at a shop down the road.
 
-## Option 4: The Real Private Mailbox — Flat Rate, No Per-Piece Fees
+## Option 4: The Real Private Mailbox — Published Tiers, No Activation Fee
 
 A private mailbox (PMB) is the same product category as the store mailbox and the virtual mailbox — a real street address at a commercial mail receiving agency — but rented directly from the local store that holds your mail.
 
@@ -121,29 +121,29 @@ At Mailbox Plus, the current rates are simple:
 - **Personal tiers: $15 (mail-only small) · $25 (small + 10 packages) · $30 (large mail-only) · $40 (large + 10 packages) a month**
 - **Business plans: $35 or $50 a month**
 
-That's the monthly price. No per-piece scan fees, no per-item storage fees, no activation fee, no mandatory contract term. (Rate increases are planned in the future, so if you're reading this later, confirm the current price — but the structure stays flat.)
+That's the monthly base price — no per-piece mail scan fees, no activation fee, no mandatory contract term. On the +10 Package tiers ($25 Small or $40 Large), up to 10 packages per month are included, then $5 per extra package; packages held longer than 5 days are $1/day. (Rate increases are planned in the future, so if you're reading this later, confirm the current price.)
 
-What the flat rate includes at our store:
+What those tiers include at our store:
 
 - **A real street address** at 7554 Fredle Drive in Concord Township — 7554 Fredle Drive plus your PMB number.
-- **All four carriers deliver** — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages when a carrier requires it.
+- **All four carriers deliver** on our +10 Package tiers — UPS, FedEx, DHL, and USPS. Drivers drop at our counter; we sign for your packages when a carrier requires it.
 - **We notify you when mail arrives**, usually within four hours.
 - **Secure holding** behind our locked counter — no doorstep, no porch pirates.
 - **Month-to-month.** Completely risk-free — cancel anytime, so you can test the address before committing.
 - **The paperwork is the standard Form 1583** — two forms of ID and about ten minutes at the counter. That's the same USPS form every legitimate mailbox store uses, including The UPS Store.
 
-The honest trade-off: a private mailbox costs more per month than the _advertised_ price of a PO Box or a virtual mailbox. But it's a real street address with all carriers, and the price doesn't move when your mail volume does. One bill. No surprise fees.
+The honest trade-off: a private mailbox costs more per month than the _advertised_ price of a PO Box or a virtual mailbox. But it's a real street address with published, predictable rates instead of per-letter scan fees.
 
 ## The Comparison You Actually Need
 
 Here's the whole landscape in one table, with the numbers that matter:
 
-| Option                               | Advertised monthly price                   | What's really included                                      | What it costs you in practice                                                     |
-| ------------------------------------ | ------------------------------------------ | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **PO Box**                           | ~$7–$25 depending on size and location     | USPS letters only                                           | FedEx/UPS packages don't come; small boxes fill up fast                           |
-| **Store mailbox**                    | $15–$30+, set by each franchise            | Street address, but carrier coverage and fees vary by store | Activation fees, 6–12 month contracts, forwarding billed in advance               |
-| **Virtual mailbox**                  | $9.99–$15 entry plans                      | Remote scans, but per-item fees on everything               | $0.35 over-limit, $2.25 scans, $1.10 storage, $4.95 check deposits — adds up fast |
-| **Private mailbox at a local store** | Personal $15-$40 · Business $35/$50 (flat) | Street address, all 4 carriers, notification, secure hold   | One flat bill. No per-piece fees. Month-to-month.                                 |
+| Option                               | Advertised monthly price               | What's really included                                          | What it costs you in practice                                                        |
+| ------------------------------------ | -------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **PO Box**                           | ~$7–$25 depending on size and location | USPS letters only                                               | FedEx/UPS packages don't come; small boxes fill up fast                              |
+| **Store mailbox**                    | $15–$30+, set by each franchise        | Street address, but carrier coverage and fees vary by store     | Activation fees, 6–12 month contracts, forwarding billed in advance                  |
+| **Virtual mailbox**                  | $9.99–$15 entry plans                  | Remote scans, but per-item fees on everything                   | $0.35 over-limit, $2.25 scans, $1.10 storage, $4.95 check deposits — adds up fast    |
+| **Private mailbox at a local store** | Personal $15-$40 · Business $35/$50    | Street address, all 4 carriers (+10 Package tiers), 4-hr alerts | Published monthly tiers ($5/extra pkg past 10; $1/day held >5 days). Month-to-month. |
 
 The question isn't "which has the lowest advertised price?" It's "what will this mailbox cost me in a normal month, with my mail volume, my packages, and my travel?" That's the only honest way to compare.
 
