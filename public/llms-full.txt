@@ -9361,11 +9361,13 @@ If you need a document notarized in Lake County, do not spend your afternoon dri
 
 ---
 
-### Online Sellers: Get Your Home Address Off Your Labels (Before Someone Looks You Up)
+### Does eBay Show Your Address to Buyers? How to Keep Your Home Off Every Label
 
 URL: https://mailboxplusohio.com/articles/online-sellers-keep-home-address-private/
 Category: mailbox-rentals
 Published: 2026-08-19
+
+**Short answer: yes.** Once you cross $20,000 in annual eBay sales, federal law requires eBay to put your name and full physical address into buyers' order confirmations — eBay states this plainly in its own INFORM Consumers Act guidance. And even below that threshold, every label you print on every platform carries your return address. Your home is exposed either way — unless you give the platforms a different real street address. This article breaks down exactly what each platform discloses and the fix that takes your home off all of it.
 
 ## The Address On Every Box You Ship
 
