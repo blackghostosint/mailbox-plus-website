@@ -94,4 +94,17 @@ describe('check-doc-links', () => {
     expect(isWebDomain('package.json')).toBe(false);
     expect(isWebDomain('google.com.attacker.com')).toBe(false);
   });
+
+  it('does not flag backticked slash prose or prices as broken repo file paths', () => {
+    const markdown = [
+      '# Pricing & Rules',
+      'Avoid `"24/7 access"`, `"USPS/Certified Mail"`, `$5.00 per signature/notarization`, and `$5/pkg`.',
+      'Real broken repo path: `docs/does-not-exist-anywhere.md`.',
+    ].join('\n');
+
+    const errors = validateMarkdownContent(markdown, ROOT, ROOT);
+    expect(errors).toHaveLength(1);
+    expect(errors[0].target).toBe('docs/does-not-exist-anywhere.md');
+    expect(errors[0].lineNum).toBe(3);
+  });
 });
