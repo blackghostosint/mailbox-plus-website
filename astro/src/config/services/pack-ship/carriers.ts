@@ -168,7 +168,7 @@ export const carrierServices: Service[] = [
     cta: {
       title: 'Need to Ship FedEx?',
       subtitle:
-        'Authorized ShipCenter. We pack, label, and ship. Same FedEx services, local help. From $35/month for a private mailbox \u2014 every package goes to our counter, not your porch.',
+        'Authorized ShipCenter. We pack, label, and ship. Same FedEx services, local help. From $25/month for a package-receiving mailbox \u2014 every package goes to our counter, not your porch.',
       buttonText: 'Bring Your Package In \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -315,7 +315,7 @@ export const carrierServices: Service[] = [
     cta: {
       title: 'Need to Ship UPS?',
       subtitle:
-        'Authorized Shipping Outlet. Ground, Air, International. Same UPS services, local convenience. From $35/month for a private mailbox.',
+        'Authorized Shipping Outlet. Ground, Air, International. Same UPS services, local convenience. From $15/month for a private mailbox.',
       buttonText: 'Bring Your Package In \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -463,7 +463,7 @@ export const carrierServices: Service[] = [
     cta: {
       title: 'Skip the Post Office Line',
       subtitle:
-        'Priority Mail, First Class, International. Same USPS services, no wait. From $35/month for a private mailbox.',
+        'Priority Mail, First Class, International. Same USPS services, no wait. From $15/month for a private mailbox.',
       buttonText: 'Bring Your Mail In \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -626,7 +626,7 @@ export const carrierServices: Service[] = [
     cta: {
       title: 'Shipping Internationally?',
       subtitle:
-        'DHL Express from our counter. Customs-ready packing and forms included. From $35/month for a private mailbox.',
+        'DHL Express from our counter. Customs-ready packing and forms included. From $15/month for a private mailbox.',
       buttonText: 'Ship International \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -780,7 +780,7 @@ export const carrierServices: Service[] = [
     cta: {
       title: 'Need Stamps?',
       subtitle:
-        'Forever stamps, books, and metered mail. Grab them while you ship. From $35/month for a private mailbox.',
+        'Forever stamps, books, and metered mail. Grab them while you ship. From $15/month for a private mailbox.',
       buttonText: 'Pick Up Stamps \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
