@@ -25,7 +25,7 @@ faqs:
   - question: 'What can an Amazon drone actually carry?'
     answer: 'Drones carry items weighing 5 pounds or less that fit in a large shoebox — phones, small electronics, small household orders. Anything heavier, oversized, or fragile still moves by truck, and Amazon says drone delivery only runs in daylight and fair weather.'
   - question: 'Can a drone deliver to a PO box or hold a package for me?'
-    answer: 'No. Drones drop at a physical street address with a clear landing zone, and they do not wait for you or take signatures. A private mailbox at Mailbox Plus gives every carrier — including UPS, FedEx, and DHL, which cannot deliver to PO boxes — a staffed counter that signs for and holds your packages.'
+    answer: 'No. Drones drop at a physical street address with a clear landing zone, and they do not wait for you or take signatures. A private mailbox at Mailbox Plus gives every carrier — including UPS, FedEx, and DHL, which cannot deliver to PO boxes — a staffed counter on our package-receiving tiers (starting at $25/month) that holds your packages and signs for deliveries when a carrier requires it.'
   - question: 'What is the cheapest way to get packages held safely in Concord Township?'
     answer: 'A private mailbox rental starts at $15 a month for a mail-only small box; the $25 tier adds package receiving from all carriers. Staff sign for deliveries when a carrier requires it and hold everything behind the counter until you pick it up.'
 ---
@@ -83,14 +83,14 @@ Every day we see the packages the drone news never mentions:
 - **The online seller** dropping off five boxes at once, needing a scan and a receipt and someone who knows which carrier is actually cheapest for a 6-pound box to Michigan.
 - **The small business owner** who does not want their home address on the package, on the registry, on the return label — who wants the world to see a professional address, not their driveway.
 
-We are a UPS Authorized Shipping Outlet. We handle FedEx, USPS, and DHL too. We receive packages for you, we hold them, we sign for them, we call you when they land. We are the part of the delivery system that actually cares about the receiving end.
+We are a UPS Authorized Shipping Outlet. We handle FedEx, USPS, and DHL too. On our package-receiving tiers, we receive packages for you, hold them, sign when a carrier requires it, and notify you when they land. We are the part of the delivery system that actually cares about the receiving end.
 
 ## Three Steps at the Counter
 
 You do not need to wait for a drone, or hope the weather cooperates, or hover over your Ring camera. You need a place where packages land safely and returns leave easily. Three steps:
 
 1. **Walk in.** Tell us what you are expecting, or what you are sending. No appointment, no membership required to start.
-2. **We handle it.** For receiving, we sign for the package and hold it until you pick it up. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
+2. **We handle it.** For receiving (on a package-receiving tier), we hold your package behind the counter and sign when a carrier requires it. For shipping, we pack it right, compare the carriers, and get you the honest rate. For returns, we take the label, scan it, and it is on its way.
 3. **Walk out.** Your package is safe behind the counter, or your shipment is in the system with a tracking number in your hand — usually in under five minutes.
 
 If you want the receiving part to feel automatic, a mailbox rental here gives you a real street address — starting at $15 a month (the $25 tier adds package receiving) — and private carriers can actually deliver to it, which they cannot do with a PO box.

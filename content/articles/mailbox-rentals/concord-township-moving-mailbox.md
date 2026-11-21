@@ -20,7 +20,7 @@ relatedServices: ['/private-mailbox-rental/', '/mailbox-rental-concord-ohio/', '
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
+    answer: 'Personal tiers are $15 (Small Mail-Only), $25 (Small +10 Packages), $30 (Large Mail-Only), and $40 (Large +10 Packages) a month; business plans are $35 and $50 a month. Packages held longer than 5 days are $1/day. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID â€” one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -105,7 +105,7 @@ File the USPS change of address too, if you want the old-address mail rerouted â
 
 ## Life at the New House With Mail That Never Misses
 
-The truck is unloaded. Somewhere in the stack of boxes is the one with the coffee maker. On day three you swing down Route 44 to Fredle Drive, park by the door, and open your box with your own key: the bank statement is there, the new insurance cards are there, and two packages from different carriers are waiting behind the counter. Nothing is at the old house. Nothing is bouncing. Nothing expires in twelve months, because nothing needs to.
+The truck is unloaded. Somewhere in the stack of boxes is the one with the coffee maker. On day three you swing down Route 44 to Fredle Drive, park by the door, and open your box with your own key: the bank statement is there, the new insurance cards are there, and on a +10 Package tier, two packages from different carriers are waiting behind the counter. Nothing is at the old house. Nothing is bouncing. Nothing expires in twelve months, because nothing needs to.
 
 The move was a big change. Your address was not one of the things that broke.
 

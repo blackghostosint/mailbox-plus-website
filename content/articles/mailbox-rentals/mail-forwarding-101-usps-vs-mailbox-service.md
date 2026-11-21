@@ -1,6 +1,6 @@
 ---
 title: 'Mail Forwarding 101: USPS vs. a Real Mailbox Service'
-description: 'USPS forwarding only lasts 12 months and does not touch packages from UPS, FedEx, or DHL. Here is how a real mailbox service holds and forwards everything.'
+description: 'USPS forwarding only lasts 12 months and does not touch packages from UPS, FedEx, or DHL. Here is how a real mailbox service holds and forwards your mail — plus packages on package-receiving tiers.'
 slug: 'mail-forwarding-101-usps-vs-mailbox-service'
 category: 'mailbox-rentals'
 intentKey: 'mail-forwarding-101-usps-vs-mailbox-service'
@@ -103,7 +103,7 @@ Then you control the forwarding. Going to Florida for the winter? Tell us when y
 
 Whether you are moving once or traveling all year, the fix takes about ten minutes:
 
-1. **Get a permanent address.** Rent a mailbox at a real, staffed location — not a PO box number, but a street address every carrier delivers to. This becomes the one address you never change again.
+1. **Get a permanent address.** Rent a mailbox at a real, staffed location — not a PO box number, but a street address where every carrier delivers on our +10 Package tiers. This becomes the one address you never change again.
 2. **Set your forwarding on your terms.** When you travel, call ahead or send a quick note and we hold your mail — packages included on the +10 Package tiers — until you return or ask for a shipment. No 30-day limit, no "did it make the batch" guessing.
 3. **Go check your mail when you want.** Walk in and pick it up, or have it scanned with a virtual mailbox and forwarded to wherever you are.
 
@@ -123,7 +123,7 @@ Picture the difference. You are two weeks into a trip. Instead of a photo of an 
 
 When you do come home, the pickup is a five-minute stop: walk in, give your name, and walk out with a clean bundle of mail and packages that arrived exactly as addressed. No surprises. No returned-to-sender. No month-13 cliff.
 
-That is what a real mailbox service gives you that forwarding cannot: the address never changes, everything is held, and forwarding happens when you want it — not when the system gets around to it.
+That is what a real mailbox service gives you that forwarding cannot: the address never changes, your mail is held (and packages on our +10 Package tiers), and forwarding happens when you want it — not when the system gets around to it.
 
 ## Set Up Your Mailbox Before Your Next Trip
 
