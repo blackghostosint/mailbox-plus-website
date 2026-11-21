@@ -7,27 +7,54 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22.x', '24.x']
+        # Matches netlify.toml NODE_VERSION = "22" (Node 22 LTS).
+        # Keeping matrix shape preserves the required status check name `lighthouse (22.x)`.
+        node-version: ['22.x']
     steps:
+      - name: Classify PR scope (content-only vs code/config)
+        id: scope
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          PR_FILES_FILE="${RUNNER_TEMP}/pr_changed_files.txt"
+          gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" --paginate --jq '.[].filename' > "$PR_FILES_FILE"
+          if [ -s "$PR_FILES_FILE" ] && ! grep -qvE '^(content/articles/|\.factchecks/|public/llms(-full)?\.txt$|docs/)' "$PR_FILES_FILE"; then
+            echo "run_lighthouse=false" >> "$GITHUB_OUTPUT"
+            echo "Content-only PR detected — skipping Lighthouse build & audit."
+          else
+            echo "run_lighthouse=true" >> "$GITHUB_OUTPUT"
+            echo "Code/config changes detected — running Lighthouse CI."
+          fi
+
       - name: Checkout
+        if: steps.scope.outputs.run_lighthouse == 'true'
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Setup Node ${{ matrix.node-version }}
+        if: steps.scope.outputs.run_lighthouse == 'true'
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
       - name: Install dependencies
+        if: steps.scope.outputs.run_lighthouse == 'true'
         run: npm ci
 
       - name: Build
+        if: steps.scope.outputs.run_lighthouse == 'true'
         run: npm run build
         env:
           VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
@@ -36,10 +63,11 @@ jobs:
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
       - name: Run Lighthouse CI
+        if: steps.scope.outputs.run_lighthouse == 'true'
         run: npx @lhci/cli@0.14.0 autorun --config=./lighthouserc.json
 
       - name: Upload Lighthouse Report
-        if: always()
+        if: always() && steps.scope.outputs.run_lighthouse == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         continue-on-error: true
         with:
