@@ -24,7 +24,11 @@ const NEGATION_PREFIX =
 function isNegatedBeforeMatch(line, matchIndex) {
   const windowStart = Math.max(0, matchIndex - 50);
   const before = line.slice(windowStart, matchIndex);
-  return NEGATION_PREFIX.test(before);
+  // Stop at clause boundaries so an unrelated earlier negation (e.g. "no annual contract and 24/7 access")
+  // cannot mask a violation in the next clause.
+  const clauseParts = before.split(/[.,;—]|\s--\s|\b(?:and|but|or)\b/i);
+  const currentClause = clauseParts[clauseParts.length - 1] || '';
+  return NEGATION_PREFIX.test(currentClause);
 }
 
 const KIRTLAND_CONTEXT =

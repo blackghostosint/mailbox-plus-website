@@ -73,4 +73,18 @@ Business mailbox plans start from $35/month for Business Small and $50/month for
     const violations = scanTextForSotViolations('content/articles/clean.md', clean);
     expect(violations).toEqual([]);
   });
+
+  it('does not let an unrelated negation in an earlier clause mask a later violation', () => {
+    const sample = `---
+title: Clause Boundary Test
+---
+
+Visit us off Route 306 with no annual contract and 24/7 access.
+`;
+    const violations = scanTextForSotViolations('content/articles/clause.md', sample);
+    const ids = new Set(violations.map((v) => v.ruleId));
+    expect(ids.has('banned-route-306')).toBe(true);
+    expect(ids.has('banned-no-annual-contract')).toBe(true);
+    expect(ids.has('banned-24-7-access')).toBe(true);
+  });
 });
