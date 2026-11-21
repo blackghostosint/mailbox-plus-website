@@ -93,7 +93,7 @@ That is the entire procedure. Two hours of fear, five minutes of action.
 
 The moment your return is not AT&T equipment — and most returns are not — that is our counter.
 
-We handle the returns that do not fit one box or one carrier. An online order that needs to go back through Happy Returns, FedEx Easy Returns, or USPS Label Broker: we scan the QR code on your phone, bag it, hand you a receipt — no printer, no box, no label required. We are an authorized drop-off for all four major carriers, so your UPS return, FedEx return, USPS return, and DHL return all leave from the same counter. One stop instead of three.
+We handle the returns that do not fit one box or one carrier. An online order going back through Happy Returns: we scan the QR code on your phone, bag it, and hand you a receipt — no printer, no box, no label required. We also scan QR codes for FedEx Easy Returns and USPS Label Broker. We are an authorized drop-off for all four major carriers, so your UPS return, FedEx return, USPS return, and DHL return all leave from the same counter. One stop instead of three.
 
 We also sell you the thing you are probably missing right now: time. We pack and ship for you — box, tape, fragile packing, the whole job — so you hand us the item and walk out with a receipt. We print labels. We offer notary services. And if the reason you are always dealing with returns and shipments is that your home address is getting too tangled up in your business, we rent private mailboxes.
 
@@ -117,6 +117,6 @@ Now the rest of your returns, and your next shipment, are one counter. You walk 
 
 ## One Counter for Every Return That Is Not AT&T
 
-Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a printed label — bring the whole pile here. QR-code returns are welcome too: we scan them for Happy Returns, FedEx Easy Returns, and USPS Label Broker. Amazon is the one program that does not run on a QR code — it needs the pre-printed carrier label, and we accept those label-only. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
+Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a printed label — bring the whole pile here. QR-code returns are welcome too: we scan them for Happy Returns, FedEx Easy Returns, and USPS Label Broker. For Amazon returns, we do not scan Amazon QR codes — we accept Amazon returns only with a pre-printed carrier label. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
 
 [Visit Mailbox Plus →](/contact-us/)
