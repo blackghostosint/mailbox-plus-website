@@ -149,7 +149,7 @@ export const receivingDropOffServices: Service[] = [
     cta: {
       title: 'Got a Pre-Labeled Package?',
       subtitle:
-        'Free drop-offs for UPS, FedEx, USPS, DHL. One stop, all 4 carriers. From $35/month for a private mailbox.',
+        'Free drop-offs for UPS, FedEx, USPS, DHL. One stop, all 4 carriers. From $15/month for a private mailbox.',
       buttonText: 'Drop It Off \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -199,7 +199,7 @@ export const receivingDropOffServices: Service[] = [
       'package receiving, mail handling, Concord Township, Lake County, porch pirate protection',
     heroTitle: 'Never Miss a Package Again',
     heroSubtitle:
-      'We sign for and securely store packages from all carriers. No porch pirates. No missed deliveries. From $10/package or $30/month unlimited.',
+      'We sign for and securely store packages from all carriers. No porch pirates. No missed deliveries. Package receiving for mailbox holders and non-holders — ask at the counter.',
     heroImage: getServiceImageUrl('/images/package-receiving.webp'),
     hideCarrierLogos: true,
     content: [
@@ -221,7 +221,7 @@ export const receivingDropOffServices: Service[] = [
               Mailbox Plus offers <strong>secure package receiving</strong> for all carriers \u2014 UPS, FedEx, USPS, and DHL. When a package arrives with your name, we sign for it, log it in our system, and store it safely in our secure facility.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Two options to fit your needs: <strong>$10 per package</strong> for occasional deliveries, or <strong>$30 per month unlimited</strong> for regular shippers and small businesses. No contract required.
+              Package receiving is available for occasional deliveries and for regular shippers and small businesses alike — ask at the counter and we'll set up the option that fits your volume. No term commitment required.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
               Pick up during our business hours. Just show your ID, and we'll hand you your package \u2014 dry, safe, and waiting for you.
@@ -233,7 +233,7 @@ export const receivingDropOffServices: Service[] = [
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Plan</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Per-package ($10) for occasional use, or unlimited ($30/month) for regular shipments.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Occasional or regular — ask at the counter which receiving option fits your shipments.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
@@ -279,7 +279,7 @@ export const receivingDropOffServices: Service[] = [
               Whether you travel frequently, work during delivery hours, or just want the peace of mind that your packages are safe \u2014 Mailbox Plus has you covered.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
-              <strong>Stop by and set up package receiving.</strong> From $10/package or $30/month unlimited. No contract, no hassle.
+              <strong>Stop by and set up package receiving.</strong> Available for mailbox holders and non-holders. No term commitment, no hassle.
             </p>`,
       },
     ],
@@ -306,7 +306,7 @@ export const receivingDropOffServices: Service[] = [
     cta: {
       title: 'Tired of Porch Pirates?',
       subtitle:
-        'We sign. We store. You pick up. From $10/package or $30/month unlimited. From $35/month for a private mailbox.',
+        'We sign. We store. You pick up. Package receiving for mailbox holders and non-holders — ask at the counter. From $15/month for a private mailbox.',
       buttonText: 'Set Up Package Receiving \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
