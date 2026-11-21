@@ -30,7 +30,7 @@ faqs:
   - question: 'How long until tracking appears after I drop off a SpeedX package?'
     answer: "Vinted's help center notes tracking can take up to 48 hours after sending to appear in the app, and you'll get an email confirming the drop-off — keep that confirmation until the order completes."
   - question: "Can I drop off other carriers' pre-labeled packages at Mailbox Plus?"
-    answer: 'Yes. The same counter takes pre-labeled boxes across the major carriers — USPS, UPS, FedEx, and the regional e-commerce couriers like SpeedX that marketplaces rely on.'
+    answer: 'Yes. The same counter takes pre-labeled boxes across major carriers (USPS, UPS, FedEx, DHL) — plus pre-labeled Vinted packages (SpeedX included).'
 ---
 
 ## The Sale Went Through. Now the App Wants You to Ship It.
