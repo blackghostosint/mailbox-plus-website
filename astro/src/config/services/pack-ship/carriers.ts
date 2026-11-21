@@ -168,7 +168,7 @@ export const carrierServices: Service[] = [
     cta: {
       title: 'Need to Ship FedEx?',
       subtitle:
-        'Authorized ShipCenter. We pack, label, and ship. Same FedEx services, local help. From $15/month for a private mailbox \u2014 every package goes to our counter, not your porch.',
+        'Authorized ShipCenter. We pack, label, and ship. Same FedEx services, local help. From $25/month for a package-receiving mailbox \u2014 every package goes to our counter, not your porch.',
       buttonText: 'Bring Your Package In \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
