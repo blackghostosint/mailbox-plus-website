@@ -18,13 +18,28 @@ keywords:
     'wine delivery no one home',
   ]
 relatedServices:
-  ['/pack-ship/package-receiving', '/pack-ship/package-drop-offs', '/home-business/mailbox-rental']
-author: 'Mailbox Plus Team'
+  [
+    '/pack-ship/package-receiving/',
+    '/pack-ship/package-drop-offs/',
+    '/home-business/mailbox-rental/',
+  ]
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'Can you sign for wine deliveries at Mailbox Plus?'
+    answer: 'Yes. Alcohol shipments require an adult (21+) signature, and someone over 21 is on duty at our counter every business day. We sign for the delivery legally and log the package into our system.'
+  - question: 'Where do I have my wine shipped?'
+    answer: 'Use our street address — 7554 Fredle Drive, Concord Township, OH 44077 — with your name on the label. When you set up a mailbox with us, the clerk gives you your box or PMB number for the address line.'
+  - question: 'How much does package receiving cost?'
+    answer: 'Receiving is built into the $25 and $40 mailbox plans — ten packages a month included, $5 a package beyond that. Not a mailbox holder? Ask at the counter and we will set up the receiving option that fits your volume.'
+  - question: 'When can I pick up my wine?'
+    answer: 'Any time during business hours: Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Show your ID and the package is yours — same afternoon or days later, it stays in our temperature-controlled receiving area.'
 ---
 
-## The Scene That Starts Everything
+## A Wine Order Stuck in Delivery Limbo
 
 You ordered it on a Tuesday night — a case from that Napa winery you joined last spring, or maybe a bottle of something you had at a friend's dinner and couldn't stop thinking about. The confirmation email promised delivery in three to five business days.
+
+![Stacked packages and mail totes staged behind the counter in the receiving area at Mailbox Plus in Concord Township, Ohio](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/package-staging-01.webp)
 
 Then the tracking notification lands: **"Out for delivery."**
 
@@ -43,7 +58,7 @@ When a carrier ships alcohol, both FedEx and UPS require what's called an **Adul
 
 So no, the driver can't drop it behind the bush, can't hand it to a neighbor, can't leave it with a minor, and can't set it by the garage and mark it delivered. If no qualifying adult is standing there with an ID, the delivery simply **does not happen**. The truck drives away with your wine.
 
-## What It Actually Feels Like
+## Watching the Tracking Number All Day
 
 The first thing you feel is inconvenience. You rearrange your whole afternoon around a window the carrier won't commit to. Maybe you WFH on delivery day and hover by the front window. Maybe you text your neighbor to watch for the truck — and then remember they can't sign for it either, because they're not 21 on paper for a bottle of Cabernet that a stranger is about to hand them.
 
@@ -51,7 +66,7 @@ The second thing is worry. That truck is warm. It's late summer in northeast Ohi
 
 The third thing is the real one: **you miss the delivery, and you lose the day.** Redelivery happens in the same narrow window. So you're not solving a one-day problem — you're scheduling your life around a delivery that will only land on a day you happen to be home, at the exact moment a 21-plus adult happens to be standing at the door with ID in hand.
 
-## Why It Should Not Be This Way
+## The Carrier Rule Behind the Missed Delivery
 
 Think about what you're actually being asked to do. You spent real money on something you wanted. You have a job, a family, a schedule that doesn't revolve around a delivery truck. And the entire system — the purchase, the payment, the shipping — comes down to one fragile moment: _some adult, somewhere, being home at the precise minute the driver knocks._
 
@@ -59,7 +74,7 @@ That's not a you problem. That's a design problem. A signature requirement that 
 
 It shouldn't take a delivery-coordinating operation just to receive something you bought. You shouldn't have to choose between your workday and your wine.
 
-## What We See Every Day
+## Inside the Counter, Every Business Day
 
 We're Mailbox Plus, an independent package receiving and shipping store in Concord Township, Ohio. Every day, people walk in and hand us the exact problem you're wrestling with.
 
@@ -69,7 +84,7 @@ Then it goes somewhere safe. Your wine isn't left on a porch in the sun, isn't p
 
 That's the whole service, and it's simpler than you think.
 
-## How It Works
+## Three Steps From Winery to Your Hand
 
 Three steps, and the hard part is none of them.
 
@@ -77,9 +92,9 @@ Three steps, and the hard part is none of them.
 2. **We sign for it.** The driver arrives, our 21-plus staff signs for the adult-signature delivery, and your wine comes inside to our temperature-controlled receiving area. No porch, no sun, no truck.
 3. **Pick it up on your time.** Come in during our business hours, show your ID, and your wine is yours. Whether that's the same afternoon or three days later, it's waiting for you, safe and sound.
 
-It's the same for a single bottle, a mixed case, or a monthly wine club shipment. **$10 per package**, or **$50 per month** for unlimited receiving if you get packages regularly. No contract to lock you in.
+It's the same for a single bottle, a mixed case, or a monthly wine club shipment. If you [rent a mailbox](/articles/what-is-a-private-mailbox-pmb/) with us, receiving is built into the $25 and $40 plans — ten packages a month included, $5 a package beyond that. Not a mailbox holder? Ask at the counter and we'll set up the receiving option that fits your volume — no lock-in, cancel anytime.
 
-## What You Lose by Not Acting
+## The Real Bill for Porch-and-Pray
 
 Stay with the porch-and-pray method and here's what the bill really is.
 
@@ -91,7 +106,7 @@ Stay with the porch-and-pray method and here's what the bill really is.
 
 Every one of those costs is optional. None of them have to be yours.
 
-## Your Afternoon After the Change
+## Your Next Delivery Day, Rewritten
 
 The tracking notification goes off again — **"Out for delivery."** And this time, instead of feeling your stomach drop, you don't think about it at all.
 
@@ -101,8 +116,8 @@ No door tag. No reattempt. No rearranged afternoon. No wine sitting in the sun w
 
 You ordered something nice for yourself. Now it actually arrives — on your terms.
 
-## Bring It In
+## Stop By With Your ID
 
-If you order wine, liquor, or anything else online and you're tired of babysitting a delivery window, stop by Mailbox Plus in Concord Township. We sign for it, we store it safely and securely, and you pick it up when it's convenient for you.
+If you order wine, liquor, or anything else online and you're tired of babysitting a delivery window, stop by Mailbox Plus in Concord Township. We sign for it, we store it safely and securely, and you pick it up when it's convenient for you — the same way we handle [package receiving for eBay and marketplace sellers](/articles/package-receiving-service-ebay/).
 
-**$10 per package, or $50 per month for unlimited receiving. No contract.** Swing by the counter and we'll get you set up in a couple of minutes.
+**Package receiving is included with the $25 and $40 mailbox plans — ten packages a month, $5 a package after that.** Swing by the counter and we'll get you set up in a couple of minutes.

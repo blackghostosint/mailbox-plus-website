@@ -43,7 +43,7 @@ faqs:
 
 ## The Answer Up Front
 
-For a home business that needs a street address for business forms, a **private mailbox (PMB) at a licensed commercial mail receiving agency** is the option that actually clears the check. It is a real street address at a staffed commercial location, it is not a PO box, business plans start at $35 a month with no annual contract, and it keeps your home address off the forms themselves and the public records they create. Two slots it cannot fill — Ohio's statutory agent and a Google Business Profile location — and both have clean workarounds covered below. That is the whole decision. The rest of this article is the evidence.
+For a home business that needs a street address for business forms, a **private mailbox (PMB) at a licensed commercial mail receiving agency** is the option that actually clears the check. It is a real street address at a staffed commercial location, it is not a PO box, business plans start at $35 a month with no term commitment, and it keeps your home address off the forms themselves and the public records they create. Two slots it cannot fill — Ohio's statutory agent and a Google Business Profile location — and both have clean workarounds covered below. That is the whole decision. The rest of this article is the evidence.
 
 ![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
@@ -98,7 +98,7 @@ Here is how it works at Mailbox Plus:
 3. **Use it everywhere a street address is required.** The bank account, the vendor form, the website contact page, the business cards, the invoices, the shipping labels. One professional address, repeated everywhere, none of it your home.
 4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds mail scanning and remote management from your phone — the same street address, with control when you are out of town.
 
-Business plans start at $35 a month, month to month, no annual contract; personal tiers run $15 to $40 depending on size and package allowance. Set against an office lease — or against another year of your home address living in vendor databases — the math is not close.
+Business plans start at $35 a month, month to month, no term commitment; personal tiers run $15 to $40 depending on size and package allowance. Set against an office lease — or against another year of your home address living in vendor databases — the math is not close.
 
 **One labeling rule worth knowing:** mail addressed to a PMB must carry the PMB or # designation. Write it with the PMB designation ("7554 Fredle Drive PMB" plus your box number), never dressed up as a generic office label — under USPS rules a missing PMB or # designator can get mail returned as undeliverable. Your rental paperwork gives you the exact format.
 

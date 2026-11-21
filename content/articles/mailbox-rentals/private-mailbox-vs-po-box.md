@@ -7,7 +7,7 @@ intentKey: 'private-mailbox-vs-po-box'
 articleType: 'pillar'
 quickAnswer: >-
   A PO Box receives USPS letters only — it cannot accept FedEx, UPS, or DHL
-  packages. A private mailbox gives you a real street address that all 3 major
+  packages. A private mailbox gives you a real street address that all 4 major
   carriers deliver to, handles packages securely, and is safe to use on
   business documents and registrations. For a business that receives any
   carrier delivery, a private mailbox wins. A PO Box remains fine for personal
@@ -35,7 +35,7 @@ faqs:
   - question: 'What do I need to set up a private mailbox?'
     answer: 'USPS Form 1583 plus two forms of ID, one with a photo. The counter keeps the forms on hand and walks you through them.'
   - question: 'How much does a private mailbox cost?'
-    answer: 'Personal tiers are $15, $25, $30, or $40 a month; business plans are $35 and $50 — month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, or $40 a month; business plans are $35 and $50 — month-to-month, no term commitment.'
   - question: 'Where is Mailbox Plus?'
     answer: '7554 Fredle Drive, Concord Township, OH 44077, in the Gristmill Village plaza — Monday-Friday 9-6, Saturday 9-2.'
 ---
@@ -123,7 +123,7 @@ For the exact numbers on our plans and sizes, the [private mailbox rental page](
 
 **Choose the private mailbox if:** you run a business of any size, you sell or buy online, you receive carrier packages at all, you need an address that is public but not your home, or you have ever lost an afternoon retrieving a package the PO Box could not take.
 
-**Choose us specifically if:** you are near Concord Township and want the counter twenty minutes from downtown Painesville or Chardon, with all four carriers and the packing help in the same stop.
+**Choose us specifically if:** you are near Concord Township and want the counter ten to fifteen minutes from downtown Painesville or Chardon, with all four carriers and the packing help in the same stop.
 
 Maybe you have stalled on listing your products because a PO Box return address made you look like a hobbyist. Maybe you dread explaining to the UPS driver, for the third time, why the box cannot take his delivery. That low-grade dread of looking amateur — that is the real cost of the wrong mailbox, and it is the thing nobody puts in the comparison table.
 

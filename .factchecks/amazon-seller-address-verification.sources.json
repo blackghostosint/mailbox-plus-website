@@ -1,0 +1,151 @@
+{
+  "source_extracts": [
+    {
+      "label": "FTC — INFORM Consumers Act",
+      "url": "https://www.ftc.gov/business-guidance/resources/INFORMAct",
+      "quote": "Effective as of June 27, 2023 … 200 or more separate sales or transactions … and $5,000 or more in gross revenues … in any continuous 12-month period during the past 24 months."
+    },
+    {
+      "label": "Amazon Seller Central — Address verification",
+      "url": "https://sellercentral.amazon.com/gp/help/external/G2CVLYZXQRXQAMAL",
+      "quote": "Must be issued within the last 180 days and show the issuing date, due date, or transaction dates."
+    },
+    {
+      "label": "pricing factory",
+      "url": "PRICING-AND-FEES.md (pricing factory, owner-approved 2026-08-23/25)",
+      "quote": "Personal: $15 / $25 / $30 / $40; Business $35 / $50."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$15",
+      "scope": "Personal Small · Mail Only tier, monthly price"
+    },
+    {
+      "value": "$25",
+      "scope": "Personal Small · +10 Packages tier, monthly price (featured tier)"
+    },
+    {
+      "value": "$30",
+      "scope": "Personal Large · Mail Only tier, monthly price"
+    },
+    {
+      "value": "$40",
+      "scope": "Personal Large · +10 Packages tier, monthly price"
+    },
+    {
+      "value": "$35",
+      "scope": "Business Small tier, monthly price (business tiers only)"
+    },
+    {
+      "value": "$50",
+      "scope": "Business Large tier, monthly price (business tiers only)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 — CMRA customer registration form number"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number: 7554 Fredle Drive, Concord Township, OH 44077"
+    },
+    {
+      "value": "44",
+      "scope": "State Route 44 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "90",
+      "scope": "Interstate 90 — highway near the store (approved location phrasing)"
+    },
+    {
+      "value": "9",
+      "scope": "Store opening hour: 9 AM (Mon–Fri 9–6, Sat 9–2)"
+    },
+    {
+      "value": "6",
+      "scope": "Store weekday closing hour: 6 PM (Mon–Fri 9–6)"
+    },
+    {
+      "value": "2",
+      "scope": "Two forms of ID required on Form 1583; also Saturday closing hour (9 AM–2 PM)"
+    },
+    {
+      "value": "4",
+      "scope": "Numbered step in Amazon UI walkthrough (narrative list marker)"
+    },
+    {
+      "value": "4 hours",
+      "scope": "Mail scanned and customer notified within four hours of arrival (site service claim)"
+    },
+    {
+      "value": "1",
+      "scope": "Numbered step in Amazon UI walkthrough (narrative list marker)"
+    },
+    {
+      "value": "3",
+      "scope": "Numbered step in Amazon UI walkthrough (narrative list marker)"
+    },
+    {
+      "value": "10 packages",
+      "scope": "+10 Packages tiers include 10 packages per month (factory §1)"
+    },
+    {
+      "value": "5 dollars",
+      "scope": "$5 per package overage beyond the included 10 (factory §2); also $5 refundable key deposit"
+    },
+    {
+      "value": "5",
+      "scope": "Narrative 'five-minute inconvenience' (not a business claim)"
+    },
+    {
+      "value": "12 months",
+      "scope": "Year-round operation phrasing ('twelve months a year'); USPS mail forwarding also runs 12 months (usps.com)"
+    },
+    {
+      "value": "100",
+      "scope": "Heading word 'Hundred' — narrative count, not a business claim"
+    },
+    {
+      "value": "20 minutes",
+      "scope": "Drive-time estimate (narrative)"
+    },
+    {
+      "value": "27",
+      "scope": "INFORM Consumers Act effective date: June 27, 2023 (FTC)"
+    },
+    {
+      "value": "200",
+      "scope": "INFORM Act high-volume seller threshold: 200+ transactions in a continuous 12-month period (FTC)"
+    },
+    {
+      "value": "$5",
+      "scope": "INFORM Act gross-revenue threshold $5,000 (registered as $5 + 000 tokens of '5,000')"
+    },
+    {
+      "value": "000",
+      "scope": "Trailing digits of '$5,000' INFORM Act threshold (comma-split token)"
+    },
+    {
+      "value": "12",
+      "scope": "INFORM Act lookback: continuous 12-month period"
+    },
+    {
+      "value": "24 months",
+      "scope": "INFORM Act lookback window: during the previous 24 months (FTC)"
+    },
+    {
+      "value": "180 days",
+      "scope": "Amazon proof-of-address documents must be issued within the last 180 days (Amazon Seller Central)"
+    },
+    {
+      "value": "8 months",
+      "scope": "Narrative example ('a document issued 8 months ago doesn't pass')"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "Narrative 'ten minutes' problem-solving estimate"
+    }
+  ],
+  "scope_rules": [],
+  "required_when": []
+}

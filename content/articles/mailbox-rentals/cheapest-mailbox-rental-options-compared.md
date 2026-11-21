@@ -102,7 +102,7 @@ If the comparison lands on the independent option, here's how little there is to
 2. **Pick your tier at the counter.** Tell us what shows up for you in a normal month — letters, a couple of packages, a stream of returns — and the right size and price is usually obvious from that. Not sure whether you need the $25 plan? Tell us what shows up in a normal month and we'll point you at the size that fits it.
 3. **Get your key and your address, and you're done.** Your new street address works that day. From then on, the carriers deliver to us, we sign for what needs signing, and you get the "ready" alert instead of a porch anxiety attack.
 
-No appointment. No annual contract. No second trip for paperwork you could have brought the first time if someone had told you — so consider this the telling.
+No appointment. No term commitment. No second trip for paperwork you could have brought the first time if someone had told you — so consider this the telling.
 
 ## The Cost of Leaving It Alone
 

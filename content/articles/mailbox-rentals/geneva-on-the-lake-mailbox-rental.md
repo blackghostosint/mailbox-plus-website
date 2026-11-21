@@ -1,6 +1,6 @@
 ---
 title: 'Geneva-on-the-Lake Is a Great Place to Run a Business From. It Is a Hard Place to Get Mail.'
-description: 'No mailbox rental exists in Geneva-on-the-Lake, and a PO Box turns away every carrier except USPS. A real street address exists 30 minutes southwest — here is how it works.'
+description: 'No mailbox rental exists in Geneva-on-the-Lake, and a PO Box turns away every carrier except USPS. A real street address exists about 35 minutes southwest — here is how it works.'
 slug: 'geneva-on-the-lake-mailbox-rental'
 category: 'mailbox-rentals'
 intentKey: 'geneva-on-the-lake-mailbox-rental'
@@ -22,7 +22,7 @@ relatedServices:
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no term commitment.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
@@ -35,9 +35,9 @@ faqs:
 
 ## The Mail Problem Nobody Warns You About on the Strip
 
-You moved your business, your family, or your summers to Geneva-on-the-Lake. The town gives you a lake, a Strip that hums from May through September, and a ZIP code of 44041 that puts you square in Ohio's wine country. What it does not give you is a single place to rent a mailbox. Not a private mailbox store, not a packing counter with mail service — a search of the town turns up nothing that rents boxes at all. Your choices collapse down to a post office box in Geneva, a fifteen-mile drive south, or letting your mail pile up at a house you may not live at year-round.
+You moved your business, your family, or your summers to Geneva-on-the-Lake. The town gives you a lake, a Strip that hums from May through September, and a ZIP code of 44041 that puts you square in Ohio's wine country. What it does not give you is a single place to rent a mailbox. Not a private mailbox store, not a packing counter with mail service — a search of the town turns up nothing that rents boxes at all. Your choices collapse down to a post office box in Geneva, a five-mile drive south, or letting your mail pile up at a house you may not live at year-round.
 
-Here is what it should be: you rent one real street address, all of your mail and every carrier's packages land there, and you check it on your schedule instead of the post office's. That is exactly what we built at Mailbox Plus in Concord Township — a straight shot down Route 534 and west on I-90 from the Strip, about half an hour door to door. Here's what stands between you and that setup, and how we take it down.
+Here is what it should be: you rent one real street address, all of your mail and every carrier's packages land there, and you check it on your schedule instead of the post office's. That is exactly what we built at Mailbox Plus in Concord Township — a straight shot down Route 534 and west on I-90 from the Strip, about 35 minutes door to door. Here's what stands between you and that setup, and how we take it down.
 
 ![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
@@ -97,7 +97,7 @@ Mail becomes a thing you have, not a thing you chase. That's the whole product.
 
 ## Bring What You Have and Walk Away Clean
 
-Come see us at Mailbox Plus, 7554 Fredle Drive in Concord Township — about half an hour from the Strip down Route 534 and west on I-90 — or start at our [mailbox rental](/home-business/mailbox-rental/) page to see plans and pricing. One visit, two forms of ID, ten minutes of paperwork, and you have a real street address that every carrier on the road can find.
+Come see us at Mailbox Plus, 7554 Fredle Drive in Concord Township — about 35 minutes from the Strip down Route 534 and west on I-90 — or start at our [mailbox rental](/home-business/mailbox-rental/) page to see plans and pricing. One visit, two forms of ID, ten minutes of paperwork, and you have a real street address that every carrier on the road can find.
 
 Your town finally has a real street address for everything you order. It's just down the road.
 
