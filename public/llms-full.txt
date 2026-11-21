@@ -9367,7 +9367,7 @@ URL: https://mailboxplusohio.com/articles/online-sellers-keep-home-address-priva
 Category: mailbox-rentals
 Published: 2026-08-19
 
-**Short answer: yes.** Once you cross $20,000 in annual eBay sales, federal law requires eBay to put your name and full physical address into buyers' order confirmations — eBay states this plainly in its own INFORM Consumers Act guidance. And even below that threshold, every label you print on every platform carries your return address. Your home is exposed either way — unless you give the platforms a different real street address. This article breaks down exactly what each platform discloses and the fix that takes your home off all of it.
+**Short answer: yes, with two exceptions that matter.** Once you cross $20,000 in annual eBay sales, federal law requires eBay to put your name and full physical address into buyers' order confirmations — eBay says so plainly in its own INFORM Act guidance. The escape hatches: a residential registered address may show only your state and country, and a separate product-returns address is what gets displayed instead. Below that threshold, every label you print on every platform still carries your return address. Here's what each platform discloses — and the fix that takes your home off all of it.
 
 ## The Address On Every Box You Ship
 

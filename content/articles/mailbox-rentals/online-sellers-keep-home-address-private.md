@@ -18,7 +18,7 @@ keywords:
     'home address privacy',
     'private mailbox for online sellers',
   ]
-quickAnswer: "Yes. Once you pass $20,000 in annual eBay sales, the INFORM Consumers Act requires eBay to include your name and full physical address in buyers' order confirmations — and until then, your return address still rides on every shipping label you print. The fix is a private mailbox: a real street address, not a PO box, at a staffed store, used as your registered and return address so your home never appears on a label."
+quickAnswer: "Yes — with exceptions. At $20,000 in annual eBay sales, the INFORM Consumers Act makes eBay show your name and full physical address in buyers' order confirmations — unless your registered address is residential (state and country only) or you set a different returns address, which is what gets displayed. Your return address rides on every label either way. A private mailbox — a real street address, not a PO box — takes your home off both."
 relatedServices:
   [
     '/home-business/mailbox-rental/',
@@ -42,7 +42,7 @@ faqs:
     answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
-**Short answer: yes.** Once you cross $20,000 in annual eBay sales, federal law requires eBay to put your name and full physical address into buyers' order confirmations — eBay states this plainly in its own INFORM Consumers Act guidance. And even below that threshold, every label you print on every platform carries your return address. Your home is exposed either way — unless you give the platforms a different real street address. This article breaks down exactly what each platform discloses and the fix that takes your home off all of it.
+**Short answer: yes, with two exceptions that matter.** Once you cross $20,000 in annual eBay sales, federal law requires eBay to put your name and full physical address into buyers' order confirmations — eBay says so plainly in its own INFORM Act guidance. The escape hatches: a residential registered address may show only your state and country, and a separate product-returns address is what gets displayed instead. Below that threshold, every label you print on every platform still carries your return address. Here's what each platform discloses — and the fix that takes your home off all of it.
 
 ## The Address On Every Box You Ship
 
