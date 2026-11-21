@@ -1123,7 +1123,7 @@ That is the entire procedure. Two hours of fear, five minutes of action.
 
 The moment your return is not AT&T equipment — and most returns are not — that is our counter.
 
-We handle the returns that do not fit one box or one carrier. An online order that needs to go back to a brand with a Happy Returns or Nuuly label: we scan the QR code on your phone, bag it, hand you a receipt — no printer, no box, no label required. We are an authorized drop-off for all four major carriers, so your UPS return, FedEx return, USPS return, and DHL return all leave from the same counter. One stop instead of three.
+We handle the returns that do not fit one box or one carrier. An online order going back through Happy Returns: we scan the QR code on your phone, bag it, and hand you a receipt — no printer, no box, no label required. We also scan QR codes for FedEx Easy Returns and USPS Label Broker. We are an authorized drop-off for all four major carriers, so your UPS return, FedEx return, USPS return, and DHL return all leave from the same counter. One stop instead of three.
 
 We also sell you the thing you are probably missing right now: time. We pack and ship for you — box, tape, fragile packing, the whole job — so you hand us the item and walk out with a receipt. We print labels. We offer notary services. And if the reason you are always dealing with returns and shipments is that your home address is getting too tangled up in your business, we rent private mailboxes.
 
@@ -1147,7 +1147,7 @@ Now the rest of your returns, and your next shipment, are one counter. You walk 
 
 ## One Counter for Every Return That Is Not AT&T
 
-Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a label or a QR code — bring the whole pile here. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
+Walk into the authorized FedEx Office or The UPS Store with that bag and your account number, and walk out with the receipt that clears your account. Then, next trip — the Amazon box, the Zappos box, the Etsy box, anything with a printed label — bring the whole pile here. QR-code returns are welcome too: we scan them for Happy Returns, FedEx Easy Returns, and USPS Label Broker. For Amazon returns, we do not scan Amazon QR codes — we accept Amazon returns only with a pre-printed carrier label. No need to have it sorted, no apology for the stack. We will handle the sorting, one counter, 7554 Fredle Drive in Concord Township.
 
 [Visit Mailbox Plus →](/contact-us/)
 
@@ -1504,7 +1504,7 @@ And because we quote all four carriers at the counter, we can also tell you when
 
 There is no trick to doing this right. It comes down to one rule: match the counter to the label, or use a counter that matches every label.
 
-1. **Bring the box as it is.** Labeled and sealed, or not — if the label is a QR code or the box still needs packing, that is normal counter work, not a special case.
+1. **Bring the box as it is.** Labeled and sealed, or not — if the label is a QR code (Happy Returns, FedEx Easy Returns, and USPS Label Broker all run on them; Amazon is the exception that needs the printed label) or the box still needs packing, that is normal counter work, not a special case.
 2. **Tell the counter who is shipping.** UPS, FedEx, USPS, DHL — a multi-carrier counter scans it into the correct network on the spot, with a receipt in your hand before you leave.
 3. **Keep the receipt.** That scan is the moment tracking starts. From there, the carrier's own tracking takes over and you can watch the box the whole way — and the receipt is your proof of handoff if anything goes sideways later.
 
@@ -5219,7 +5219,7 @@ Let me be specific about what happens at 7554 Fredle Dr, because "we ship stuff"
 
 ![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
-**QR-code returns.** We accept Happy Returns by QR code — no box, no label, no printer needed. If a retailer sends you a return code instead of a shipping label, we can handle that too.
+**QR-code returns.** We scan QR codes for Happy Returns (no box, no label, no printer needed), FedEx Easy Returns, and USPS Label Broker. For Amazon returns, we do not scan Amazon QR codes — we accept Amazon returns only with a pre-printed carrier label.
 
 **A real street address for receiving.** If missed deliveries are your recurring nightmare, we rent Private Mailboxes with real street-address formatting. And to be precise, because the details matter: a PMB uses a # or PMB designation, never a "suite." The postal paperwork involved is USPS Form 1583, and it requires one valid government photo ID plus one proof of address. Also worth knowing: package receiving is a package-receiving tier, not part of the Mail-Only tier — the tiers differ per our published pricing page. If Amazon deliveries to a PO Box have bitten you before, we explain why that fails and how a street address fixes it in our piece on [Amazon PO Box Delivery](/articles/amazon-po-box-delivery/).
 
@@ -11331,7 +11331,7 @@ Published: 2026-08-13
 
 ## The Scene That Starts Everything
 
-It's 9:00 at night. You finally got the email: your return label is ready. You tap the PDF, hit print, and the printer hums to life. A full sheet of paper slides out — 8.5 by 11 inches of white, with a shipping label the size of a small envelope stranded somewhere in the middle of it.
+It's past nine at night. You finally got the email: your return label is ready. You tap the PDF, hit print, and the printer hums to life. A full sheet of paper slides out — 8.5 by 11 inches of white, with a shipping label the size of a small envelope stranded somewhere in the middle of it.
 
 You stare at it. The label is maybe a quarter of the sheet. The rest is blank paper you just wasted, and now you have to either fold a giant paper into the box or cut it down so it doesn't look like you mailed a poster. This is one of those small, maddening moments that makes returning an online order feel like a part-time job.
 
@@ -11388,13 +11388,15 @@ One more tip: if your printer has a dedicated rear or bypass tray, 4×6 paper of
 
 ## When You Don't Want to Print It at All
 
-Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — and many of them do these days — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. No printing, no trimming, no wasted sheets.
+Here's the honest part, and it's the best option of all: **you may not need to print anything.** If your return came with a QR code — Happy Returns, FedEx Easy Returns, and USPS Label Broker all run on them — you don't need paper at all. Bring the code to Mailbox Plus in Concord Township and we scan it, pack your item, and get it on its way. The exception is Amazon: those returns ride on a pre-printed carrier label, so that is the one program where the label has to come along — bring the box with the label on it and we take it from there. No printing, no trimming, no wasted sheets. (Our [Amazon returns guide for Concord Township](/articles/amazon-returns-concord-township/) walks through that label-only flow step by step.)
 
 And if you do want a clean label, we're happy to print one for you at the right size while you wait. Printing is one of the things we're here for.
 
 ## Bring It In
 
-A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or you just want to scan a QR code and be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest.
+![Copy center at Mailbox Plus in Concord Township, where staff print return labels at the correct 4x6 size while you wait](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/copy-center/copier-01.webp)
+
+A return should take you five minutes, not a papercraft project. Whether you need a properly sized label printed for you, or your QR-code return — Happy Returns, FedEx Easy Returns, or USPS Label Broker — just needs a scan and to be done, Mailbox Plus is the shortcut. Stop wrestling with a full sheet of paper — bring your return to the counter at 7554 Fredle Drive, Concord Township, and let us handle the rest. And if you are also wrangling paper sizes for anything else you mail, our [USPS envelope size chart](/articles/envelope-sizes-usps-chart/) covers the common formats.
 
 ---
 

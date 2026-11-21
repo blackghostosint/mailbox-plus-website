@@ -1,0 +1,80 @@
+{
+  "source_extracts": [
+    {
+      "label": "Brother iPrint&Scan — supported paper sizes",
+      "url": "https://apps.apple.com/us/app/brother-iprint-scan/id382775642",
+      "quote": "Brother iPrint&Scan lists 4\" x 6\" (10 x 15 cm) as a supported paper size for printing documents and photos."
+    },
+    {
+      "label": "US Letter paper standard",
+      "url": "https://www.usps.com/",
+      "quote": "The standard US letter sheet is 8.5 x 11 inches; 4 x 6 inches is the standard shipping-label size that fits a box face."
+    },
+    {
+      "label": "Mailbox Plus counter QR programs (owner ruling)",
+      "url": "vault://Mailbox Plus/Planning/Decision Log.md#2026-11-20",
+      "quote": "QR scanning IS offered for FedEx Easy Returns, Happy Returns, USPS Label Broker. Amazon returns: pre-printed carrier label ONLY, no Amazon QR codes."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "4",
+      "scope": "4x6-inch standard shipping label size (inches) — paper/label stock spec, not a store price"
+    },
+    {
+      "value": "6",
+      "scope": "4x6-inch standard shipping label size (inches) — paper/label stock spec"
+    },
+    { "value": "8.5", "scope": "US Letter sheet width in inches — paper spec" },
+    { "value": "11", "scope": "US Letter sheet height in inches — paper spec" },
+    {
+      "value": "10",
+      "scope": "4x6 label metric equivalent 10 x 15 cm (Brother iPrint&Scan listing) — paper spec"
+    },
+    {
+      "value": "15",
+      "scope": "4x6 label metric equivalent 10 x 15 cm (Brother iPrint&Scan listing) — paper spec"
+    },
+    {
+      "value": "8",
+      "scope": "US Letter sheet 8.5x11 — metadata tokenizer remnant of the 8.5-inch width; paper spec"
+    },
+    {
+      "value": "2",
+      "scope": "Ordered-list step markers ('2.') and step numbering — structural, not a quantity claim"
+    },
+    {
+      "value": "3",
+      "scope": "'The Fix in Three Steps' heading + ordered-list step markers ('3.') — structural"
+    },
+    {
+      "value": "9",
+      "scope": "Scene narrative clock ('past nine at night') — figurative, not a service-hours claim"
+    },
+    {
+      "value": "1",
+      "scope": "Word-form 'one' in narrative idioms ('one of the most common') — not a quantity claim"
+    },
+    {
+      "value": "five minutes",
+      "scope": "Figurative narrative for a quick counter visit — not a guaranteed service turnaround; receipt row marked ⚠️"
+    },
+    { "value": "7554", "scope": "Store street number, 7554 Fredle Drive (siteConfig)" }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\$\\d+",
+      "reason": "Article makes no pricing claims; any dollar figure here would be unverified (label printing is a flat $2 per Decision Log 2026-09-12 — do not state without owner sign-off in this article)."
+    },
+    {
+      "forbid": "Amazon[^.]{0,80}QR code|QR code[^.]{0,80}Amazon return",
+      "reason": "Amazon returns are pre-printed carrier label ONLY (Decision Log 2026-11-20); QR acceptance must be scoped to Happy Returns / FedEx Easy Returns / USPS Label Broker."
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "QR code",
+      "must_include": "Amazon"
+    }
+  ]
+}
