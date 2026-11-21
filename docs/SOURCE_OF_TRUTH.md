@@ -27,7 +27,7 @@
   - **Approved phrasing for articles:** `"just off Crile Road, minutes from SR-44 and I-90"`
   - **NEVER say:** `"Route 306"` / `"SR 306"` / `"just off Route 306"` / `"on Route 306"` (OH-306 is ~3 miles west and does not touch Fredle Drive; valid ONLY when describing a reader's own Kirtland-area streets — PR #1011).
   - **NEVER say:** `"Capital Plaza"` or `"Pet Supplies Plus"` (stale programmatic-SEO junk in legacy configs — WRONG).
-  - **Drive times:** Must come from a live OSRM query (town center/hall → store coordinates), be recorded in `.factchecks/<slug>.factcheck.md`, and match consistently across meta description, body, and receipt (PR #1012).
+  - **Drive times:** Must come from a live OSRM query (town center/hall → store coordinates), be recorded in `.factchecks/`, and match consistently across meta description, body, and receipt (PR #1012).
 
 ---
 
@@ -91,19 +91,19 @@
 
 **Personal / Everyday PMB Tiers (new customers — from $15/mo, month-to-month only):**
 
-| Tier                     |    Monthly | Included                                                                                                                            |
-| ------------------------ | ---------: | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Small · Mail Only**    | **$15/mo** | Bare: real street address + unit `#`, behind counter — **mail only** (no carrier package receiving, no signing, no notifications)   |
-| **Small · +10 Packages** | **$25/mo** | All 4 carriers deliver, we sign **if required**, **10 packages/mo** included (then `$5/pkg`), free text + email alerts              |
-| **Large · Mail Only**    | **$30/mo** | Bare: roomier box for bulk mail, behind counter — **mail only** (no package receiving, no signing, no notifications)                |
-| **Large · +10 Packages** | **$40/mo** | Roomier box, all 4 carriers deliver, we sign **if required**, **10 packages/mo** included (then `$5/pkg`), free text + email alerts |
+| Tier                     |    Monthly | Included                                                                                                                          |
+| ------------------------ | ---------: | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Small · Mail Only**    | **$15/mo** | Bare: real street address + unit `#`, behind counter — **mail only** (no carrier package receiving, no signing, no notifications) |
+| **Small · +10 Packages** | **$25/mo** | All 4 carriers deliver, we sign **if required**, **10 packages/mo** included (then $5/pkg), free text + email alerts              |
+| **Large · Mail Only**    | **$30/mo** | Bare: roomier box for bulk mail, behind counter — **mail only** (no package receiving, no signing, no notifications)              |
+| **Large · +10 Packages** | **$40/mo** | Roomier box, all 4 carriers deliver, we sign **if required**, **10 packages/mo** included (then $5/pkg), free text + email alerts |
 
 **Business Class PMB Tiers (new customers — from $35/mo, month-to-month only):**
 
-| Tier                                |    Monthly | Included                                                                                                                                                                                                                                                                       |
-| ----------------------------------- | ---------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Business Small** _(Most Popular)_ | **$35/mo** | Real business filing address (LLC/DBA, website, cards, vendors), all 4 carriers, we sign **if required**, **10 packages/mo** included (then `$5/pkg`), text + email alerts, **up to 3 authorized recipients**, **Digital Business Card page + 250 business cards** (first run) |
-| **Business Large**                  | **$50/mo** | Everything in Business Small + roomier box for bulk mail, **25 packages/mo** included (then `$5/pkg`), **free notarizations included**, **1 mail-forwarding batch/mo** (shipping at cost)                                                                                      |
+| Tier                                |    Monthly | Included                                                                                                                                                                                                                                                                     |
+| ----------------------------------- | ---------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Business Small** _(Most Popular)_ | **$35/mo** | Real business filing address (LLC/DBA, website, cards, vendors), all 4 carriers, we sign **if required**, **10 packages/mo** included (then $5/pkg), text + email alerts, **up to 3 authorized recipients**, **Digital Business Card page + 250 business cards** (first run) |
+| **Business Large**                  | **$50/mo** | Everything in Business Small + roomier box for bulk mail, **25 packages/mo** included (then $5/pkg), **free notarizations included**, **1 mail-forwarding batch/mo** (shipping at cost)                                                                                      |
 
 **Shared PMB Fees, Terms, Virtual Mail & Setup:**
 
@@ -111,7 +111,7 @@
 - **Contract / commitment wording:** **`"Month-to-month, no term commitment, cancel anytime"`** (no annual, no 3/6/12-month lock-in, no cancellation fee, no notice period — PR #594, #1008, #1012).
 - **Package overage:** **`$5.00 per package`** beyond monthly allowance (10 on +10 / Business Small; 25 on Business Large).
 - **Oversized packages:** Over `18"` length OR `20 lbs` = **`$5.00 flat`**.
-- **Long-hold storage:** Held longer than `5 days` = **`$1.00/package/day`**.
+- **Long-hold storage:** Held longer than `5 days` = **$1.00/package/day**.
 - **Key deposit:** **`$5.00` refundable** when you cancel and return the key (PR #898).
 - **Notifications:** Free 4-hour text + email notifications on **package-receiving & business tiers ONLY**; Mail-Only tiers are bare (no notifications).
 - **Signatures:** `"we sign for your deliveries if required"` — **ONLY qualified as "if required"** (PR #898), and anchor sign-for claims at `$25+` (never `$15` Mail-Only).
@@ -119,16 +119,16 @@
 - **Grandfathering:** Existing customers keep their current rate — published pricing is for new customers.
 - **Virtual Mail:** Third-party providers **`Anytime Mail`**, **`iPostal1`**, and **`PostScan`**.
 - **Mail Forwarding:** Offered.
-- **Package Receiving:** Offered for **both mailbox holders and non-holders**. Non-holder walk-in package receiving fee is **`$10.00/package`** (owner confirmed 2026-11-21; PMB holder overage beyond plan allowance is `$5.00/package`).
+- **Package Receiving:** Offered for **both mailbox holders and non-holders**. Non-holder walk-in package receiving fee is **$10.00/package** (owner confirmed 2026-11-21; PMB holder overage beyond plan allowance is $5.00/package).
 
 ### Explicitly FALSE / Forbidden
 
 - **NEVER** use **`"no annual contract"`** — use **`"no term commitment"`** (PR #1012).
 - **NEVER** use **`"30-day risk-free"`** or unapproved guarantee/offer language (PR #1009 / W8 P2).
-- **NEVER** use **business-use framing on personal/consumer PMB tiers** — business use ALWAYS = Business Small (`$35/mo`) or Business Large (`$50/mo`).
-- **NEVER** cite **`"$35/month"`** as the _personal_ mailbox starting price (personal starts at `$15/mo` mail-only / `$25/mo` with packages; `$35/mo` is **Business Small** only — PR #1008, #1009).
+- **NEVER** use **business-use framing on personal/consumer PMB tiers** — business use ALWAYS = Business Small ($35/mo) or Business Large ($50/mo).
+- **NEVER** cite **"$35/month"** as the _personal_ mailbox starting price (personal starts at $15/mo mail-only / $25/mo with packages; $35/mo is **Business Small** only — PR #1008, #1009).
 - **NEVER** claim Mail-Only tiers include package receiving, signing, or notifications.
-- **NEVER** invent **`"$30 per month unlimited"`** receiving fees (PR #1008, #1012). (Non-holder walk-in receiving is `$10/package`; PMB overage is `$5/package`.)
+- **NEVER** invent **`"$30 per month unlimited"`** receiving fees (PR #1008, #1012). (Non-holder walk-in receiving is $10/package; PMB overage is $5/package.)
 - **NEVER** use **`"24/7 access"`** or `"24-hour"` anything — access and services are during **regular store hours only**.
 
 ---
@@ -144,7 +144,7 @@
 - **Outsourced Print Products (ORDERED — NOT printed on-site):** **Business cards, flyers & brochures, postcards, posters, banners, and custom prints** are ordered through a third party (PR #663).
 - **EDDM (Every Door Direct Mail):** We process **and** design, including mailing and zones.
 - **Digital Fax:** Digital fax send **and** receive — **no customer-operated physical fax machine and no printed confirmation slip**.
-- **Shredding:** Drop-off only, commercial + personal, **`$1.00/lb`, no minimum, staples OK**, **Certificate of Destruction** provided (overrides stale `$1.25/lb` copy).
+- **Shredding:** Drop-off only, commercial + personal, **$1.00/lb, no minimum, staples OK**, **Certificate of Destruction** provided (overrides stale $1.25/lb copy).
 - **Document Scanning:** Virtually any format/volume — offered in store.
 - **Digital Fingerprinting / Background Checks:** **Live Scan (Ohio BCI/FBI)** via the **`fastfingerprints.com`** program — offered in store.
 
@@ -153,7 +153,7 @@
 - **NEVER** claim **`"everything prints here on our own equipment"`** or that business cards/posters/banners print on-site (PR #663).
 - **NEVER** claim **passport photos** — planning only, **NOT offered in store**.
 - **NEVER** claim **Rewards / Plus Points** — **NOT live yet**.
-- **NEVER** cite stale **`"$1.25/lb"`** shredding pricing (canonical is `$1.00/lb`).
+- **NEVER** cite stale **"$1.25/lb"** shredding pricing (canonical is $1.00/lb).
 - **NEVER** invent competitor/reseller pricing (e.g., `"$200 apostille assembly fee"` — PR #895) unless backed by a live source URL in `.factchecks/`.
 
 ---
@@ -166,7 +166,7 @@
 2. **All carrier facts (FedEx, UPS, USPS, DHL) MUST be pulled live at draft time** from official carrier domains (`usps.com`, `ups.com`, `fedex.com`, `dhl.com`) — **never from model memory** and never from old articles.
    - This applies to: shipping rates, surcharges, dimensional-weight divisors, oversize/weight limits, transit windows, holiday cutoff dates, insurance/declared-value caps, prohibited/restricted items, and carrier return rules.
    - Local carrier FAQ datasets (e.g., `fedex-faq-dataset`) may be used **only as a URL index** to locate the official carrier page to fetch live — never as a static answer cache without re-fetching.
-   - Every carrier claim in an article MUST be recorded in `.factchecks/<slug>.factcheck.md` with: **official URL + access date (`YYYY-MM-DD`) + verbatim quoted sentence** settling the claim. If a live official source cannot be fetched, soften or remove the claim.
+   - Every carrier claim in an article MUST be recorded in `.factchecks/` with: **official URL + access date (`YYYY-MM-DD`) + verbatim quoted sentence** settling the claim. If a live official source cannot be fetched, soften or remove the claim.
 
 ---
 
@@ -175,6 +175,6 @@
 1. **No invented numbers/SLAs/superlatives:** Never invent turnaround promises (`"in under 3 minutes"`, `"in two minutes"`, `"guaranteed same-hour"`), superlatives (`"cheapest"`, `"best"`, `"#1"`, `"lowest price"` — exception: Happy Returns `#1 locator for 44077`), or volume counts (`"thousands of packages"`, `"decades"`).
 2. **Qualitative texture is allowed:** Hedged words like `"often"`, `"typically"`, `"usually"` are pre-approved — do not trigger L3 objections on them (PR #782 ruling).
 3. **Skip uninteresting carrier news fluff:** Basic carrier news that isn't useful to local customers should not be published (PR #961).
-4. **Receipt ↔ Copy Sync:** Every edited claim in an article MUST match its `.factchecks/<slug>.factcheck.md` receipt row verbatim (PR #1012).
+4. **Receipt ↔ Copy Sync:** Every edited claim in an article MUST match its `.factchecks/` receipt row verbatim (PR #1012).
 5. **No Netlify deploy previews:** Permanently disabled repo-wide; never flag missing previews.
 6. **Trailing slashes:** Every internal same-site link (including `public/llms.txt`) must end with `/`.
