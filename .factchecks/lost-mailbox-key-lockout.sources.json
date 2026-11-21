@@ -1,0 +1,192 @@
+{
+  "source_extracts": [
+    {
+      "label": "USPS Notice 11 \u2014 Tips for Postal Customers with Centralized Mailboxes",
+      "url": "https://about.usps.com/notices/not11/not11.htm",
+      "quote": "If you've lost or misplaced your mailbox key, ask the owner, manager, or superintendent of your apartment or home for a replacement. You shouldn't pry open your mailbox, because it's against the law, and also because our carriers can't deliver mail to unlocked or unsecured boxes."
+    },
+    {
+      "label": "USPS Notice 11 \u2014 unsecured box suspension",
+      "url": "https://about.usps.com/notices/not11/not11.htm",
+      "quote": "It's against Postal Service policy to deliver mail to unlocked or unsecured mailboxes. We want to protect you by protecting the privacy of your mail. If your mailbox is unsecured, delivery service may be suspended until your box is repaired. In the meantime, you can pick up your mail at your local Post Office\u2122."
+    },
+    {
+      "label": "USPS FAQ \u2014 Locked Mailboxes and Mailbox Keys (duplicate keys / lost key)",
+      "url": "https://faq.usps.com/articles/Knowledge/Locked-Mailboxes-and-Mailbox-Keys",
+      "quote": "Duplicate Keys: The Postal Service keeps no duplicate keys and if the customer loses all the keys, the Postal Service will have to install a new lock and issue a new set of keys at the customer's expense. Note: There is no established fee; this charge is based on local costs."
+    },
+    {
+      "label": "USPS FAQ \u2014 Lost, stolen, or broken key routing",
+      "url": "https://faq.usps.com/articles/Knowledge/Locked-Mailboxes-and-Mailbox-Keys",
+      "quote": "My Mailbox Key has been Lost, Stolen, or Broken: You will need to verify whether or not the mailboxes at your residential building (e.g. apartment, condominium, etc.) are owned and maintained by the United States Postal Service. For only those boxes that are maintained by the USPS: Please contact your local Post Office facility for assistance. For all other mailboxes: Please speak with your residential building owner or manager, as they are responsible for purchasing, installing, and maintaining mailboxes."
+    },
+    {
+      "label": "USPS FAQ \u2014 private mailboxes",
+      "url": "https://faq.usps.com/articles/Knowledge/Locked-Mailboxes-and-Mailbox-Keys",
+      "quote": "Note: The United States Postal Service is not able to help you access mailboxes owned and maintained by private residential building complexes."
+    },
+    {
+      "label": "Mailbox Plus Source of Truth \u00a74 \u2014 PMB key deposit and terms",
+      "url": "https://mailboxplusohio.com/private-mailbox-rental/",
+      "quote": "Key deposit: $5.00 refundable when you cancel and return the key. Contract / commitment wording: \"Month-to-month, no term commitment, cancel anytime\"."
+    },
+    {
+      "label": "Mailbox Plus Source of Truth \u00a74 \u2014 package receiving and hold fees",
+      "url": "https://mailboxplusohio.com/private-mailbox-rental/",
+      "quote": "Package Receiving: Offered for both mailbox holders and non-holders. Non-holder walk-in package receiving fee is $10.00/package; PMB holder overage beyond plan allowance is $5.00/package. Long-hold storage: Held longer than 5 days = $1.00/package/day."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$5.00",
+      "scope": "Mailbox Plus PMB refundable key deposit, refunded when the customer cancels and returns the key (owner-approved store pricing; NOT a key-replacement fee)"
+    },
+    {
+      "value": "$10.00",
+      "scope": "Non-holder walk-in package receiving fee at Mailbox Plus, per package (owner-confirmed 2026-11-21)"
+    },
+    {
+      "value": "5 days",
+      "scope": "Long-hold threshold at Mailbox Plus: packages held longer than 5 days incur storage fees"
+    },
+    {
+      "value": "$1.00",
+      "scope": "Mailbox Plus long-hold storage fee per package per day after 5 days"
+    },
+    {
+      "value": "$15",
+      "scope": "Starting monthly price for a personal Mailbox Plus PMB (Small, Mail Only tier, new customers, month-to-month)"
+    },
+    {
+      "value": "$25",
+      "scope": "Monthly price for a personal Mailbox Plus PMB Small tier with 10 packages included (new customers)"
+    },
+    {
+      "value": "$5",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "01",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "7554",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "44077",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "440",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "709",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "1946",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "9",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "00",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "6",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "2",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "5",
+      "scope": "Auto-extracted from verified claims"
+    },
+    {
+      "value": "1",
+      "scope": "Step/item count or singular reference"
+    },
+    {
+      "value": "3",
+      "scope": "Three-step counter process"
+    },
+    {
+      "value": "4",
+      "scope": "Four major carriers at counter (USPS, UPS, FedEx, DHL)"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583"
+    },
+    {
+      "value": "44",
+      "scope": "Nearby highway (44) from content/facts.json"
+    },
+    {
+      "value": "90",
+      "scope": "Nearby highway (90) from content/facts.json"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\bsuite\\s+#?\\d+\\b",
+      "reason": "DMM 508.1.8.3 requires PMB or # designator, never Suite"
+    },
+    {
+      "forbid": "\\btwo\\s+photo\\s+ids?\\b",
+      "reason": "USPS Form 1583 requires one photo ID and one proof of address, never two photo IDs"
+    },
+    {
+      "forbid": "\\bworks\\s+on\\s+(?:every|any)\\s+form\\b",
+      "reason": "Third-party form acceptance is never categorical"
+    },
+    {
+      "forbid": "\\b(?:in\\s+)?under\\s+(?:3|three|2|two|5|five)\\s+minutes\\b",
+      "reason": "Unapproved quantitative turnaround/SLA promise (Rule 3)"
+    },
+    {
+      "forbid": "\\b(?:replace|reissue|cut|duplicate) (?:your )?(?:USPS|cluster|apartment|building|postal) (?:mailbox )?keys?\\b",
+      "reason": "Mailbox Plus cannot replace or duplicate USPS/cluster/apartment mailbox keys \u2014 USPS routes those to the property owner/manager or local Post Office. Must not imply store capability that is not owner-approved."
+    },
+    {
+      "forbid": "(?<!no )(?<!not )(?<!never )(?<!n['\u2019]t )(?:pry|jimmy) open (?:your|the|a) mailbox",
+      "reason": "USPS Notice 11 states prying open a mailbox is against the law; compliant copy negates this ('don't pry open'), so the pattern uses lookbehinds to match only affirmative violations."
+    },
+    {
+      "forbid": "(?<!no )(?<!not )\\bfree (?:replacement|new|spare) key\\b",
+      "reason": "No free key-replacement offer is approved in SOURCE_OF_TRUTH; only the $5.00 refundable key deposit is approved. Negated guidance ('no free replacement key') must not match."
+    },
+    {
+      "forbid": "\\b(?:under|in) (?:three|3|two|2|ten|10) minutes (?:guaranteed|flat|key)\\b",
+      "reason": "Quantitative turnaround promises are forbidden without owner sign-off; no key-replacement or lockout SLA is approved."
+    },
+    {
+      "forbid": "\\bno annual contract\\b",
+      "reason": "Banned phrasing (store_facts banned-no-annual-contract) \u2014 use 'no term commitment' instead."
+    },
+    {
+      "forbid": "\\b30[- ]day risk[- ]free\\b",
+      "reason": "Banned unapproved offer language (store_facts banned-30-day-risk-free)."
+    },
+    {
+      "forbid": "(?<!no )(?<!not )\\b24\\/7 (?:mailbox|package|key|counter) (?:access|pickup|retrieval|service)\\b",
+      "reason": "Mailbox Plus does not offer 24/7 access \u2014 store hours only. Lookbehinds keep compliant negated guidance ('no 24/7 mailbox access') from matching."
+    },
+    {
+      "forbid": "7554\\s+Fredle\\s+(?:Dr\\.?|Drive)\\s*,?\\s*Suite\\b",
+      "reason": "PMB addresses must use '#' or 'PMB', never 'Suite' (store_facts banned-pmb-suite-format)."
+    },
+    {
+      "forbid": "\\$(?:10|15|20|25|30|40|50) (?:key|lock|replacement)(?:[- ](?:cylinder|core|cut))? fee\\b",
+      "reason": "No key/lock replacement fee is approved anywhere in SOURCE_OF_TRUTH \u2014 only the $5.00 refundable key deposit exists. Prevents inventing a replacement-fee price."
+    }
+  ],
+  "required_when": []
+}
