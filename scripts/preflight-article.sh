@@ -126,6 +126,14 @@ for f in "${ARTICLES[@]}"; do
     echo "✅ verification & store photo manifest: $f (${IMG_STATUS})"
   fi
   rm -f "$VERIFY_LOG"
+  # 3e. canonical Source of Truth mechanical lint (docs/SOURCE_OF_TRUTH.md)
+  if ! node scripts/verify/check-source-of-truth.mjs --files "$f" >"$LOG_FILE" 2>&1; then
+    echo "❌ source-of-truth: $f violated canonical store facts/rules"
+    cat "$LOG_FILE"
+    FAIL=1
+  else
+    echo "✅ source-of-truth: $f"
+  fi
 done
 
 # 4. trailing slashes on internal links (rule 1, CI enforces — check early)
