@@ -1,0 +1,144 @@
+{
+  "source_extracts": [
+    {
+      "label": "FedEx — What is Dimensional Weight? (billable weight rule)",
+      "url": "https://www.fedex.com/en-us/shipping/packaging/what-is-dimensional-weight.html",
+      "quote": "For each shipment, you are charged based on the dimensional weight or actual weight of the package—whichever is greater."
+    },
+    {
+      "label": "FedEx — What is Dimensional Weight? (139 divisor)",
+      "url": "https://www.fedex.com/en-us/shipping/packaging/what-is-dimensional-weight.html",
+      "quote": "Dividing by 139 for U.S., Puerto Rico, and international shipments."
+    },
+    {
+      "label": "UPS — Shipping Package Dimensions and Weight (dim weight formula + divisors)",
+      "url": "https://www.ups.com/us/en/support/shipping-support/shipping-dimensions-weight",
+      "quote": "To calculate dimensional weight: Dimensional Weight = (L x W x H) ÷ Divisor ... Note: The divisor varies by rate type: 139 for Daily Rates; 166 for Retail Rates."
+    },
+    {
+      "label": "UPS — Shipping Package Dimensions and Weight (size/weight limits)",
+      "url": "https://www.ups.com/us/en/support/shipping-support/shipping-dimensions-weight",
+      "quote": "UPS packages can weight up to a maximum 150 lbs. The maximum length for UPS packages is 108 inches. ... Packages can be up to 165 inches in length and girth combined."
+    },
+    {
+      "label": "USPS — Ground Advantage (delivery window, weight cap, starting price)",
+      "url": "https://www.usps.com/ship/ground-advantage.htm",
+      "quote": "USPS Ground Advantage® service is an affordable and reliable way to send packages inside the U.S. ... Prices start at $8.40 at a Post Office™ location. ... For mailable items up to 70 lbs. Expected delivery in 2–5 days."
+    },
+    {
+      "label": "USPS — Priority Mail (delivery window, flat rate, starting price)",
+      "url": "https://www.usps.com/ship/priority-mail.htm",
+      "quote": "Priority Mail® service includes tracking and delivery in 2-3 days. ... Priority Mail Flat Rate® products let you ship packages up to 70 lbs to any state at the same price. ... Prices start at $11.50 at a Post Office."
+    },
+    {
+      "label": "Mailbox Plus Source of Truth — all-four-carrier authorization, live-rate pull phrasing, packing capabilities, approved visit-speed phrasing",
+      "url": "docs/SOURCE_OF_TRUTH.md",
+      "quote": "All four major carriers: Authorized shipping center and drop-off outlet for USPS, UPS, FedEx, and DHL; 'We pull live rates from all four carriers — UPS, FedEx, USPS, and DHL — side by side'; 'most visits are done in under ten minutes' is approved."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "139",
+      "scope": "Dimensional-weight divisor for UPS Daily Rates and for FedEx U.S. shipments, per the carrier pages quoted above (accessed 2026-11-21). Appears in quickAnswer, body, table, FAQ, and method steps."
+    },
+    {
+      "value": "166",
+      "scope": "Dimensional-weight divisor for UPS Retail Rates only, per the UPS page quoted above. Appears in body, table, and method step 2."
+    },
+    {
+      "value": "150",
+      "scope": "UPS maximum package weight in lbs per the UPS dimensions/weight page. Table + receipt row 4 only."
+    },
+    {
+      "value": "108",
+      "scope": "UPS maximum package length in inches per the UPS dimensions/weight page. Table + receipt row 4 only."
+    },
+    {
+      "value": "165",
+      "scope": "UPS maximum length-plus-girth in inches per the UPS dimensions/weight page. Table + receipt row 4 only."
+    },
+    {
+      "value": "2-5",
+      "scope": "USPS Ground Advantage delivery window in business days per usps.com (retrieved 2026-11-21). Body, table, FAQ."
+    },
+    {
+      "value": "2-3",
+      "scope": "USPS Priority Mail delivery window in days per usps.com (retrieved 2026-11-21). Body, table, FAQ."
+    },
+    {
+      "value": "70",
+      "scope": "USPS weight cap in lbs for Ground Advantage and Priority Mail Flat Rate per usps.com; also the 70-pound-books illustration. Body, table, FAQ."
+    },
+    {
+      "value": "8.40",
+      "scope": "USPS Ground Advantage starting price at a Post Office per usps.com (retrieved 2026-11-21). Table + FAQ-adjacent body only."
+    },
+    { "value": "$8.40", "scope": "Same figure as 8.40 with dollar sign, table form only." },
+    {
+      "value": "11.50",
+      "scope": "USPS Priority Mail starting price at a Post Office per usps.com (retrieved 2026-11-21). Table only."
+    },
+    { "value": "$11.50", "scope": "Same figure as 11.50 with dollar sign, table form only." },
+    {
+      "value": "2",
+      "scope": "Lower bound of the USPS Ground Advantage 2-5 business-day window (en-dash form '2–5' tokenizes separately); also ordered-list marker '2.' in the how-to steps and 'two different divisors' wording. No independent claim beyond the registered 2-5 window."
+    },
+    {
+      "value": "5",
+      "scope": "Upper bound of the USPS Ground Advantage 2-5 business-day window; also ordered-list marker '5.' in the how-to steps."
+    },
+    { "value": "1", "scope": "Ordered-list marker '1.' in the how-to steps; no factual claim." },
+    {
+      "value": "21",
+      "scope": "Day component of the access/publication date 'November 21, 2026' (table header + receipt). Date, not a claim."
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number in '7554 Fredle Drive, Concord Township, OH 44077' — canonical address per docs/SOURCE_OF_TRUTH.md §1."
+    },
+    {
+      "value": "44",
+      "scope": "Road token in 'SR-44' — State Route 44 near the store, per docs/SOURCE_OF_TRUTH.md §1 approved phrasing 'minutes from SR-44 and I-90'. Road name, not a claim."
+    },
+    {
+      "value": "90",
+      "scope": "Road token in 'I-90' — Interstate 90 per docs/SOURCE_OF_TRUTH.md §1 approved phrasing. Road name, not a claim."
+    },
+    {
+      "value": "ten minutes",
+      "scope": "Spelled-out form of the approved visit-speed phrasing 'most visits are done in under ten minutes' (SoT §2, PR #725). The only time figure in the article."
+    },
+    {
+      "value": "16",
+      "scope": "Dim-weight worked example box dimensions (16 x 16 x 16 in → 4,096 cu in ÷ 139 ≈ 29.5 → ~30 lb dim weight). Receipt row 7; arithmetic only."
+    },
+    {
+      "value": "30",
+      "scope": "Dim-weight worked-example result (a 3-pound box in a 16-cube bills at about 30 lb). Receipt row 7; arithmetic only."
+    },
+    {
+      "value": "3",
+      "scope": "Worked-example actual weight (3-pound pillow/box). Receipt row 7; illustrative arithmetic only."
+    },
+    {
+      "value": "4",
+      "scope": "Count of carriers (UPS, FedEx, USPS, DHL) at the counter — owner-verified store claim; also the four pieces of comparison information listed in the opening."
+    },
+    {
+      "value": "10",
+      "scope": "ONLY inside the approved phrasing 'most visits are done in under ten minutes' (SoT §2, PR #725). No other minute-count appears; legacy 'under three minutes' and 'two minutes and forty seconds' removed."
+    },
+    {
+      "value": "2026",
+      "scope": "Publication/access-date context ('as of November 21, 2026' table header; 2026 article links). Dates, not claims."
+    }
+  ],
+  "scope_rules": [
+    "Every carrier figure is attributed to that carrier's own official page, fetched live on 2026-11-21; no figure is sourced from model memory or from the legacy article.",
+    "The legacy article's invented prices ($18.47/$17.92/$15.80/$14.50), invented competitor locations (UPS Store 'Mentor Avenue', FedEx Office 'SOM Center Road', 'no DHL retail store within ten miles'), invented drive/wait times, 'under three minutes' / 'two minutes and forty seconds' turnaround promises, and invented cost math ('seventy hours a year', 'forty to eighty dollars a month', 'five hundred to a thousand dollars a year') are all REMOVED — none reappear in any form.",
+    "DHL is described only via the owner-approved all-four-carriers store claim; no characterization of DHL's U.S. retail role is made (unverifiable at fetch time, so cut).",
+    "Rate-chart criticism stays hedged/qualitative ('typically', 'often', 'can'); no invented dollar spreads or time-loss figures.",
+    "USPS starting prices are labeled as starting points 'at a Post Office' with online/commercial rates lower, exactly as USPS frames them."
+  ],
+  "required_when": "Any edit adding a rate figure, divisor, weight/size limit, delivery window, price, address, phone number, or time promise to this article must register it here first and add a receipt row."
+}
