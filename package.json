@@ -64,6 +64,7 @@
     "images:convert": "node scripts/convert-images.mjs",
     "preflight:article": "bash scripts/preflight-article.sh",
     "preflight:pr-body": "node scripts/verify/preflight-pr-body.mjs",
+    "pr:article": "node scripts/open-article-pr.mjs",
     "postbuild": "node scripts/verify-csp-inline.mjs"
   },
   "dependencies": {
@@ -106,6 +107,9 @@
     ],
     "content/articles/**/*.md": [
       "tsx scripts/verify/verify.mjs article",
+      "prettier --write"
+    ],
+    ".factchecks/**/*.md": [
       "prettier --write"
     ],
     "{docs,knowledge}/**/*.md": [
