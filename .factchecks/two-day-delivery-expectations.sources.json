@@ -1,0 +1,301 @@
+{
+  "slug": "two-day-delivery-expectations",
+  "generated": "2026-11-23",
+  "source_extracts": [
+    {
+      "id": "usps-pm",
+      "url": "https://www.usps.com/ship/priority-mail.htm",
+      "accessed": "2026-11-23",
+      "quotes": [
+        "Priority Mail® service includes tracking and delivery in 2-3 days",
+        "In most cases, the expected delivery date printed on your receipt or provided at checkout will reflect a delivery time of 2-3 days and is based on origin, destination, and drop-off time. The expected delivery date does not come with a money-back guarantee.",
+        "Prices start at $11.50 at a Post Office."
+      ]
+    },
+    {
+      "id": "usps-ga",
+      "url": "https://www.usps.com/ship/ground-advantage.htm",
+      "accessed": "2026-11-23",
+      "quotes": [
+        "Ground Advantage packages are delivered in 2-5 days and USPS Tracking® service is included in the price.",
+        "Prices start at $8.40 at a Post Office™ location.",
+        "Packages going to certain places (including Alaska, Hawaii, and offshore destinations), or containing hazardous materials may receive slower service."
+      ]
+    },
+    {
+      "id": "usps-pme",
+      "url": "https://www.usps.com/ship/priority-mail-express.htm",
+      "accessed": "2026-11-23",
+      "quotes": [
+        "Priority Mail Express® service provides 1–3 day delivery service by 6 PM with a money–back guarantee. You get competitive prices and fast delivery every day, all year, with limited exceptions, to most U.S. addresses and PO Boxes™.",
+        "Prices start at $37.05 at a Post Office."
+      ]
+    },
+    {
+      "id": "fedex-2day",
+      "url": "https://www.fedex.com/en-us/shipping/2-day-shipping.html",
+      "accessed": "2026-11-23",
+      "quotes": [
+        "With FedEx 2 day shipping, your packages are delivered within 2 business days throughout the United States.",
+        "Choose economical FedEx 2Day® shipping and get your package there by the end of the second business day. Packages will arrive by 5:00 p.m. to most areas and by 8 p.m. to residences.",
+        "With FedEx 2Day A.M., you get delivery in 2 business days by 10:30 a.m. to U.S. businesses and by noon to most residences.",
+        "The latest you can drop off a package at a FedEx location for 2 day shipping varies by location. Call to confirm cutoff times with the store."
+      ],
+      "table_notes": "Delivery days Monday–Friday (Saturday in certain areas for an additional charge); packages up to 150 lbs, up to 119\" length."
+    },
+    {
+      "id": "ups-2nda",
+      "url": "https://www.ups.com/us/en/support/shipping-support/shipping-services/domestic/accelerated-shipping",
+      "accessed": "2026-11-23",
+      "quotes": [
+        "UPS 2nd Day Air offers reliable 2-day shipping for packages that can arrive anytime on the second business day.",
+        "Get your shipment delivered in two business days with morning delivery available to eligible destinations."
+      ]
+    },
+    {
+      "id": "ups-domestic",
+      "url": "https://www.ups.com/us/en/support/shipping-support/shipping-services/domestic",
+      "accessed": "2026-11-23",
+      "quotes": [
+        "UPS 2nd Day Air delivers to all 50 states and Puerto Rico with some limitations in Alaska and Hawaii.",
+        "Available for packages up to 150 lbs. and 108” long.",
+        "Saturday delivery is available.",
+        "cost-effective, reliable ground shipping within one to five business days"
+      ]
+    },
+    {
+      "id": "confirmed-po-box",
+      "url": "https://faq.usps.com/s/article/PO-Box-The-Basics",
+      "accessed": "2026-09-24 (CONFIRMED.md rows 95/102)",
+      "quotes": [
+        "UPS, FedEx and other private carriers cannot deliver to a USPS PO Box — reused from CONFIRMED.md per gate rule"
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "2-3 days",
+      "scope": "USPS Priority Mail delivery estimate (and 2–4 to AK/HI per postalpro; only 2–3 used)",
+      "source": "usps-pm"
+    },
+    {
+      "value": "$11.50",
+      "scope": "USPS Priority Mail retail price floor at a Post Office as of 2026-11-23",
+      "source": "usps-pm"
+    },
+    {
+      "value": "2-5 days",
+      "scope": "USPS Ground Advantage delivery window",
+      "source": "usps-ga"
+    },
+    {
+      "value": "$8.40",
+      "scope": "USPS Ground Advantage retail price floor at a Post Office as of 2026-11-23",
+      "source": "usps-ga"
+    },
+    {
+      "value": "1-3 days",
+      "scope": "USPS Priority Mail Express delivery window with money-back guarantee",
+      "source": "usps-pme"
+    },
+    {
+      "value": "6 PM",
+      "scope": "USPS Priority Mail Express delivery commitment time",
+      "source": "usps-pme"
+    },
+    {
+      "value": "$37.05",
+      "scope": "USPS Priority Mail Express retail price floor at a Post Office as of 2026-11-23",
+      "source": "usps-pme"
+    },
+    {
+      "value": "2 business days",
+      "scope": "FedEx 2Day and UPS 2nd Day Air delivery commitment",
+      "source": "fedex-2day; ups-2nda"
+    },
+    {
+      "value": "5:00 p.m.",
+      "scope": "FedEx 2Day end-of-second-business-day delivery time to most areas",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "8 p.m.",
+      "scope": "FedEx 2Day delivery time to residences",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "10:30 a.m.",
+      "scope": "FedEx 2Day A.M. delivery time to U.S. businesses",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "noon",
+      "scope": "FedEx 2Day A.M. delivery time to most residences",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "150 lbs",
+      "scope": "UPS 2nd Day Air and FedEx 2Day maximum package weight",
+      "source": "ups-domestic; fedex-2day"
+    },
+    {
+      "value": "108 inches",
+      "scope": "UPS 2nd Day Air maximum package length (USPS Priority/GA length+girth figure not used in copy)",
+      "source": "ups-domestic"
+    },
+    {
+      "value": "70 lbs",
+      "scope": "USPS Priority Mail / Ground Advantage maximum weight",
+      "source": "usps-pm; usps-ga"
+    },
+    {
+      "value": "$2.00",
+      "scope": "Mailbox Plus label printing flat fee",
+      "source": "docs/SOURCE_OF_TRUTH.md §2"
+    },
+    {
+      "value": "ten minutes",
+      "scope": "approved visit-speed phrasing 'most visits are done in under ten minutes'",
+      "source": "docs/SOURCE_OF_TRUTH.md §2 (PR #725)"
+    },
+    {
+      "value": "SR-44",
+      "scope": "approved location phrasing token",
+      "source": "docs/SOURCE_OF_TRUTH.md §1"
+    },
+    {
+      "value": "I-90",
+      "scope": "approved location phrasing token",
+      "source": "docs/SOURCE_OF_TRUTH.md §1"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number",
+      "source": "docs/SOURCE_OF_TRUTH.md §1"
+    },
+    {
+      "value": "44077",
+      "scope": "store ZIP",
+      "source": "docs/SOURCE_OF_TRUTH.md §1"
+    },
+    {
+      "value": "four",
+      "scope": "all four carriers (USPS, UPS, FedEx, DHL) — word form of 4",
+      "source": "docs/SOURCE_OF_TRUTH.md §2"
+    },
+    {
+      "value": "2",
+      "scope": "lower bound of USPS Priority Mail 2–3 day estimate and the FedEx 2Day / UPS 2nd Day Air two-business-day commitment",
+      "source": "usps-pm; fedex-2day; ups-2nda"
+    },
+    {
+      "value": "3",
+      "scope": "upper bound of USPS Priority Mail 2–3 day estimate and Priority Mail Express 1–3 day window",
+      "source": "usps-pm; usps-pme"
+    },
+    {
+      "value": "5",
+      "scope": "hour component of FedEx 2Day 5:00 p.m. delivery to most areas",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "00",
+      "scope": "minutes component of the 5:00 p.m. FedEx 2Day commit time",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "8",
+      "scope": "FedEx 2Day 8 p.m. delivery time to residences",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "2 day",
+      "scope": "query phrasing '2 day shipping' in keywords and FAQ wording (verbatim searcher language for the two-day commitment)",
+      "source": "fedex-2day; ups-2nda"
+    },
+    {
+      "value": "3 days",
+      "scope": "word-form upper bound of the USPS Priority Mail 2–3 day delivery estimate in quickAnswer and body",
+      "source": "usps-pm"
+    },
+    {
+      "value": "3 day",
+      "scope": "hyphenated form of the Priority Mail 2–3 day estimate and Priority Mail Express 1–3 day guarantee in FAQ and body",
+      "source": "usps-pm; usps-pme"
+    },
+    {
+      "value": "1",
+      "scope": "lower bound of the USPS Priority Mail Express 1–3 day delivery window",
+      "source": "usps-pme"
+    },
+    {
+      "value": "6",
+      "scope": "hour component of the Priority Mail Express by-6-PM delivery commitment",
+      "source": "usps-pme"
+    },
+    {
+      "value": "70",
+      "scope": "USPS Priority Mail / Ground Advantage 70-pound maximum weight, in the Priority Mail paragraph",
+      "source": "usps-pm; usps-ga"
+    },
+    {
+      "value": "10",
+      "scope": "hour component of FedEx 2Day A.M. 10:30 a.m. commit to U.S. businesses",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "30",
+      "scope": "minutes component of the 10:30 a.m. FedEx 2Day A.M. commit",
+      "source": "fedex-2day"
+    },
+    {
+      "value": "50",
+      "scope": "'all 50 states' — UPS 2nd Day Air coverage statement",
+      "source": "ups-domestic"
+    },
+    {
+      "value": "5 days",
+      "scope": "word-form upper bound of the USPS Ground Advantage 2–5 day window",
+      "source": "usps-ga"
+    },
+    {
+      "value": "44",
+      "scope": "road number token SR-44 inside the approved location phrasing",
+      "source": "docs/SOURCE_OF_TRUTH.md §1"
+    },
+    {
+      "value": "90",
+      "scope": "highway number token I-90 inside the approved location phrasing",
+      "source": "docs/SOURCE_OF_TRUTH.md §1"
+    },
+    {
+      "value": "two hours",
+      "scope": "qualitative counter example — 'handed over two hours later' hypothetical, not a measured claim",
+      "source": "editorial: illustrative hypothetical (no store or carrier claim)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "any promise that Mailbox Plus guarantees a delivery date",
+      "reason": "guarantees belong to specific carrier services; store never promises"
+    },
+    {
+      "forbidden": "invented dollar spreads between carriers or example prices other than the registered USPS floors",
+      "reason": "unreceipted"
+    },
+    {
+      "forbidden": "percentage/industry research stats (ShipStation, NRF)",
+      "reason": "third-party research not verifiable at official source; removed in rewrite"
+    }
+  ],
+  "required_when": [
+    {
+      "when": "citing USPS Priority Mail timing",
+      "qualifier": "call it an estimate, not a guarantee"
+    },
+    {
+      "when": "citing carrier cutoffs",
+      "qualifier": "they vary by location; drop-off day sets the day count"
+    }
+  ]
+}
