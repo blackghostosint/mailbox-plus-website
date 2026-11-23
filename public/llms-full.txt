@@ -12810,7 +12810,7 @@ Once you know which service you are actually holding, the date you promised stop
 
 The phrase "two-day shipping" gets used like it is one service. It is at least four, and the fine print is where dates get missed.
 
-**USPS Priority Mail is an estimate, not a promise.** USPS advertises Priority Mail with delivery in 2–3 days, and in most cases the expected delivery date on your receipt reflects that window — but USPS states plainly that the expected date is based on origin, destination, and drop-off time, and that it does not come with a money-back guarantee. That is the honest headline most people miss: the cheapest "two-day" option on the counter is the one with the softest commitment. Priority Mail prices start at $11.50 at a Post Office, with a 70-pound weight limit. Slower service can apply to Alaska, Hawaii, and offshore destinations.
+**USPS Priority Mail is an estimate, not a promise.** USPS advertises Priority Mail with delivery in 2–3 days, and in most cases the expected delivery date on your receipt reflects that window — but USPS states plainly that the expected date is based on origin, destination, and drop-off time, and that it does not come with a money-back guarantee. That is the honest headline most people miss: the USPS estimate is the softest commitment on the counter — the low price and the low certainty travel together. Priority Mail prices start at $11.50 at a Post Office, with a 70-pound weight limit. Slower service can apply to Alaska, Hawaii, and offshore destinations.
 
 **FedEx 2Day is day-definite, and it tells you the hour.** FedEx states that 2Day packages are delivered within two business days throughout the United States — by 5:00 p.m. to most areas and by 8 p.m. to residences. If the morning matters, FedEx 2Day A.M. commits to delivery by 10:30 a.m. to U.S. businesses and by noon to most residences. Delivery days run Monday through Friday, with Saturday delivery available in certain areas for an additional charge, and packages can weigh up to 150 pounds.
 
@@ -12830,7 +12830,7 @@ So the decision tree looks like this: a PO Box destination means the Postal Serv
 
 ## When the Clock Actually Starts
 
-Every one of these commitments counts business days, and every one of them starts at the handoff — not at the order, not at the checkout page, not when you finish taping the box.
+FedEx and UPS count business days, and the count starts at the handoff — not at the order, not at the checkout page, not when you finish taping the box. USPS states its windows in days from when it receives the package, so the same handoff rule applies: the clock answers to the drop-off.
 
 This is where most two-day promises die. The order comes in Monday night. The package gets dropped off Tuesday afternoon — after the cutoff. The carrier processes it Wednesday, and your "two-day" service lands Friday. Nothing went wrong. The clock simply started a day later than you thought it did.
 
@@ -12850,7 +12850,7 @@ The frustration is not really about the carrier. It is about buying a speed you 
 
 A delivery date on a receipt should mean what it says. If it is a guarantee, the words money-back should be nearby. If it is an estimate, someone should tell you before you pay, not after it misses.
 
-And choosing between them should not require memorizing four carriers' product catalogs. You should be able to say "Thursday" out loud and hear the honest cost of hitting it — which services will commit, which will only try, and what the difference buys. That is a two-minute conversation, not a research project.
+And choosing between them should not require memorizing four carriers' product catalogs. You should be able to say "Thursday" out loud and hear the honest cost of hitting it — which services will commit, which will only try, and what the difference buys. That is a counter conversation, not a research project.
 
 ## The Counter Where Four Carriers Meet
 
@@ -12862,7 +12862,7 @@ Here is what we can do that a rate calculator cannot:
 
 **We know what the label you are buying actually promises.** The difference between Priority Mail's estimate and 2Day's end-of-second-business-day commitment is the difference between "should" and "will." We will tell you which one you are holding before you pay for it.
 
-**We can print your label for $2.00 flat.** Bring the PDF, we print it, you hand the package across the counter — and we are an authorized staffed drop-off for USPS, UPS, FedEx, and DHL, so the package enters the right network the same day.
+**We can print your label for $2.00 flat.** Bring the PDF, we print it, you hand the package across the counter — and we are an authorized staffed drop-off for USPS, UPS, FedEx, and DHL, so one counter takes whichever carrier your date needs.
 
 ## Date In, Label Out
 
@@ -12870,7 +12870,7 @@ No appointment, no account, no shipping software to learn. Most visits are done 
 
 1. **Bring the package — and the date.** Packed or unpacked. Tell us where it is going and when it needs to be there. The date, not the service name, is the part that matters.
 2. **We compare, out loud.** Live rates across USPS, UPS, FedEx, and DHL — what hitting your date costs on each, and which options carry a real commitment versus an estimate.
-3. **You pick, we ship.** Pay for the tradeoff you chose, and the package goes into the network before today's cutoff, so the clock starts now — not tomorrow.
+3. **You pick, we ship.** Pay for the tradeoff you chose. Cutoffs vary by location and service — the one thing you control is getting the package to a staffed counter early, so the clock starts as soon as the day allows.
 
 ## What Guessing Costs You
 
@@ -12888,7 +12888,7 @@ You hear the real spread — the guaranteed option, the estimated one, the diffe
 
 ## Bring the Box, Bring the Date
 
-Bring the next must-arrive-by package to **Mailbox Plus, 7554 Fredle Drive, Concord Township, OH 44077**. Tell us the date. We will pull the live rates from all four carriers, show you which promises are real, and get it into the network before the day is gone.
+Bring the next must-arrive-by package to **Mailbox Plus, 7554 Fredle Drive, Concord Township, OH 44077**. Tell us the date. We will pull the live rates from all four carriers, show you which promises are real, and hand the package to the right carrier as early in the day as the cutoff allows.
 
 Two-day shipping is not complicated. It is just usually explained badly — and we would rather explain it right than watch you find out the hard way.
 
