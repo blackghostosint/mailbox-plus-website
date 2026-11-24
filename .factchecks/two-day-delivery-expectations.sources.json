@@ -70,6 +70,24 @@
       "quotes": [
         "UPS, FedEx and other private carriers cannot deliver to a USPS PO Box — reused from CONFIRMED.md per gate rule"
       ]
+    },
+    {
+      "id": "fedex-mbg",
+      "url": "https://www.fedex.com/en-us/service-guide/money-back-guarantee.html",
+      "accessed": "2026-11-24",
+      "quotes": [
+        "Effective Feb. 12, 2026, the FedEx Money-Back Guarantee applies to the following Fedex services for U.S. payors: ... FedEx 2Day® A.M. ...",
+        "In order to balance our focus on service and safety, the money-back guarantee for all other FedEx® services will remain suspended until further notice."
+      ]
+    },
+    {
+      "id": "ups-guarantee",
+      "url": "https://www.ups.com/us/en/support/shipping-support/legal-terms-conditions/ups-service-guarantee",
+      "accessed": "2026-11-24",
+      "quotes": [
+        "The UPS® Service Guarantee is currently active for the below Air and International services: Domestic ... UPS 2nd Day Air A.M.®",
+        "The UPS Service Guarantee remains suspended for all other UPS® shipments and services not specified in the above sections, from any origin to any destination."
+      ]
     }
   ],
   "numeric_claims": [
@@ -272,6 +290,11 @@
       "value": "two hours",
       "scope": "qualitative counter example — 'handed over two hours later' hypothetical, not a measured claim",
       "source": "editorial: illustrative hypothetical (no store or carrier claim)"
+    },
+    {
+      "value": "active money-back guarantee",
+      "scope": "FedEx 2Day A.M. and UPS 2nd Day Air A.M. are the only domestic two-day services with an active money-back/service guarantee at these carriers; standard FedEx 2Day / UPS 2nd Day Air guarantees remain suspended until further notice",
+      "source": "fedex-mbg; ups-guarantee"
     }
   ],
   "scope_rules": [
