@@ -125,7 +125,7 @@ No appointment, no account, no shipping software to learn. Most visits are done 
 
 The order comes in Monday night. Tuesday afternoon you pull into the lot on Fredle Drive, put the box on the counter, and say it plainly: "This one has to be there Thursday."
 
-You hear the real spread — the guaranteed option, the estimated one, the difference in dollars. You pick, you pay, and you walk out knowing the clock started today, with a receipt that says what you actually bought. The dread of the tracking page does not follow you to the car, because the promise you made was one you could keep.
+You hear the real spread — the guaranteed option, the estimated one, the difference in dollars. You pick, you pay, and you walk out with a receipt that says what you actually bought. If the box crossed the counter before the carrier's cutoff, the clock started today; if it crossed after, the count waits for the next business day. The dread of the tracking page does not follow you to the car, because the promise you made was one you could keep.
 
 ## Bring the Box, Bring the Date
 
