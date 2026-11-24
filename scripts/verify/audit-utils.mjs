@@ -49,22 +49,44 @@ export function parseAuditPayload(raw) {
 }
 
 /**
+ * Parses space-separated string or array into array of allowed GHSA IDs.
+ * @param {string|string[]} [allowInput]
+ * @returns {string[]}
+ */
+export function parseAllowList(allowInput) {
+  if (!allowInput) return [];
+  if (Array.isArray(allowInput)) {
+    return allowInput
+      .filter((id) => typeof id === 'string' && id.trim().length > 0)
+      .map((id) => id.trim());
+  }
+  if (typeof allowInput === 'string') {
+    return allowInput.trim().split(/\s+/).filter(Boolean);
+  }
+  return [];
+}
+
+/**
  * Evaluates parsed npm audit JSON data against an allowlist and target severities.
  * @param {object|string} data - Parsed npm audit JSON payload or raw string.
- * @param {string[]} [allowList=[]] - Array of allowed GHSA IDs.
+ * @param {string[]|string} [allowInput=[]] - Array or space-separated string of allowed GHSA IDs.
  * @param {string[]} [severities=['high', 'critical']] - Severity levels to filter on.
  * @returns {string[]} Array of unhandled offender strings formatted as "ID (pkg)".
  */
-export function evaluateAuditData(data, allowList = [], severities = ['high', 'critical']) {
+export function evaluateAuditData(data, allowInput = [], severities = ['high', 'critical']) {
   const parsed = parseAuditPayload(data);
+  const allowList = parseAllowList(allowInput);
 
   const offenders = [];
   for (const [name, v] of Object.entries(parsed.vulnerabilities || {})) {
+    if (!v || typeof v !== 'object') continue;
     if (!severities.includes(v.severity)) continue;
-    for (const a of v.via || []) {
-      if (typeof a === 'object' && a?.url) {
+
+    const viaList = Array.isArray(v.via) ? v.via : [];
+    for (const a of viaList) {
+      if (a && typeof a === 'object' && typeof a.url === 'string') {
         const id = a.url.split('/').pop();
-        if (!allowList.includes(id)) {
+        if (id && !allowList.includes(id)) {
           offenders.push(`${id} (${name})`);
         }
       }
@@ -78,7 +100,9 @@ export function evaluateAuditData(data, allowList = [], severities = ['high', 'c
  * Runs an audit gate command or evaluates mock output.
  * @param {object} [options]
  * @param {string} [options.cwd] - Directory path to execute npm audit in.
- * @param {string[]} [options.allowList] - Array of allowed advisory IDs.
+ * @param {string[]|string} [options.allowList] - Array or space-separated string of allowed advisory IDs.
+ * @param {string[]} [options.npmArgs] - Custom npm CLI arguments.
+ * @param {string[]} [options.severities] - Severity levels to filter on.
  * @param {string} [options.mockRaw] - Raw JSON stdout for testing.
  * @param {string} [options.gateName='audit'] - Label for log messages.
  * @returns {{ success: boolean, offenders: string[], error?: string }}
@@ -86,7 +110,9 @@ export function evaluateAuditData(data, allowList = [], severities = ['high', 'c
 export function runAuditGate(options = {}) {
   const gateName = options.gateName || 'audit';
   const allowList =
-    options.allowList ?? (process.env.AUDIT_ALLOW || '').split(/\s+/).filter(Boolean);
+    options.allowList !== undefined
+      ? parseAllowList(options.allowList)
+      : parseAllowList(process.env.AUDIT_ALLOW);
 
   let raw;
   if (options.mockRaw !== undefined) {
