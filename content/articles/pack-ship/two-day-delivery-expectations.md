@@ -67,7 +67,7 @@ Here is a question that shows up at our counter and all over the search results:
 
 If the recipient only has a PO Box, the private carriers are out — UPS, FedEx, and other private carriers cannot deliver to a USPS PO Box at all. USPS is the only option, and Priority Mail Express is the tool: it delivers to most U.S. addresses and PO Boxes, with the money-back guarantee attached to its 1–3 day service. Priority Mail Express prices start at $37.05 at a Post Office.
 
-So the decision tree looks like this: a PO Box destination means the Postal Service, full stop. A guaranteed date means Priority Mail Express, or the day-definite FedEx and UPS air products. A low price means Ground Advantage or ground service — and an honest delivery window to match. (If the PO Box itself is the problem rather than the deadline, [PMB vs PO Box](/articles/pmb-vs-po-box-comparison/) breaks down the full tradeoff.)
+So the decision tree looks like this: a PO Box destination means the Postal Service, full stop. A date you can hold someone to means Priority Mail Express (money-back guaranteed) or the day-definite FedEx 2Day A.M. / UPS 2nd Day Air A.M. products — those are the carriers' currently active domestic money-back-guaranteed two-day services, and the guarantee terms attach to them specifically. A low price means Ground Advantage or ground service — and an honest delivery window to match. (If the PO Box itself is the problem rather than the deadline, [PMB vs PO Box](/articles/pmb-vs-po-box-comparison/) breaks down the full tradeoff.)
 
 ## When the Clock Actually Starts
 
