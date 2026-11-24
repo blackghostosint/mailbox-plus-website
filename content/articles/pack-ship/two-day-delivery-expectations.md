@@ -43,7 +43,7 @@ author: 'Reviewed by Frank Schwarz, COO'
 
 The package needs to be there Thursday. You have three carriers on the counter and three different answers to a simple question: what does two-day shipping even mean?
 
-Here is the short version, and it is the whole point of this article. USPS Priority Mail says two to three days and means an estimate. FedEx 2Day and UPS 2nd Day Air say the second business day and mean it — the package arrives by the end of that day, wherever it is on their network. Neither promise starts counting when you click buy. It starts when the carrier physically takes the package, and the cutoff for that varies by the door you walk into.
+USPS Priority Mail says two to three days — and means an estimate. FedEx 2Day and UPS 2nd Day Air name the second business day — a day-definite commitment: the package arrives by the end of that day, wherever it is on their network. Neither promise starts counting when you click buy. It starts when the carrier physically takes the package, and the cutoff for that varies by the door you walk into.
 
 Once you know which service you are actually holding, the date you promised stops being a gamble. Here is the carrier-by-carrier breakdown, and what it changes for the next package you ship.
 
@@ -53,7 +53,7 @@ The phrase "two-day shipping" gets used like it is one service. It is at least f
 
 **USPS Priority Mail is an estimate, not a promise.** USPS advertises Priority Mail with delivery in 2–3 days, and in most cases the expected delivery date on your receipt reflects that window — but USPS states plainly that the expected date is based on origin, destination, and drop-off time, and that it does not come with a money-back guarantee. That is the honest headline most people miss: the USPS estimate is the softest commitment on the counter — the low price and the low certainty travel together. Priority Mail prices start at $11.50 at a Post Office, with a 70-pound weight limit. Slower service can apply to Alaska, Hawaii, and offshore destinations.
 
-**FedEx 2Day is day-definite, and it tells you the hour.** FedEx states that 2Day packages are delivered within two business days throughout the United States — by 5:00 p.m. to most areas and by 8 p.m. to residences. If the morning matters, FedEx 2Day A.M. commits to delivery by 10:30 a.m. to U.S. businesses and by noon to most residences. Delivery days run Monday through Friday, with Saturday delivery available in certain areas for an additional charge, and packages can weigh up to 150 pounds.
+**FedEx 2Day is day-definite, and it tells you the hour.** FedEx states that 2Day packages are delivered within two business days throughout the United States — by 5:00 p.m. to most areas and by 8 p.m. to residences. If the morning matters, FedEx 2Day A.M. commits to delivery by 10:30 a.m. to U.S. businesses and by noon to most residences — and during the holiday peak (Nov. 21 through Jan. 4), FedEx extends A.M. commitments of noon or earlier by 90 minutes, a shift the printed label may not show. Delivery days run Monday through Friday, with Saturday delivery available in certain areas for an additional charge, and packages can weigh up to 150 pounds.
 
 **UPS 2nd Day Air is the same idea with a different sentence.** UPS describes 2nd Day Air as reliable two-day shipping for packages that arrive anytime on the second business day, with the A.M. version delivering in two business days with morning delivery where eligible. It reaches all 50 states and Puerto Rico with some limitations in Alaska and Hawaii, takes packages up to 150 pounds and 108 inches long, and Saturday delivery is available.
 
@@ -85,13 +85,13 @@ If you want to see what the rate comparison itself looks like across all four ca
 
 It feels like arithmetic that keeps moving. You told a customer Thursday, you paid for a service with "2" in the name, and the tracking page says Saturday. Now you are drafting an apology instead of a shipping receipt, and the margin on the order is gone anyway.
 
-The frustration is not really about the carrier. It is about buying a speed you did not understand and finding out at the worst possible moment. Nobody explains at purchase that "2–3 days" is an estimate, or that the drop-off cutoff just restarted your clock. You find out Thursday.
+You are at the counter Thursday morning, tracking page open, typing an apology email. The carrier did not fail you. You bought a speed nobody explained, and you found out at the worst possible moment. Nobody tells you at purchase that "2–3 days" is an estimate, or that the drop-off cutoff just restarted your clock. You find out Thursday.
 
 ## A Delivery Date Should Mean What It Says
 
-A delivery date on a receipt should mean what it says. If it is a guarantee, the words money-back should be nearby. If it is an estimate, someone should tell you before you pay, not after it misses.
+Read the receipt before you pay: if the words money-back are nearby, it is a guarantee; if they are not, it is an estimate — and you hear that before you pay, not after it misses.
 
-And choosing between them should not require memorizing four carriers' product catalogs. You should be able to say "Thursday" out loud and hear the honest cost of hitting it — which services will commit, which will only try, and what the difference buys. That is a counter conversation, not a research project.
+And choosing between them should not require memorizing four carriers' product catalogs. You should be able to say "Thursday" out loud and hear the honest cost of hitting it — which services will commit, which will only try, and what the difference buys — before you hand over the box.
 
 ## The Counter Where Four Carriers Meet
 

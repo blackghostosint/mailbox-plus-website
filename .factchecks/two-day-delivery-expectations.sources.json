@@ -88,6 +88,15 @@
         "The UPS® Service Guarantee is currently active for the below Air and International services: Domestic ... UPS 2nd Day Air A.M.®",
         "The UPS Service Guarantee remains suspended for all other UPS® shipments and services not specified in the above sections, from any origin to any destination."
       ]
+    },
+    {
+      "id": "fedex-holiday-ext",
+      "url": "https://www.fedex.com/en-us/service-guide/money-back-guarantee.html",
+      "accessed": "2026-11-24",
+      "quotes": [
+        "Effective Nov. 21, 2026 — To accommodate the expected seasonal volume, A.M. delivery commitment times of 12 p.m. or earlier will be extended 90 minutes from Nov. 21, 2026-Jan. 4, 2027, for the following time-definite FedEx services: U.S. Domestic ... FedEx 2Day® A.M. ...",
+        "Note: Printed labels may not reflect the extended time."
+      ]
     }
   ],
   "numeric_claims": [
@@ -295,6 +304,16 @@
       "value": "active money-back guarantee",
       "scope": "FedEx 2Day A.M. and UPS 2nd Day Air A.M. are the only domestic two-day services with an active money-back/service guarantee at these carriers; standard FedEx 2Day / UPS 2nd Day Air guarantees remain suspended until further notice",
       "source": "fedex-mbg; ups-guarantee"
+    },
+    {
+      "value": "90 minutes",
+      "scope": "FedEx seasonal extension: A.M. delivery commitment times of 12 p.m. or earlier (incl. FedEx 2Day A.M.) extended 90 minutes from Nov. 21, 2026 through Jan. 4, 2027; printed labels may not reflect the extended time",
+      "source": "fedex-holiday-ext"
+    },
+    {
+      "value": "21",
+      "scope": "FedEx seasonal extension start date — A.M. commitments of noon or earlier extended 90 minutes from Nov. 21 through Jan. 4",
+      "source": "fedex-holiday-ext"
     }
   ],
   "scope_rules": [
