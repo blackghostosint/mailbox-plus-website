@@ -1,1 +1,1 @@
-export * from '../../../astro/src/lib/http-client';
+export * from '@mailbox-plus/shared/http-client';

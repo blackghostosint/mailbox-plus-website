@@ -1,4 +1,4 @@
-import { escapeHtml } from '../../../shared/escapeHtml.js';
+import { escapeHtml } from '@mailbox-plus/shared';
 
 export const DEFAULT_ARTICLE_LINK_CLASS =
   'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-strong)] underline-offset-2';

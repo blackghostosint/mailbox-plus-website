@@ -12,6 +12,7 @@ import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import path from 'node:path';
 import fs from 'node:fs';
 import { readFilesList } from './pr-utils.mjs';
+import { verifyLocalWorkspaceAddition } from './workspace-manifest-validator.mjs';
 
 export const DEFAULT_OWNER = process.env.REPO_OWNER || 'blackghostosint';
 
@@ -21,15 +22,15 @@ export const DEFAULT_AUTHORIZED_BOTS = ['google-labs-stitch[bot]', 'google-labs-
 // touch dependency manifests (package.json / package-lock.json) or netlify.toml.
 // Bot-authored CI/a11y/code PRs remain allowed.
 export const STRICT_OWNER_ONLY = [
-  /^(astro\/)?package\.json$/,
-  /^(astro\/)?package-lock\.json$/,
+  /^(astro\/|shared\/|netlify\/functions\/)?package\.json$/,
+  /^(astro\/|shared\/|netlify\/functions\/)?package-lock\.json$/,
   /^netlify\.toml$/,
 ];
 
 export const PROTECTED = [
   /^\.github\/workflows\//,
-  /^(astro\/)?package\.json$/,
-  /^(astro\/)?package-lock\.json$/,
+  /^(astro\/|shared\/|netlify\/functions\/)?package\.json$/,
+  /^(astro\/|shared\/|netlify\/functions\/)?package-lock\.json$/,
   /^scripts\/verify\//,
   /^netlify\.toml$/,
   /^\.gitleaks/,
@@ -229,6 +230,8 @@ export function verifyGitleaksConfigExemptionsNotBroadened(content) {
  * @param {string|string[]} [options.owner] - Repository owner username/login or list of allowed owners
  * @param {string[]} [options.authorizedBots] - List of authorized bot logins on behalf of owner
  * @param {string} [options.repoRoot] - Optional repository root directory for reading files
+ * @param {string} [options.baseRef] - Optional git ref for comparing base manifests
+ * @param {{ packageJson: string, packageLockJson: string, existingFiles?: Iterable<string> }} [options.baseManifests] - Optional base manifests for testing
  * @returns {{ success: boolean, touched: string[], message: string }}
  */
 export function checkSupplyChainActor({
@@ -237,6 +240,8 @@ export function checkSupplyChainActor({
   owner = DEFAULT_OWNER,
   authorizedBots = DEFAULT_AUTHORIZED_BOTS,
   repoRoot = process.cwd(),
+  baseRef = '',
+  baseManifests = undefined,
 } = {}) {
   const files = Array.isArray(changedFiles) ? changedFiles : [];
   const touched = files.filter((f) => PROTECTED.some((rx) => rx.test(f)));
@@ -259,15 +264,37 @@ export function checkSupplyChainActor({
     normalizedAuthor &&
     (authorizedBots || []).map((b) => b.trim().toLowerCase()).includes(normalizedAuthor);
 
+  const isDefaultOwnerIncluded = normalizedOwners.some((o) => o === DEFAULT_OWNER.toLowerCase());
+
   if (strictTouched.length && !isOwner) {
-    return {
-      success: false,
-      touched: strictTouched,
-      message:
-        `❌ dependency/config files touched by "${author}": ${strictTouched.join(', ')}. ` +
-        'These files are owner-only for EVERY author including authorized bots (see PR #797). ' +
-        'Dependency and config changes must be applied by the repo owner.',
-    };
+    const canVerifyWorkspaceRegistration =
+      isAuthorizedBot &&
+      isDefaultOwnerIncluded &&
+      Boolean(baseRef || baseManifests) &&
+      strictTouched.some(
+        (f) => f !== 'package.json' && f !== 'package-lock.json' && f.endsWith('/package.json')
+      );
+
+    const wsValidation = canVerifyWorkspaceRegistration
+      ? verifyLocalWorkspaceAddition({
+          changedFiles: files,
+          strictTouched,
+          repoRoot,
+          baseRef,
+          baseManifests,
+        })
+      : { valid: false };
+
+    if (!wsValidation.valid) {
+      return {
+        success: false,
+        touched: strictTouched,
+        message:
+          `❌ dependency/config files touched by "${author}": ${strictTouched.join(', ')}. ` +
+          'These files are owner-only for EVERY author including authorized bots (see PR #797). ' +
+          'Dependency and config changes must be applied by the repo owner.',
+      };
+    }
   }
 
   const gitleaksFiles = files.filter((f) => /^\.gitleaks/.test(f));
@@ -315,8 +342,6 @@ export function checkSupplyChainActor({
     }
   }
 
-  const isDefaultOwnerIncluded = normalizedOwners.some((o) => o === DEFAULT_OWNER.toLowerCase());
-
   const allowedLogins = new Set(normalizedOwners);
   if (isDefaultOwnerIncluded) {
     for (const bot of authorizedBots || []) {
@@ -356,9 +381,13 @@ if (isMainModule(import.meta.url)) {
   }
 
   const files = readFilesList(filesFile);
+  const defaultBaseRef = process.env.GITHUB_BASE_REF
+    ? `origin/${process.env.GITHUB_BASE_REF}`
+    : 'origin/main';
   const result = checkSupplyChainActor({
     changedFiles: files,
     author: authorArg,
+    baseRef: defaultBaseRef,
   });
 
   if (result.success) {

@@ -5,7 +5,8 @@
   "type": "module",
   "workspaces": [
     "astro",
-    "netlify/functions"
+    "netlify/functions",
+    "shared"
   ],
   "scripts": {
     "dev": "cd astro && npm run dev",

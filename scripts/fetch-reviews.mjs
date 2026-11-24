@@ -16,8 +16,7 @@
  */
 
 import path from 'node:path';
-import { httpClient } from '../astro/src/lib/http-client.ts';
-import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
+import { httpClient, getWorkspaceRoot, atomicWriteJsonSync } from '@mailbox-plus/shared';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export const OUT_FILE = path.resolve(getWorkspaceRoot(), 'astro/src/data/reviews.json');

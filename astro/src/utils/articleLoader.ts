@@ -1,12 +1,11 @@
 import type { Article, ArticleFrontmatter } from '../types/article.types';
 import matter from 'gray-matter';
-import { articleFrontmatterSchema } from '../../../scripts/lib/article-schema';
+import { articleFrontmatterSchema, getWorkspaceRoot } from '@mailbox-plus/shared';
 import { compareDatesDesc, toISODateString } from './dateUtils';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { execFileSync } from 'node:child_process';
-import { getWorkspaceRoot } from '../../../scripts/lib/workspace-paths.ts';
 
 /**
  * Parses article frontmatter using articleFrontmatterSchema.

@@ -27,7 +27,7 @@ import {
 } from './lib/article-utils.ts';
 
 export { matchWildcardSegment, matchPathSegments, globMatch, resolveFiles };
-import { httpClient } from '../astro/src/lib/http-client.ts';
+import { httpClient } from '@mailbox-plus/shared';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 function loadEnvKeys(): Record<string, string> {

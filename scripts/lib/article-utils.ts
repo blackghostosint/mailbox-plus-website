@@ -2,9 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
-import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
-import { getWorkspaceRoot } from './workspace-paths.ts';
-import { validateArticleFrontmatter, type ArticleFrontmatter } from './article-schema.ts';
+import {
+  toRouteKey,
+  isKnownRoute,
+  getWorkspaceRoot,
+  validateArticleFrontmatter,
+  type ArticleFrontmatter,
+  type DynamicPrefix,
+  type RouteRegistry,
+} from '@mailbox-plus/shared';
 
 export type GrayMatterFn = (
   input: string | Buffer,
@@ -89,16 +95,7 @@ export function matter(input: string | Buffer, options?: Record<string, any>) {
   return getGrayMatter()(input, options);
 }
 
-export interface DynamicPrefix {
-  prefix: string;
-  catchAll: boolean;
-}
-
-export interface RouteRegistry {
-  validRoutes: Set<string>;
-  dynamicPrefixes: DynamicPrefix[];
-  intentKeyMap: Map<string, string[]>;
-}
+export type { DynamicPrefix, RouteRegistry };
 
 export interface Article {
   filePath: string;
@@ -247,22 +244,7 @@ export function normalizeRoute(p: string): string {
   return toRouteKey(p);
 }
 
-/**
- * Checks if target route matches any exact valid route or dynamic route prefix.
- */
-export function isKnownRoute(target: string, registry: RouteRegistry): boolean {
-  const norm = normalizeRoute(target);
-  if (registry.validRoutes.has(norm)) return true;
-
-  for (const { prefix, catchAll } of registry.dynamicPrefixes) {
-    if (norm === prefix) return true;
-    if (prefix === '/' || !norm.startsWith(prefix + '/')) continue;
-    const rest = norm.slice(prefix.length + 1);
-    if (catchAll || !rest.includes('/')) return true;
-  }
-
-  return false;
-}
+export { isKnownRoute };
 
 export function matchWildcardSegment(text: string, pattern: string): boolean {
   if (pattern === '*') return true;

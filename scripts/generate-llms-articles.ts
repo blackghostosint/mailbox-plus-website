@@ -11,8 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 import { loadArticles } from './lib/article-utils.ts';
-import { toISODateString } from '../astro/src/utils/dateUtils.ts';
-import { getWorkspaceRoot, atomicWriteFileSync } from './lib/workspace-paths.ts';
+import { toISODateString, getWorkspaceRoot, atomicWriteFileSync } from '@mailbox-plus/shared';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const ROOT = getWorkspaceRoot();

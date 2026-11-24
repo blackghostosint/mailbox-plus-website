@@ -105,6 +105,7 @@ export default [
     files: [
       'netlify/**/*.{ts,js,mjs,cjs}',
       'scripts/**/*.{ts,js,mjs,cjs}',
+      'shared/**/*.{ts,js,mjs,cjs}',
       '*.config.{js,ts,mjs,cjs}',
       '*.config.js',
       '*.config.ts',

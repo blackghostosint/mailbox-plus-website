@@ -1,0 +1,61 @@
+{
+  "name": "@mailbox-plus/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared domain schemas, contracts, HTTP client, URL/date helpers, and workspace utilities for Mailbox Plus",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./index.cjs",
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts",
+      "require": "./index.cjs",
+      "default": "./index.ts"
+    },
+    "./escapeHtml": {
+      "types": "./escapeHtml.ts",
+      "import": "./escapeHtml.ts",
+      "require": "./escapeHtml.cjs",
+      "default": "./escapeHtml.ts"
+    },
+    "./url-normalization": {
+      "types": "./url-normalization.ts",
+      "import": "./url-normalization.ts",
+      "require": "./url-normalization.cjs",
+      "default": "./url-normalization.ts"
+    },
+    "./article-schema": {
+      "types": "./article-schema.ts",
+      "import": "./article-schema.ts",
+      "require": "./article-schema.cjs",
+      "default": "./article-schema.ts"
+    },
+    "./workspace-paths": {
+      "types": "./workspace-paths.ts",
+      "import": "./workspace-paths.ts",
+      "require": "./workspace-paths.cjs",
+      "default": "./workspace-paths.ts"
+    },
+    "./http-client": {
+      "types": "./http-client.ts",
+      "import": "./http-client.ts",
+      "require": "./http-client.cjs",
+      "default": "./http-client.ts"
+    },
+    "./contracts": {
+      "types": "./contracts.ts",
+      "import": "./contracts.ts",
+      "require": "./contracts.cjs",
+      "default": "./contracts.ts"
+    },
+    "./date-utils": {
+      "types": "./date-utils.ts",
+      "import": "./date-utils.ts",
+      "require": "./date-utils.cjs",
+      "default": "./date-utils.ts"
+    }
+  }
+}

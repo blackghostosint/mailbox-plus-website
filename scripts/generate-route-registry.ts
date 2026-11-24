@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import prettier from 'prettier';
 import type { Service } from '../astro/src/types/services.ts';
-import { toRouteKey } from '../astro/src/utils/url-normalization.ts';
+import { toRouteKey, getWorkspaceRoot, atomicWriteFileSync } from '@mailbox-plus/shared';
 import { services } from '../astro/src/config/services.js';
 import { serviceAreas } from '../astro/src/config/serviceAreas.js';
 import { competitivePages } from '../astro/src/config/services/competitive/index.js';
@@ -11,7 +11,6 @@ import {
   subSupportingConfigs,
   standaloneSeoLandingConfigs,
 } from '../astro/src/config/pillars.js';
-import { getWorkspaceRoot, atomicWriteFileSync } from './lib/workspace-paths.ts';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 if (!process.env.VITE_R2_PUBLIC_BASE_URL) {

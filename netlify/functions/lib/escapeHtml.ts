@@ -1,1 +1,1 @@
-export { escapeHtml } from '../../../shared/escapeHtml.js';
+export { escapeHtml } from '@mailbox-plus/shared/escapeHtml';

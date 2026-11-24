@@ -23,7 +23,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
-import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
+import { toRouteKey } from '@mailbox-plus/shared';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { walkFiles } from '../lib/fs-traversal.ts';
 

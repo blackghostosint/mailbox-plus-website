@@ -1,4 +1,4 @@
-import type { ArticleFrontmatter } from '../../../scripts/lib/article-schema';
+import type { ArticleFrontmatter } from '@mailbox-plus/shared';
 
 export type { ArticleFrontmatter };
 

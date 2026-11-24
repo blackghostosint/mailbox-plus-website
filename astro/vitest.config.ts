@@ -36,6 +36,7 @@ export default getViteConfig({
     include: [
       'src/**/*.{test,spec}.{ts,tsx}',
       '../netlify/functions/**/*.{test,spec}.{ts,tsx}',
+      '../shared/**/*.{test,spec}.{ts,tsx}',
       '../scripts/**/*.{test,spec}.{ts,tsx}',
       '../knowledge/**/*.{test,spec}.{ts,tsx}',
     ],
@@ -50,7 +51,7 @@ export default getViteConfig({
       provider: 'v8',
       reporter: ['text', 'json', 'json-summary', 'html'],
       reportsDirectory: './coverage',
-      include: ['src/**/*.{ts,tsx,js,jsx}'],
+      include: ['src/**/*.{ts,tsx,js,jsx}', '../shared/**/*.ts'],
       exclude: [
         '**/*.{test,spec}.{ts,tsx,js,jsx}',
         '**/__tests__/**',

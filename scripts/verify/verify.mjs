@@ -80,7 +80,7 @@ try {
 
 let parseValidDate, toISODateString;
 try {
-  const dateUtils = await import('../../astro/src/utils/dateUtils.ts');
+  const dateUtils = await import('@mailbox-plus/shared');
   parseValidDate = dateUtils.parseValidDate;
   toISODateString = dateUtils.toISODateString;
 } catch {

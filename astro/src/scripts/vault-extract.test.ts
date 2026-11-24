@@ -2,7 +2,7 @@
 // Writes /tmp/vault-data.json with all website config data for vault sync.
 import { describe, it } from 'vitest';
 import process from 'node:process';
-import { atomicWriteJsonSync } from '../../../scripts/lib/workspace-paths.ts';
+import { atomicWriteJsonSync } from '@mailbox-plus/shared';
 import { siteConfig } from '../config/siteConfig';
 import { coreServices } from '../config/services/core';
 import { packShipServices } from '../config/services/pack-ship';

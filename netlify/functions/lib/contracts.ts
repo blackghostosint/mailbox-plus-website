@@ -1,1 +1,1 @@
-export * from '../../../astro/src/lib/contracts';
+export * from '@mailbox-plus/shared/contracts';
