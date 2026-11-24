@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Root dependency audit gate with scoped allowlist.
-// Mirrors audit-astro-gate.mjs (same evaluateAuditVulnerabilities engine).
+// Delegates to shared audit helpers in audit-utils.mjs.
 // GHSA-fc5q-39xc-vjpf (picomatch <=4.0.7, ReDoS via single-branch repeated
 // extglobs) has NO upstream fix — 4.0.7 is the latest published version.
 // Risk context: picomatch runs at BUILD time matching glob patterns authored in
@@ -12,19 +12,14 @@
 // version is published and the lockfile picks it up.
 import { runAuditGate } from './audit-utils.mjs';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
-import { parseAllowList } from './audit-astro-gate.mjs';
 
 export function runAuditRootGate(options = {}) {
   const cwd = new URL('../../', import.meta.url).pathname;
-  const allowList =
-    options.allowList !== undefined
-      ? parseAllowList(options.allowList)
-      : parseAllowList(process.env.AUDIT_ALLOW);
 
   return runAuditGate({
     cwd,
     gateName: 'root audit',
-    allowList,
+    allowList: options.allowList,
     // Match the CI root audit step exactly: prod-only, root workspace excluded
     // (workspaces are audited by their own gates — astro by audit-astro-gate).
     npmArgs: ['audit', '--json', '--audit-level=high', '--omit=dev', '--workspaces=false'],
