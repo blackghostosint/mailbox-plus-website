@@ -28,7 +28,8 @@ Not applicable — no `netlify/functions/` changes.
 
 ## Business Claims — Rule 3 (owner sign-off required)
 
-- ✅ approved 2026-11-21 SoT facts — inbound alcohol receiving + we sign if required; $25/$40 +10 tiers (10 pkgs/mo incl., $5 overage); non-holder walk-in receiving $10.00/package; "no term commitment, cancel anytime"; `#`/`PMB` formatting; store address/hours
+- ✅ approved 2026-11-21 SoT facts — inbound alcohol receiving; we sign for deliveries if required
+- ✅ approved 2026-11-21 SoT facts — $25/$40 +10 tiers (10 pkgs/mo incl., $5 overage); non-holder walk-in receiving $10.00/package; "no term commitment, cancel anytime"; `#`/`PMB` formatting; store address/hours
 - ⚠️ not offered (SoT §2) — outbound consumer alcohol shipping; article does not offer it and links to the sibling article for the shipping-alcohol question
 
 ## Mechanical receipt
