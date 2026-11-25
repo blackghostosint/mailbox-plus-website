@@ -9,7 +9,8 @@
       "quotes": [
         "Priority Mail® service includes tracking and delivery in 2-3 days",
         "In most cases, the expected delivery date printed on your receipt or provided at checkout will reflect a delivery time of 2-3 days and is based on origin, destination, and drop-off time. The expected delivery date does not come with a money-back guarantee.",
-        "Prices start at $11.50 at a Post Office."
+        "Prices start at $11.50 at a Post Office.",
+        "Pay for your package based on how much it weighs and how far it's going (the zone). Maximum weight is 70 lbs."
       ]
     },
     {
@@ -262,7 +263,7 @@
     },
     {
       "value": "70",
-      "scope": "USPS Priority Mail / Ground Advantage 70-pound maximum weight, in the Priority Mail paragraph",
+      "scope": "USPS Priority Mail maximum weight — 'Maximum weight is 70 lbs' (use-your-own-box pricing); Ground Advantage also caps at 70 lbs per its own page",
       "source": "usps-pm; usps-ga"
     },
     {
