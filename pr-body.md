@@ -1,25 +1,25 @@
 ## What this changes
 
-Full-voice GSC-driven rewrite of `home-business-real-street-address` (rewrite #2 of Frank's approved segmentation list, next after fedex-demand-surcharges-2026 / PR #880). Same slug, same subject per GSC queries, fresh prose — no inherited sentences. Article word count 1,878.
+Full-voice rewrite of `wine-alcohol-delivery-receiving` (deep-track, GSC segmentation REWRITE bucket). Same slug, same subject, fresh draft — no inherited prose. Article word count ~1,300.
 
-**Diagnosis (GSC 90d, 2026-08-05 → 2026-11-02):** 315 impressions / 0 clicks / avg position 7.0. Head query "street address for business" ranked pos 18 — the legacy title ("Your Home Business Deserves a Real Street Address (Here's Why)") targets no query; "street address required" (pos 6.5) and "public business address" (pos 5.0) earned 0 clicks (title/hook CTR loss); "street address and po box" (pos 31.5) is a comparison tail the old page never served. Class: click-intent (pos 5–15, not snippet-capped) → title surgery + comparison verdict shape.
+**Diagnosis (GSC 90d, 2026-08-27 → 2026-11-25):** 378 impressions / 0 clicks / avg position 6.5. The page surfaces for "do wine deliveries require an adult signature?" at **pos 4.4** and never wins the click — the legacy title was a statement ("Someone Over 21 Has to Sign for It"), not an answer. "shipping wine to ohio" ranks pos 81 — never addressed. Class: click-intent (pos 5–8, not snippet-capped) → title surgery + quickAnswer + question-answer body shape.
 
 **Changes:**
 
-- Title retargeted to the head query ("Street Address for Business: How to Get a Real One Without a PO Box or Your Home"); keywords updated to the real query cluster.
-- Verdict-in-paragraph-one + four-option side-by-side table (PO box / home / office lease / PMB) with an explicit "where the losers still win" concession.
-- New `quickAnswer` frontmatter (snippet/AI-citation block, 72 words) — Quick Answer gate.
-- Legacy unverified specifics REMOVED: Oracle partner-application exact wording, Amazon seller-address behavior, "about ten minutes" setup time.
-- Legacy DMM defect FIXED: the old copy called the PMB a "suite number" — DMM 508.1.8.3 requires PMB/# designators; the rewrite teaches the correct PMB designation instead.
-- Frontmatter `lastModified: 2026-11-03` added; `pubDate` unchanged (2026-08-19). Verified in dist: `dateModified":"2026-11-03T09:00:00-05:00"` + sitemap `lastmod 2026-11-03T14:00:00.000Z`.
+- Title retargeted to the head query ("Do Wine Deliveries Require an Adult Signature? Yes — Here's How to Never Miss One"); keywords updated to the real query cluster.
+- New `quickAnswer` frontmatter (snippet/AI-citation block, ~78 words) — Quick Answer gate.
+- Body rebuilt: why the signature exists (carrier licensing chain) → what happens when nobody's home (FedEx reattempt; UPS returns unsigned wine to shipper) → Ohio receiving angle (UPS Addendum A) → counter-signing fix → pricing.
+- Store claims updated to current SoT: non-holder walk-in receiving **$10.00/package** (owner-confirmed 2026-11-21, supersedes the W8 P5 "ask at the counter" fail-closed row), "no term commitment, cancel anytime" phrasing, `#`/`PMB` address formatting.
+- Outbound consumer-shipping-alcohol angle links to the sibling `can-you-ship-alcohol-in-ohio-fedex-ups` article instead of re-explaining it (avoids cannibalization).
+- Legacy unverified claims REMOVED: "temperature-controlled facility", "our own insurance", "No door tag" promise (PR #1002), unverified porch-theft stat.
 
 ## Scope checklist
 
 - [ ] Touches `netlify/functions/`? No
 - [ ] Dependency changes? No
-- [x] Business facts → sourced in `.factchecks/home-business-real-street-address.factcheck.md` (15 rows, all verified 2026-11-03 from zero: eCFR 31 CFR 1020.220, Ohio SOS Forms 610/521 PDFs, Google Business Profile guidelines, USPS DMM 508 + Form 1583, site pricing/address/hours)
+- [x] Business facts → sourced in `.factchecks/wine-alcohol-delivery-receiving.factcheck.md` (26 rows, all verified 2026-11-25 from zero: fedex.com alcohol page, ups.com wine page, usps.com shipping restrictions, UPS Addendum A July 2026, docs/SOURCE_OF_TRUTH.md, content/facts.json, content/approved-store-claims.json)
 - [x] Rule-3 business claims → ledger below
-- [x] One concern only; rebased on current main (branched from origin/main @ 5af90640 today)
+- [x] One concern only; branched from origin/main @ 310a0424 today
 - [ ] Labels: leave for the watcher
 
 ## Endpoint Authentication Models (rule 7)
@@ -28,20 +28,28 @@ Not applicable — no `netlify/functions/` changes.
 
 ## Business Claims — Rule 3 (owner sign-off required)
 
-- ⚠️ softened/cut — "Cheapest of the four" (PO box row of the comparison table) → replaced with "Varies by post office" (unverifiable relative-price superlative, scrubbed per standing ruling)
-- ✅ approved 2026-11-03 site-config facts — pricing ($15/$25/$30/$40 personal tiers, $35/$50 business plans, month-to-month), address (7554 Fredle Drive, Concord Township OH 44077), hours, four-carrier delivery, 4-hour arrival notification — all verified against the site's own pricing/service pages (receipt rows 1–4, 14)
-- ✅ approved 2026-11-03 cited-source facts — bank CIP rule 31 CFR 1020.220, Ohio Form 610 PO-box/CMRA prohibition + $99 filing fee, Google Business Profile address guidelines (quoted verbatim), Form 1583 two-ID requirement, PMB/# designator rule — all verified at the issuing sources (receipt rows 5–13)
+- ✅ approved 2026-11-21 SoT facts — inbound alcohol receiving + we sign if required; $25/$40 +10 tiers (10 pkgs/mo incl., $5 overage); non-holder walk-in receiving $10.00/package; "no term commitment, cancel anytime"; `#`/`PMB` formatting; store address/hours
+- ⚠️ not offered (SoT §2) — outbound consumer alcohol shipping; article does not offer it and links to the sibling article for the shipping-alcohol question
 
 ## Mechanical receipt
 
 - Authorship: article-writer-bot (in-house)
   authorship: article-writer-bot (in-house)
-- In-session repairs: quickAnswer trimmed 97→81→72 words to fit the 40–80 gate; suite wording replaced per scope rule; 6 additional numeric tokens registered in sources.json; Google support URLs replaced with archive snapshots in the receipt (their HEAD endpoint 404s unauthenticated).
-- Fact-check receipt: `.factchecks/home-business-real-street-address.factcheck.md` (15 rows; 14 ✅ / 1 ⚠️ removals row) + `.factchecks/home-business-real-street-address.sources.json` (24 pre-registered numeric claims).
-- Strict gate: 51/51 PASS; build page count FLAT (379 → 379); sitemap + seo-gates PASS; `npm run prebuild` feeds committed.
-- Copy review (deepseek/deepseek-v4.1-flash, median of 3): **79/100 PASS** (runs: 79 / 84 / 74; run 1 pre-fix was 80 with 4 quoted fixes applied — quickAnswer overclaim, CTA link-dump, meta heading, abstract scene anchor). One K2.6 rescore returned 54 on the K2.6 scale — recorded per the scale-separation ruling (K2.6 anchors run ~15–20 pts harsher; flash median is the gate score); flagged for the pending owner recalibration.
+- In-session repairs: quickAnswer trimmed 90→86→78 words to fit the 40–80 gate; 6 additional numeric tokens registered in sources.json; "no door tag" promise replaced with compliant phrasing; "ten packages" compound token registered.
+- Fact-check receipt: `.factchecks/wine-alcohol-delivery-receiving.factcheck.md` (26 rows; 19 ✅ / 7 ⚠️ removals-softenings) + `.factchecks/wine-alcohol-delivery-receiving.sources.json` (23 pre-registered numeric claims).
+- Strict gate: ALL 57 CHECKS PASSED; `npm run prebuild` feeds committed (llms.txt + llms-full.txt).
+- Copy review (deepseek/deepseek-v4.1-flash): **77/100 PASS** (floor 70). Honest remaining critiques per the 70-77 proceed rule (owner ruling 2026-11-19): villain_legitimacy (quickAnswer carrier-blur on reattempt-vs-return), fluff_density x2, one_person_ear, identity_stakes (CTA lacks permission slip).
+- Ledger: entry + 3 blind predictions appended to vault `Content-Ledger.md` (baseline 378 imp / 0 clicks / pos 6.5), verified by readback.
 - pre-review: pending (draft PR; Runa private review before ready).
+
+## Blind predictions
+
+1. "do wine deliveries require an adult signature?" from pos 4.4 to top-3 @ D30.
+2. Page clicks 5-15 total @ D30 (from 0).
+3. "shipping wine to ohio" from pos 81 to <50 @ D30.
 
 ## Suggested internal links
 
-- [ ] (none auto-proposed — existing relatedServices links retained; Jev nominations re-run post-consolidation)
+- [x] `/articles/can-you-ship-alcohol-in-ohio-fedex-ups/` (sibling, outbound angle) — linked in body
+- [x] `/articles/what-is-a-private-mailbox-pmb/` — linked in body
+- [x] `/articles/package-receiving-service-ebay/` — linked in body
