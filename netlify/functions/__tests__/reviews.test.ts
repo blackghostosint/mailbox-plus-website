@@ -194,6 +194,35 @@ describe('reviews function handler', () => {
     });
   });
 
+  it('handles Places API payload with missing reviews array or undefined review rating gracefully', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: vi.fn().mockResolvedValue({
+        rating: 5.0,
+        userRatingCount: 12,
+        reviews: [{ text: { text: 'Quick drop-off!' } }],
+      }),
+    });
+
+    const ctx = createMockNetlifyContext();
+    const res = await handler(createRequest(), ctx);
+    expect(res.status).toBe(200);
+
+    const body = await res.json();
+    expect(body.ok).toBe(true);
+    expect(body.data.reviews).toEqual([
+      {
+        author: 'Google User',
+        authorUri: '',
+        rating: 5,
+        text: 'Quick drop-off!',
+        relativeTime: '',
+        publishTime: '',
+      },
+    ]);
+  });
+
   it('serves fresh cached payload without calling Google Places API', async () => {
     const freshCache = {
       rating: 5.0,
