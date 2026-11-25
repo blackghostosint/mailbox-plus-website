@@ -1,6 +1,6 @@
 ---
 title: "Do Wine Deliveries Require an Adult Signature? Yes — Here's How to Never Miss One"
-description: 'Yes — wine shipped by FedEx or UPS legally requires an adult (21+) signature at delivery. Here is exactly what happens when nobody is home, and how to get your wine delivered to a counter that can sign for it.'
+description: 'Yes — wine shipped by FedEx or UPS requires an adult (21+) signature at delivery. Here is exactly what happens when nobody is home, and how to get your wine delivered to a counter that can sign for it.'
 slug: 'wine-alcohol-delivery-receiving'
 category: 'pack-ship'
 intentKey: 'wine-alcohol-delivery-receiving'
@@ -11,7 +11,7 @@ imageAlt: 'A case of wine being handed across a shipping store counter by a staf
 location: 'concord-township'
 articleType: 'guide'
 quickAnswer: >-
-  Yes — wine shipped by FedEx or UPS legally requires an adult (21+) signature at
+  Yes — wine shipped by FedEx or UPS requires an adult (21+) signature at
   delivery. FedEx mandates its Adult Signature Required service, and UPS mandates
   Delivery Confirmation Adult Signature Required: the recipient must be 21 or older,
   present government-issued photo ID, and sign in person. If nobody signs, the driver
@@ -61,7 +61,7 @@ So the driver can't leave the box on the porch, can't hand it to a neighbor, can
 - **FedEx** requires its **Adult Signature Required** service for U.S. alcohol deliveries: the recipient must be at least 21 years of age, present government-issued photo identification, and sign for the shipment.
 - **UPS** requires the same through its **Delivery Confirmation Adult Signature Required** service: the signature of an adult 21 years of age or older upon delivery.
 
-And for completeness: wine never arrives by mail. The Postal Service's own shipping restrictions state that beer, wine, and liquor may not be sent through the mail, except in limited circumstances — so if your wine is coming, it's coming by FedEx or UPS, with a signature.
+And for completeness: wine does not arrive by standard mail. The Postal Service's own shipping restrictions state that beer, wine, and liquor may not be sent through the mail, except in limited circumstances — ones that don't cover a consumer's wine order — so if your wine is coming, it's coming by FedEx or UPS, with a signature.
 
 ## What Happens When Nobody's Home
 

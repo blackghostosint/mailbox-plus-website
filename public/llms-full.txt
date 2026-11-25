@@ -16286,7 +16286,7 @@ So the driver can't leave the box on the porch, can't hand it to a neighbor, can
 - **FedEx** requires its **Adult Signature Required** service for U.S. alcohol deliveries: the recipient must be at least 21 years of age, present government-issued photo identification, and sign for the shipment.
 - **UPS** requires the same through its **Delivery Confirmation Adult Signature Required** service: the signature of an adult 21 years of age or older upon delivery.
 
-And for completeness: wine never arrives by mail. The Postal Service's own shipping restrictions state that beer, wine, and liquor may not be sent through the mail, except in limited circumstances — so if your wine is coming, it's coming by FedEx or UPS, with a signature.
+And for completeness: wine does not arrive by standard mail. The Postal Service's own shipping restrictions state that beer, wine, and liquor may not be sent through the mail, except in limited circumstances — ones that don't cover a consumer's wine order — so if your wine is coming, it's coming by FedEx or UPS, with a signature.
 
 ## What Happens When Nobody's Home
 
