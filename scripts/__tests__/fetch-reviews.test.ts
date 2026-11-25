@@ -2,7 +2,14 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { transformPlacesData, fetchAndSaveReviews } from '../fetch-reviews.mjs';
+import {
+  PLACE_ID,
+  API_URL,
+  FIELD_MASK,
+  transformPlacesData,
+  fetchAndSaveReviews,
+} from '../fetch-reviews.mjs';
+import { PLACES_PLACE_ID, PLACES_API_URL, PLACES_FIELD_MASK } from '../../shared/placesReviews.js';
 
 describe('fetch-reviews', () => {
   let tmpFile: string;
@@ -83,6 +90,27 @@ describe('fetch-reviews', () => {
       expect(result.reviews[0].author).toBe('Google User');
       expect(result.reviews[0].rating).toBe(5);
       expect(result.reviews[0].authorUri).toBe('');
+    });
+
+    it('synchronizes constants and whitespace/invalid rating fallbacks with shared placesReviews module', () => {
+      expect(PLACE_ID).toBe(PLACES_PLACE_ID);
+      expect(API_URL).toBe(PLACES_API_URL);
+      expect(FIELD_MASK).toBe(PLACES_FIELD_MASK);
+
+      const result = transformPlacesData({
+        rating: 4.9,
+        userRatingCount: 15,
+        reviews: [
+          {
+            authorAttribution: { displayName: '   ' },
+            rating: 0,
+            text: { text: 'Helpful counter staff' },
+          },
+        ],
+      });
+
+      expect(result.reviews[0].author).toBe('Google User');
+      expect(result.reviews[0].rating).toBe(5);
     });
   });
 
