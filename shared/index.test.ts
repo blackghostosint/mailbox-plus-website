@@ -8,6 +8,7 @@ import * as articleSchemaSubpath from '@mailbox-plus/shared/article-schema';
 import * as workspacePathsSubpath from '@mailbox-plus/shared/workspace-paths';
 import * as dateUtilsSubpath from '@mailbox-plus/shared/date-utils';
 import * as escapeHtmlSubpath from '@mailbox-plus/shared/escapeHtml';
+import * as placesReviewsSubpath from '@mailbox-plus/shared/placesReviews';
 
 const require = createRequire(import.meta.url);
 
@@ -28,6 +29,7 @@ describe('@mailbox-plus/shared workspace package', () => {
     expect(typeof sharedEsm.CreateCheckoutRequestSchema.safeParse).toBe('function');
     expect(typeof sharedEsm.toISODateString).toBe('function');
     expect(typeof sharedEsm.parseValidDate).toBe('function');
+    expect(typeof sharedEsm.transformPlacesData).toBe('function');
 
     expect(contractsSubpath.isValidCheckoutUrl).toBe(sharedEsm.isValidCheckoutUrl);
     expect(httpClientSubpath.httpClient).toBe(sharedEsm.httpClient);
@@ -36,6 +38,7 @@ describe('@mailbox-plus/shared workspace package', () => {
     expect(workspacePathsSubpath.getWorkspaceRoot).toBe(sharedEsm.getWorkspaceRoot);
     expect(dateUtilsSubpath.toISODateString).toBe(sharedEsm.toISODateString);
     expect(escapeHtmlSubpath.escapeHtml).toBe(sharedEsm.escapeHtml);
+    expect(placesReviewsSubpath.transformPlacesData).toBe(sharedEsm.transformPlacesData);
   });
 
   it('supports synchronous CommonJS require() on barrel and subpaths', () => {
@@ -47,6 +50,7 @@ describe('@mailbox-plus/shared workspace package', () => {
     const workspacePathsCjs = require('@mailbox-plus/shared/workspace-paths');
     const urlNormCjs = require('@mailbox-plus/shared/url-normalization');
     const dateUtilsCjs = require('@mailbox-plus/shared/date-utils');
+    const placesReviewsCjs = require('@mailbox-plus/shared/placesReviews');
 
     expect(sharedCjs.escapeHtml('<b>a & b</b>')).toBe('&lt;b&gt;a &amp; b&lt;/b&gt;');
     expect(sharedCjs.toRouteKey('/pack-ship/?ref=nav#top')).toBe('/pack-ship');
@@ -61,6 +65,7 @@ describe('@mailbox-plus/shared workspace package', () => {
     expect(typeof workspacePathsCjs.getWorkspaceRoot).toBe('function');
     expect(typeof urlNormCjs.isKnownRoute).toBe('function');
     expect(typeof dateUtilsCjs.compareDatesDesc).toBe('function');
+    expect(placesReviewsCjs.transformPlacesData).toBe(sharedCjs.transformPlacesData);
   });
 
   it('validates article frontmatter schemas, Date transforms, intentKeys, and route registries', () => {

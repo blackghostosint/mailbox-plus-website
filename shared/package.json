@@ -56,6 +56,12 @@
       "import": "./date-utils.ts",
       "require": "./date-utils.cjs",
       "default": "./date-utils.ts"
+    },
+    "./placesReviews": {
+      "types": "./placesReviews.ts",
+      "import": "./placesReviews.ts",
+      "require": "./placesReviews.cjs",
+      "default": "./placesReviews.ts"
     }
   }
 }

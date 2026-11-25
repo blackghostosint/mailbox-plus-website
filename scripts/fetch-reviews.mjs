@@ -16,37 +16,29 @@
  */
 
 import path from 'node:path';
-import { httpClient, getWorkspaceRoot, atomicWriteJsonSync } from '@mailbox-plus/shared';
+import {
+  httpClient,
+  getWorkspaceRoot,
+  atomicWriteJsonSync,
+  PLACES_PLACE_ID,
+  PLACES_API_URL,
+  PLACES_FIELD_MASK,
+  transformPlacesData as transformSharedPlacesData,
+} from '@mailbox-plus/shared';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export const OUT_FILE = path.resolve(getWorkspaceRoot(), 'astro/src/data/reviews.json');
-export const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
-export const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
-export const FIELD_MASK =
-  'rating,userRatingCount,reviews(authorAttribution,text,rating,publishTime,relativePublishTimeDescription)';
+export { PLACES_PLACE_ID as PLACE_ID, PLACES_API_URL as API_URL, PLACES_FIELD_MASK as FIELD_MASK };
+
+const BUILD_SNAPSHOT_NOTE = 'Refreshed at build time by scripts/fetch-reviews.mjs';
 
 export function transformPlacesData(data = {}) {
-  const reviews = (data?.reviews || []).map((r) => ({
-    author: r?.authorAttribution?.displayName || 'Google User',
-    authorUri: r?.authorAttribution?.uri || '',
-    rating: r?.rating ?? 5,
-    text: r?.text?.text || '',
-    relativeTime: r?.relativePublishTimeDescription || '',
-    publishTime: r?.publishTime || '',
-  }));
-
-  return {
-    rating: data?.rating,
-    userRatingCount: data?.userRatingCount,
-    reviews,
-    fetchedAt: new Date().toISOString(),
-    note: 'Refreshed at build time by scripts/fetch-reviews.mjs',
-  };
+  return transformSharedPlacesData(data, { note: BUILD_SNAPSHOT_NOTE });
 }
 
 export async function fetchAndSaveReviews(options = {}) {
   const apiKey = options.apiKey ?? process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = options.placeId || PLACE_ID;
+  const placeId = options.placeId || PLACES_PLACE_ID;
   const outFile = options.outFile || OUT_FILE;
   const fetchFn = options.fetchFn;
 
@@ -55,13 +47,16 @@ export async function fetchAndSaveReviews(options = {}) {
     return { success: false, skipped: true, reason: 'missing_api_key' };
   }
 
-  const apiUrl = `https://places.googleapis.com/v1/places/${placeId}`;
+  const apiUrl =
+    placeId === PLACES_PLACE_ID
+      ? PLACES_API_URL
+      : `https://places.googleapis.com/v1/places/${placeId}`;
   try {
     const data = await httpClient(apiUrl, {
       headers: {
         'Content-Type': 'application/json',
         'X-Goog-Api-Key': apiKey,
-        'X-Goog-FieldMask': FIELD_MASK,
+        'X-Goog-FieldMask': PLACES_FIELD_MASK,
       },
       timeout: 10000,
       maxRetries: 3,

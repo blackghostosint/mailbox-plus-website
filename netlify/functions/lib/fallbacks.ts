@@ -9,8 +9,12 @@ export const DEFAULT_CURRENCY = 'USD';
 export const DEFAULT_RECAPTCHA_MIN_SCORE = 0.5;
 export const DEFAULT_CLIENT_IP = '127.0.0.1';
 export const DEFAULT_CUSTOMER_NAME = 'Customer';
-export const DEFAULT_REVIEW_AUTHOR = 'Google User';
-export const DEFAULT_REVIEW_RATING = 5;
+export {
+  DEFAULT_REVIEW_AUTHOR,
+  DEFAULT_REVIEW_RATING,
+  getFallbackReviewAuthor,
+  getFallbackReviewRating,
+} from '@mailbox-plus/shared/placesReviews';
 
 export interface TierConfig {
   lookupKey: string;
@@ -228,24 +232,4 @@ export function getFallbackCustomerName(name?: string | null): string {
     return name.trim();
   }
   return DEFAULT_CUSTOMER_NAME;
-}
-
-/**
- * Returns review author display name, falling back to DEFAULT_REVIEW_AUTHOR ('Google User').
- */
-export function getFallbackReviewAuthor(author?: string | null): string {
-  if (author && typeof author === 'string' && author.trim() !== '') {
-    return author.trim();
-  }
-  return DEFAULT_REVIEW_AUTHOR;
-}
-
-/**
- * Returns review numerical rating, falling back to DEFAULT_REVIEW_RATING (5).
- */
-export function getFallbackReviewRating(rating?: number | null): number {
-  if (typeof rating === 'number' && Number.isFinite(rating) && rating > 0) {
-    return rating;
-  }
-  return DEFAULT_REVIEW_RATING;
 }

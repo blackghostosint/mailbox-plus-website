@@ -30,47 +30,31 @@ import { BlobCacheAdapter } from './lib/cache';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 import { ReviewsSuccessSchema } from './lib/contracts';
-import { getFallbackReviewAuthor, getFallbackReviewRating } from './lib/fallbacks';
 import { httpClient } from './lib/http-client';
-
-const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
-const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
-const FIELD_MASK =
-  'rating,userRatingCount,reviews(authorAttribution,text,rating,publishTime,relativePublishTimeDescription)';
-
-interface ReviewDto {
-  author: string;
-  authorUri: string;
-  rating: number;
-  text: string;
-  relativeTime: string;
-  publishTime: string;
-}
-
-interface ReviewsPayload {
-  rating: number;
-  userRatingCount: number;
-  reviews: ReviewDto[];
-  fetchedAt: string;
-  source: 'live' | 'cache' | 'stale';
-}
+import {
+  PLACES_API_URL,
+  PLACES_FIELD_MASK,
+  transformPlacesData,
+  type PlacesApiResponse,
+  type PlacesReviewsPayload,
+} from '@mailbox-plus/shared/placesReviews';
 
 const CDN_CACHE = 'public, max-age=3600, stale-while-revalidate=86400';
 const BLOB_TTL_MS = 6 * 60 * 60 * 1000; // serve from Blobs for 6h → ≤4 upstream calls/day
 
-const reviewsBlobCache = new BlobCacheAdapter<Omit<ReviewsPayload, 'source'>>('reviews-cache');
+const reviewsBlobCache = new BlobCacheAdapter<PlacesReviewsPayload>('reviews-cache');
 
-async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
+async function fetchFromPlaces(): Promise<PlacesReviewsPayload> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   if (!apiKey) {
     throw new Error('GOOGLE_PLACES_API_KEY is not set');
   }
 
-  const data = await httpClient<any>(API_URL, {
+  const data = await httpClient<PlacesApiResponse>(PLACES_API_URL, {
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': FIELD_MASK,
+      'X-Goog-FieldMask': PLACES_FIELD_MASK,
     },
     timeout: 3000,
     maxRetries: 2,
@@ -78,21 +62,7 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
     maxDelayMs: 1000,
   });
 
-  const reviews: ReviewDto[] = (data?.reviews || []).map((r: any) => ({
-    author: getFallbackReviewAuthor(r.authorAttribution?.displayName),
-    authorUri: r.authorAttribution?.uri || '',
-    rating: getFallbackReviewRating(r.rating),
-    text: r.text?.text || '',
-    relativeTime: r.relativePublishTimeDescription || '',
-    publishTime: r.publishTime || '',
-  }));
-
-  return {
-    rating: data?.rating,
-    userRatingCount: data?.userRatingCount,
-    reviews,
-    fetchedAt: new Date().toISOString(),
-  };
+  return transformPlacesData(data);
 }
 
 export default withCors(
