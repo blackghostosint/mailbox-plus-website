@@ -38,6 +38,9 @@ import { walkFiles } from '../lib/fs-traversal.ts';
 import { validateArticleFrontmatter } from '../lib/article-schema.ts';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { validateMarkdownContent } from './check-doc-links.mjs';
+import { makeClaimsGate } from './claims-gate.js';
+import { makeSourceConstraintGate } from './source-constraint-gate.mjs';
+import { resolveFactcheckPath } from './lib/artifact-paths.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -55,6 +58,8 @@ const { values: verifyGlobalFlags } = parseScriptArgs({
   strict: false,
 });
 const SKIP_NETWORK = verifyGlobalFlags.offline;
+const { runClaimsGate } = makeClaimsGate(fs, path);
+const { runSourceConstraintGate } = makeSourceConstraintGate(fs, path);
 
 // HEAD a URL with curl (no fetch dependency, hard timeout). Returns status code string or 'ERR'.
 function headStatus(url) {
@@ -1268,14 +1273,15 @@ function cmdArticle(arg, isStrict = false) {
     // sets ARTICLE_DRAFTS_DIR to), but a bot that wrote the receipt to content/drafts/ still
     // satisfies the gate — the file exists in-repo, so a stale-branch or drifted-bot PR cannot
     // fail on a pure file-location technicality. content/drafts/ is the fallback of last resort.
-    const repoDraftsFallback = path.resolve(ROOT, 'content', 'drafts');
-    const fcCandidates = [
-      path.join(DRAFTS_DIR, `${slug}.factcheck.md`),
-      path.join(DRAFTS_DIR, `${slug}.factcheck`),
-      path.join(path.dirname(abs), `${slug}.factcheck.md`),
-      path.join(repoDraftsFallback, `${slug}.factcheck.md`),
-    ];
-    const fcFound = fcCandidates.find((f) => fs.existsSync(f));
+    const fcFound = resolveFactcheckPath(
+      {
+        slug,
+        draftsDir: DRAFTS_DIR,
+        articleDir: path.dirname(abs),
+        root: ROOT,
+      },
+      { fs, path }
+    );
     if (fcFound) {
       const fcSize = fs.statSync(fcFound).size;
       check(
@@ -1297,53 +1303,19 @@ function cmdArticle(arg, isStrict = false) {
 
     // 12c) claims:verify — Layer A deterministic claim-verification (Frank, 2026-09-15).
     // Forbidden phrases, canonical value checks, receipt coverage of numeric claims,
-    // source-URL resolution, and verdict sanity. Strict-only.
+    // source-URL resolution, and verdict sanity. Strict-only, executed in-process.
     if (isStrict) {
       try {
-        const claimsGate = path.resolve(__dirname, 'claims-gate.js');
-        const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
-        const claimsGateArgs = [
-          claimsGate,
-          '--slug',
-          slug,
-          '--article',
-          abs,
-          '--root',
-          ROOT,
-          '--drafts',
-          DRAFTS_DIR,
-        ];
-        if (SKIP_NETWORK) claimsGateArgs.push('--offline');
-        const out = execFileSync(nodeCmd, claimsGateArgs, {
-          cwd: ROOT,
-          encoding: 'utf8',
-          timeout: 120000,
-        });
-        for (const r of JSON.parse(out.trim())) {
-          check(r.name, r.pass, r.detail, r.fix);
-        }
+        const fcText = fcFound ? fs.readFileSync(fcFound, 'utf8') : null;
+        runClaimsGate(slug, raw, fcText, check, headStatus, SKIP_NETWORK, ROOT, DRAFTS_DIR);
       } catch (e) {
-        let unwrapped = false;
-        if (e.stdout) {
-          try {
-            const parsedErr = JSON.parse(String(e.stdout).trim());
-            if (Array.isArray(parsedErr)) {
-              for (const r of parsedErr) check(r.name, r.pass, r.detail, r.fix);
-              unwrapped = true;
-            }
-          } catch {
-            // fall through to gate error
-          }
-        }
-        if (!unwrapped) {
-          const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-          check(
-            'claims:verify',
-            false,
-            `gate error: ${stderr}`,
-            'inspect scripts/verify/claims-gate.js'
-          );
-        }
+        const errMsg = (e?.message || String(e)).slice(-400);
+        check(
+          'claims:verify',
+          false,
+          `gate error: ${errMsg}`,
+          'inspect scripts/verify/claims-gate.js'
+        );
       }
     }
 
@@ -1352,57 +1324,18 @@ function cmdArticle(arg, isStrict = false) {
     // .factchecks/<slug>.sources.json DURING the Fact-Check Gate; this fails the PR
     // when the copy uses an unregistered number (incl. word-form "five minutes"),
     // violates a scope rule (tier/plan overreach), or misses a required qualifier.
-    // Strict-only, same tier as claims:verify.
+    // Strict-only, same tier as claims:verify, executed in-process.
     if (isStrict) {
       try {
-        const sourceGate = path.resolve(__dirname, 'source-constraint-gate.mjs');
-        const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
-        const out2 = execFileSync(
-          nodeCmd,
-          [
-            '--import',
-            'tsx',
-            sourceGate,
-            '--slug',
-            slug,
-            '--article',
-            abs,
-            '--root',
-            ROOT,
-            '--drafts',
-            DRAFTS_DIR,
-          ],
-          {
-            cwd: ROOT,
-            encoding: 'utf8',
-            timeout: 60000,
-          }
-        );
-        for (const r of JSON.parse(out2.trim())) {
-          check(r.name, r.pass, r.detail, r.fix);
-        }
+        runSourceConstraintGate(slug, raw, check, ROOT, DRAFTS_DIR, path.dirname(abs));
       } catch (e) {
-        let unwrapped = false;
-        if (e.stdout) {
-          try {
-            const parsedErr = JSON.parse(String(e.stdout).trim());
-            if (Array.isArray(parsedErr)) {
-              for (const r of parsedErr) check(r.name, r.pass, r.detail, r.fix);
-              unwrapped = true;
-            }
-          } catch {
-            // fall through to gate error
-          }
-        }
-        if (!unwrapped) {
-          const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-          check(
-            'source:constraints',
-            false,
-            `gate error: ${stderr}`,
-            'inspect scripts/verify/source-constraint-gate.mjs'
-          );
-        }
+        const errMsg = (e?.message || String(e)).slice(-400);
+        check(
+          'source:constraints',
+          false,
+          `gate error: ${errMsg}`,
+          'inspect scripts/verify/source-constraint-gate.mjs'
+        );
       }
     }
 

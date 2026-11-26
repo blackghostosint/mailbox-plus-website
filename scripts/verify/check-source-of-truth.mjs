@@ -14,121 +14,48 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadFactsRules, scanTextForFactsViolations } from './lib/facts-rules.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_ROOT = path.resolve(__dirname, '..', '..');
 
-const NEGATION_PREFIX =
-  /\b(?:no|not|never|don't|do not|cannot|can't|won't|will not|doesn't|does not|without|aren't|are not|isn't|is not|exclude[sd]?|unlike|instead of|stop saying)\b/i;
-
-function isNegatedBeforeMatch(line, matchIndex) {
-  const windowStart = Math.max(0, matchIndex - 50);
-  const before = line.slice(windowStart, matchIndex);
-  // Stop at clause boundaries so an unrelated earlier negation (e.g. "no annual contract and 24/7 access")
-  // cannot mask a violation in the next clause.
-  const clauseParts = before.split(/[.,;—]|\s--\s|\b(?:and|but|or)\b/i);
-  const currentClause = clauseParts[clauseParts.length - 1] || '';
-  return NEGATION_PREFIX.test(currentClause);
-}
-
-const KIRTLAND_CONTEXT =
-  /\b(?:kirtland|kirtland hills|chillicothe|baldwin\s+rd|holden\s+arboretum)\b/i;
-const BUSINESS_CONTEXT = /\b(?:business|llc|dba|commercial|company)\b/i;
-
-const CONTEXT_GUARDS = {
-  none: null,
-  negation: (line, ctx) => isNegatedBeforeMatch(line, ctx.matchIndex),
-  kirtland_or_negation: (line, ctx) =>
-    KIRTLAND_CONTEXT.test(line) || isNegatedBeforeMatch(line, ctx.matchIndex),
-  business_context: (line, ctx) =>
-    BUSINESS_CONTEXT.test(line) || BUSINESS_CONTEXT.test(ctx.heading || ''),
-};
-
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
+/**
+ * Exact pre-existing `file#ruleId` pairs on legacy articles authored before strict
+ * Source-of-Truth / receipt gates landed. Deferred ONLY during corpus-wide `--all` scans;
+ * `--files <path>` (preflight) and `claims-gate.js` enforce zero exemptions if any of
+ * these files are touched in a PR.
+ */
+export const LEGACY_ARTICLE_BACKLOG = new Set([
+  'content/articles/mailbox-rentals/concord-township-business-real-street-address.md#banned-pmb-suite-format',
+  'content/articles/mailbox-rentals/concord-township-mover-mailbox.md#banned-24-7-access',
+  'content/articles/mailbox-rentals/eastlake-online-seller-mailbox.md#banned-route-306',
+  'content/articles/mailbox-rentals/fincen-bank-address-requirements-commercial-suite.md#banned-route-306',
+  'content/articles/mailbox-rentals/kirtland-hills-small-business-mailbox.md#banned-pmb-suite-format',
+  'content/articles/mailbox-rentals/registered-agent-vs-mailbox-address-llc.md#banned-pmb-suite-format',
+  'content/articles/mailbox-rentals/why-po-boxes-get-rejected-street-address.md#banned-pmb-suite-format',
+  'content/articles/pack-ship/pack-ship-kirtland.md#banned-route-306',
+  'content/articles/pack-ship/vinted-go-drop-off-concord-township.md#banned-vinted-go',
+]);
 
 /**
  * Load and compile Source of Truth lint rules dynamically from `content/facts.json`.
  * @param {string} [root]
  */
 export function loadSotRules(root = DEFAULT_ROOT) {
-  const factsPath = path.join(root, 'content', 'facts.json');
-  if (!existsSync(factsPath)) {
-    throw new Error(`Missing canonical facts file: ${factsPath}`);
-  }
-  const parsed = JSON.parse(readFileSync(factsPath, 'utf8'));
-  const entries = Array.isArray(parsed.forbidden) ? parsed.forbidden : [];
-  return entries.map((entry, idx) => {
-    const id = entry.id || `forbidden-${idx}`;
-    const source = entry.regex || escapeRegExp(String(entry.pattern || ''));
-    const re = new RegExp(source, 'i');
-    const guardKey = entry.context || 'negation';
-    const allowLine = Object.prototype.hasOwnProperty.call(CONTEXT_GUARDS, guardKey)
-      ? CONTEXT_GUARDS[guardKey]
-      : CONTEXT_GUARDS.negation;
-    return {
-      id,
-      re,
-      allowLine,
-      message: String(entry.reason || `Forbidden pattern "${entry.pattern}"`),
-    };
-  });
+  return loadFactsRules(root);
 }
 
 export const SOT_RULES = loadSotRules(DEFAULT_ROOT);
-
-function stripFrontmatter(text) {
-  if (!text.startsWith('---')) return { body: text, startLine: 1 };
-  const end = text.indexOf('\n---', 3);
-  if (end === -1) return { body: text, startLine: 1 };
-  const prefix = text.slice(0, end + 4);
-  const startLine = prefix.split('\n').length;
-  return { body: text.slice(end + 4), startLine };
-}
 
 /**
  * Scan a single file's text against rules loaded from `content/facts.json`.
  * @param {string} filePath
  * @param {string} content
  * @param {Array} [rules]
- * @returns {Array<{file: string, line: number, ruleId: string, match: string, message: string}>}
+ * @returns {Array<{file: string, line: number, ruleId: string, pattern: string, match: string, message: string}>}
  */
 export function scanTextForSotViolations(filePath, content, rules = SOT_RULES) {
-  const isMarkdown = filePath.endsWith('.md') || filePath.endsWith('.mdx');
-  const { body, startLine } = isMarkdown
-    ? stripFrontmatter(content)
-    : { body: content, startLine: 1 };
-  const lines = body.split('\n');
-  const violations = [];
-  let currentHeading = '';
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (isMarkdown && /^#{1,6}\s+/.test(line)) {
-      currentHeading = line;
-    }
-    const lineNum = startLine + i;
-    for (const rule of rules) {
-      rule.re.lastIndex = 0;
-      const m = rule.re.exec(line);
-      if (!m) continue;
-      if (
-        rule.allowLine &&
-        rule.allowLine(line, { heading: currentHeading, filePath, matchIndex: m.index })
-      ) {
-        continue;
-      }
-      violations.push({
-        file: filePath,
-        line: lineNum,
-        ruleId: rule.id,
-        match: m[0],
-        message: rule.message,
-      });
-    }
-  }
-  return violations;
+  return scanTextForFactsViolations(filePath, content, rules);
 }
 
 function collectFilesRecursive(dir, exts, out = []) {
@@ -166,9 +93,15 @@ export function runSotCheck({ root = DEFAULT_ROOT, files = [], all = false } = {
 
   const allViolations = [];
   for (const abs of targets) {
-    const rel = path.relative(root, abs);
+    const rel = path.relative(root, abs).replace(/\\/g, '/');
     const text = readFileSync(abs, 'utf8');
-    allViolations.push(...scanTextForSotViolations(rel, text, rules));
+    const fileViolations = scanTextForSotViolations(rel, text, rules);
+    for (const v of fileViolations) {
+      if (all && LEGACY_ARTICLE_BACKLOG.has(`${rel}#${v.ruleId}`)) {
+        continue;
+      }
+      allViolations.push(v);
+    }
   }
   return {
     scannedCount: targets.length,

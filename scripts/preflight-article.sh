@@ -95,13 +95,16 @@ get_changed_articles() {
 }
 
 mapfile -t ARTICLES < <(get_changed_articles | sort -u)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 for f in "${ARTICLES[@]}"; do
   [ -z "$f" ] && continue
   [ ! -f "$f" ] && continue
-  base=$(basename "$f" .md)
-  if ! ls .factchecks/"${base}".factcheck.* >/dev/null 2>&1; then
-    echo "❌ factcheck: no receipt for $base (.factchecks/${base}.factcheck.*)"
+  mapfile -t _META < <(node "${SCRIPT_DIR}/verify/lib/artifact-paths.mjs" --article "$f" --root "$PWD" --drafts "${ARTICLE_DRAFTS_DIR:-.factchecks}" --field lines)
+  base="${_META[0]:-$(basename "$f" .md)}"
+  fc_path="${_META[1]:-}"
+  if [ -z "$fc_path" ]; then
+    echo "❌ factcheck: no receipt for $base (.factchecks/${base}.factcheck.md)"
     FAIL=1
   else
     echo "✅ factcheck: $base"
@@ -112,8 +115,8 @@ for f in "${ARTICLES[@]}"; do
     FAIL=1
   fi
   # 3c. verdict column sanity (#664 — claims gate needs ✅/⚠️/owner-verified in the
-  # VERDICT column (3rd) of each receipt table row; a marker in any other column fails CI)
-  node scripts/preflight-verify-verdicts.mjs ".factchecks/${base}.factcheck.md" || FAIL=1
+  # VERDICT column of each receipt table row; a marker in any other column fails CI)
+  node "${SCRIPT_DIR}/preflight-verify-verdicts.mjs" "${fc_path:-.factchecks/${base}.factcheck.md}" || FAIL=1
   # 3d. strict offline verification parity gate (includes store photo manifest validation).
   # Reuses verify.mjs in strict offline mode so local preflight maintains 1:1 parity with CI.
   VERIFY_LOG=$(mktemp)
@@ -127,7 +130,6 @@ for f in "${ARTICLES[@]}"; do
   fi
   rm -f "$VERIFY_LOG"
   # 3e. canonical Source of Truth mechanical lint (docs/SOURCE_OF_TRUTH.md)
-  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   if ! node "${SCRIPT_DIR}/verify/check-source-of-truth.mjs" --files "$f" >"$LOG_FILE" 2>&1; then
     echo "❌ source-of-truth: $f violated canonical store facts/rules"
     cat "$LOG_FILE"

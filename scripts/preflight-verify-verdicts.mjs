@@ -6,71 +6,24 @@
  * rule A5 so the error surfaces at preflight, not in CI.
  * Usage: node preflight-verify-verdicts.mjs <receipt.md>
  */
-import { readFileSync } from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  extractTableBlocks,
+  isSeparatorRow,
+  splitCells,
+  validateVerdictMarker,
+  verifyVerdictsContent,
+} from './verify/lib/receipt-parser.mjs';
 
-export function extractTableBlocks(text) {
-  if (typeof text !== 'string') return [];
-  const lines = text.split('\n');
-  const blocks = [];
-  let cur = [];
-  for (const l of lines) {
-    if (/^\s*\|/.test(l)) cur.push(l);
-    else if (cur.length) {
-      blocks.push(cur);
-      cur = [];
-    }
-  }
-  if (cur.length) blocks.push(cur);
-  return blocks;
-}
-
-export function isSeparatorRow(line) {
-  if (typeof line !== 'string') return false;
-  return /^\s*\|[\s:|-]+\|\s*$/.test(line);
-}
-
-export function splitCells(line) {
-  if (typeof line !== 'string') return [];
-  return line
-    .split('|')
-    .slice(1, -1)
-    .map((c) => c.trim());
-}
-
-export function validateVerdictMarker(verdict) {
-  if (typeof verdict !== 'string') return false;
-  return /✅|⚠️|owner-verified/i.test(verdict);
-}
-
-export function verifyVerdictsContent(text) {
-  const blocks = extractTableBlocks(text);
-  let total = 0;
-  const bad = [];
-
-  for (const block of blocks) {
-    if (!block.length) continue;
-    const header = splitCells(block[0]).map((c) => c.toLowerCase());
-    const vIdx = header.findIndex((c) => c.includes('verdict'));
-    if (vIdx === -1) continue; // store-info or other non-claims table — skip
-
-    for (const row of block.slice(1)) {
-      if (isSeparatorRow(row)) continue;
-      const cs = splitCells(row);
-      total++;
-      const verdict = cs[vIdx] || '';
-      if (!validateVerdictMarker(verdict)) {
-        const claimLabel = cs[1] || cs[0] || '';
-        bad.push(
-          `"${claimLabel.slice(0, 50)}" → verdict cell: "${verdict.slice(0, 40) || '(empty)'}"`
-        );
-      }
-    }
-  }
-
-  return { total, bad, valid: bad.length === 0 && total > 0 };
-}
+export {
+  extractTableBlocks,
+  isSeparatorRow,
+  splitCells,
+  validateVerdictMarker,
+  verifyVerdictsContent,
+};
 
 export function verifyVerdictsFile(filePath) {
   let text = '';

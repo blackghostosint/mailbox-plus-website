@@ -20,6 +20,8 @@
 // }
 // Exported as a factory; verify.mjs calls runSourceConstraintGate(slug, content, check, ROOT, DRAFTS_DIR).
 
+import { resolveSourcesPath } from './lib/artifact-paths.mjs';
+
 const WORD_NUMBERS = {
   one: 1,
   two: 2,
@@ -144,12 +146,16 @@ export function makeSourceConstraintGate(fs, path) {
     return tokens;
   }
 
-  function runSourceConstraintGate(slug, articleText, check, ROOT, DRAFTS_DIR) {
-    const candidates = [
-      path.join(DRAFTS_DIR, `${slug}.sources.json`),
-      path.join(path.dirname(slug), `${path.basename(slug)}.sources.json`),
-    ];
-    const found = candidates.find((f) => fs.existsSync(f));
+  function runSourceConstraintGate(slug, articleText, check, ROOT, DRAFTS_DIR, articleDir) {
+    const found = resolveSourcesPath(
+      {
+        slug,
+        draftsDir: DRAFTS_DIR,
+        articleDir,
+        root: ROOT,
+      },
+      { fs, path }
+    );
     if (!found) {
       check(
         'source:constraints',
@@ -272,8 +278,16 @@ if (isMainModuleFor(import.meta.url)) {
   // gate reads the FULL file (frontmatter carries quickAnswer/faqs numbers too)
   const results = [];
   const check = (name, pass, detail, fix) => results.push({ name, pass: !!pass, detail, fix });
-  const { runSourceConstraintGate } = makeSourceConstraintGate(fs.default, path.default ?? path);
-  runSourceConstraintGate(values.slug, article, check, values.root, values.drafts);
+  const pathMod = path.default ?? path;
+  const { runSourceConstraintGate } = makeSourceConstraintGate(fs.default, pathMod);
+  runSourceConstraintGate(
+    values.slug,
+    article,
+    check,
+    values.root,
+    values.drafts,
+    values.article ? pathMod.dirname(values.article) : undefined
+  );
   console.log(JSON.stringify(results, null, 0));
   process.exit(results.some((r) => !r.pass) ? 1 : 0);
 }
