@@ -26,6 +26,7 @@ const DEFAULT_ROOT = path.resolve(__dirname, '..', '..');
  * these files are touched in a PR.
  */
 export const LEGACY_ARTICLE_BACKLOG = new Set([
+  'content/articles/mailbox-rentals/24-7-mail-access.md#banned-24-7-access',
   'content/articles/mailbox-rentals/concord-township-business-real-street-address.md#banned-pmb-suite-format',
   'content/articles/mailbox-rentals/concord-township-mover-mailbox.md#banned-24-7-access',
   'content/articles/mailbox-rentals/eastlake-online-seller-mailbox.md#banned-route-306',

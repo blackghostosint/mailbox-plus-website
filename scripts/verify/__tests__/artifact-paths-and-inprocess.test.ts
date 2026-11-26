@@ -213,7 +213,7 @@ describe('artifact-paths shared resolver, frontmatter slug preflight, and in-pro
           'tsx',
           VERIFY_CLI,
           'article',
-          'content/articles/mailbox-rentals/24-7-mail-access.md',
+          'content/articles/pack-ship/fedex-ground-vs-usps-ground-advantage.md',
           '--strict',
           '--offline',
         ],

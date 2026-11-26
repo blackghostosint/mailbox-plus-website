@@ -78,7 +78,7 @@ For most shift workers and long commuters, that combination — call ahead, same
 
 ## The Reality Check: PO Boxes, "Street Addressing," and the Fine Print
 
-If you are weighing a PO Box against a private mailbox, there is one more thing worth knowing. USPS offers what it calls Street Addressing on some PO Boxes, which lets packages from private carriers like UPS, FedEx, and DHL be delivered to the post office's street address — **subject to availability and restrictions**. That sounds like round-the-clock convenience until you read the conditions: not every location offers it, and when a package needs a signature or does not fit the box, it still lands behind the counter during business hours.
+If you are weighing a PO Box against a private mailbox, there is one more thing worth knowing. USPS offers what it calls Street Addressing on some PO Boxes, which lets packages from private carriers like UPS, FedEx, and DHL be delivered to the post office's street address — **subject to availability and restrictions**. That sounds like a 24-hour service until you read the conditions: not every location offers it, and when a package needs a signature or does not fit the box, it still lands behind the counter during business hours.
 
 The honest comparison, then, is not "PO Box vs. private mailbox." It is "a numbered box at a counter, with business-hours pickup for anything important" vs. "a real street address where staff sign for everything, notify you, and hold it behind a locked counter until you walk in." Same human-hours reality — one of them simply does more with them. Our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) lays out the full difference side by side.
 
