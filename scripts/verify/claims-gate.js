@@ -5,30 +5,23 @@
 // and cross-checks known-canonical facts against content/facts.json.
 // Exported as a factory; verify.mjs calls runClaimsGate(slug, content, fcText, check, headStatus, SKIP_NETWORK, ROOT, DRAFTS_DIR).
 
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
+import { compileFactsRules, scanTextForFactsViolations } from './lib/facts-rules.mjs';
+import { parseReceiptContent } from './lib/receipt-parser.mjs';
+import { resolveFactcheckPath } from './lib/artifact-paths.mjs';
+
 const FACTS_PATH_REL = ['content', 'facts.json'];
 
-export function makeClaimsGate(fs, path) {
+export function makeClaimsGate(fsDep, pathDep) {
   function loadFacts(ROOT) {
     try {
-      return JSON.parse(fs.readFileSync(path.join(ROOT, ...FACTS_PATH_REL), 'utf8'));
+      return JSON.parse(fsDep.readFileSync(pathDep.join(ROOT, ...FACTS_PATH_REL), 'utf8'));
     } catch {
       return null;
     }
-  }
-
-  function parseReceipt(fcText) {
-    const rows = [];
-    for (const line of fcText.split('\n')) {
-      const m = line.match(/^\s*\|\s*\d+\s*\|(.*?)\|(.*?)\|(.*?)\|/);
-      if (!m) continue;
-      const claim = m[1].trim();
-      const verdict = m[2].trim();
-      let source = m[3].trim();
-      const urlMatch = source.match(/https?:\/\/[^\s|)]+/);
-      if (urlMatch) source = urlMatch[0];
-      rows.push({ claim, verdict, source });
-    }
-    return rows;
   }
 
   function extractClaims(body) {
@@ -70,26 +63,15 @@ export function makeClaimsGate(fs, path) {
     }
     check('claims:facts-json', true, 'content/facts.json loaded');
 
-    // ---- A1: canonical forbidden phrases ----
-    const kirtlandRe = /kirtland|chillicothe|baldwin road|holden arboretum/i;
-    let forbiddenHits = [];
-    for (const f of facts.forbidden || []) {
-      const re = new RegExp(f.pattern, 'gi');
-      let m;
-      while ((m = re.exec(content)) !== null) {
-        const lineStart = content.lastIndexOf('\n', m.index) + 1;
-        const lineEnd = content.indexOf('\n', m.index);
-        const line = content.slice(lineStart, lineEnd === -1 ? undefined : lineEnd);
-        if (/306/i.test(f.pattern) && kirtlandRe.test(line)) continue; // Kirtland-area exemption
-        forbiddenHits.push({ pattern: f.pattern, reason: f.reason });
-      }
-    }
+    // ---- A1: canonical forbidden phrases (shared with check-source-of-truth.mjs) ----
+    const forbiddenRules = compileFactsRules(facts.forbidden || []);
+    const forbiddenHits = scanTextForFactsViolations(`${slug}.md`, content, forbiddenRules);
     check(
       'claims:forbidden-phrases',
       forbiddenHits.length === 0,
       forbiddenHits.length === 0
         ? 'no forbidden location/fact phrases'
-        : forbiddenHits.map((h) => `"${h.pattern}": ${h.reason}`).join(' | '),
+        : forbiddenHits.map((h) => `"${h.pattern || h.match}": ${h.message}`).join(' | '),
       forbiddenHits.length
         ? 'replace with approved phrasing (see content/facts.json approved_phrasing)'
         : undefined
@@ -122,7 +104,8 @@ export function makeClaimsGate(fs, path) {
       );
       return;
     }
-    const receiptRows = parseReceipt(fcText);
+    const parsedReceipt = parseReceiptContent(fcText);
+    const receiptRows = parsedReceipt.rows;
     const receiptBlob = receiptRows
       .map((r) => r.claim)
       .join(' || ')
@@ -190,23 +173,30 @@ export function makeClaimsGate(fs, path) {
       );
     }
 
-    // ---- A5: verdict column sanity ----
-    const badVerdicts = receiptRows.filter(
-      (r) => r.verdict && !/✅|⚠️|owner-verified/i.test(r.verdict)
-    );
-    check(
-      'claims:verdicts',
-      badVerdicts.length === 0,
-      badVerdicts.length === 0
-        ? `all ${receiptRows.length} receipt rows carry ✅/⚠️/owner-verified verdicts`
-        : `rows without valid verdict: ${badVerdicts
-            .slice(0, 2)
-            .map((r) => r.claim.slice(0, 50))
-            .join(' | ')}`,
-      badVerdicts.length
-        ? 'mark each receipt row ✅ (verified), ⚠️ (softened), or owner-verified'
-        : undefined
-    );
+    // ---- A5: verdict column sanity (shared with preflight-verify-verdicts.mjs) ----
+    if (receiptRows.length === 0) {
+      check(
+        'claims:verdicts',
+        false,
+        'no claim rows found in fact-check receipt',
+        'add a Markdown table with Claim, Verdict (✅ / ⚠️ / owner-verified), and Source columns'
+      );
+    } else {
+      const badVerdicts = receiptRows.filter((r) => !r.validVerdict);
+      check(
+        'claims:verdicts',
+        badVerdicts.length === 0,
+        badVerdicts.length === 0
+          ? `all ${receiptRows.length} receipt rows carry ✅/⚠️/owner-verified verdicts`
+          : `rows without valid verdict: ${badVerdicts
+              .slice(0, 2)
+              .map((r) => r.claim.slice(0, 50) || '(unnamed claim)')
+              .join(' | ')}`,
+        badVerdicts.length
+          ? 'mark each receipt row ✅ (verified), ⚠️ (softened), or owner-verified'
+          : undefined
+      );
+    }
   }
 
   return { runClaimsGate };
@@ -214,11 +204,6 @@ export function makeClaimsGate(fs, path) {
 
 // CLI entry: node claims-gate.js --slug <slug> --article <path.md> --root <repoRoot> --drafts <draftsDir> [--offline]
 // Prints a JSON array of { name, pass, detail, fix } to stdout.
-import fs from 'node:fs';
-import path from 'node:path';
-import { execFileSync } from 'node:child_process';
-import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
-
 if (isMainModule(import.meta.url)) {
   const { values } = parseScriptArgs({
     options: {
@@ -260,17 +245,10 @@ if (isMainModule(import.meta.url)) {
 
   const { runClaimsGate } = makeClaimsGate(fs, path);
   const content = fs.readFileSync(articlePath, 'utf8');
-  // Receipt lookup is tolerant of location (mirrors verify.mjs 12b): canonical store is
-  // .factchecks/ (CI's ARTICLE_DRAFTS_DIR), but a receipt written to content/drafts/ still
-  // satisfies the gate. content/drafts/ is the last-resort fallback so a drifted-bot or
-  // stale-branch PR cannot fail claims:receipt-coverage on a file-location technicality.
-  const repoDraftsFallback = path.resolve(ROOT, 'content', 'drafts');
-  const fcCandidates = [
-    path.join(DRAFTS_DIR, `${slug}.factcheck.md`),
-    path.join(path.dirname(articlePath), `${slug}.factcheck.md`),
-    path.join(repoDraftsFallback, `${slug}.factcheck.md`),
-  ];
-  const fc = fcCandidates.find((f) => fs.existsSync(f));
+  const fc = resolveFactcheckPath(
+    { slug, draftsDir: DRAFTS_DIR, articlePath, root: ROOT },
+    { fs, path }
+  );
   runClaimsGate(
     slug,
     content,

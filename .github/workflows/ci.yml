@@ -124,6 +124,9 @@ jobs:
       - name: Run quality audits
         run: npm run audit:quality
 
+      - name: Verify canonical Source of Truth rules
+        run: node scripts/verify/check-source-of-truth.mjs --all
+
       - name: Verify documentation links and file references
         run: npm run verify:doc-links
 
