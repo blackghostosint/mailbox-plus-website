@@ -159,7 +159,7 @@ describe('receipt-parser shared parser & parity across claims-gate and preflight
       });
     }
 
-    // Verify normalized receipts from task requirement 12
+    // Verify split-table, missing-pipe, and multi-table addendum receipts on main parse identically without modifying .factchecks/
     expect(byName.get('can-you-drop-off-ups-at-fedex-or-post-office.factcheck.md')).toMatchObject({
       total: 13,
       valid: true,
@@ -182,7 +182,7 @@ describe('receipt-parser shared parser & parity across claims-gate and preflight
       total: 18,
       valid: true,
       claimsPass: true,
-      blocks: 1,
+      blocks: 2,
     });
 
     // Verify Rule-3 held receipts remain untouched with ❌ verdicts failing both gates
