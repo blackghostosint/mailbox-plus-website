@@ -80,7 +80,7 @@ At Mailbox Plus, 7554 Fredle Drive in Concord Township — just off Crile Road, 
 
 ![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
-We see your neighbors every Saturday morning, box in hand: UPS returns, FedEx returns, USPS packages, prepaid labels printed at home. All four carriers' prelabeled drop-offs go across the same counter, and someone typically scans each one, hands over a receipt, and sends you on your way — the carriers pick up from our counter on their regular sweeps.
+We see your neighbors every Saturday morning, box in hand: UPS returns, FedEx returns, USPS packages, prepaid labels printed at home. UPS, FedEx, and DHL prelabeled drop-offs go across the same counter, and someone typically scans each one, hands over a receipt, and sends you on your way — those carriers pick up from our counter on their regular sweeps.
 
 A few things that trip people up, handled right at this counter:
 
@@ -110,7 +110,7 @@ And certainty, the quiet one — the difference between an accepted-scan receipt
 
 Here's the same Saturday with the routing fixed.
 
-You leave Erie Street and head out about 10 miles, 15 to 20 minutes depending on lights, into Concord Township. Just off Crile Road, minutes from SR-44, in the Gristmill Village plaza next to Pub Frato, you park and step inside the bright counter at 7554 Fredle Drive. The box goes on the scale. The label gets a glance — because the staffed eyes are the whole difference between a drop box in the rain and a person who catches a peeled label and prints a $2.00 replacement on the spot. The scan sounds. You leave with the receipt in your pocket and the afternoon unspent.
+You leave Erie Street and head out about 10 miles, 15 to 20 minutes depending on lights, into Concord Township. Just off Crile Road, minutes from SR-44, in the Gristmill Village plaza next to Pub Frato, you park and step inside the bright counter at 7554 Fredle Drive. The box goes on the scale. The label gets a glance — because the staffed eyes are the whole difference between a drop box in the rain and a counter that catches a peeled label before it goes into the bin. If a label is beyond saving, you email the PDF to the store and the counter prints a $2.00 replacement. The scan sounds. You leave with the receipt in your pocket and the afternoon unspent.
 
 No countdown to 2:00 PM eating your decision. No clock-checking against a window set by someone else. Just an errand, executed at the speed it always should have taken, so the rest of the day runs on your schedule instead.
 
