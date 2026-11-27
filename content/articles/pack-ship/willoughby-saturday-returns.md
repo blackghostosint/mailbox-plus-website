@@ -1,6 +1,6 @@
 ---
 title: 'Willoughby Post Office Hours: When It Opens, When It Closes, and the Saturday Drop-Off Alternative'
-description: 'The Willoughby post office at 4040 Erie Street runs retail 8:00 AM–5:30 PM weekdays, 8:00 AM–2:00 PM Saturday, closed Sunday. Here are the hours — and the one counter about 10 miles south that takes UPS, FedEx, USPS, and DHL.'
+description: 'The Willoughby post office at 4040 Erie Street runs retail 8:00 AM–5:30 PM weekdays, 8:00 AM–2:00 PM Saturday, closed Sunday. Here are the hours — and the one counter about 10 miles east that takes UPS, FedEx, USPS, and DHL.'
 slug: 'willoughby-saturday-returns'
 category: 'pack-ship'
 intentKey: 'willoughby-saturday-returns'
