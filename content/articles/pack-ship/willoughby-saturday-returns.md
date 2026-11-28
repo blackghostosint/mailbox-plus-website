@@ -1,6 +1,6 @@
 ---
 title: 'Willoughby Post Office Hours: When It Opens, When It Closes, and the Saturday Drop-Off Alternative'
-description: 'The Willoughby post office at 4040 Erie Street runs retail 8:00 AM–5:30 PM weekdays, 8:00 AM–2:00 PM Saturday, closed Sunday. Here are the hours — and the one counter about 10 miles east that takes UPS, FedEx, USPS, and DHL.'
+description: 'The Willoughby post office at 4040 Erie Street runs retail 8:00 AM–5:30 PM weekdays, 8:00 AM–2:00 PM Saturday, closed Sunday. Here are the hours — and the one counter about 10 miles, 15 to 20 minutes by car to the east, that takes UPS, FedEx, USPS, and DHL.'
 slug: 'willoughby-saturday-returns'
 category: 'pack-ship'
 intentKey: 'willoughby-saturday-returns'
@@ -70,7 +70,7 @@ That gap — the size of the errand versus the size of the coordination it deman
 
 ## An Errand This Small Shouldn't Take This Much Planning
 
-Dropping off a box is a scan and a receipt. It requires none of the planning it usually gets: no carrier-by-carrier decision, no window-checking, no stand-in-line budget. The technology for a fast, careful handoff has existed for decades. The absence is not technical. It is a scheduling decision baked into how the big system treats a town's Saturday.
+Dropping off a box is a scan and a receipt. It requires none of the planning it usually gets: no carrier-by-carrier decision, no window-checking, no stand-in-line budget. The absence is not technical. It is a scheduling decision baked into how the big system treats a town's Saturday.
 
 You don't need another app. You need a counter that takes whatever label you've got — no wrong door, no second guess.
 
