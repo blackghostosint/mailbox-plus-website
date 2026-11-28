@@ -100,6 +100,6 @@ One bottle, a mixed case, or a monthly wine club shipment — the handling is th
 
 The tracking notification pops up: "Out for delivery." And this time, nothing in your afternoon changes. You're at work. Your wine is heading to a staffed counter in Concord Township, where an adult with valid ID will sign for it, carry it inside, and hold it until you swing by.
 
-The door tag never enters the picture, no reattempt to schedule around, no second afternoon spent watching the window. You ordered something nice for yourself — the delivery shouldn't cost you a day of your life to receive it.
+There's no second afternoon spent watching the window. You ordered something nice for yourself — the delivery shouldn't cost you a day of your life to receive it.
 
 If you order wine, liquor, or anything else online, stop by Mailbox Plus in Concord Township — just off Crile Road, minutes from SR-44 and I-90 — and we'll get you set up in a couple of minutes.
