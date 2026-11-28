@@ -1,8 +1,5 @@
 import type { Service } from '../../../types/services';
 import { getImageObjectSchema } from '../../../utils/schema';
-import Star from '~icons/lucide/star';
-import Truck from '~icons/lucide/truck';
-import Users from '~icons/lucide/users';
 
 export const competePages: Service[] = [
   {
@@ -39,17 +36,14 @@ export const competePages: Service[] = [
       {
         title: 'Carrier Choice',
         description: "FedEx, UPS, USPS, DHL — the chains can't match this.",
-        icon: Truck,
       },
       {
         title: 'Locally Owned',
         description: 'Part of the community, not a corporate franchise.',
-        icon: Users,
       },
       {
         title: 'Full Service',
         description: 'Shipping, mailboxes, notary, printing — all in one trip.',
-        icon: Star,
       },
     ],
     content: [
@@ -60,7 +54,6 @@ export const competePages: Service[] = [
       {
         heading: 'Why Eastlake Customers Choose Mailbox Plus',
         body: `<div class="grid md:grid-cols-2 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Choice</h4><p class="text-sm text-[var(--color-text-secondary)]">FedEx, UPS, USPS, DHL — compare rates at one counter. No chain store can match that.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shorter Wait Times</h4><p class="text-sm text-[var(--color-text-secondary)]">Locally owned means we move faster. No corporate bureaucracy.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Full Service Center</h4><p class="text-sm text-[var(--color-text-secondary)]">Mailboxes, notary, printing, packing — everything in one trip.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Locally Owned</h4><p class="text-sm text-[var(--color-text-secondary)]">Part of the Concord Township community since day one.</p></div></div>`,
-        isFullWidth: true,
       },
       {
         heading: "Don't Settle — Eastlake Deserves Better Service",

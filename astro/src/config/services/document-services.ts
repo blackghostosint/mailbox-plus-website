@@ -1,15 +1,3 @@
-import Mail from '~icons/lucide/mail';
-import Users from '~icons/lucide/users';
-import Star from '~icons/lucide/star';
-import Scissors from '~icons/lucide/scissors';
-import Shield from '~icons/lucide/shield';
-import Archive from '~icons/lucide/archive';
-import FileText from '~icons/lucide/file-text';
-import FolderOpen from '~icons/lucide/folder-open';
-import Printer from '~icons/lucide/printer';
-import MapPin from '~icons/lucide/map-pin';
-import Lock from '~icons/lucide/lock';
-import Clock from '~icons/lucide/clock';
 import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/media';
 import {
@@ -98,14 +86,12 @@ export const documentServices: Service[] = [
                         </li>
                     </ul>
                 `,
-        isFullWidth: true,
       },
     ],
     features: [
-      { icon: Mail, title: 'Bulk Mailing', description: 'Send to entire ZIP codes or routes.' },
-      { icon: Users, title: 'Targeted Reach', description: 'Focus on specific neighborhoods.' },
+      { title: 'Bulk Mailing', description: 'Send to entire ZIP codes or routes.' },
+      { title: 'Targeted Reach', description: 'Focus on specific neighborhoods.' },
       {
-        icon: Star,
         title: 'Affordable',
         description: 'Save money compared to traditional mailing lists.',
       },
@@ -221,22 +207,18 @@ export const documentServices: Service[] = [
                         <strong class="text-[var(--color-text-primary)]">State-Specific Regulations:</strong> In addition to federal laws, many states have their own regulations regarding document destruction. Our secure content destruction helps you meet requirements that act alongside federal standards, ensuring your sensitive records are handled with the highest level of security.
                     </p>
                 `,
-        isFullWidth: true,
       },
     ],
     features: [
       {
-        icon: Scissors,
         title: 'Confetti-Grade Security',
         description: 'Micro-cut technology shreds 6x smaller than standard cross-cut.',
       },
       {
-        icon: Shield,
         title: '100% On-Site Destruction',
         description: 'Shredded immediately in-store. No sitting in bins, no third parties.',
       },
       {
-        icon: Archive,
         title: 'Bulk & Small Job Ready',
         description: 'We handle single envelopes up to boxes of tax records.',
       },
@@ -307,19 +289,16 @@ export const documentServices: Service[] = [
       {
         heading: 'Drop Off. We Scan. You Download.',
         body: '<div class="grid md:grid-cols-3 gap-6 my-8"><div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Drop Off Your Documents</h4><p class="text-sm text-[var(--color-text-secondary)]">Bring in your papers, photos, or records. We\u2019ll review the scope and give you a timeline.</p></div><div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Scan & Process</h4><p class="text-sm text-[var(--color-text-secondary)]">High-resolution scanning. PDF, JPEG, or searchable PDF. We handle each page with care and confidentiality.</p></div><div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Get Digital Files + Originals Back</h4><p class="text-sm text-[var(--color-text-secondary)]">Pick up your originals and receive your digital files \u2014 on USB, email, or cloud. Your documents are now searchable, shareable, and backed up.</p></div></div>',
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 5: AGREEMENT PLAN ----
       {
         heading: 'No Minimum. Total Privacy. Same-Day Available.',
         body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>No minimum page count.</strong> One page or a thousand \u2014 same professional handling.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>Multiple formats.</strong> PDF, JPEG, or searchable PDF with OCR. You choose.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>Total confidentiality.</strong> Your documents are handled by staff, in-store, never farmed out.</span></li></ul>',
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 6: STAKES ----
       {
         heading: 'What You Risk by Leaving Papers in a Pile',
         body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Lost Documents</h4><p class="text-sm text-[var(--color-text-secondary)]">Fire, water, mice, or simply forgetting which drawer. Physical documents are fragile. Digital copies last forever.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Hours Wasted Searching</h4><p class="text-sm text-[var(--color-text-secondary)]">Every \u201cwhere did I put that?\u201d costs you time. Digital files are searchable in seconds. Paper is a guessing game.</p></div></div>',
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 7: SUCCESS ----
       {
@@ -329,17 +308,14 @@ export const documentServices: Service[] = [
     ],
     features: [
       {
-        icon: FileText,
         title: 'Digital Files',
         description: 'PDF, JPEG, or searchable PDF with OCR. You choose the format.',
       },
       {
-        icon: Shield,
         title: 'Secure Handling',
         description: 'Your documents stay in our care, in our store. Never outsourced.',
       },
       {
-        icon: FolderOpen,
         title: 'Same-Day Turnaround',
         description:
           'Most jobs completed same-day. Drop off in the morning, pick up in the afternoon.',
@@ -402,13 +378,11 @@ export const documentServices: Service[] = [
       {
         heading: 'How Faxing Works at Mailbox Plus',
         body: '<div class="grid md:grid-cols-3 gap-6 my-8"><div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring or Email Your Document</h4><p class="text-sm text-[var(--color-text-secondary)]">Bring it in on paper, email it to us, or have it ready on your phone. We accept any format.</p></div><div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Dial & Send</h4><p class="text-sm text-[var(--color-text-secondary)]">Tell us the number. We dial, send, and wait for the confirmation. Local, domestic, or international.</p></div><div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Confirmation & Done</h4><p class="text-sm text-[var(--color-text-secondary)]">You get a printed confirmation sheet. If you\u2019re receiving, we\u2019ll hold your fax securely for pickup.</p></div></div>',
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 6: STAKES ----
       {
         heading: 'The Cost of Not Having a Fax Machine When You Need One',
         body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Deadlines</h4><p class="text-sm text-[var(--color-text-secondary)]">Real estate, legal, and medical documents often require fax by end of business. Driving around looking for a machine costs you time and money.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">No Confirmation</h4><p class="text-sm text-[var(--color-text-secondary)]">Online fax services don\u2019t always confirm delivery. We provide a printed confirmation sheet for every fax sent.</p></div></div>',
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 7: SUCCESS ----
       {
@@ -418,17 +392,14 @@ export const documentServices: Service[] = [
     ],
     features: [
       {
-        icon: Printer,
         title: 'Send & Receive',
         description: 'Local, domestic, and international faxing. We handle the dialing.',
       },
       {
-        icon: Shield,
         title: 'Confirmation Provided',
         description: 'Printed confirmation sheet for every fax sent. You know it went through.',
       },
       {
-        icon: MapPin,
         title: 'Fax Receiving Available',
         description: 'Use our number. We\u2019ll hold your incoming faxes securely for pickup.',
       },
@@ -502,7 +473,6 @@ export const documentServices: Service[] = [
                         </p>
                     </div>
                 </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Why Choose Mailbox Plus for Documents?',
@@ -523,9 +493,9 @@ export const documentServices: Service[] = [
       },
     ],
     features: [
-      { title: 'Privacy', description: 'Discreet & Secure.', icon: Lock },
-      { title: 'Service Speed', description: 'Fast & Efficient.', icon: Clock },
-      { title: 'Personal Attention', description: 'Dedicated Staff.', icon: Users },
+      { title: 'Privacy', description: 'Discreet & Secure.' },
+      { title: 'Service Speed', description: 'Fast & Efficient.' },
+      { title: 'Personal Attention', description: 'Dedicated Staff.' },
     ],
     faqs: [
       {

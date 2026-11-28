@@ -1,6 +1,3 @@
-import CheckCircle from '~icons/lucide/check-circle';
-import HelpCircle from '~icons/lucide/help-circle';
-import AlertTriangle from '~icons/lucide/alert-triangle';
 import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/media';
 
@@ -66,7 +63,6 @@ export const amazonReturnsService: Service = {
           </ul>
         </div>
       `,
-      isFullWidth: true,
     },
     {
       heading: 'Step-by-Step: How to Start an Amazon Return (Part 1)',
@@ -126,7 +122,6 @@ export const amazonReturnsService: Service = {
             .join('')}
         </div>
       `,
-      isFullWidth: true,
     },
     {
       heading: 'Step-by-Step: Managing Labels & Sharing (Part 2)',
@@ -186,7 +181,6 @@ export const amazonReturnsService: Service = {
             .join('')}
         </div>
       `,
-      isFullWidth: true,
     },
     {
       heading: 'Step-by-Step: Printing & Final Drop-Off (Part 3)',
@@ -245,7 +239,6 @@ export const amazonReturnsService: Service = {
           </div>
         </div>
       `,
-      isFullWidth: true,
     },
     {
       heading: 'How Mailbox Plus Helps With Amazon Returns',
@@ -272,7 +265,6 @@ export const amazonReturnsService: Service = {
           </div>
         </div>
       `,
-      isFullWidth: true,
     },
     {
       heading: 'Common Problems & How We Help',
@@ -300,7 +292,6 @@ export const amazonReturnsService: Service = {
           "If Amazon only provides a QR code with no printable label, you must take that return to an authorized Amazon partner."
         </p>
       `,
-      isFullWidth: true,
     },
     {
       heading: 'When You Should NOT Use Mailbox Plus',
@@ -325,7 +316,6 @@ export const amazonReturnsService: Service = {
           </div>
         </div>
       `,
-      isFullWidth: true,
     },
     {
       heading: 'Holiday Return Extensions',
@@ -357,7 +347,6 @@ export const amazonReturnsService: Service = {
           “Shipping shouldn't cost you an hour.”
         </p>
       `,
-      isFullWidth: true,
     },
     // ── CROSS-SELL: MAILBOX ──
     {
@@ -367,17 +356,14 @@ export const amazonReturnsService: Service = {
   ],
   features: [
     {
-      icon: HelpCircle,
       title: 'Friendly Guidance',
       description: 'Talk to real people, not algorithms.',
     },
     {
-      icon: AlertTriangle,
       title: 'Return Window Help',
       description: 'We help you avoid missing deadlines.',
     },
     {
-      icon: CheckCircle,
       title: 'Carrier Flexibility',
       description: 'UPS, USPS, and FedEx returns accepted.',
     },

@@ -1,7 +1,3 @@
-import Box from '~icons/lucide/box';
-import Shield from '~icons/lucide/shield';
-import Package from '~icons/lucide/package';
-import Star from '~icons/lucide/star';
 import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/media';
 import {
@@ -98,7 +94,6 @@ export const packingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Packed, labeled, insured, and shipped. You get tracking and peace of mind.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'What Bad Packing Costs You',
@@ -120,7 +115,6 @@ export const packingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Need a custom-sized box? We build them in-house. Need <a href="/pack-ship/packaging-supplies" class="text-[var(--color-primary)] hover:underline">packaging supplies</a>? We stock them at our counter.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'From Fragile to Shipped \u2014 Safely',
@@ -137,17 +131,14 @@ export const packingServices: Service[] = [
     ],
     features: [
       {
-        icon: Shield,
         title: 'Trained Packers',
         description: 'Professional techniques for fragile, valuable, and odd-shaped items.',
       },
       {
-        icon: Package,
         title: 'Carrier-Compliant',
         description: 'Insurance-ready packing that meets all carrier standards.',
       },
       {
-        icon: Star,
         title: 'Peace of Mind',
         description: 'Your item arrives safely or we help make it right.',
       },
@@ -242,7 +233,6 @@ export const packingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Your item goes in, gets packed with protective materials, and ships out \u2014 all from our counter.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Fits Where Standard Boxes Fail',
@@ -264,7 +254,6 @@ export const packingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Design your own box layout at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline">boxsize.cc<span class="sr-only">(opens in a new tab)</span></a> and bring it in for professional assembly.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Perfect Fit, Perfect Shipment',
@@ -281,18 +270,15 @@ export const packingServices: Service[] = [
     ],
     features: [
       {
-        icon: Box,
         title: 'Made to Measure',
         description:
           'Custom boxes built to your item\u2019s exact dimensions. No gaps, no shifting.',
       },
       {
-        icon: Shield,
         title: 'Heavy-Duty Materials',
         description: 'Double-wall corrugated, reinforced corners, and foam cushioning options.',
       },
       {
-        icon: Package,
         title: 'Fast Turnaround',
         description: 'Most boxes built while you wait or within 24 hours.',
       },
@@ -396,7 +382,6 @@ export const packingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Custom boxes and crates built to your item\u2019s exact dimensions.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Ship Without the Extra Stop',
@@ -413,17 +398,14 @@ export const packingServices: Service[] = [
     ],
     features: [
       {
-        icon: Package,
         title: 'Full Supply Selection',
         description: 'Boxes, bubble wrap, tape, tubes, and peanuts \u2014 all at our counter.',
       },
       {
-        icon: Shield,
         title: 'Carrier-Grade Quality',
         description: 'Professional materials that meet UPS, FedEx, USPS, and DHL standards.',
       },
       {
-        icon: Star,
         title: 'One-Stop Convenience',
         description: 'Grab supplies and ship in the same trip. No extra stops.',
       },

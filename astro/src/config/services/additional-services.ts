@@ -1,13 +1,3 @@
-import Users from '~icons/lucide/users';
-import Star from '~icons/lucide/star';
-import NotebookText from '~icons/lucide/notebook-text';
-import Shield from '~icons/lucide/shield';
-import Clock from '~icons/lucide/clock';
-import Truck from '~icons/lucide/truck';
-import Package from '~icons/lucide/package';
-import Printer from '~icons/lucide/printer';
-import Fingerprint from '~icons/lucide/fingerprint';
-import Scan from '~icons/lucide/scan';
 import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/media';
 import { generalHomeBusinessFaqs, notaryServicesFaqs } from '../faqs';
@@ -74,12 +64,10 @@ export const additionalServices: Service[] = [
       {
         heading: 'The 3-Step Plan \u2014 Faster Than a Coffee Run',
         body: '<ol><li><strong>Bring your unsigned document</strong> plus valid government-issued photo ID (driver\u2019s license, state ID, or passport)</li><li><strong>Sign in the presence of our notary</strong> \u2014 we verify your identity and witness your signature</li><li><strong>Done.</strong> Stamped, notarized, back in your day in about 5 minutes</li></ol><p class="mt-4">No forms to fill out ahead of time. No online scheduler. No account creation. Just walk in.</p>',
-        isFullWidth: true,
       },
       {
         heading: 'What to Bring & What It Costs',
         body: '<table class="w-full text-sm"><thead><tr><th scope="col" class="text-left pb-2">What You Need</th><th scope="col" class="text-left pb-2">Details</th></tr></thead><tbody><tr><th scope="row" class="pr-4 py-2 text-left font-normal"><strong>Valid Government ID</strong></th><td>Driver\u2019s license, state ID, or passport \u2014 all signers</td></tr><tr><th scope="row" class="pr-4 py-2 text-left font-normal"><strong>Unsigned Document</strong></th><td>Document must be unsigned until you\u2019re in front of the notary</td></tr><tr><th scope="row" class="pr-4 py-2 text-left font-normal"><strong>Cost</strong></th><td><strong>$5.00</strong> per signature (Ohio state law, no markup)</td></tr><tr><th scope="row" class="pr-4 py-2 text-left font-normal"><strong>Availability</strong></th><td>During all store hours \u2014 walk in, no appointment</td></tr></tbody></table><p class="mt-4">Most documents handled on the spot. For complex real estate closings or multi-signer documents, feel free to call ahead so we can prepare.</p>',
-        isFullWidth: true,
       },
       {
         heading: 'What Happens If You Keep Putting It Off?',
@@ -92,7 +80,6 @@ export const additionalServices: Service[] = [
       {
         heading: 'What Our Customers Say',
         body: '<blockquote class="border-l-4 border-[var(--color-accent-warm)] pl-4 italic text-[var(--color-text-secondary)]"><p>"Walked in, signed, done. No appointment needed. Took maybe 5 minutes."</p><footer class="mt-2 text-sm not-italic text-[var(--color-text-muted)]">\u2014 James R., Concord Township</footer></blockquote><blockquote class="border-l-4 border-[var(--color-accent-warm)] pl-4 italic text-[var(--color-text-secondary)] mt-6"><p>"I called three other places before coming here. Wish I\u2019d started with Mailbox Plus."</p><footer class="mt-2 text-sm not-italic text-[var(--color-text-muted)]">\u2014 Linda M., Painesville</footer></blockquote>',
-        isFullWidth: true,
       },
       {
         heading: 'Notary Services & Privacy \u2014 They Go Together',
@@ -101,18 +88,15 @@ export const additionalServices: Service[] = [
     ],
     features: [
       {
-        icon: NotebookText,
         title: 'Certified Notary On Staff',
         description:
           'Our licensed notary is available during all business hours. Walk in, get it done.',
       },
       {
-        icon: Clock,
         title: 'No Appointment Needed',
         description: 'Forget the scheduling dance. Just show up with your ID and document.',
       },
       {
-        icon: Users,
         title: '$5 Per Signature \u2014 Set by Law',
         description:
           'Ohio state law sets the rate. We don\u2019t mark it up. $5.00 per signature, no hidden fees.',
@@ -231,9 +215,9 @@ export const additionalServices: Service[] = [
       },
     ],
     features: [
-      { title: 'Cost', description: 'Low Monthly Fee.', icon: Star },
-      { title: 'Staffing', description: 'Our Team Helps You.', icon: Users },
-      { title: 'Equipment', description: 'Use Ours (Print/Fax).', icon: Printer },
+      { title: 'Cost', description: 'Low Monthly Fee.' },
+      { title: 'Staffing', description: 'Our Team Helps You.' },
+      { title: 'Equipment', description: 'Use Ours (Print/Fax).' },
     ],
     faqs: [
       {
@@ -377,22 +361,18 @@ export const additionalServices: Service[] = [
       {
         heading: 'Fast Scanning & Recycling',
         body: 'Our team will <strong>scan your return immediately</strong> and provide you with a <strong>UPS receipt</strong>. This ensures your return is tracked and processed quickly, so you can access your next box without delay.',
-        isFullWidth: true,
       },
     ],
     features: [
       {
-        icon: Truck,
         title: 'Authorized UPS Location',
         description: 'Official UPS drop-off point for Nuuly returns.',
       },
       {
-        icon: Clock,
         title: 'Same-Day Scanning',
         description: 'Get your return scanned immediately.',
       },
       {
-        icon: Users,
         title: 'Friendly Service',
         description: 'Personal assistance from our local team.',
       },
@@ -511,7 +491,6 @@ export const additionalServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We provide your fingerprint card or digital submission receipt. Most visits are done in under 10 minutes.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Who Uses Our Fingerprinting Services',
@@ -533,7 +512,6 @@ export const additionalServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Fingerprint-based background checks for adoption proceedings and immigration applications.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Every Day You Wait Is a Day Your Application Sits Still',
@@ -555,7 +533,6 @@ export const additionalServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">While you're here: get your <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">documents notarized</a> or <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">make copies</a> of your application forms.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Background Check? Check. Done in Minutes.',
@@ -572,18 +549,15 @@ export const additionalServices: Service[] = [
     ],
     features: [
       {
-        icon: Fingerprint,
         title: 'Digital Capture',
         description: 'Clean electronic fingerprints \u2014 no ink, no mess, no smudges.',
       },
       {
-        icon: Clock,
         title: 'Fast Appointment Scheduling',
         description:
           'Book online in minutes. Digital fingerprints processed quickly during your appointment.',
       },
       {
-        icon: Shield,
         title: 'BCI & FBI Compliant',
         description: 'Digital prints accepted for background checks, licensing, and employment.',
       },
@@ -679,7 +653,6 @@ export const additionalServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Your package is shipped with proper coverage. If something goes wrong, you're protected up to the declared value.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'When Should You Add Coverage?',
@@ -708,7 +681,6 @@ export const additionalServices: Service[] = [
             <p class="text-center text-[var(--color-text-secondary)] text-sm mt-4">
               <strong>Unsure?</strong> Ask us at the counter. We'll help you decide based on the item value, destination, and shipping method. It only takes a minute and the peace of mind is worth it.
             </p>`,
-        isFullWidth: true,
       },
       {
         heading: 'The Real Cost of Not Insuring',
@@ -730,7 +702,6 @@ export const additionalServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Declared value coverage typically costs pennies per $100 of coverage. Compare that to the cost of losing a $500 item uninsured.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Ship With Peace of Mind \u2014 Every Time',
@@ -747,19 +718,16 @@ export const additionalServices: Service[] = [
     ],
     features: [
       {
-        icon: Shield,
         title: 'Carrier Coverage Options',
         description:
           'Declared value for UPS, FedEx, and USPS \u2014 we explain the limits and costs.',
       },
       {
-        icon: Package,
         title: 'High-Value Shipments',
         description:
           "Electronics, artwork, sports equipment, and business inventory \u2014 we've got you covered.",
       },
       {
-        icon: Clock,
         title: 'Quick & Easy',
         description:
           'Adding coverage takes one minute at the counter. Peace of mind included at no extra hassle.',
@@ -998,18 +966,15 @@ export const additionalServices: Service[] = [
     ],
     features: [
       {
-        icon: Scan,
         title: 'QR Code Returns',
         description:
           'Show your QR code on your phone. We scan, bag, and receipt you in under 60 seconds.',
       },
       {
-        icon: Package,
         title: 'No Box, No Label',
         description: 'Just bring the item. No packaging, no printing, no tape, no hassle.',
       },
       {
-        icon: Clock,
         title: '60-Second Drop-Off',
         description: 'In and out with a receipt. Your refund is initiated immediately at drop-off.',
       },

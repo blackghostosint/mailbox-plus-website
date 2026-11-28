@@ -6,7 +6,6 @@ export * from './fedexShippingFaqs';
 export * from './upsShippingFaqs';
 export * from './uspsServicesFaqs';
 export * from './dhlExpressFaqs';
-export * from './internationalShippingFaqs';
 export * from './packageDropOffsFaqs';
 export * from './customBoxMakingFaqs';
 export * from './professionalPackingFaqs';

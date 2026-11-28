@@ -1,7 +1,4 @@
 import type { Service } from '../../../types/services';
-import Truck from '~icons/lucide/truck';
-import Clock from '~icons/lucide/clock';
-import Star from '~icons/lucide/star';
 
 export const competePages: Service[] = [
   {
@@ -36,17 +33,14 @@ export const competePages: Service[] = [
         title: 'Multi-Carrier Choice',
         description:
           'FedEx, UPS, USPS, DHL at one counter. No other Willoughby shipping center offers this.',
-        icon: Truck,
       },
       {
         title: 'In & Out Fast',
         description: 'Locally owned means shorter lines. Most visits under 5 minutes.',
-        icon: Clock,
       },
       {
         title: 'Full Service',
         description: 'Packing supplies, professional packing, mailboxes, notary, printing.',
-        icon: Star,
       },
     ],
     content: [
@@ -95,7 +89,6 @@ export const competePages: Service[] = [
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
               Plus, we go beyond shipping. Need a mailbox with a real street address? A notary? Printed documents? That's all under one roof too. <strong>Shipping centers in Willoughby, OH</strong> don't get more convenient than this.
             </p>`,
-        isFullWidth: true,
       },
       {
         heading: 'What You Can Ship --- Drop Off or Create a New Shipment',
@@ -123,7 +116,6 @@ export const competePages: Service[] = [
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
               <strong>Packing materials available:</strong> Boxes (all sizes), tape, bubble wrap, packing peanuts, foam, and specialty containers.
             </p>`,
-        isFullWidth: true,
       },
       {
         heading: 'Your Willoughby Shipping Center --- 5 Minutes Away',
@@ -140,7 +132,6 @@ export const competePages: Service[] = [
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
               Come see why Willoughby residents choose Mailbox Plus over the chains. You'll get faster service, better carrier choice, and a team that actually knows your name. See our <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">package drop-off services</a> and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a>.
             </p>`,
-        isFullWidth: true,
       },
       {
         heading: 'Trusted by Willoughby — Rated 5 Stars on Google',
@@ -160,7 +151,6 @@ export const competePages: Service[] = [
                 <footer class="mt-2 not-italic font-semibold text-[var(--color-text-primary)]">--- Verified customer</footer>
               </blockquote>
             </div>`,
-        isFullWidth: true,
       },
     ],
     faqs: [
