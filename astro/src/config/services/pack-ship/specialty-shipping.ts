@@ -1,7 +1,3 @@
-import Package from '~icons/lucide/package';
-import Shield from '~icons/lucide/shield';
-import Globe from '~icons/lucide/globe';
-import Truck from '~icons/lucide/truck';
 import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/media';
 import {
@@ -99,7 +95,6 @@ export const specialtyShippingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We arrange third-party insurance, select the right carrier, and ship with tracking worldwide.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'What Standard Packing Misses',
@@ -121,7 +116,6 @@ export const specialtyShippingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Shipping art internationally requires specific customs documentation. We help you get it right.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'From Gallery to Destination \u2014 Safely',
@@ -138,17 +132,14 @@ export const specialtyShippingServices: Service[] = [
     ],
     features: [
       {
-        icon: Package,
         title: 'Custom Crating',
         description: 'Precision-fit crates built to your artwork\u2019s exact dimensions.',
       },
       {
-        icon: Shield,
         title: 'Archival Materials',
         description: 'Acid-free packing that protects sensitive surfaces during transit.',
       },
       {
-        icon: Globe,
         title: 'Insured Worldwide',
         description:
           'Third-party insurance and customs support for domestic and international shipments.',
@@ -250,7 +241,6 @@ export const specialtyShippingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We check FedEx and UPS rates, recommend the best option, and ship with tracking and insurance available.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Why Professional Packing Matters for Bikes',
@@ -272,7 +262,6 @@ export const specialtyShippingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">FedEx or UPS? We check both carriers and recommend the most cost-effective option for your route.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Ready for the Road \u2014 Or the Destination',
@@ -289,18 +278,15 @@ export const specialtyShippingServices: Service[] = [
     ],
     features: [
       {
-        icon: Package,
         title: 'Reinforced Bike Boxes',
         description:
           'Double-wall boxes designed to protect frames, forks, and wheels during transit.',
       },
       {
-        icon: Shield,
         title: 'Professional Packing',
         description: 'Foam wrap, axle guards, and strategic bracing by trained packers.',
       },
       {
-        icon: Truck,
         title: 'Rate Comparison',
         description:
           'FedEx vs. UPS \u2014 we check both and recommend the best value for your route.',
@@ -401,7 +387,6 @@ export const specialtyShippingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Insured, tracked, and delivered to your destination. Ship well ahead or last-minute \u2014 we'll get them there.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Why Shipping Beats Flying With Clubs',
@@ -423,7 +408,6 @@ export const specialtyShippingServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We use sports-specific packing techniques that airlines don't offer \u2014 each shaft and head individually protected.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Arrive Ready to Play \u2014 Clubs Included',
@@ -440,17 +424,14 @@ export const specialtyShippingServices: Service[] = [
     ],
     features: [
       {
-        icon: Package,
         title: 'Shaft Protection',
         description: 'Each club individually wrapped with foam cushioning and head padding.',
       },
       {
-        icon: Shield,
         title: 'Insured Shipping',
         description: 'Coverage available for full sets. Tracking included on every shipment.',
       },
       {
-        icon: Globe,
         title: 'Destination Delivery',
         description:
           'Ship to hotels, courses, or anywhere your trip takes you \u2014 domestic and international.',

@@ -1,9 +1,6 @@
 import type { Service } from '../../../types/services';
 import { getImageObjectSchema } from '../../../utils/schema';
 import { getServiceImageUrl } from '../../../lib/media';
-import Clock from '~icons/lucide/clock';
-import Truck from '~icons/lucide/truck';
-import Users from '~icons/lucide/users';
 
 export const competePages: Service[] = [
   {
@@ -42,18 +39,15 @@ export const competePages: Service[] = [
         title: 'Faster Service',
         description:
           'We pride ourselves on quick, efficient transactions --- no post office lines.',
-        icon: Clock,
       },
       {
         title: 'Carrier Flexibility',
         description:
           'USPS, UPS, FedEx, DHL --- all at one counter. Compare rates and pick the best.',
-        icon: Truck,
       },
       {
         title: 'Customer Service',
         description: 'Personalized, local assistance --- not a corporate franchise.',
-        icon: Users,
       },
     ],
     content: [

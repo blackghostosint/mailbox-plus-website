@@ -1,11 +1,4 @@
-import React from 'react';
-import type { SVGProps } from 'react';
 import type { FAQ } from './faq';
-
-// Icon component type compatible with both lucide-react and unplugin-icons
-export type IconComponent = React.ComponentType<
-  SVGProps<SVGSVGElement> & { size?: number | string }
->;
 
 export type ServiceCategory =
   | 'core'
@@ -24,7 +17,6 @@ export interface CTA {
   subtitle?: string;
   buttonText: string;
   buttonLink: string; // internal route or absolute URL
-  icon?: IconComponent;
   bgImage?: string; // optional background image path
   align?: 'left' | 'center'; // layout preference
   variant?: 'brand' | 'neutral' | 'ghost'; // style variants
@@ -75,7 +67,6 @@ export interface Service {
   heroTitle: string;
   heroSubtitle: string;
   heroImage?: string;
-  icon?: IconComponent;
   popular?: boolean;
   introductoryContent?: string;
   intentKey?: string;
@@ -87,13 +78,11 @@ export interface Service {
   content?: Array<{
     heading: string;
     body: string;
-    isFullWidth?: boolean;
   }>;
 
   features?: Array<{
     title: string;
     description: string;
-    icon?: IconComponent;
   }>;
 
   faqs?: FAQ[];
@@ -125,17 +114,4 @@ export interface Service {
     url: string;
     label: string;
   };
-}
-
-export interface Category {
-  id: ServiceCategory;
-  name: string;
-  href: string;
-  description: string;
-  icon: IconComponent;
-  color: string;
-  bgColor: string;
-  keywords: string;
-  metaDescription: string;
-  popular?: boolean;
 }

@@ -52,7 +52,6 @@ export const gscLandingPages: Service[] = [
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Freight & LTL</h4><p class="text-sm">Palletized shipments, liftgate service, and residential delivery options available.</p></div>
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Specialty Items</h4><p class="text-sm">Artwork, antiques, musical instruments, electronics, and trade show materials expertly packed and shipped.</p></div>
         </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
@@ -157,7 +156,6 @@ export const gscLandingPages: Service[] = [
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Professional Packing</h4><p class="text-sm">Items packed to carrier standards. Insurance-ready. No rejected claims due to improper packing.</p></div>
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Local Expertise</h4><p class="text-sm">We know the best shipping routes and carrier quirks for Concord Township and Lake County.</p></div>
         </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
@@ -254,7 +252,6 @@ export const gscLandingPages: Service[] = [
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Digital Mail Scanning</h4><p class="text-sm">We scan your mail and email it to you. Available on mailbox rental plans — know what arrived from anywhere.</p></div>
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Business Mailing</h4><p class="text-sm">Document printing, folding, stuffing, and bulk mailing for businesses. EDDM program available.</p></div>
         </div>`,
-        isFullWidth: true,
       },
     ],
     features: [

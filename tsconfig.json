@@ -7,7 +7,6 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "~icons/*": ["astro/src/lib/icon-stub.ts"],
       "vitest": ["./astro/node_modules/vitest"]
     },
     "typeRoots": ["./node_modules/@types", "./node_modules", "./astro/node_modules"],

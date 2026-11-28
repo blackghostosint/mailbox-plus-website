@@ -1,11 +1,3 @@
-import Users from '~icons/lucide/users';
-import Palette from '~icons/lucide/palette';
-import Star from '~icons/lucide/star';
-import Printer from '~icons/lucide/printer';
-import Layers from '~icons/lucide/layers';
-import FileText from '~icons/lucide/file-text';
-import Truck from '~icons/lucide/truck';
-import Clock from '~icons/lucide/clock';
 import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/media';
 import {
@@ -100,7 +92,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Get print-ready files for your own use, or let us handle the printing — business cards, flyers, banners, and more.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── What We Design Grid ──
       {
@@ -137,7 +128,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Consistent branding across all your materials — cards, flyers, social graphics, and more.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -160,7 +150,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We design in-house and handle the print ordering for you. No back-and-forth with online printers. No \u201cyour file isn't print-ready\u201d emails.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -178,18 +167,15 @@ export const copyPrintServices: Service[] = [
     ],
     features: [
       {
-        icon: Palette,
         title: 'Custom Designs',
         description:
           'Every project is unique — no templates, no shortcuts, just professional work.',
       },
       {
-        icon: Users,
         title: 'Collaborative Process',
         description: 'You review proofs, we refine. Your vision, our expertise.',
       },
       {
-        icon: Star,
         title: 'Print-Ready Results',
         description: 'Designed for print from day one. We can print it too — one stop.',
       },
@@ -284,7 +270,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Most orders ready in days, not weeks. Pick up in store — no bent corners, no missed deliveries.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Options Grid ──
       {
@@ -324,7 +309,6 @@ export const copyPrintServices: Service[] = [
             <p class="text-center text-[var(--color-text-secondary)] text-sm mt-4">
               Not sure which finish is right for you? <strong>Bring us your logo and we'll walk you through the options.</strong> No pressure, no upselling — just honest advice.
             </p>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -347,7 +331,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Need matching <a href="/copy-print/flyers-brochures" class="text-[var(--color-primary)] hover:underline">brochures</a> or <a href="/copy-print/postcard-printing" class="text-[var(--color-primary)] hover:underline">postcards</a>? We can design and order your full brand kit — all in one place.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -365,17 +348,14 @@ export const copyPrintServices: Service[] = [
     ],
     features: [
       {
-        icon: Users,
         title: 'Custom Design',
         description: 'Upload your design or let our team create something custom.',
       },
       {
-        icon: Palette,
         title: 'Premium Finishes',
         description: 'Matte, glossy, premium cardstock, and specialty textures.',
       },
       {
-        icon: Star,
         title: 'Local Turnaround',
         description: 'No shipping delays. Most orders ready in days, not weeks.',
       },
@@ -454,19 +434,16 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Most orders ready in days. We quality-check every piece before you walk out the door.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── SB7 POSITION 5: AGREEMENT PLAN ──
       {
         heading: 'No Minimums. No Surprises.',
         body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No minimum quantity.</strong> Need 25 flyers? We get 25 made.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom sizes.</strong> Standard letter, half-sheet, square, or whatever your design calls for.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Design help available.</strong> Not a designer? We\'ll help you create something that works.</span></li></ul>',
-        isFullWidth: true,
       },
       // ── SB7 POSITION 6: STAKES ──
       {
         heading: 'What Bad Print Costs Your Business',
         body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Money</h4><p class="text-sm text-[var(--color-text-secondary)]">500 generic flyers that get ignored are 500 pieces of trash. Professional printing costs the same — but gets opened.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Opportunities</h4><p class="text-sm text-[var(--color-text-secondary)]">A well-designed brochure in the right hands generates leads. A cheap one goes in the recycling bin unread.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Online Shipping Delays</h4><p class="text-sm text-[var(--color-text-secondary)]">Order from an online printer and you wait a week. Miss your event. Pay for rush shipping. We handle the ordering — you pick up local.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Brand Dilution</h4><p class="text-sm text-[var(--color-text-secondary)]">Every piece of printed material is a brand touchpoint. Thin paper, blurry images, and mismatched colors say "amateur" louder than anything on the page.</p></div></div>',
-        isFullWidth: true,
       },
       // ── SB7 POSITION 7: SUCCESS ──
       {
@@ -476,17 +453,14 @@ export const copyPrintServices: Service[] = [
     ],
     features: [
       {
-        icon: Printer,
         title: 'Premium Paper Stocks',
         description: 'Glossy, matte, or premium cardstock — choose what fits your brand.',
       },
       {
-        icon: Palette,
         title: 'Design Help Available',
         description: "Not a designer? We'll help you create a flyer that actually gets noticed.",
       },
       {
-        icon: Layers,
         title: 'Custom Sizes & Finishes',
         description: 'Tri-fold, half-sheet, square, or full-bleed — we handle custom dimensions.',
       },
@@ -581,7 +555,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Print, check, and pick up — all in one visit.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── What We Print Grid ──
       {
@@ -622,7 +595,6 @@ export const copyPrintServices: Service[] = [
               Every file is <strong>reviewed before printing</strong> — we catch margin issues, low-resolution images, and formatting problems before they hit paper. 
               If you need <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">bulk copies</a> or <a href="/copy-print/flyers-brochures" class="text-[var(--color-primary)] hover:underline">marketing materials</a>, we do those too.
             </p>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -648,7 +620,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">While you're here: <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notarize</a> that contract, <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">scan</a> the backup docs, or <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shred</a> the old drafts — one stop.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -666,17 +637,14 @@ export const copyPrintServices: Service[] = [
     ],
     features: [
       {
-        icon: Printer,
         title: 'We Print for You',
         description: "Drop off, email, or cloud — we handle the machine so you don't have to.",
       },
       {
-        icon: FileText,
         title: 'File Review Included',
         description: 'Our team checks alignment, margins, and resolution before printing.',
       },
       {
-        icon: Star,
         title: 'Laminating',
         description: 'IDs and documents laminated on-site — same-day available.',
       },
@@ -749,19 +717,16 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Most poster orders are ready in a few days. You see the print before you take it — no surprises.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── SB7 POSITION 5: AGREEMENT PLAN ──
       {
         heading: 'Custom Sizes. Premium Quality. No Shipping Gamble.',
         body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom dimensions.</strong> Standard sizes or whatever your space requires.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Photo-quality paper.</strong> Glossy, matte, or laminated finish for durability.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No shipping gamble.</strong> We order it, you pick it up local. See it before you take it.</span></li></ul>',
-        isFullWidth: true,
       },
       // ── SB7 POSITION 6: STAKES ──
       {
         heading: 'What One Bad Print Costs You',
         body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Event Impact</h4><p class="text-sm text-[var(--color-text-secondary)]">A blurry poster at a trade show or presentation doesn\'t just fail to impress — it actively undermines your message.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Lost Time</h4><p class="text-sm text-[var(--color-text-secondary)]">Order from an unknown online printer, wait for shipping, unbox a bad print, re-order, wait again. You\'ve lost a week. We handle the ordering so you don\'t have to gamble.</p></div></div>',
-        isFullWidth: true,
       },
       // ── SB7 POSITION 7: SUCCESS ──
       {
@@ -771,17 +736,14 @@ export const copyPrintServices: Service[] = [
     ],
     features: [
       {
-        icon: Printer,
         title: 'Large Format',
         description: 'Order up to 36 inches wide. Custom sizes available for any space.',
       },
       {
-        icon: Palette,
         title: 'Vibrant Color',
         description: 'Full-color, high-resolution printing on photo-quality paper.',
       },
       {
-        icon: Star,
         title: 'See It Before You Take It',
         description: "We review every print. If it's not right, we reorder before you leave.",
       },
@@ -868,19 +830,16 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Most orders ready in days. No gambling on an unknown online printer. Your campaign launches on your schedule.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 5: AGREEMENT PLAN ----
       {
         heading: 'Full Service, No Runaround',
         body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>Design help available.</strong> Don\'t have a file? We\'ll design it.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>Multiple sizes.</strong> Standard postcard, jumbo, or custom dimensions.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>EDDM & mailing prep.</strong> We handle the USPS paperwork and route sorting.</span></li></ul>',
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 6: STAKES ----
       {
         heading: 'What a Bad Postcard Costs Your Campaign',
         body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Postage</h4><p class="text-sm text-[var(--color-text-secondary)]">Postage is the most expensive part of a mail campaign. If the card itself doesn\'t earn attention, every stamp is money thrown away.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Timing</h4><p class="text-sm text-[var(--color-text-secondary)]">Online printers take a week. Your event or promotion won\'t wait. We handle the ordering — your timeline, not theirs.</p></div></div>',
-        isFullWidth: true,
       },
       // ---- SB7 POSITION 7: SUCCESS ----
       {
@@ -890,17 +849,14 @@ export const copyPrintServices: Service[] = [
     ],
     features: [
       {
-        icon: Printer,
         title: 'Full-Color Printing',
         description: 'Premium cardstock with vibrant, high-resolution printing on both sides.',
       },
       {
-        icon: Layers,
         title: 'Mailing Support',
         description: 'Address printing, sorting, and EDDM preparation — we handle USPS compliance.',
       },
       {
-        icon: Star,
         title: 'Local Turnaround',
         description: 'No shipping gamble. We handle the ordering — most orders ready in days.',
       },
@@ -1004,7 +960,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Collated, sorted, and quality-checked before you walk out.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -1027,7 +982,6 @@ export const copyPrintServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">While you're here: <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">print</a> that report, <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">scan</a> the originals, or <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shred</a> what you don't need.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -1045,17 +999,14 @@ export const copyPrintServices: Service[] = [
     ],
     features: [
       {
-        icon: Printer,
         title: 'We Make the Copies',
         description: 'Hand us your originals, we handle the machine. B&W or color, any quantity.',
       },
       {
-        icon: FileText,
         title: 'Collated & Sorted',
         description: 'Every copy job is sorted and quality-checked before you leave.',
       },
       {
-        icon: Star,
         title: 'Volume Discounts',
         description: 'Bulk copy jobs at competitive prices. Ask us about large-run pricing.',
       },
@@ -1118,7 +1069,6 @@ export const copyPrintServices: Service[] = [
                         </div>
                     </div>
                 </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Comparison: Mailbox Plus vs. Staples',
@@ -1150,13 +1100,12 @@ export const copyPrintServices: Service[] = [
                         </tbody>
                     </table>
                 </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
-      { title: 'Customer Focus', description: 'Personalized Local Service.', icon: Users },
-      { title: 'Shipping Options', description: 'UPS, FedEx, USPS, DHL.', icon: Truck },
-      { title: 'Efficiency', description: 'Fast In & Out.', icon: Clock },
+      { title: 'Customer Focus', description: 'Personalized Local Service.' },
+      { title: 'Shipping Options', description: 'UPS, FedEx, USPS, DHL.' },
+      { title: 'Efficiency', description: 'Fast In & Out.' },
     ],
     faqs: [
       {
@@ -1227,13 +1176,12 @@ export const copyPrintServices: Service[] = [
                         </div>
                     </div>
                 </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
-      { title: 'Service Experience', description: 'Personal & Efficient.', icon: Star },
-      { title: 'Shipping Carriers', description: 'UPS, FedEx, USPS, DHL.', icon: Truck },
-      { title: 'Waiting Time', description: 'Minimal.', icon: Clock },
+      { title: 'Service Experience', description: 'Personal & Efficient.' },
+      { title: 'Shipping Carriers', description: 'UPS, FedEx, USPS, DHL.' },
+      { title: 'Waiting Time', description: 'Minimal.' },
     ],
     faqs: [
       {
@@ -1297,13 +1245,12 @@ export const copyPrintServices: Service[] = [
                         <p class="text-sm text-[var(--color-text-secondary)]">Competitive pricing without big box hassle.</p>
                     </div>
                 </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
-      { title: 'Print Quality', description: 'Professional Laser.', icon: Printer },
-      { title: 'Cost per Page', description: 'Efficient / Bulk Rates.', icon: Star },
-      { title: 'Speed', description: 'High Volume Fast.', icon: Clock },
+      { title: 'Print Quality', description: 'Professional Laser.' },
+      { title: 'Cost per Page', description: 'Efficient / Bulk Rates.' },
+      { title: 'Speed', description: 'High Volume Fast.' },
     ],
     faqs: [
       {

@@ -1,8 +1,3 @@
-import Package from '~icons/lucide/package';
-import Truck from '~icons/lucide/truck';
-import MapPin from '~icons/lucide/map-pin';
-import Shield from '~icons/lucide/shield';
-import Clock from '~icons/lucide/clock';
 import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/media';
 import { generalShippingFaqs, packageDropOffsFaqs, packageReceivingFaqs } from '../../faqs';
@@ -91,7 +86,6 @@ export const receivingDropOffServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We sort and hold for daily carrier pickup. Your packages are in the system.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Why Drop Off Here?',
@@ -113,7 +107,6 @@ export const receivingDropOffServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Drop off returns, <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">ship a package</a>, <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notarize</a>, <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">make copies</a> \u2014 all in one trip.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'From Multiple Stops to One Counter',
@@ -130,17 +123,14 @@ export const receivingDropOffServices: Service[] = [
     ],
     features: [
       {
-        icon: Package,
         title: 'All 4 Carriers',
         description: 'FedEx, UPS, USPS, and DHL \u2014 drop off at one counter.',
       },
       {
-        icon: Truck,
         title: 'Free Drop-Offs',
         description: 'No charge for pre-labeled packages. Receipt provided.',
       },
       {
-        icon: MapPin,
         title: 'Local Convenience',
         description: 'One location in Concord Township instead of three separate stops.',
       },
@@ -246,7 +236,6 @@ export const receivingDropOffServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Packages stored securely until you arrive. Show your ID and they're yours.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'What You Gain by Receiving Here',
@@ -268,7 +257,6 @@ export const receivingDropOffServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Pick up during all business hours. No missed delivery notices. No rescheduling.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Peace of Mind \u2014 Every Package, Every Time',
@@ -285,19 +273,16 @@ export const receivingDropOffServices: Service[] = [
     ],
     features: [
       {
-        icon: Package,
         title: 'All Carriers',
         description:
           'FedEx, UPS, USPS, DHL \u2014 we sign for and store packages from all of them.',
       },
       {
-        icon: Shield,
         title: 'Secure Storage',
         description:
           'Packages kept in our secure facility \u2014 never left on a porch or doorstep.',
       },
       {
-        icon: Clock,
         title: 'Pick Up When You Want',
         description: 'Packages available during all business hours. Show your ID and go.',
       },

@@ -1,7 +1,4 @@
 import type { Service } from '../../../types/services';
-import MapPin from '~icons/lucide/map-pin';
-import Package from '~icons/lucide/package';
-import Lock from '~icons/lucide/lock';
 
 export const competePages: Service[] = [
   {
@@ -34,19 +31,16 @@ export const competePages: Service[] = [
         title: 'Real Street Address',
         description:
           '7554 Fredle Drive, Concord Township --- not a P.O. Box number. Use it for business filings, Amazon, and personal mail.',
-        icon: MapPin,
       },
       {
         title: 'All-Carrier Acceptance',
         description:
           'UPS, FedEx, USPS, and DHL all deliver to your mailbox. We sign for packages so you never miss a delivery.',
-        icon: Package,
       },
       {
         title: 'Secure & Private',
         description:
           'Your mail is held behind a locked counter. Your home address stays off every label, filing, and database.',
-        icon: Lock,
       },
     ],
     content: [
@@ -75,19 +69,16 @@ export const competePages: Service[] = [
       {
         heading: 'What You Get With a Mailbox Rental Serving Willoughby',
         body: `<div class="overflow-x-auto my-6"><table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm"><thead class="bg-[var(--color-bg-secondary)]/80"><tr><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Feature</th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">What It Means</th></tr></thead><tbody class="divide-y divide-[var(--color-border)]"><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Real Street Address</th><td class="p-4 text-[var(--color-text-secondary)]">7554 Fredle Drive, Concord Township --- not a P.O. Box number</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">All 4 Carriers</th><td class="p-4 text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL --- we accept everything</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Package Signing</th><td class="p-4 text-[var(--color-text-secondary)]">We sign for every package so you never miss a delivery</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">4-Hour Notification</th><td class="p-4 text-[var(--color-text-secondary)]">We notify you within 4 hours of mail arrival</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Secure Storage</th><td class="p-4 text-[var(--color-text-secondary)]">Your mail is held behind a locked counter</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Month-to-Month</th><td class="p-4 text-[var(--color-text-secondary)]">No term commitment. Cancel anytime.</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Completely Risk-Free</th><td class="p-4 text-[var(--color-text-secondary)]">Month-to-month, cancel anytime. Not sure? Try it. Walk away if it's not for you.</td></tr></tbody></table></div>`,
-        isFullWidth: false,
       },
       // ── Pricing Table ──
       {
         heading: 'Pricing --- Transparent, No Surprises',
         body: `<div class="overflow-x-auto my-6"><table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm"><thead class="bg-[var(--color-bg-secondary)]/80"><tr><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Tier</th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Monthly</th><th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Includes</th></tr></thead><tbody class="divide-y divide-[var(--color-border)]"><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Small · Mail Only</th><td class="p-4 text-[var(--color-text-primary)] font-bold">$15.00</td><td class="p-4 text-[var(--color-text-secondary)]">Mail only</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Small · +10 Packages</th><td class="p-4 text-[var(--color-text-primary)] font-bold">$25.00</td><td class="p-4 text-[var(--color-text-secondary)]">10 packages/mo, then $5 each</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Large · Mail Only</th><td class="p-4 text-[var(--color-text-primary)] font-bold">$30.00</td><td class="p-4 text-[var(--color-text-secondary)]">Mail only</td></tr><tr><th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Large · +10 Packages</th><td class="p-4 text-[var(--color-text-primary)] font-bold">$40.00</td><td class="p-4 text-[var(--color-text-secondary)]">10 packages/mo, then $5 each</td></tr></tbody></table></div><p class="text-sm text-[var(--color-text-muted)] italic">Month-to-month — no term commitment. All plans include 4-hour mail alerts and all-carrier acceptance. Key deposit: $5.00 (refundable).</p>`,
-        isFullWidth: false,
       },
       // ── Setup Steps ──
       {
         heading: 'How to Set Up Your Mailbox Rental',
         body: `<div class="grid gap-6 md:grid-cols-3 my-6"><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><div class="font-bold text-[var(--color-primary)] mb-2 text-lg">1. Complete USPS Form 1583</div><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">We help you fill it out. Each authorized recipient needs their own ID check.</p></div><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><div class="font-bold text-[var(--color-primary)] mb-2 text-lg">2. Bring Two Forms of ID</div><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">One primary photo ID (driver's license or passport) and one secondary ID showing your current address (lease or utility bill).</p></div><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><div class="font-bold text-[var(--color-primary)] mb-2 text-lg">3. Start Using Your Address</div><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Your new address is active immediately. Update your Amazon, your bank, your business filings --- and your home address comes off the pipeline.</p></div></div>`,
-        isFullWidth: true,
       },
       // ── Why Drive Six Minutes ──
       {

@@ -1,7 +1,4 @@
 import type { Service } from '../../../types/services';
-import Box from '~icons/lucide/box';
-import Scale from '~icons/lucide/scale';
-import Truck from '~icons/lucide/truck';
 
 export const competePages: Service[] = [
   {
@@ -38,19 +35,16 @@ export const competePages: Service[] = [
         title: 'Packed to Carrier Standards',
         description:
           'Correct box size, cushioning, and sealing so your return isn’t rejected at the counter.',
-        icon: Box,
       },
       {
         title: 'Right Carrier for the Job',
         description:
           'We compare UPS, FedEx, USPS, and DHL — some have stricter size and weight limits than others.',
-        icon: Scale,
       },
       {
         title: 'One Counter, All Carriers',
         description:
           'Bring it to 7554 Fredle Drive and we handle the rest. No running between shipping stores.',
-        icon: Truck,
       },
     ],
     content: [

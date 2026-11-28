@@ -1,9 +1,3 @@
-import Truck from '~icons/lucide/truck';
-import Shield from '~icons/lucide/shield';
-import Globe from '~icons/lucide/globe';
-import Mail from '~icons/lucide/mail';
-import Package from '~icons/lucide/package';
-import Star from '~icons/lucide/star';
 import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/media';
 import {
@@ -108,7 +102,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Packing, labeling, tracking, insurance \u2014 all taken care of. You get a receipt and you're on your way.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -131,7 +124,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Ship FedEx, grab <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">copies</a>, notarize a document \u2014 all in one trip. FedEx Office can't do that.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -149,17 +141,14 @@ export const carrierServices: Service[] = [
     ],
     features: [
       {
-        icon: Truck,
         title: 'FedEx Express & Ground',
         description: 'Full range of FedEx services \u2014 from overnight to economy shipping.',
       },
       {
-        icon: Shield,
         title: 'Authorized ShipCenter',
         description: 'Official FedEx location with trained staff and carrier-compliant packing.',
       },
       {
-        icon: Globe,
         title: 'International Shipping',
         description: 'FedEx International services with customs documentation assistance.',
       },
@@ -253,7 +242,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Packing, label printing, tracking, insurance \u2014 all done at our counter. You get a receipt and go.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -276,7 +264,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Ship UPS, <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">make copies</a>, <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notarize</a>, or <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shred</a> \u2014 all in one trip.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -294,18 +281,15 @@ export const carrierServices: Service[] = [
     ],
     features: [
       {
-        icon: Truck,
         title: 'Ground, Air & International',
         description:
           'Full UPS service lineup \u2014 from ground to overnight to worldwide shipping.',
       },
       {
-        icon: Shield,
         title: 'Authorized Shipper',
         description: 'Official UPS outlet with trained staff and carrier-compliant packing.',
       },
       {
-        icon: Package,
         title: 'Free Drop-Offs',
         description:
           'Bring pre-labeled UPS packages for free drop-off \u2014 quick scan and receipt.',
@@ -403,7 +387,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Weighing, postage, tracking \u2014 done at our counter. You\u2019re in and out in minutes.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -426,7 +409,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">USPS, UPS, FedEx, DHL \u2014 we offer all four. Why limit yourself to one?</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -444,17 +426,14 @@ export const carrierServices: Service[] = [
     ],
     features: [
       {
-        icon: Mail,
         title: 'Priority & First-Class',
         description: 'Full USPS service \u2014 from letters to Priority Mail to Certified.',
       },
       {
-        icon: Truck,
         title: 'Multi-Carrier Comparison',
         description: 'USPS, UPS, FedEx, DHL \u2014 compare rates at one counter before you choose.',
       },
       {
-        icon: Globe,
         title: 'Stamps & International',
         description: 'Forever Stamps, books, and international postage available at our counter.',
       },
@@ -564,7 +543,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Packed to DHL standards, labeled with tracking, and on its way \u2014 with customs-ready paperwork.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -587,7 +565,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">DHL, FedEx, UPS, USPS \u2014 we offer all four. For international, we help you pick the right one.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -605,18 +582,15 @@ export const carrierServices: Service[] = [
     ],
     features: [
       {
-        icon: Globe,
         title: '220+ Countries',
         description: 'DHL Express Worldwide network \u2014 fast, reliable international shipping.',
       },
       {
-        icon: Shield,
         title: 'Customs Support',
         description:
           'We help with forms, restrictions, and documentation for smooth customs clearance.',
       },
       {
-        icon: Package,
         title: 'Multi-Carrier Options',
         description:
           'Compare DHL with FedEx, UPS, and USPS \u2014 pick the best international rate.',
@@ -720,7 +694,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Pay and go. Or stay and take care of shipping, copies, notary \u2014 all in one trip.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -743,7 +716,6 @@ export const carrierServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Sending something important? We handle <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline">certified mail, return receipts, and priority packages</a> \u2014 plus the stamps to go with them.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -761,17 +733,14 @@ export const carrierServices: Service[] = [
     ],
     features: [
       {
-        icon: Mail,
         title: 'USPS Stamps',
         description: 'Forever Stamps, international postage, and stamp books at our counter.',
       },
       {
-        icon: Star,
         title: 'No Post Office Trip',
         description: 'Grab stamps while you ship — no separate errand required.',
       },
       {
-        icon: Package,
         title: 'Mailing Help Included',
         description: 'We weigh, calculate postage, and prepare certified mail and packages.',
       },
