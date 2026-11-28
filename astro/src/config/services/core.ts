@@ -1,10 +1,3 @@
-import Package from '~icons/lucide/package';
-import Shield from '~icons/lucide/shield';
-import Truck from '~icons/lucide/truck';
-import Printer from '~icons/lucide/printer';
-import FileText from '~icons/lucide/file-text';
-import Palette from '~icons/lucide/palette';
-import Star from '~icons/lucide/star';
 import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/media';
 import { packShipFaqs, generalCopyPrintFaqs } from '../faqs';
@@ -105,7 +98,6 @@ export const coreServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Boxes, tape, bubble wrap \u2014 grab what you need right where you ship.</p>
               </a>
             </div>`,
-        isFullWidth: true,
       },
       // ── Competitive Comparison ──
       {
@@ -129,7 +121,6 @@ export const coreServices: Service[] = [
                 </div>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -152,7 +143,6 @@ export const coreServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Having packages delivered to your home? We receive, sign for, and store packages from all carriers. No porch required. <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">From $25/month</a>.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -170,19 +160,16 @@ export const coreServices: Service[] = [
     ],
     features: [
       {
-        icon: Package,
         title: '4 Carriers, 1 Counter',
         description:
           'Compare UPS, FedEx, USPS, and DHL side-by-side \u2014 pick the cheapest or the fastest.',
       },
       {
-        icon: Shield,
         title: 'Professional Packing',
         description:
           'Custom crating for fragile items that survives sorting-machine abuse. We pack so carriers can\u2019t break it.',
       },
       {
-        icon: Truck,
         title: 'Package Receiving',
         description:
           'We sign for and store packages from all carriers \u2014 for mailbox holders and walk-in customers alike.',
@@ -270,7 +257,6 @@ export const coreServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Grab your finished prints, or add laminating up to 8.5x11 — all in-house.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Services Grid ──
       {
@@ -312,7 +298,6 @@ export const coreServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Custom designs for cards, flyers, branding, and more.</p>
               </a>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 6: The Stakes ──
       {
@@ -338,7 +323,6 @@ export const coreServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Run your printing errand alongside <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">shipping</a>, <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notary</a>, <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shredding</a> — one stop, multiple tasks done.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       // ── Position 7: The Success ──
       {
@@ -356,22 +340,18 @@ export const coreServices: Service[] = [
     ],
     features: [
       {
-        icon: Printer,
         title: 'We Do the Printing',
         description: 'Drop off your file, we handle the rest — no self-serve, no guessing.',
       },
       {
-        icon: FileText,
         title: 'All Document Types',
         description: 'Business cards, flyers, posters, documents — one-stop print shop.',
       },
       {
-        icon: Palette,
         title: 'Design Help Available',
         description: 'Graphic design services for layouts, branding, and custom projects.',
       },
       {
-        icon: Star,
         title: 'Quick Turnaround',
         description: "Same-day service on most jobs. Urgent? Ask us — we'll make it work.",
       },

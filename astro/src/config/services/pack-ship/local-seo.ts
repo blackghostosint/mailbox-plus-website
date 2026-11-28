@@ -1,11 +1,3 @@
-import Clock from '~icons/lucide/clock';
-import Users from '~icons/lucide/users';
-import FileText from '~icons/lucide/file-text';
-import Truck from '~icons/lucide/truck';
-import MapPin from '~icons/lucide/map-pin';
-import Star from '~icons/lucide/star';
-import Shield from '~icons/lucide/shield';
-import Box from '~icons/lucide/box';
 import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/media';
 import { phoneFormatted } from '../../siteConfig';
@@ -89,17 +81,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Speed',
         description: 'We get you in and out fast so you can get back to your day.',
-        icon: Clock,
       },
       {
         title: 'No Waiting',
         description: 'Avoid the crowds and long lines typical of franchise stores.',
-        icon: Users,
       },
       {
         title: 'Receipts',
         description: 'We provide a drop-off receipt for tracking and peace of mind.',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -200,7 +189,6 @@ export const localSeoServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Mailboxes, notary, printing, packing, shredding \u2014 all in one trip.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Services We Offer',
@@ -218,24 +206,20 @@ export const localSeoServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, laminating \u2014 same services as the big print shops.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
       {
         title: 'Faster Service',
         description: 'We prioritize efficiency so you can get in and out quickly.',
-        icon: Clock,
       },
       {
         title: 'Multi-Carrier Options',
         description: 'We ship with UPS, FedEx, USPS, and DHL.',
-        icon: Truck,
       },
       {
         title: 'Local Ownership',
         description: 'We are part of the Concord Township community.',
-        icon: MapPin,
       },
     ],
     faqs: [
@@ -347,9 +331,9 @@ export const localSeoServices: Service[] = [
       },
     ],
     features: [
-      { title: 'Modern Services', description: 'Up-to-date Technology', icon: Star },
-      { title: 'Carrier Choice', description: 'All Major Carriers', icon: Truck },
-      { title: 'Community Focus', description: 'Locally Owned & Operated', icon: Users },
+      { title: 'Modern Services', description: 'Up-to-date Technology' },
+      { title: 'Carrier Choice', description: 'All Major Carriers' },
+      { title: 'Community Focus', description: 'Locally Owned & Operated' },
     ],
     faqs: [
       {
@@ -438,7 +422,6 @@ export const localSeoServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Notary public, faxing, scanning, secure shredding \u2014 everything a small business needs.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Your One-Stop Business Center',
@@ -452,13 +435,12 @@ export const localSeoServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">FedEx, UPS, USPS, DHL \u2014 we compare rates so you get the best option. Professional packing available.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
-      { title: 'Carrier Variety', description: 'FedEx, UPS, USPS, DHL', icon: Truck },
-      { title: 'Price Comparison', description: 'Shop rates across carriers', icon: Shield },
-      { title: 'Convenience', description: 'Quick In & Out', icon: Clock },
+      { title: 'Carrier Variety', description: 'FedEx, UPS, USPS, DHL' },
+      { title: 'Price Comparison', description: 'Shop rates across carriers' },
+      { title: 'Convenience', description: 'Quick In & Out' },
     ],
     faqs: [
       {
@@ -558,10 +540,9 @@ export const localSeoServices: Service[] = [
       {
         title: 'Faster Service',
         description: 'We pride ourselves on quick, efficient transactions.',
-        icon: Clock,
       },
-      { title: 'Carrier Flexibility', description: 'USPS, UPS, FedEx, DHL', icon: Truck },
-      { title: 'Customer Service', description: 'Personalized Assistance', icon: Users },
+      { title: 'Carrier Flexibility', description: 'USPS, UPS, FedEx, DHL' },
+      { title: 'Customer Service', description: 'Personalized Assistance' },
     ],
     faqs: [
       {
@@ -624,9 +605,9 @@ export const localSeoServices: Service[] = [
       },
     ],
     features: [
-      { title: 'All Carriers', description: 'UPS, FedEx, USPS, DHL', icon: Truck },
-      { title: 'Local Service', description: 'Concord Township', icon: MapPin },
-      { title: 'One-Stop', description: 'Packing, Printing, Mailboxes', icon: Box },
+      { title: 'All Carriers', description: 'UPS, FedEx, USPS, DHL' },
+      { title: 'Local Service', description: 'Concord Township' },
+      { title: 'One-Stop', description: 'Packing, Printing, Mailboxes' },
     ],
     faqs: [
       {
@@ -703,13 +684,12 @@ export const localSeoServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We scan every package and provide a receipt. No wondering if your return was accepted.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
-      { title: 'No Waiting', description: 'Skip the post office line', icon: Clock },
-      { title: 'Multi-Carrier', description: 'USPS, UPS, FedEx, DHL', icon: Truck },
-      { title: 'Stamps & More', description: 'Postage and packing supplies', icon: Star },
+      { title: 'No Waiting', description: 'Skip the post office line' },
+      { title: 'Multi-Carrier', description: 'USPS, UPS, FedEx, DHL' },
+      { title: 'Stamps & More', description: 'Postage and packing supplies' },
     ],
     faqs: [
       {
@@ -785,7 +765,6 @@ export const localSeoServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">We compare UPS, FedEx, USPS, and DHL rates and recommend the best option for speed and cost.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Mailbox Plus vs. DIY Packing',
@@ -822,7 +801,6 @@ export const localSeoServices: Service[] = [
                         </tbody>
                     </table>
                 </div>`,
-        isFullWidth: true,
       },
       {
         heading: "Concord Township's Packing Experts",
@@ -831,24 +809,20 @@ export const localSeoServices: Service[] = [
                         Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing and shipping needs. We also serve Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping your gifts, returns, and business packages.
                     </p>
                 </div>`,
-        isFullWidth: true,
       },
     ],
     features: [
       {
         title: 'Expert Packing',
         description: 'We know exactly how to protect your items with carrier-compliant materials.',
-        icon: Shield,
       },
       {
         title: 'Multi-Carrier',
         description: 'Ship via UPS, FedEx, USPS, or DHL — we compare rates for you.',
-        icon: Truck,
       },
       {
         title: 'One-Stop Service',
         description: 'Drop off, pack, and ship all at the same counter. No extra trips.',
-        icon: MapPin,
       },
     ],
     faqs: [
@@ -925,17 +899,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -1019,17 +990,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -1113,17 +1081,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -1203,17 +1168,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -1297,17 +1259,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -1391,17 +1350,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -1485,17 +1441,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [
@@ -1579,17 +1532,14 @@ export const localSeoServices: Service[] = [
       {
         title: 'Multi-Carrier Shipping',
         description: 'UPS, FedEx, USPS, and DHL at one counter',
-        icon: Truck,
       },
       {
         title: 'Professional Packing',
         description: 'Expert packing for fragile and oversize items',
-        icon: Box,
       },
       {
         title: 'Business Services',
         description: 'Mailboxes, notary, printing, and document services',
-        icon: FileText,
       },
     ],
     faqs: [

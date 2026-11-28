@@ -1,8 +1,5 @@
 import type { Service } from '../../../types/services';
 import { getImageObjectSchema } from '../../../utils/schema';
-import MapPin from '~icons/lucide/map-pin';
-import Truck from '~icons/lucide/truck';
-import Users from '~icons/lucide/users';
 
 export const competePages: Service[] = [
   {
@@ -34,17 +31,14 @@ export const competePages: Service[] = [
       {
         title: 'Direct Service',
         description: 'Work with the local store, not a national middleman.',
-        icon: Users,
       },
       {
         title: 'Real Street Address',
         description: '7554 Fredle Drive — not a P.O. Box number.',
-        icon: MapPin,
       },
       {
         title: 'All Carriers',
         description: 'FedEx, UPS, USPS, DHL — we accept everything.',
-        icon: Truck,
       },
     ],
     content: [
@@ -55,7 +49,6 @@ export const competePages: Service[] = [
       {
         heading: 'How It Works — Drop Off or Ship From Eastlake',
         body: `<img src="/articles/pack-ship/dhl-drop-off-chardon-featured.webp" alt="Mailbox Plus shipping service for Eastlake customers" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" /><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">1. Bring Your Package</h4><p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or need help packing — we handle both.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">2. Quick Scan</h4><p class="text-sm text-[var(--color-text-secondary)]">We scan and provide a drop-off receipt on the spot.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">3. You're Done</h4><p class="text-sm text-[var(--color-text-secondary)]">Back in your day. In and out in under 2 minutes.</p></div></div>`,
-        isFullWidth: true,
       },
       {
         heading: "Don't Settle — Eastlake Deserves Better Service",

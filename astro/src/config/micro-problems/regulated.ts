@@ -55,7 +55,6 @@ export const regulatedMicroProblems: Service[] = [
 </tbody>
 </table>
 <p><strong>Key difference:</strong> FedEx only ships wine directly to consumers (from licensed wineries). Beer and spirits must be business-to-business. UPS allows beer and wine to consumers from licensed shippers, but spirits remain business-to-business only.</p>`,
-        isFullWidth: true,
       },
       {
         heading: 'What About USPS?',
@@ -176,7 +175,6 @@ export const regulatedMicroProblems: Service[] = [
 <td class="p-3 border-b border-[var(--color-border)]">Ground only — special handling</td></tr>
 </tbody>
 </table>`,
-        isFullWidth: true,
       },
       {
         heading: 'How to Pack Batteries for Shipping',
@@ -572,7 +570,6 @@ export const regulatedMicroProblems: Service[] = [
 </tbody>
 </table>
 <p class="text-xs text-[var(--color-text-muted)] mt-2">Contract = Requires signed carrier agreement + licensing. LQ = Limited Quantity. FFL = Federal Firearms License. DG = Dangerous Goods.</p>`,
-        isFullWidth: true,
       },
       {
         heading: 'What We Can Help With',

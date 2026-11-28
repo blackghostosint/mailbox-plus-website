@@ -12,12 +12,11 @@ import { documentServices } from '../config/services/document-services';
 import { additionalServices } from '../config/services/additional-services';
 import { serviceAreas } from '../config/serviceAreas';
 import { primaryLocations, secondaryLocations } from '../config/locations';
-import { categories } from '../config/categories';
 import { generalShippingFaqs, generalCopyPrintFaqs, generalHomeBusinessFaqs } from '../config/faqs';
 
 async function collectFaqs(): Promise<Record<string, unknown[]>> {
   const collected: Record<string, unknown[]> = {};
-  const dirs = ['pack-ship', 'copy-print', 'home-business', 'specialty', 'notary'];
+  const dirs = ['pack-ship', 'copy-print', 'home-business', 'notary'];
   for (const dir of dirs) {
     const index = await import(`../config/faqs/${dir}/index.ts`);
     for (const [key, value] of Object.entries(index)) {
@@ -34,7 +33,6 @@ describe('vault-extract', () => {
     const out = {
       generatedAt: new Date().toISOString(),
       siteConfig,
-      categories,
       services: {
         core: coreServices,
         'pack-ship': packShipServices,

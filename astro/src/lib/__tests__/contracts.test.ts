@@ -71,7 +71,6 @@ import { createCheckoutSession } from '../checkout';
 import { submitContactForm } from '../contact-form';
 import { fetchReviews } from '../reviews';
 import { verifyCheckoutSession } from '../verify-session';
-import { sendCspReport } from '../csp-report';
 import { apiFetch, ApiClientError } from '../api-client';
 
 import {
@@ -81,6 +80,8 @@ import {
   ReviewsSuccessSchema,
   ReviewDtoSchema,
   VerifySessionSuccessSchema,
+  CspReportRequestSchema,
+  CspReportSuccessSchema,
   HealthSuccessSchema,
   ErrorResponseSchema,
 } from '../contracts';
@@ -414,58 +415,74 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   });
 
   describe('csp-report contract', () => {
-    it('handles valid CSP report request via client helper', async () => {
-      await expect(
-        sendCspReport({
-          'csp-report': {
-            'document-uri': 'https://mailboxplusohio.com/services/',
-            'violated-directive': 'script-src',
-            'blocked-uri': 'https://evil.example.com/script.js',
-          },
-        })
-      ).resolves.toBeUndefined();
-    });
-
-    it('handles valid flat CSP report request via client helper', async () => {
-      await expect(
-        sendCspReport({
+    it('handles valid CSP report request via apiFetch', async () => {
+      const payload = CspReportRequestSchema.parse({
+        'csp-report': {
           'document-uri': 'https://mailboxplusohio.com/services/',
           'violated-directive': 'script-src',
-        })
-      ).resolves.toBeUndefined();
+          'blocked-uri': 'https://evil.example.com/script.js',
+        },
+      });
+      const response = await apiFetch('/.netlify/functions/csp-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      expect(CspReportSuccessSchema.safeParse(response).success).toBe(true);
     });
 
-    it('handles valid modern report-to array payload via client helper', async () => {
-      await expect(
-        sendCspReport([
-          {
-            type: 'csp-violation',
-            age: 10,
-            url: 'https://mailboxplusohio.com/services/',
-            user_agent: 'Mozilla/5.0',
-            body: {
-              documentURL: 'https://mailboxplusohio.com/services/',
-              violatedDirective: 'script-src',
-              blockedURL: 'https://evil.example.com/script.js',
-            },
-          },
-        ])
-      ).resolves.toBeUndefined();
+    it('handles valid flat CSP report request via apiFetch', async () => {
+      const payload = CspReportRequestSchema.parse({
+        'document-uri': 'https://mailboxplusohio.com/services/',
+        'violated-directive': 'script-src',
+      });
+      const response = await apiFetch('/.netlify/functions/csp-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      expect(CspReportSuccessSchema.safeParse(response).success).toBe(true);
     });
 
-    it('handles valid modern report-to single item payload via client helper', async () => {
-      await expect(
-        sendCspReport({
+    it('handles valid modern report-to array payload via apiFetch', async () => {
+      const payload = CspReportRequestSchema.parse([
+        {
           type: 'csp-violation',
-          age: 5,
+          age: 10,
           url: 'https://mailboxplusohio.com/services/',
+          user_agent: 'Mozilla/5.0',
           body: {
             documentURL: 'https://mailboxplusohio.com/services/',
-            violatedDirective: 'img-src',
-            blockedURL: 'http://insecure.example.com/image.png',
+            violatedDirective: 'script-src',
+            blockedURL: 'https://evil.example.com/script.js',
           },
-        })
-      ).resolves.toBeUndefined();
+        },
+      ]);
+      const response = await apiFetch('/.netlify/functions/csp-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      expect(CspReportSuccessSchema.safeParse(response).success).toBe(true);
+    });
+
+    it('handles valid modern report-to single item payload via apiFetch', async () => {
+      const payload = CspReportRequestSchema.parse({
+        type: 'csp-violation',
+        age: 5,
+        url: 'https://mailboxplusohio.com/services/',
+        body: {
+          documentURL: 'https://mailboxplusohio.com/services/',
+          violatedDirective: 'img-src',
+          blockedURL: 'http://insecure.example.com/image.png',
+        },
+      });
+      const response = await apiFetch('/.netlify/functions/csp-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      expect(CspReportSuccessSchema.safeParse(response).success).toBe(true);
     });
 
     it('rejects empty array [] and returns 400 Bad Request', async () => {

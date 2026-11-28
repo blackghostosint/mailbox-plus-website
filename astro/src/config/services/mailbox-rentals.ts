@@ -1,10 +1,3 @@
-import Lock from '~icons/lucide/lock';
-import Package from '~icons/lucide/package';
-import MapPin from '~icons/lucide/map-pin';
-import Mail from '~icons/lucide/mail';
-import Globe from '~icons/lucide/globe';
-import Star from '~icons/lucide/star';
-import Truck from '~icons/lucide/truck';
 import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/media';
 import { generalHomeBusinessFaqs, mailboxRentalFaqs, digitalMailboxRentalFaqs } from '../faqs';
@@ -120,7 +113,6 @@ export const mailboxRentalServices: Service[] = [
       {
         heading: 'The No-Strings Pitch',
         body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No term commitment.</strong> Month-to-month. Cancel anytime.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Real street address.</strong> Not a P.O. Box. Valid for all 4 carriers — UPS, FedEx, USPS, DHL.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>4-hour notification.</strong> We scan and notify you the moment mail arrives.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Completely risk-free.</strong> Month-to-month, cancel anytime. Not sure? Try it. If it\'s not for you, walk away.</span></li></ul>',
-        isFullWidth: true,
       },
       // ── SB7 POSITION 4: PRICING ──
       {
@@ -183,7 +175,6 @@ export const mailboxRentalServices: Service[] = [
       {
         heading: 'What You Lose by Keeping Your Home Address Public',
         body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">🏠</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Porch Theft</h4><p class="text-sm text-[var(--color-text-secondary)]">Packages left on your doorstep are visible to everyone who drives by. One delivery notification is all a thief needs. A mailbox at Mailbox Plus means every package is signed for and stored behind a locked counter.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">🔓</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Privacy Breach</h4><p class="text-sm text-[var(--color-text-secondary)]">Every shipping label in your trash has your home address. Every business filing is public record. Data brokers scrape and resell this information. A real business address keeps your home off the grid.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">📭</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Deliveries</h4><p class="text-sm text-[var(--color-text-secondary)]">Not home when a package arrives? FedEx, UPS, and DHL can\'t deliver to P.O. Boxes. With a Mailbox Plus street address, all 4 carriers deliver every time — and we sign for you.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">💼</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Unprofessional Image</h4><p class="text-sm text-[var(--color-text-secondary)]">A home address on your business card, website, or LLC filing says "side hustle." A real Concord Township street address says "legitimate business." Perception matters — and it costs the same as a PO Box.</p></div></div>',
-        isFullWidth: true,
       },
       // ── SB7 POSITION 7: SUCCESS (Aspirational Identity) ──
       {
@@ -193,19 +184,16 @@ export const mailboxRentalServices: Service[] = [
     ],
     features: [
       {
-        icon: MapPin,
         title: 'Real Street Address',
         description:
           'Not a P.O. Box. Your address is a legitimate street address that all 4 carriers deliver to.',
       },
       {
-        icon: Package,
         title: 'All-Carrier Acceptance',
         description:
           'UPS, FedEx, USPS, and DHL — we sign for everything so you never miss a delivery.',
       },
       {
-        icon: Lock,
         title: 'Secure & Private',
         description:
           'Your mail is held behind a locked counter. Your home address never goes on a label.',
@@ -341,17 +329,14 @@ export const mailboxRentalServices: Service[] = [
     ],
     features: [
       {
-        icon: Mail,
         title: 'Mail Scanning',
         description: 'We scan envelopes within 4 hours. You see everything from your phone.',
       },
       {
-        icon: Globe,
         title: 'Remote Access',
         description: 'Manage, forward, or shred from anywhere in the world.',
       },
       {
-        icon: Lock,
         title: 'Real Street Address',
         description: 'Not a P.O. Box. UPS, FedEx, DHL, USPS — all deliver to your mailbox.',
       },
@@ -457,9 +442,9 @@ export const mailboxRentalServices: Service[] = [
       },
     ],
     features: [
-      { title: 'Address Format', description: 'Street Address.', icon: MapPin },
-      { title: 'Package Acceptance', description: 'UPS, FedEx, USPS, DHL.', icon: Package },
-      { title: 'Professional Image', description: 'High.', icon: Star },
+      { title: 'Address Format', description: 'Street Address.' },
+      { title: 'Package Acceptance', description: 'UPS, FedEx, USPS, DHL.' },
+      { title: 'Professional Image', description: 'High.' },
     ],
     faqs: [
       {
@@ -650,9 +635,9 @@ export const mailboxRentalServices: Service[] = [
       },
     ],
     features: [
-      { title: 'Access', description: 'Anywhere, Anytime.', icon: Globe },
-      { title: 'Instant Notification', description: 'Yes (App/Email).', icon: Star },
-      { title: 'Forwarding', description: 'On Demand.', icon: Truck },
+      { title: 'Access', description: 'Anywhere, Anytime.' },
+      { title: 'Instant Notification', description: 'Yes (App/Email).' },
+      { title: 'Forwarding', description: 'On Demand.' },
     ],
     faqs: [
       {
@@ -784,9 +769,9 @@ export const mailboxRentalServices: Service[] = [
       },
     ],
     features: [
-      { title: 'Package Forwarding', description: 'Yes (All Carriers).', icon: Package },
-      { title: 'Control', description: 'You Decide When.', icon: Star },
-      { title: 'Carrier Options', description: 'UPS, FedEx, DHL, USPS.', icon: Truck },
+      { title: 'Package Forwarding', description: 'Yes (All Carriers).' },
+      { title: 'Control', description: 'You Decide When.' },
+      { title: 'Carrier Options', description: 'UPS, FedEx, DHL, USPS.' },
     ],
     faqs: [
       {

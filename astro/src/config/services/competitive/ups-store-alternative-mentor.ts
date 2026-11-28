@@ -1,8 +1,5 @@
 import type { Service } from '../../../types/services';
 import { getImageObjectSchema } from '../../../utils/schema';
-import Clock from '~icons/lucide/clock';
-import Truck from '~icons/lucide/truck';
-import MapPin from '~icons/lucide/map-pin';
 
 export const competePages: Service[] = [
   {
@@ -40,17 +37,14 @@ export const competePages: Service[] = [
       {
         title: 'Faster Service',
         description: 'No waiting in Mentor Avenue TUPS lines.',
-        icon: Clock,
       },
       {
         title: 'Multi-Carrier Options',
         description: 'We ship with UPS, FedEx, USPS, and DHL.',
-        icon: Truck,
       },
       {
         title: 'Locally Owned',
         description: 'We are proud to serve the Mentor community.',
-        icon: MapPin,
       },
     ],
     content: [
@@ -98,7 +92,6 @@ export const competePages: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Mailboxes, notary, printing, packing, shredding — all in one trip.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
       {
         heading: 'Services We Offer',
@@ -116,7 +109,6 @@ export const competePages: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, laminating — same services as the big print shops, but we do it for you.</p>
               </div>
             </div>`,
-        isFullWidth: true,
       },
     ],
     faqs: [
