@@ -16219,7 +16219,7 @@ Published: 2026-09-04
 
 You searched for the hours because you need certainty out of your lunch break — a box has to go, and a guess about the counter schedule risks a wasted trip downtown. Here is the plain answer.
 
-The Willoughby Post Office at 4040 Erie Street keeps its retail counter open Monday through Friday from 8:00 AM to 5:30 PM and on Saturday from 8:00 AM to 2:00 PM. It closes Sunday. A self-service kiosk in the lobby runs around the clock for stamps and postage, without a person behind it — and hours are USPS's to change, so check the posted hours before you go.
+The Willoughby Post Office at 4040 Erie Street keeps its retail counter open Monday through Friday from 8:00 AM to 5:30 PM and on Saturday from 8:00 AM to 2:00 PM. It closes Sunday. A self-service kiosk in the lobby runs around the clock, without a person behind it — and hours are USPS's to change, so check the posted hours before you go.
 
 That is the whole schedule. What to do with it — especially on a Saturday, when the whole city funnels into the same sealed window — is the useful part, and that is where a single counter in Concord Township takes over: one stop that accepts UPS, FedEx, USPS, and DHL alike. Here is the full picture.
 
@@ -16231,7 +16231,7 @@ That is the whole schedule. What to do with it — especially on a Saturday, whe
 | Saturday              | 8:00 AM – 2:00 PM |
 | Sunday                | Closed            |
 
-The weekday window runs late enough to catch you after work — 5:30 PM is the cutoff, not 5:00. The lobby's self-service kiosk keeps longer hours than any human window, typically useful when all you need is stamps or postage and no help. A kiosk is not a counter with a person at it, though, and it is not where a prepaid return label gets a careful set of eyes.
+The weekday window runs late enough to catch you after work — 5:30 PM is the cutoff, not 5:00. The lobby's self-service kiosk keeps longer hours than any human window. A kiosk is not a counter with a person at it, though, and it is not where a prepaid return label gets a careful set of eyes.
 
 The Saturday window is the one that controls your weekend. It opens at 8:00 AM and closes at 2:00 PM — the same closing time kept by the staffed counter in Concord Township this article walks you through, with Sunday knocked out at both. Everything you need mailed goes through that Saturday sliver, or waits until Monday. If the errand is broader than a single return — a household that ships regularly, a small business with mixed carriers — the [Willoughby pack-and-ship overview](/articles/pack-ship-willoughby/) covers the full routing, and [what happens to a package nobody picks up](/articles/what-happens-to-returned-packages/) explains why the scan on the receipt matters in the first place.
 
