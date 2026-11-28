@@ -1,0 +1,240 @@
+{
+  "article": "willoughby-saturday-returns",
+  "written": "2026-11-27",
+  "mode": "rewrite",
+  "source_extracts": [
+    {
+      "id": "usps-willoughby",
+      "url": "https://tools.usps.com/locations/details/1387803",
+      "accessed": "2026-11-27",
+      "quotes": [
+        "4040 ERIE ST WILLOUGHBY, OH 44094-9998",
+        "##### Retail Mon-Fri 8:00 am-5:30 pm Sat 8:00 am-2:00 pm Sun Closed",
+        "##### Self-Service Kiosk Mon-Fri 12:01 am-11:59 pm Sat 12:01 am-11:59 pm Sun 12:01 am-11:59 pm",
+        "Retail Label Broker®"
+      ],
+      "scope": "Willoughby Post Office retail + self-service kiosk hours only"
+    },
+    {
+      "id": "osrm-drive",
+      "url": "https://router.project-osrm.org/route/v1/driving/-81.4060,41.6446;-81.24164826876654,41.664989741819?overview=false",
+      "accessed": "2026-11-27",
+      "quotes": ["distance 16291 m, duration 1027 s (10.1 mi, 17.1 min)"],
+      "scope": "Willoughby Erie Street to 7554 Fredle Drive store coordinates"
+    },
+    {
+      "id": "source-of-truth",
+      "url": "file://docs/SOURCE_OF_TRUTH.md",
+      "accessed": "2026-11-27",
+      "quotes": [
+        "Monday–Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 2:00 PM; Sunday: Closed",
+        "Authorized shipping center and drop-off outlet for USPS, UPS, FedEx, and DHL",
+        "Pre-labeled international drop-offs accepted",
+        "Label printing service: $2.00 flat",
+        "We pull live rates from all four carriers — UPS, FedEx, USPS, and DHL — side by side",
+        "most visits are done in under ten minutes",
+        "Address: 7554 Fredle Drive, Concord Township, OH 44077",
+        "Phone: (440) 709-1946"
+      ],
+      "scope": "Mailbox Plus store facts (owner-verified 2026-11-21)"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "4040",
+      "scope": "USPS Willoughby Post Office street number, 4040 Erie St (USPS listing)"
+    },
+    {
+      "value": "44094-9998",
+      "scope": "USPS Willoughby Post Office ZIP (USPS listing); copy uses 44094"
+    },
+    {
+      "value": "8:00 am",
+      "scope": "Saturday retail opening, Willoughby post office (USPS listing)"
+    },
+    {
+      "value": "2:00 pm",
+      "scope": "Saturday retail closing, Willoughby post office (USPS listing); also Mailbox Plus Saturday closing hour (SoT)"
+    },
+    {
+      "value": "5:30 pm",
+      "scope": "Weekday retail closing, Willoughby post office (USPS listing)"
+    },
+    {
+      "value": "8:00 am",
+      "scope": "Weekday retail opening, Willoughby post office (USPS listing)"
+    },
+    {
+      "value": "12:01 am-11:59 pm",
+      "scope": "Self-service kiosk hours, all 7 days (USPS listing) — only if kiosk mentioned"
+    },
+    {
+      "value": "7554",
+      "scope": "Mailbox Plus street number, 7554 Fredle Drive (SoT)"
+    },
+    {
+      "value": "44077",
+      "scope": "Mailbox Plus zip (SoT)"
+    },
+    {
+      "value": "440-709-1946",
+      "scope": "Store phone (SoT)"
+    },
+    {
+      "value": "9:00 AM",
+      "scope": "Store opening hour Monday-Friday and Saturday (SoT)"
+    },
+    {
+      "value": "6:00 PM",
+      "scope": "Store closing hour Monday-Friday (SoT)"
+    },
+    {
+      "value": "$2.00",
+      "scope": "Label printing service flat fee (SoT §2)"
+    },
+    {
+      "value": "10 miles",
+      "scope": "Drive distance Willoughby Erie St to store (OSRM 10.1 mi); copy phrase 'about 10 miles'"
+    },
+    {
+      "value": "15 to 20 minutes",
+      "scope": "Drive time range from OSRM 17.1 min base; copy phrase '15 to 20 minutes depending on lights'"
+    },
+    {
+      "value": "4",
+      "scope": "Four carriers USPS, UPS, FedEx, DHL (SoT §2)"
+    },
+    {
+      "value": "44",
+      "scope": "SR-44 highway designation (SoT approved phrasing 'minutes from SR-44')"
+    },
+    {
+      "value": "90",
+      "scope": "I-90 highway designation (SoT approved phrasing 'minutes from I-90')"
+    },
+    {
+      "value": "ten",
+      "scope": "Approved speed phrasing 'most visits are done in under ten minutes' (SoT §2, PR #725) — no other speed claim"
+    },
+    {
+      "value": "8",
+      "scope": "clock hour digit from '8:00 AM' opens (USPS listing + store Saturday hours)"
+    },
+    {
+      "value": "00",
+      "scope": "clock minute digits ':00' in 8:00 / 2:00 / 9:00 / 5:00 times (USPS listing + SoT hours)"
+    },
+    {
+      "value": "5",
+      "scope": "clock hour digit from '5:30 PM' weekday close and '5:00' comparison (USPS listing)"
+    },
+    {
+      "value": "30",
+      "scope": "clock minute digits ':30' in '5:30 PM' weekday close (USPS listing)"
+    },
+    {
+      "value": "2",
+      "scope": "clock hour digit from '2:00 PM' Saturday close (USPS listing + SoT Saturday hours)"
+    },
+    {
+      "value": "9",
+      "scope": "clock hour digit from '9:00 AM' store opening hours (SoT)"
+    },
+    {
+      "value": "1",
+      "scope": "clock hour digit from scene times 1:50/1:59 — illustrative narrative, not an operational claim"
+    },
+    {
+      "value": "50",
+      "scope": "scene time 1:50 — illustrative narrative clock, not an operational claim"
+    },
+    {
+      "value": "59",
+      "scope": "scene time 1:59 — illustrative narrative clock, not an operational claim"
+    },
+    {
+      "value": "440-709",
+      "scope": "phone digit prefix 440-709 of 440-709-1946 (SoT §1)"
+    },
+    {
+      "value": "1946",
+      "scope": "phone digit suffix 1946 of 440-709-1946 (SoT §1)"
+    },
+    {
+      "value": "15",
+      "scope": "drive-time lower bound of '15 to 20 minutes' range built from OSRM 17.1 min base (receipt row 15)"
+    },
+    {
+      "value": "20 minutes",
+      "scope": "drive-time upper bound of '15 to 20 minutes' range built from OSRM 17.1 min base (receipt row 15)"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "word-form of approved SoT phrase 'most visits are done in under ten minutes' (PR #725)"
+    },
+    {
+      "value": "one",
+      "scope": "narrative counting ('one counter/label') — not a measured quantity"
+    },
+    {
+      "value": "two",
+      "scope": "narrative counting ('two details') — not a measured quantity"
+    },
+    {
+      "value": "6",
+      "scope": "clock hour digit from '6:00 PM' store weekday close (SoT hours)"
+    },
+    {
+      "value": "1 minute",
+      "scope": "word form 'one minute' — narrative emphasis on hard stop, not a measured duration"
+    },
+    {
+      "value": "1 day",
+      "scope": "word form 'one day' — package can wait a day; narrative, not a service claim"
+    },
+    {
+      "value": "3",
+      "scope": "ordered list step numeral in How It Works; not a measured quantity"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "closes at noon|opens at 9 on Saturday|9:00 AM to noon",
+      "reason": "Legacy Saturday-hours claim is contradicted by the live USPS listing (Sat 8:00 am-2:00 pm) — removed fail-closed"
+    },
+    {
+      "forbid": "The UPS Store|FedEx Office|store named|Som Center",
+      "reason": "Named-competitor categorical claims removed without a live locator receipt"
+    },
+    {
+      "forbid": "twenty minutes in line|forty minutes|9:30|11:40|three-minute|two-minute",
+      "reason": "Invented queue/clock statistics removed; speed claims only via approved 'under ten minutes' phrasing"
+    },
+    {
+      "forbid": "Route 306|SR 306|Capital Plaza|Pet Supplies Plus|on the lake-count line|lake-count line",
+      "reason": "SoT §1 forbidden road/plaza names for the store; lake-count line is an unverified regional phrase"
+    },
+    {
+      "forbid": "dock",
+      "reason": "SoT-approved pickup phrasing references the counter, not a dock"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "post office hours are stated",
+      "must_include": "hours are USPS's to change|posted hours"
+    },
+    {
+      "trigger": "label printing is mentioned",
+      "must_include": "$2.00"
+    },
+    {
+      "trigger": "drive (distance|time) is mentioned",
+      "must_include": "10 miles"
+    },
+    {
+      "trigger": "how (long|fast) a visit is (mentioned|claimed)",
+      "must_include": "under ten minutes"
+    }
+  ]
+}
