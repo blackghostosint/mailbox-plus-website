@@ -16412,7 +16412,7 @@ You know the shape of this: the tracking says "out for delivery," the window is 
 
 **FedEx** may reattempt the delivery — but the rule doesn't loosen the second time. The recipient must be present, provide proof of age, and sign before the package can be handed over. You're not solving the problem by being home the second day; you're solving it by being home the _right_ day, in the _right_ hour, with ID in hand.
 
-**UPS** is blunter. An unsigned wine shipment is treated as undeliverable and returned to the shipper. If you want to intercept it, your option is picking it up at a UPS facility — where the recipient must present government-issued photo ID to verify they're 21 or older. Fail that, and the wine goes back to the winery.
+**UPS** is blunter. Wine travels on its Delivery Confirmation Adult Signature Required service — an adult 21 or older has to sign in person. If you pick the shipment up at a UPS Hold for Pickup facility instead, bring government-issued photo ID to verify that age; if that ID check fails, UPS considers that pickup shipment undeliverable and returns it to the shipper.
 
 Either way, the wine you paid for is now riding around northeast Ohio in a delivery vehicle — often through the warm part of the day — instead of coming inside somewhere. Wine is sensitive to heat, and every extra day in transit is a day the bottle you picked out isn't getting better.
 

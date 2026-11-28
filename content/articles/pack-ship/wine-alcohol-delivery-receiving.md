@@ -15,8 +15,8 @@ quickAnswer: >-
   delivery. FedEx mandates its Adult Signature Required service, and UPS mandates
   Delivery Confirmation Adult Signature Required: the recipient must be 21 or older,
   present government-issued photo ID, and sign in person. If nobody signs, the driver
-  can't leave the box — FedEx may reattempt, and an unsigned wine shipment goes back
-  to the shipper. The fix: deliver it to a staffed counter that can sign.
+  can't leave the box — FedEx may reattempt. The fix: deliver it to a staffed counter
+  that can sign.
 keywords:
   [
     'do wine deliveries require an adult signature',
@@ -37,7 +37,7 @@ faqs:
   - question: 'Do wine deliveries require an adult signature?'
     answer: 'Yes. FedEx requires its Adult Signature Required service for alcohol shipments — the recipient must be at least 21, present government-issued photo ID, and sign in person. UPS requires the same through its Delivery Confirmation Adult Signature Required service. Wine cannot be left at your door, with a neighbor, or with anyone under 21.'
   - question: 'What happens if no one is home to sign for a wine delivery?'
-    answer: 'The driver cannot complete the delivery. FedEx may reattempt, but the recipient must be present with proof of age before the package can be handed over. UPS treats an unsigned wine shipment as undeliverable and returns it to the shipper — the recipient must show government-issued photo ID to verify they are 21 or older.'
+    answer: 'The driver cannot complete the delivery. FedEx may reattempt, but the recipient must be present with proof of age before the package can be handed over. UPS requires an adult 21 or older to sign in person. At a UPS Hold for Pickup facility, government-issued photo ID must verify that age; if that ID check fails, UPS considers that pickup shipment undeliverable and returns it to the shipper.'
   - question: 'Can wine be shipped to Ohio?'
     answer: "Wine can move into Ohio from licensed wineries — UPS's published destination-state table lists Ohio as a winery direct-shipment state (permit required) — but not from out-of-state wine retailers. Whether a specific winery can ship to you is a licensing question between the winery and the state; we are package experts, not attorneys."
   - question: 'How much does package receiving cost?'
@@ -69,7 +69,7 @@ You know the shape of this: the tracking says "out for delivery," the window is 
 
 **FedEx** may reattempt the delivery — but the rule doesn't loosen the second time. The recipient must be present, provide proof of age, and sign before the package can be handed over. You're not solving the problem by being home the second day; you're solving it by being home the _right_ day, in the _right_ hour, with ID in hand.
 
-**UPS** is blunter. An unsigned wine shipment is treated as undeliverable and returned to the shipper. If you want to intercept it, your option is picking it up at a UPS facility — where the recipient must present government-issued photo ID to verify they're 21 or older. Fail that, and the wine goes back to the winery.
+**UPS** is blunter. Wine travels on its Delivery Confirmation Adult Signature Required service — an adult 21 or older has to sign in person. If you pick the shipment up at a UPS Hold for Pickup facility instead, bring government-issued photo ID to verify that age; if that ID check fails, UPS considers that pickup shipment undeliverable and returns it to the shipper.
 
 Either way, the wine you paid for is now riding around northeast Ohio in a delivery vehicle — often through the warm part of the day — instead of coming inside somewhere. Wine is sensitive to heat, and every extra day in transit is a day the bottle you picked out isn't getting better.
 
