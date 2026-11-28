@@ -1,11 +1,5 @@
 import type { Service } from '../../../types/services';
 import { getImageObjectSchema } from '../../../utils/schema';
-import MapPin from '~icons/lucide/map-pin';
-import Package from '~icons/lucide/package';
-import Clock from '~icons/lucide/clock';
-import Mail from '~icons/lucide/mail';
-import Bell from '~icons/lucide/bell';
-import Shield from '~icons/lucide/shield';
 
 export const competePages: Service[] = [
   {
@@ -46,37 +40,31 @@ export const competePages: Service[] = [
         title: 'Real Street Address, Not a PO Box',
         description:
           'Your mailbox gives you a real street address. Use it for Amazon, Etsy, LLC filings, and client invoices. Unlike a PO Box, every carrier can deliver here. We sign for every package.',
-        icon: MapPin,
       },
       {
         title: 'All 4 Carriers at One Counter',
         description:
           'UPS, FedEx, USPS, and DHL. Every carrier drops at our door. You pick up from one counter. No more driving to three places to get your packages.',
-        icon: Package,
       },
       {
         title: 'Clear Price, No Hidden Fees',
         description:
           "From $15/month. No application fee. No surprise charges. The UPS Store won't tell you their price online. We do.",
-        icon: Clock,
       },
       {
         title: 'Month-to-Month, No Lock-In',
         description:
           'Completely risk-free. Month-to-month, cancel anytime — no penalty, no term commitment, no paperwork.',
-        icon: Mail,
       },
       {
         title: '4-Hour Mail Notification',
         description:
           "Mail arrives. We scan it within 4 hours. You get a phone alert. Know what's waiting. Forward what you need. Pick up the rest when it works for you.",
-        icon: Bell,
       },
       {
         title: 'No More Porch Theft',
         description:
           'Every package is signed for and locked behind a secure counter. Your packages stay safe, even when you are at work or out of town.',
-        icon: Shield,
       },
     ],
     content: [
@@ -89,7 +77,6 @@ export const competePages: Service[] = [
       {
         heading: 'A Mailbox for Every Story',
         body: `<div class="grid gap-6 md:grid-cols-3 my-6"><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Small Business Owners</h4><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Your home address is on every filing, every invoice, every shipping label. It hurts your image and your privacy. A Mailbox Plus address looks professional. Use it for your LLC, your website, and your business cards. No office rent needed.</p></div><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Remote Workers & Travelers</h4><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">You work from home or travel for work. When you leave, mail still shows up. We scan your mail within 4 hours. Forward what you need. Hold the rest. Check your mail from your phone. Snowbirds: this is how you handle mail from the road.</p></div><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Residents Tired of Porch Theft</h4><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Packages sit on your porch until you get home. Maybe one got stolen. With Mailbox Plus, every package is signed for and locked up. Pick up after work or on weekends. $25/month is less than one stolen package.</p></div></div>`,
-        isFullWidth: true,
       },
       // ── H2: Pricing Table ──
       {
@@ -100,7 +87,6 @@ export const competePages: Service[] = [
       {
         heading: 'Get Your Mentor Mailbox in 3 Steps',
         body: `<div class="grid gap-6 md:grid-cols-3 my-6"><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><div class="font-bold text-[var(--color-primary)] mb-2 text-lg">1. Fill out USPS Form 1583</div><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">One page. We have copies at the counter.</p></div><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><div class="font-bold text-[var(--color-primary)] mb-2 text-lg">2. Bring 2 Forms of ID</div><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">One photo ID plus one proof of address.</p></div><div class="p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)]"><div class="font-bold text-[var(--color-primary)] mb-2 text-lg">3. Start Today</div><p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Your new Mentor-area mailbox is active right away.</p></div></div>`,
-        isFullWidth: true,
       },
       // ── H2: Local Area ──
       {

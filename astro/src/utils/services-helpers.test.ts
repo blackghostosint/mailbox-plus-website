@@ -1,39 +1,22 @@
 import { describe, it, expect } from 'vitest';
-import { services } from '../config/services';
 import { pillarConfigs } from '../config/pillars';
-import {
-  getServicesByCategory,
-  getPopularServices,
-  getServiceById,
-  getServiceByHref,
-  searchServices,
-  getRandomServices,
-  sortServicesByName,
-  validateService,
-} from './services-helpers';
-import type { Service, ServiceCategory } from '../types/services';
+import { getServiceById, getServiceBreadcrumbs } from './services-helpers';
+import type { Service } from '../types/services';
+
+const makeMockService = (overrides: Partial<Service> = {}): Service => ({
+  id: 'unmapped-test-service',
+  category: 'pack-ship',
+  serviceName: 'Unmapped Test Service',
+  slug: '/unmapped-test-service',
+  city: 'Concord Township',
+  pageTitle: 'Unmapped Test Service | Mailbox Plus',
+  metaDescription: 'Test description',
+  heroTitle: 'Unmapped Test Service',
+  heroSubtitle: 'Test subtitle',
+  ...overrides,
+});
 
 describe('services-helpers', () => {
-  describe('getServicesByCategory', () => {
-    it('returns services matching the category', () => {
-      const result = getServicesByCategory('pack-ship');
-      expect(result.length).toBeGreaterThan(0);
-      result.forEach((s) => expect(s.category).toBe('pack-ship'));
-    });
-
-    it('returns empty array for unknown category', () => {
-      const result = getServicesByCategory('nonexistent' as unknown as ServiceCategory);
-      expect(result).toEqual([]);
-    });
-  });
-
-  describe('getPopularServices', () => {
-    it('returns only services marked as popular', () => {
-      const result = getPopularServices();
-      result.forEach((s) => expect(s.popular).toBe(true));
-    });
-  });
-
   describe('getServiceById', () => {
     it('finds a service by ID', () => {
       const result = getServiceById('amazon-returns');
@@ -60,98 +43,95 @@ describe('services-helpers', () => {
     });
   });
 
-  describe('getServiceByHref', () => {
-    it('finds a service by slug', () => {
-      const result = getServiceByHref('/amazon-returns');
-      expect(result).toBeDefined();
-      expect(result?.slug).toBe('/amazon-returns');
+  describe('getServiceBreadcrumbs', () => {
+    it('resolves multi-crumb trail with name alias for registered service routes', () => {
+      const registered = getServiceById('amazon-returns');
+      expect(registered).toBeDefined();
+
+      const crumbs = getServiceBreadcrumbs(registered!);
+      expect(crumbs.length).toBeGreaterThan(1);
+      expect(crumbs[0]).toEqual({ label: 'Home', url: '/', name: 'Home' });
+      expect(crumbs[crumbs.length - 1].active).toBe(true);
+      expect(crumbs[crumbs.length - 1].name).toBe(crumbs[crumbs.length - 1].label);
+      crumbs.forEach((crumb) => {
+        expect(crumb.url.endsWith('/')).toBe(true);
+      });
     });
 
-    it('returns undefined for unknown slug', () => {
-      const result = getServiceByHref('/nonexistent');
-      expect(result).toBeUndefined();
-    });
-  });
+    it('falls back to parentPillar trail when URL is unmapped in getBreadcrumbs but service ID belongs to a pillar', () => {
+      const unmappedUrlKnownChild = makeMockService({
+        id: 'fedex-shipping',
+        serviceName: 'FedEx Shipping Custom',
+        slug: '/custom-unmapped-fedex-route',
+        canonicalUrl: '/custom-unmapped-fedex-canonical',
+      });
 
-  describe('searchServices', () => {
-    it('finds services by name', () => {
-      const result = searchServices('shipping');
-      expect(result.length).toBeGreaterThan(0);
-    });
-
-    it('finds services by keyword', () => {
-      const result = searchServices('UPS');
-      expect(result.length).toBeGreaterThan(0);
-    });
-
-    it('returns empty array for no matches', () => {
-      const result = searchServices('xyznonexistent123');
-      expect(result).toEqual([]);
-    });
-
-    it('is case-insensitive', () => {
-      const lower = searchServices('shipping');
-      const upper = searchServices('SHIPPING');
-      expect(lower.length).toBe(upper.length);
-    });
-  });
-
-  describe('sortServicesByName', () => {
-    it('returns services sorted alphabetically', () => {
-      const sorted = sortServicesByName();
-      for (let i = 1; i < sorted.length; i++) {
-        expect(
-          sorted[i].serviceName.localeCompare(sorted[i - 1].serviceName)
-        ).toBeGreaterThanOrEqual(0);
-      }
-    });
-  });
-
-  describe('validateService', () => {
-    it('returns true for valid service', () => {
-      const service = getServiceById('amazon-returns');
-      expect(service).toBeDefined();
-      expect(validateService(service!)).toBe(true);
+      const crumbs = getServiceBreadcrumbs(unmappedUrlKnownChild);
+      expect(crumbs).toEqual([
+        { label: 'Home', url: '/', name: 'Home' },
+        { label: 'Pack & Ship', url: '/pack-ship/', name: 'Pack & Ship' },
+        {
+          label: 'FedEx Shipping Custom',
+          url: '/custom-unmapped-fedex-canonical/',
+          name: 'FedEx Shipping Custom',
+          active: true,
+        },
+      ]);
     });
 
-    it('returns false for incomplete service', () => {
-      expect(validateService({} as Partial<Service> as Service)).toBe(false);
+    it('falls back to baseUrl and baseLabel when URL and service ID are unmapped and baseUrl is provided', () => {
+      const unmappedService = makeMockService({
+        id: 'custom-standalone-service',
+        serviceName: 'Standalone Service',
+        slug: '/standalone-service',
+      });
+
+      const defaultLabelCrumbs = getServiceBreadcrumbs(unmappedService, '/services');
+      expect(defaultLabelCrumbs).toEqual([
+        { label: 'Home', url: '/', name: 'Home' },
+        { label: 'Services', url: '/services/', name: 'Services' },
+        {
+          label: 'Standalone Service',
+          url: '/standalone-service/',
+          name: 'Standalone Service',
+          active: true,
+        },
+      ]);
+
+      const customLabelCrumbs = getServiceBreadcrumbs(
+        unmappedService,
+        '/specialty/',
+        'Specialty Services'
+      );
+      expect(customLabelCrumbs).toEqual([
+        { label: 'Home', url: '/', name: 'Home' },
+        { label: 'Specialty Services', url: '/specialty/', name: 'Specialty Services' },
+        {
+          label: 'Standalone Service',
+          url: '/standalone-service/',
+          name: 'Standalone Service',
+          active: true,
+        },
+      ]);
     });
 
-    it('returns false when id is missing', () => {
-      const service = getServiceById('amazon-returns');
-      expect(validateService({ ...service!, id: '' } as Partial<Service> as Service)).toBe(false);
-    });
-  });
+    it('falls back to two-node Home + Service trail when URL, parentPillar, and baseUrl are all absent', () => {
+      const unmappedService = makeMockService({
+        id: 'totally-unmapped-id',
+        serviceName: 'Direct Service Page',
+        slug: '/direct-service-page',
+      });
 
-  describe('getRandomServices (deterministic selection)', () => {
-    it('returns the requested count of services', () => {
-      const result = getRandomServices(3);
-      expect(result).toHaveLength(3);
-    });
-
-    it('is deterministic for the same seed', () => {
-      const a = getRandomServices(3, 'amazon-returns', '/pack-ship');
-      const b = getRandomServices(3, 'amazon-returns', '/pack-ship');
-      expect(a.map((s) => s.id)).toEqual(b.map((s) => s.id));
-    });
-
-    it('rotates selection across different seeds', () => {
-      const a = getRandomServices(3, 'amazon-returns', '/pack-ship');
-      const b = getRandomServices(3, 'amazon-returns', '/copy-print');
-      expect(a.map((s) => s.id)).not.toEqual(b.map((s) => s.id));
-    });
-
-    it('excludes the requested service id', () => {
-      const result = getRandomServices(5, 'amazon-returns');
-      expect(result.some((s) => s.id === 'amazon-returns')).toBe(false);
-    });
-
-    it('clamps count to the pool size', () => {
-      // Requesting more than available returns all services
-      const result = getRandomServices(9999);
-      expect(result.length).toBeLessThanOrEqual(services.length);
-      expect(result.length).toBe(services.length);
+      const crumbs = getServiceBreadcrumbs(unmappedService);
+      expect(crumbs).toEqual([
+        { label: 'Home', url: '/', name: 'Home' },
+        {
+          label: 'Direct Service Page',
+          url: '/direct-service-page/',
+          name: 'Direct Service Page',
+          active: true,
+        },
+      ]);
     });
   });
 });

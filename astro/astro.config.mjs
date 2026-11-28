@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import Icons from 'unplugin-icons/vite';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -54,7 +53,6 @@ export default defineConfig({
     service: { entrypoint: 'astro/assets/services/noop' },
   },
   vite: {
-    plugins: [Icons({ compiler: 'jsx', jsx: 'react' })],
     // Astro's default envPrefix is PUBLIC_ only; the checkout client reads
     // import.meta.env.VITE_RECAPTCHA_SITE_KEY, which was silently inlined as an
     // empty object — so the browser never sent a reCAPTCHA token and the
